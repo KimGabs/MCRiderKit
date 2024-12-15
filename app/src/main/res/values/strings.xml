@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MC Rider Kit</string>
+    <string name="profile_">Profile</string>
+    <string name="settings_">Settings</string>
+    <string name="lto_exam_menu">LTO Exam</string>
+    <string name="lto_reviewer">LTO Exam Reviewer</string>
+    <string name="non_pro_exam">Non-professional Exam</string>
+    <string name="exam_result">Exam Result</string>
+    <string name="next_question">Next Question</string>
+    <string name="view_result">View Result</string>
+    <string name="submit">Submit</string>
+    <string name="back_button">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+</resources>
