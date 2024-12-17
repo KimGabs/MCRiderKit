@@ -4,10 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
 @Entity(tableName = "quiz_scores")
 data class QuizScore(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val category: String,
-    val score: Int
+    val quizType: String,
+    val highestScore: Int
 )

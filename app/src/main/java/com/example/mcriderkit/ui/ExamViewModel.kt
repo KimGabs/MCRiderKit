@@ -6,6 +6,8 @@ import com.example.mcriderkit.data.DataSource
 import com.example.mcriderkit.data.ExamUiState
 import com.example.mcriderkit.data.QuizScore
 import com.example.mcriderkit.data.QuizScoreDao
+import com.example.mcriderkit.ui.components.QuizRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,12 +15,34 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class ExamViewModel(
+    private val repository: QuizRepository
 ) : ViewModel() {
+
+    private val _highestScore = MutableStateFlow<Int?>(null)
+    val highestScore: StateFlow<Int?> = _highestScore
+
+    fun fetchHighestScore(quizType: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val score = repository.getScoreByType(quizType)
+            _highestScore.value = score?.highestScore
+        }
+    }
+
+    fun saveScore(quizType: String, score: Int) {
+        // Check if the score already exists for the given quizType
+        viewModelScope.launch {
+            val existingScore = repository.getScoreByType(quizType)
+            if (existingScore != null) {
+                // Update the score if it already exists
+                repository.insertOrUpdateScore(existingScore.copy(highestScore = score))
+            } else {
+                // Insert the new score if it doesn't exist
+                repository.insertOrUpdateScore(QuizScore(quizType = quizType, highestScore = score))
+            }
+        }
+    }
+
     private val _examState = MutableStateFlow(ExamUiState())
-
-    private val _highestScore = MutableStateFlow(0)
-    val highestScore: StateFlow<Int> = _highestScore
-
     val examState: StateFlow<ExamUiState> = _examState.asStateFlow()
     val questions = DataSource.examQuestions
 
@@ -47,6 +71,8 @@ class ExamViewModel(
             } else {
                 currentState.score
             }
+
+            saveScore("Non-Pro", updatedScore)
 
             currentState.copy(
                 isExamComplete = true,

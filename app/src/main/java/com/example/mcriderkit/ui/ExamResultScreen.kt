@@ -33,9 +33,16 @@ fun ExamResultScreen(
         onRetry: () -> Unit,
     onMainMenu: () -> Unit,
 ) {
+
+    val highestScore by viewModel.highestScore.collectAsState()
+
+    // Fetch highest score when screen loads
+    LaunchedEffect(Unit) {
+        viewModel.fetchHighestScore("Non-Pro")
+    }
+
     val examState by viewModel.examState.collectAsState()
     var isLoading by remember { mutableStateOf(false) } // Loading state
-    val highestScore by viewModel.highestScore.collectAsState()
 
     // Show loading indicator when navigating or resetting quiz
     LaunchedEffect(isLoading) {
@@ -72,7 +79,12 @@ fun ExamResultScreen(
                 color = MaterialTheme.colorScheme.secondary
             )
 
-            Text(text = "Highest Score: $highestScore", style = MaterialTheme.typography.titleMedium)
+
+            if (highestScore != null) {
+                Text("Highest Score: ${highestScore!!}", style = MaterialTheme.typography.titleMedium)
+            } else {
+                Text("No high scores yet!", style = MaterialTheme.typography.titleMedium)
+            }
 
             Spacer(modifier = Modifier.height(32.dp))
 

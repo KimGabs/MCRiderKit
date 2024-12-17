@@ -86,12 +86,13 @@ fun NavAppBar(
 
 @Composable
 fun NavigationApp(
-    navController: NavHostController = rememberNavController(),
+    viewModel: ExamViewModel,
+    navController: NavHostController = rememberNavController()
 ) {
 
     var selectedItem by remember { mutableIntStateOf(0) }
     val items = listOf("Home", "Profile", "Settings")
-    val viewModel: ExamViewModel = viewModel()// Access ViewModel
+//    val viewModel: ExamViewModel = viewModel()// Access ViewModel
     val selectedIcons = listOf(Icons.Filled.Home, Icons.Filled.Person, Icons.Filled.Settings)
     val unselectedIcons = listOf(Icons.Outlined.Home, Icons.Outlined.Person, Icons.Outlined.Settings)
     val backStackEntry by navController.currentBackStackEntryAsState()
