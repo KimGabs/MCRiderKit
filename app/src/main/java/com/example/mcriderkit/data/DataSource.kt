@@ -15,8 +15,6 @@
  */
 package com.example.mcriderkit.data
 
-import com.example.mcriderkit.R
-
 object DataSource {
     val menuList = listOf(
         "LTO Exam",
@@ -41,18 +39,19 @@ object DataSource {
         "Violations & Penalties"
     )
 
-    data class FlagQuestion(
-        val flag: String,
+    data class Question(
+        val question: String,
         val options: List<String>,
         val correctAnswerIndex:Int
     )
 
     val examQuestions = listOf(
-        FlagQuestion("🇺🇸", listOf("USA", "Canada", "Mexico", "Brazil"), 0),
-        FlagQuestion("🇬🇧", listOf("Ireland", "Australia", "Canada", "UK"), 3),
-        FlagQuestion("🇫🇷", listOf("Spain", "Italy", "France", "Portugal"), 2),
-        FlagQuestion("🇯🇵", listOf("South Korea", "Japan", "China", "Thailand"), 1),
-        FlagQuestion("🇮🇳", listOf("India", "Pakistan", "Bangladesh", "Sri Lanka"), 0),
+        Question("The minimum age to get a non-professional license is:", listOf("15 years old", "17 years old", "18 years old", "19 years old"), 1),
+        Question("Drivers gather most information using their:", listOf("Cars", "Computer", "Eyes", "Hands"), 2),
+        Question("The safest speed of a vehicle is according to:", listOf("Road and weather conditions", "Capability of the vehicle", "Capability of the driver", "Capability of the passenger"), 0),
+        Question("The deadline to renew the registration of a motor vehicle is:", listOf("At the end of the year", "At the end of the month", "At the discretion of the operator", "On the last working day of the month corresponding to the last digit of the motor vehicle plates"), 3),
+        Question("How should you behave when an approaching officer flags down your vehicle?", listOf("Ignore the apprehending officer and drive away at increased speed", "Stop and argue with the apprehending officer", "Surrender your driver's license and other documents upon demand", "Bribe the apprehending officer to avoid fee"), 2),
+        Question("To have one's driver's license suspended means to:", listOf("Have it revalidated by the LTO", "Have it taken away permanently by the LTO", "Have it taken temporarily by the LTO", "Have it renewed by the LTO"), 2)
     )
 
 }

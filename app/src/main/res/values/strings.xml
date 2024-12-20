@@ -3,6 +3,7 @@
     <string name="profile_">Profile</string>
     <string name="settings_">Settings</string>
     <string name="lto_exam_menu">LTO Exam</string>
+    <string name="hazard_perception_test">Hazard Perception</string>
     <string name="lto_reviewer">LTO Exam Reviewer</string>
     <string name="non_pro_exam">Non-professional Exam</string>
     <string name="exam_result">Exam Result</string>

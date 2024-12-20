@@ -83,7 +83,7 @@ fun ExamResultScreen(
             if (highestScore != null) {
                 Text("Highest Score: ${highestScore!!}", style = MaterialTheme.typography.titleMedium)
             } else {
-                Text("No high scores yet!", style = MaterialTheme.typography.titleMedium)
+                Text("No high score yet!", style = MaterialTheme.typography.titleMedium)
             }
 
             Spacer(modifier = Modifier.height(32.dp))

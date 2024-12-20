@@ -29,15 +29,16 @@ class ExamViewModel(
     }
 
     fun saveScore(quizType: String, score: Int) {
-        // Check if the score already exists for the given quizType
         viewModelScope.launch {
+            // Retrieve the existing score for the given quizType
             val existingScore = repository.getScoreByType(quizType)
-            if (existingScore != null) {
-                // Update the score if it already exists
-                repository.insertOrUpdateScore(existingScore.copy(highestScore = score))
-            } else {
-                // Insert the new score if it doesn't exist
+
+            if (existingScore == null) {
+                // No existing score, insert a new record
                 repository.insertOrUpdateScore(QuizScore(quizType = quizType, highestScore = score))
+            } else if (score > existingScore.highestScore) {
+                // Update the score only if the new score is higher
+                repository.insertOrUpdateScore(existingScore.copy(highestScore = score))
             }
         }
     }

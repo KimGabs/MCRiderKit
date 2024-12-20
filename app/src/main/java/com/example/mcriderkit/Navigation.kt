@@ -37,15 +37,14 @@ import androidx.navigation.compose.rememberNavController
 import com.example.mcriderkit.data.DataSource
 import com.example.mcriderkit.ui.ExamResultScreen
 import com.example.mcriderkit.ui.ExamViewModel
+import com.example.mcriderkit.ui.HazardTestMenuScreen
+import com.example.mcriderkit.ui.HazardTestViewModel
 import com.example.mcriderkit.ui.LTOMenuScreen
 import com.example.mcriderkit.ui.MainMenuScreen
 import com.example.mcriderkit.ui.NonProQuizScreen
 import com.example.mcriderkit.ui.ProfileScreen
 import com.example.mcriderkit.ui.RevScreen
 import com.example.mcriderkit.ui.SettingsScreen
-import android.content.Context
-import androidx.compose.ui.platform.LocalContext
-import androidx.room.Room
 
 enum class NavigationScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
@@ -54,7 +53,8 @@ enum class NavigationScreen(@StringRes val title: Int) {
     LTOMenu(title = R.string.lto_exam_menu),
     Reviewer(title = R.string.lto_reviewer),
     NonProExam(title = R.string.non_pro_exam),
-    ExamResult(title = R.string.exam_result)
+    ExamResult(title = R.string.exam_result),
+    HazardPerceptionTest(title = R.string.hazard_perception_test)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -86,8 +86,9 @@ fun NavAppBar(
 
 @Composable
 fun NavigationApp(
-    viewModel: ExamViewModel,
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    quizViewModel: ExamViewModel,
+    hazardViewModel: HazardTestViewModel
 ) {
 
     var selectedItem by remember { mutableIntStateOf(0) }
@@ -154,6 +155,7 @@ fun NavigationApp(
                                 0 -> navController.navigate(NavigationScreen.LTOMenu.name)
                                 1 -> navController.navigate(NavigationScreen.Reviewer.name)
                                 2 -> navController.navigate(NavigationScreen.Settings.name)
+                                3 -> navController.navigate(NavigationScreen.HazardPerceptionTest.name)
                             }
                         }
                     )
@@ -188,7 +190,7 @@ fun NavigationApp(
                 }
                 composable(route = NavigationScreen.NonProExam.name) {
                     NonProQuizScreen(
-                        viewModel = viewModel,
+                        viewModel = quizViewModel,
                         onNextButtonClicked = {
                             navController.navigate(NavigationScreen.ExamResult.name)
                         },
@@ -199,13 +201,13 @@ fun NavigationApp(
                 }
                 composable(route = NavigationScreen.ExamResult.name) {
                     ExamResultScreen(
-                        viewModel = viewModel,
+                        viewModel = quizViewModel,
                         onMainMenu = {
-                            viewModel.resetQuiz()
+                            quizViewModel.resetQuiz()
                             navController.navigate(NavigationScreen.Start.name)
                                      },
                         onRetry = {
-                            viewModel.resetQuiz()
+                            quizViewModel.resetQuiz()
                             navController.popBackStack(
                                 NavigationScreen.NonProExam.name,
                                 false
@@ -219,6 +221,14 @@ fun NavigationApp(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(R.dimen.padding_medium))
+                    )
+                }
+                composable(route = NavigationScreen.HazardPerceptionTest.name){
+                    HazardTestMenuScreen(
+                        viewModel = hazardViewModel,
+                        onClipSelected = { id ->
+                            navController.navigate(NavigationScreen.ExamResult.name)
+                        }
                     )
                 }
             }
