@@ -89,7 +89,7 @@ fun HazardTestMenuScreen(
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
-                            text = "Video length: ${test.videoLength}",
+                            text = "Video length: ${test.videoLength} seconds",
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )

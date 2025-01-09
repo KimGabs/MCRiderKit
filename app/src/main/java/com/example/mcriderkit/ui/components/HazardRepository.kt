@@ -13,11 +13,13 @@ class HazardRepository(private val dao: HazardTestDao) {
             speedLimit = "60 km/h",
             timeOfDay = "Morning",
             weather = "Clear",
-            lastScore = 85,
             videoPath = "test1",
             thumbnailId = R.drawable.thumbnail1,
             videoLength = 12,
-            hazardTime = 8
+            earlyRange = 0.6,
+            perfectRange = 0.7,
+            goodRange = 0.75,
+            lateRange = 0.85
         ),
         HazardTest(
             title = "Test Video 2",
@@ -25,11 +27,13 @@ class HazardRepository(private val dao: HazardTestDao) {
             speedLimit = "40 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 10,
             videoPath = "test2",
             thumbnailId = R.drawable.thumbnail2,
             videoLength = 19,
-            hazardTime = 6
+            earlyRange = 0.31,
+            perfectRange = 0.5,
+            goodRange = 0.60,
+            lateRange = 0.77
         )
 
     )

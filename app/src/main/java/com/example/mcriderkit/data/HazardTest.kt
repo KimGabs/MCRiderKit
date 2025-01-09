@@ -12,8 +12,11 @@ data class HazardTest(
     val speedLimit: String,              // Speed limit in the clip
     val timeOfDay: String,               // Morning/Evening/Night
     val weather: String,                 // Weather conditions
-    val lastScore: Int = 0,            // User's last score
+    var lastScore: Int = 0,            // User's last score
     val thumbnailId: Int,            // URL or path to the thumbnail image
     val videoLength: Int,               // Length of the video
-    val hazardTime: Int                // Time when the hazard begins
+    val earlyRange: Double,              // Start of hazard
+    val perfectRange: Double,                // Perfect timing range
+    val goodRange: Double,                 // Good timing range
+    val lateRange: Double                // End of hazard
 )

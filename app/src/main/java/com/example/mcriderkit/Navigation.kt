@@ -28,6 +28,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -113,7 +114,14 @@ fun NavigationApp(
 
     Scaffold(
         topBar = {
-            if (currentRoute != NavigationScreen.HazardTest.name) {
+            if (currentRoute == NavigationScreen.ExamResult.name || currentRoute == NavigationScreen.HazardResult.name) {
+                NavAppBar(
+                    currentScreen = currentScreen,
+                    canNavigateBack = false,
+                    navigateUp = { navController.navigateUp() }
+                )
+            }
+            else {
                 NavAppBar(
                     currentScreen = currentScreen,
                     canNavigateBack = navController.previousBackStackEntry != null && currentScreen.name !in topLevelDestinations,
@@ -259,6 +267,7 @@ fun NavigationApp(
                     val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
                     selectedVideo?.let {
                         HazardTestScreen(
+                            viewModel = hazardViewModel,
                             video = it,
                             onTestFinished = {
                                 navController.navigate(NavigationScreen.HazardResult.name)
@@ -274,6 +283,12 @@ fun NavigationApp(
                             video = it,
                             onMainMenu = {
                                 navController.navigate(NavigationScreen.Start.name)
+                            },
+                            onRetry = {
+                                navController.popBackStack(
+                                    NavigationScreen.HazardTest.name,
+                                    false
+                                )
                             }
                         )
                     }
