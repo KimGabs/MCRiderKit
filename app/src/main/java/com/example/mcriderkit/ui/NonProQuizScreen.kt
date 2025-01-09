@@ -107,9 +107,9 @@ fun NonProQuizScreen(
             ) {
                 Text(
                     text = if (examState.currentQuestionIndex == viewModel.questions.size - 1) {
-                        stringResource(R.string.view_result)
+                        "View Result"
                     } else {
-                        stringResource(R.string.next_question)
+                        "Next Question"
                     }
                 )
             }

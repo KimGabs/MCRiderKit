@@ -3,6 +3,7 @@ package com.example.mcriderkit.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mcriderkit.data.HazardTest
+import com.example.mcriderkit.data.QuizScore
 import com.example.mcriderkit.ui.components.HazardRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -30,6 +31,12 @@ class HazardTestViewModel(private val repository: HazardRepository) : ViewModel(
     fun selectHazardTest(id: Int) {
         viewModelScope.launch {
             _selectedHazardTest.value = repository.getHazardTestById(id)
+        }
+    }
+
+    fun updateScore(hazardTest: HazardTest) {
+        viewModelScope.launch {
+            repository.updateScore(hazardTest)
         }
     }
 }

@@ -28,7 +28,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -38,12 +37,15 @@ import com.example.mcriderkit.data.DataSource
 import com.example.mcriderkit.ui.ExamResultScreen
 import com.example.mcriderkit.ui.ExamViewModel
 import com.example.mcriderkit.ui.HazardTestMenuScreen
+import com.example.mcriderkit.ui.HazardTestScreen
+import com.example.mcriderkit.ui.HazardResultScreen
 import com.example.mcriderkit.ui.HazardTestViewModel
 import com.example.mcriderkit.ui.LTOMenuScreen
 import com.example.mcriderkit.ui.MainMenuScreen
 import com.example.mcriderkit.ui.NonProQuizScreen
 import com.example.mcriderkit.ui.ProfileScreen
 import com.example.mcriderkit.ui.RevScreen
+import com.example.mcriderkit.ui.SelectedVideoScreen
 import com.example.mcriderkit.ui.SettingsScreen
 
 enum class NavigationScreen(@StringRes val title: Int) {
@@ -54,7 +56,10 @@ enum class NavigationScreen(@StringRes val title: Int) {
     Reviewer(title = R.string.lto_reviewer),
     NonProExam(title = R.string.non_pro_exam),
     ExamResult(title = R.string.exam_result),
-    HazardPerceptionTest(title = R.string.hazard_perception_test)
+    HazardTestMenu(title = R.string.hazard_test_menu),
+    SelectedVideo(title = R.string.selected_video_screen),
+    HazardTest(title = R.string.hazard_test_screen),
+    HazardResult(title = R.string.hazard_result)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -63,7 +68,7 @@ fun NavAppBar(
     currentScreen: NavigationScreen,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ){
     TopAppBar(
         title = { Text(stringResource(currentScreen.title)) },
@@ -88,9 +93,8 @@ fun NavAppBar(
 fun NavigationApp(
     navController: NavHostController = rememberNavController(),
     quizViewModel: ExamViewModel,
-    hazardViewModel: HazardTestViewModel
+    hazardViewModel: HazardTestViewModel,
 ) {
-
     var selectedItem by remember { mutableIntStateOf(0) }
     val items = listOf("Home", "Profile", "Settings")
 //    val viewModel: ExamViewModel = viewModel()// Access ViewModel
@@ -100,6 +104,7 @@ fun NavigationApp(
     val currentScreen = NavigationScreen.valueOf(
         backStackEntry?.destination?.route ?: NavigationScreen.Start.name
     )
+    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
     val topLevelDestinations = setOf(
         NavigationScreen.Start.name,
         NavigationScreen.Profile.name,
@@ -108,33 +113,37 @@ fun NavigationApp(
 
     Scaffold(
         topBar = {
-            NavAppBar(
-                currentScreen = currentScreen,
-                canNavigateBack = navController.previousBackStackEntry != null && currentScreen.name !in topLevelDestinations,
-                navigateUp = { navController.navigateUp() }
-            )
+            if (currentRoute != NavigationScreen.HazardTest.name) {
+                NavAppBar(
+                    currentScreen = currentScreen,
+                    canNavigateBack = navController.previousBackStackEntry != null && currentScreen.name !in topLevelDestinations,
+                    navigateUp = { navController.navigateUp() }
+                )
+            }
         },
         bottomBar = {
-            NavigationBar {
-                items.forEachIndexed { index, item ->
-                    NavigationBarItem(
-                        icon = {
-                            Icon(
-                                if (selectedItem == index) selectedIcons[index] else unselectedIcons[index],
-                                contentDescription = item
-                            )
-                        },
-                        label = { Text(item) },
-                        selected = selectedItem == index,
-                        onClick = {
-                            selectedItem = index
-                            when (index) {
-                                0 -> navController.navigate(NavigationScreen.Start.name)
-                                1 -> navController.navigate(NavigationScreen.Profile.name)
-                                2 -> navController.navigate(NavigationScreen.Settings.name)
+            if (currentRoute != NavigationScreen.HazardTest.name) {
+                NavigationBar {
+                    items.forEachIndexed { index, item ->
+                        NavigationBarItem(
+                            icon = {
+                                Icon(
+                                    if (selectedItem == index) selectedIcons[index] else unselectedIcons[index],
+                                    contentDescription = item
+                                )
+                            },
+                            label = { Text(item) },
+                            selected = selectedItem == index,
+                            onClick = {
+                                selectedItem = index
+                                when (index) {
+                                    0 -> navController.navigate(NavigationScreen.Start.name)
+                                    1 -> navController.navigate(NavigationScreen.Profile.name)
+                                    2 -> navController.navigate(NavigationScreen.Settings.name)
+                                }
                             }
-                        }
-                    )
+                        )
+                    }
                 }
             }
         },
@@ -155,7 +164,7 @@ fun NavigationApp(
                                 0 -> navController.navigate(NavigationScreen.LTOMenu.name)
                                 1 -> navController.navigate(NavigationScreen.Reviewer.name)
                                 2 -> navController.navigate(NavigationScreen.Settings.name)
-                                3 -> navController.navigate(NavigationScreen.HazardPerceptionTest.name)
+                                3 -> navController.navigate(NavigationScreen.HazardTestMenu.name)
                             }
                         }
                     )
@@ -223,14 +232,53 @@ fun NavigationApp(
                             .padding(dimensionResource(R.dimen.padding_medium))
                     )
                 }
-                composable(route = NavigationScreen.HazardPerceptionTest.name){
+                composable(route = NavigationScreen.HazardTestMenu.name){
                     HazardTestMenuScreen(
                         viewModel = hazardViewModel,
                         onClipSelected = { id ->
-                            navController.navigate(NavigationScreen.ExamResult.name)
+                            // Fetch the hazard test data by id
+                            hazardViewModel.selectHazardTest(id)
+                            navController.navigate(NavigationScreen.SelectedVideo.name)
                         }
+
                     )
                 }
+                composable(route = NavigationScreen.SelectedVideo.name){
+                    val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
+                    selectedVideo?.let {
+                        SelectedVideoScreen(
+                            video = it,
+                            onStartTestClicked = { navController.navigate(NavigationScreen.HazardTest.name) },
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(dimensionResource(R.dimen.padding_medium))
+                        )
+                    }
+                }
+                composable(route = NavigationScreen.HazardTest.name){
+                    val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
+                    selectedVideo?.let {
+                        HazardTestScreen(
+                            video = it,
+                            onTestFinished = {
+                                navController.navigate(NavigationScreen.HazardResult.name)
+                            },
+                            onBackPressed = {navController.navigate(NavigationScreen.HazardTestMenu.name)}
+                        )
+                    }
+                }
+                composable(route = NavigationScreen.HazardResult.name) {
+                    val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
+                    selectedVideo?.let{
+                        HazardResultScreen(
+                            video = it,
+                            onMainMenu = {
+                                navController.navigate(NavigationScreen.Start.name)
+                            }
+                        )
+                    }
+                }
+
             }
         }
     )

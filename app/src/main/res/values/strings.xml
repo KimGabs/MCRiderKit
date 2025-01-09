@@ -3,12 +3,15 @@
     <string name="profile_">Profile</string>
     <string name="settings_">Settings</string>
     <string name="lto_exam_menu">LTO Exam</string>
-    <string name="hazard_perception_test">Hazard Perception</string>
+    <string name="hazard_test_menu">Hazard Perception</string>
+    <string name="selected_video_screen">Hazard Perception Clip</string>
+    <string name="hazard_test_screen">Hazard Perception test</string>
     <string name="lto_reviewer">LTO Exam Reviewer</string>
     <string name="non_pro_exam">Non-professional Exam</string>
     <string name="exam_result">Exam Result</string>
-    <string name="next_question">Next Question</string>
     <string name="view_result">View Result</string>
+    <string name="hazard_result">Hazard Perception Test Result</string>
+    <string name="next_question">Next Question</string>
     <string name="submit">Submit</string>
     <string name="back_button">Back</string>
     <string name="cancel">Cancel</string>
