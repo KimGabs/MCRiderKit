@@ -11,6 +11,7 @@
     <string name="exam_result">Exam Result</string>
     <string name="view_result">View Result</string>
     <string name="hazard_result">Hazard Perception Test Result</string>
+    <string name="hazard_review">Hazard Perception Test Review</string>
     <string name="next_question">Next Question</string>
     <string name="submit">Submit</string>
     <string name="back_button">Back</string>

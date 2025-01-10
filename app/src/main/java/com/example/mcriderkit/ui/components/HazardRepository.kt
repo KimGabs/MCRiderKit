@@ -16,10 +16,10 @@ class HazardRepository(private val dao: HazardTestDao) {
             videoPath = "test1",
             thumbnailId = R.drawable.thumbnail1,
             videoLength = 12,
-            earlyRange = 0.6,
-            perfectRange = 0.7,
+            earlyRange = 0.61,
+            perfectRange = 0.68,
             goodRange = 0.75,
-            lateRange = 0.85
+            lateRange = 0.82
         ),
         HazardTest(
             title = "Test Video 2",

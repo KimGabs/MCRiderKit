@@ -40,6 +40,7 @@ import com.example.mcriderkit.ui.ExamViewModel
 import com.example.mcriderkit.ui.HazardTestMenuScreen
 import com.example.mcriderkit.ui.HazardTestScreen
 import com.example.mcriderkit.ui.HazardResultScreen
+import com.example.mcriderkit.ui.HazardTestScreenReview
 import com.example.mcriderkit.ui.HazardTestViewModel
 import com.example.mcriderkit.ui.LTOMenuScreen
 import com.example.mcriderkit.ui.MainMenuScreen
@@ -60,6 +61,7 @@ enum class NavigationScreen(@StringRes val title: Int) {
     HazardTestMenu(title = R.string.hazard_test_menu),
     SelectedVideo(title = R.string.selected_video_screen),
     HazardTest(title = R.string.hazard_test_screen),
+    HazardTestReview(title = R.string.hazard_review),
     HazardResult(title = R.string.hazard_result)
 }
 
@@ -227,7 +229,7 @@ fun NavigationApp(
                             quizViewModel.resetQuiz()
                             navController.popBackStack(
                                 NavigationScreen.NonProExam.name,
-                                false
+                                true
                             )
                         }
                     )
@@ -276,6 +278,18 @@ fun NavigationApp(
                         )
                     }
                 }
+                composable(route = NavigationScreen.HazardTestReview.name){
+                    val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
+                    selectedVideo?.let {
+                        HazardTestScreenReview(
+                            video = it,
+                            onReviewFinished = {
+                                navController.navigate(NavigationScreen.HazardResult.name)
+                            },
+                            onBackPressed = { navController.navigate(NavigationScreen.HazardTestMenu.name) },
+                        )
+                    }
+                }
                 composable(route = NavigationScreen.HazardResult.name) {
                     val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
                     selectedVideo?.let{
@@ -287,13 +301,15 @@ fun NavigationApp(
                             onRetry = {
                                 navController.popBackStack(
                                     NavigationScreen.HazardTest.name,
-                                    false
+                                    true
                                 )
+                            },
+                            onReview = {
+                                navController.navigate(NavigationScreen.HazardTestReview.name)
                             }
                         )
                     }
                 }
-
             }
         }
     )

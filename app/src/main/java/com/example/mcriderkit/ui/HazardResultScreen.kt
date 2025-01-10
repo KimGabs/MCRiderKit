@@ -1,5 +1,6 @@
 package com.example.mcriderkit.ui
 
+import android.R
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
@@ -24,6 +25,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
 import com.example.mcriderkit.data.HazardTest
 import kotlinx.coroutines.delay
@@ -33,6 +35,7 @@ fun HazardResultScreen(
     video: HazardTest,
     onMainMenu: () -> Unit,
     onRetry: () -> Unit,
+    onReview: () -> Unit,
     modifier: Modifier = Modifier
 ) {
 
@@ -95,7 +98,23 @@ fun HazardResultScreen(
                 Text(text = "Retry Test")
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
+
+            // Review Test Button
+            Button(
+                onClick = {
+                    isLoading = true  // Start loading
+                    onReview()  // Navigate to main menu
+                },
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = colorResource(R.color.holo_purple)
+                )
+            ) {
+                Text(text = "Review Test")
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
 
             // Main Menu Button
             Button(
