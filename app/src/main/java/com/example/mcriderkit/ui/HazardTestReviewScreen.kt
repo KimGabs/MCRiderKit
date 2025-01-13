@@ -1,19 +1,15 @@
 package com.example.mcriderkit.ui
 
-import com.example.mcriderkit.R
-import android.net.Uri
 import androidx.annotation.OptIn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,36 +20,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.media3.common.MediaItem
-import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
-import androidx.media3.exoplayer.ExoPlayer
-import androidx.media3.ui.AspectRatioFrameLayout
-import androidx.media3.ui.PlayerView
+import com.example.mcriderkit.R
 import com.example.mcriderkit.data.HazardTest
 import kotlinx.coroutines.delay
 
@@ -185,9 +165,66 @@ fun HazardTestScreenReview(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(200.dp) // Detection area height
-                    .background(Color.LightGray),
-                contentAlignment = Alignment.Center){}
+                    .height(110.dp)
+                    .border(2.dp, Color.Black)){
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                ) {
+
+                    // First row: Green Box and text
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(bottom = 8.dp) // Add spacing between rows
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(20.dp) // Size of the colored box
+                                .background(colorResource(R.color.green)) // Color of the box
+                        )
+                        Spacer(modifier = Modifier.width(8.dp)) // Space between box and text
+                        Text(
+                            text = " 100 Points",
+                            style = MaterialTheme.typography.bodySmall // Text style
+                        )
+                    }
+
+                    // Second row: Light Green Box and text
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(20.dp) // Size of the colored box
+                                .background(colorResource(R.color.lightGreen))
+                        )
+                        Spacer(modifier = Modifier.width(8.dp)) // Space between box and text
+                        Text(
+                            text = " 75 Points",
+                            style = MaterialTheme.typography.bodySmall // Text style
+                        )
+                    }
+
+                    // Third row: Light Yellow Box and text
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(20.dp) // Size of the colored box
+                                .background(colorResource(R.color.lightYellow))
+                        )
+                        Spacer(modifier = Modifier.width(8.dp)) // Space between box and text
+                        Text(
+                            text = " 50 Points",
+                            style = MaterialTheme.typography.bodySmall // Text style
+                        )
+                    }
+                }
+            }
         }
         AnimatedVisibility(visible = isVideoEnded,
             enter = fadeIn(animationSpec = tween(durationMillis = 500)),
