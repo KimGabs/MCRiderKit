@@ -2,46 +2,14 @@ package com.example.mcriderkit.ui.components
 
 import com.example.mcriderkit.data.HazardTest
 import com.example.mcriderkit.data.HazardTestDao
-import com.example.mcriderkit.R
+import com.example.mcriderkit.data.DataSource
 
 class HazardRepository(private val dao: HazardTestDao) {
-
-    private val presetHazardTests = listOf(
-        HazardTest(
-            title = "Test Video 1",
-            location = "Location 1",
-            speedLimit = "60 km/h",
-            timeOfDay = "Morning",
-            weather = "Clear",
-            videoPath = "test1",
-            thumbnailId = R.drawable.thumbnail1,
-            videoLength = 12,
-            earlyRange = 0.61,
-            perfectRange = 0.68,
-            goodRange = 0.75,
-            lateRange = 0.82
-        ),
-        HazardTest(
-            title = "Test Video 2",
-            location = "Location 2",
-            speedLimit = "40 km/h",
-            timeOfDay = "Afternoon",
-            weather = "Clear",
-            videoPath = "test2",
-            thumbnailId = R.drawable.thumbnail2,
-            videoLength = 19,
-            earlyRange = 0.31,
-            perfectRange = 0.5,
-            goodRange = 0.60,
-            lateRange = 0.77
-        )
-
-    )
 
     suspend fun insertPresetData() {
         val existingTests = dao.getAllHazardTests()
         if (existingTests.isEmpty()) {
-            dao.insertAll(presetHazardTests)
+            dao.insertAll(DataSource.presetHazardTests)
         }
     }
 

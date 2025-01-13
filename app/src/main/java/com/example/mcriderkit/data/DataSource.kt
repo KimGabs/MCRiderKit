@@ -15,6 +15,8 @@
  */
 package com.example.mcriderkit.data
 
+import com.example.mcriderkit.R
+
 object DataSource {
     val menuList = listOf(
         "LTO Exam",
@@ -54,4 +56,35 @@ object DataSource {
         Question("To have one's driver's license suspended means to:", listOf("Have it revalidated by the LTO", "Have it taken away permanently by the LTO", "Have it taken temporarily by the LTO", "Have it renewed by the LTO"), 2)
     )
 
+    val presetHazardTests = listOf(
+        HazardTest(
+            title = "Test Video 1",
+            location = "Location 1",
+            speedLimit = "60 km/h",
+            timeOfDay = "Morning",
+            weather = "Clear",
+            videoPath = "test1",
+            thumbnailId = R.drawable.thumbnail1,
+            videoLength = 12,
+            earlyRange = 0.61,
+            perfectRange = 0.68,
+            goodRange = 0.75,
+            lateRange = 0.82
+        ),
+        HazardTest(
+            title = "Test Video 2",
+            location = "Location 2",
+            speedLimit = "40 km/h",
+            timeOfDay = "Afternoon",
+            weather = "Clear",
+            videoPath = "test2",
+            thumbnailId = R.drawable.thumbnail2,
+            videoLength = 19,
+            earlyRange = 0.31,
+            perfectRange = 0.5,
+            goodRange = 0.60,
+            lateRange = 0.77
+        )
+
+    )
 }
