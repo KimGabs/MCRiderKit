@@ -107,4 +107,3 @@ fun HazardTestMenuScreen(
         }
     }
 }
-

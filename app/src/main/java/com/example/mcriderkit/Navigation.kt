@@ -1,5 +1,6 @@
 package com.example.mcriderkit
 
+import android.content.Context
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -26,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -49,6 +51,7 @@ import com.example.mcriderkit.ui.ProfileScreen
 import com.example.mcriderkit.ui.RevScreen
 import com.example.mcriderkit.ui.SelectedVideoScreen
 import com.example.mcriderkit.ui.SettingsScreen
+import com.example.mcriderkit.ui.TutorialScreen
 
 enum class NavigationScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
@@ -100,6 +103,7 @@ fun NavigationApp(
 ) {
     var selectedItem by remember { mutableIntStateOf(0) }
     val items = listOf("Home", "Profile", "Settings")
+
 //    val viewModel: ExamViewModel = viewModel()// Access ViewModel
     val selectedIcons = listOf(Icons.Filled.Home, Icons.Filled.Person, Icons.Filled.Settings)
     val unselectedIcons = listOf(Icons.Outlined.Home, Icons.Outlined.Person, Icons.Outlined.Settings)
@@ -195,7 +199,7 @@ fun NavigationApp(
                 }
                 composable(route = NavigationScreen.LTOMenu.name) {
                     LTOMenuScreen(
-                        examType = DataSource.examTypeList,
+                        examType = DataSource.examList,
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(R.dimen.padding_medium)),
@@ -243,15 +247,28 @@ fun NavigationApp(
                     )
                 }
                 composable(route = NavigationScreen.HazardTestMenu.name){
-                    HazardTestMenuScreen(
-                        viewModel = hazardViewModel,
-                        onClipSelected = { id ->
-                            // Fetch the hazard test data by id
-                            hazardViewModel.selectHazardTest(id)
-                            navController.navigate(NavigationScreen.SelectedVideo.name)
-                        }
+                    backStackEntry ->
+                    val context = LocalContext.current
+                    val navController = rememberNavController()
 
-                    )
+                    val hasSeenTutorial = remember { mutableStateOf(isTutorialShown(context)) }
+
+                    if (!hasSeenTutorial.value) {
+                        TutorialScreen(onNextClicked = {
+                            setTutorialShown(context)
+                            hasSeenTutorial.value = true
+                        })
+                    } else{
+                        HazardTestMenuScreen(
+                            viewModel = hazardViewModel,
+                            onClipSelected = { id ->
+                                // Fetch the hazard test data by id
+                                hazardViewModel.selectHazardTest(id)
+                                navController.navigate(NavigationScreen.SelectedVideo.name)
+                            }
+
+                        )
+                    }
                 }
                 composable(route = NavigationScreen.SelectedVideo.name){
                     val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
@@ -313,4 +330,15 @@ fun NavigationApp(
             }
         }
     )
+}
+
+
+fun setTutorialShown(context: Context) {
+    val sharedPreferences = context.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
+    sharedPreferences.edit().putBoolean("tutorial_shown", true).apply()
+}
+
+fun isTutorialShown(context: Context): Boolean {
+    val sharedPreferences = context.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
+    return sharedPreferences.getBoolean("tutorial_shown", false)
 }

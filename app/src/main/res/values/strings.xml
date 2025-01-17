@@ -5,7 +5,11 @@
     <string name="lto_exam_menu">LTO Exam</string>
     <string name="hazard_test_menu">Hazard Perception</string>
     <string name="selected_video_screen">Hazard Perception Clip</string>
-    <string name="hazard_test_screen">Hazard Perception test</string>
+    <string name="hazard_test_screen">Hazard Perception Test</string>
+    <string name="road_sign_test_screen">Road Sign Test</string>
+    <string name="road_sign_test_menu">Road Sign Menu</string>
+    <string name="road_sign_test_result">Road Sign Test Result</string>
+    <string name="road_sign_test_review">Road Sign Test Review</string>
     <string name="lto_reviewer">LTO Exam Reviewer</string>
     <string name="non_pro_exam">Non-professional Exam</string>
     <string name="exam_result">Exam Result</string>

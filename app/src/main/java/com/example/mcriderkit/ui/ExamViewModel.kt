@@ -3,6 +3,7 @@ package com.example.mcriderkit.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mcriderkit.data.DataSource
+import com.example.mcriderkit.data.DataSource.Question
 import com.example.mcriderkit.data.ExamUiState
 import com.example.mcriderkit.data.QuizScore
 import com.example.mcriderkit.data.QuizScoreDao
@@ -45,9 +46,21 @@ class ExamViewModel(
 
     private val _examState = MutableStateFlow(ExamUiState())
     val examState: StateFlow<ExamUiState> = _examState.asStateFlow()
-    val questions = DataSource.examQuestions
+
+    private var _questions: List<Question> = emptyList()
+    val questions: List<Question>
+        get() = _questions
+
+    init {
+        initializeQuestions()
+    }
+
+    private fun initializeQuestions() {
+        _questions = DataSource.examQuestions.shuffled() // Shuffle at initialization
+    }
 
     fun resetQuiz() {
+        initializeQuestions()
         _examState.value = ExamUiState() // Reset state
     }
 
