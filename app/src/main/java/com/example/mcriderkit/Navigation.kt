@@ -37,6 +37,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mcriderkit.data.DataSource
+import com.example.mcriderkit.data.DataSource.TutorialPage
+import com.example.mcriderkit.data.DataSource.tutorialPages
 import com.example.mcriderkit.ui.ExamResultScreen
 import com.example.mcriderkit.ui.ExamViewModel
 import com.example.mcriderkit.ui.HazardTestMenuScreen
@@ -249,12 +251,12 @@ fun NavigationApp(
                 composable(route = NavigationScreen.HazardTestMenu.name){
                     backStackEntry ->
                     val context = LocalContext.current
-                    val navController = rememberNavController()
-
                     val hasSeenTutorial = remember { mutableStateOf(isTutorialShown(context)) }
 
                     if (!hasSeenTutorial.value) {
-                        TutorialScreen(onNextClicked = {
+                        TutorialScreen(
+                            tutorialType = "HazardTest",
+                            onFinishTutorial = {
                             setTutorialShown(context)
                             hasSeenTutorial.value = true
                         })
@@ -266,7 +268,6 @@ fun NavigationApp(
                                 hazardViewModel.selectHazardTest(id)
                                 navController.navigate(NavigationScreen.SelectedVideo.name)
                             }
-
                         )
                     }
                 }
@@ -342,3 +343,4 @@ fun isTutorialShown(context: Context): Boolean {
     val sharedPreferences = context.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
     return sharedPreferences.getBoolean("tutorial_shown", false)
 }
+

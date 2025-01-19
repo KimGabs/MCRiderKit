@@ -194,19 +194,19 @@ fun HazardTestScreen(
                     style = MaterialTheme.typography.titleMedium)
 
                 // Overlay flag positions
-                Box(modifier = Modifier.fillMaxSize()) {
-                    flagPositions.forEachIndexed { index, position ->
-                        Box(
-                            modifier = modifier
-                                .offset(x = (position * 380).dp) // Position the flags
-                        ) {
-                            Text(
-                                text = "%.2f".format(position), // Flag position text
-                                textAlign = TextAlign.Center
-                            )
-                        }
-                    }
-                }
+//                Box(modifier = Modifier.fillMaxSize()) {
+//                    flagPositions.forEachIndexed { index, position ->
+//                        Box(
+//                            modifier = modifier
+//                                .offset(x = (position * 380).dp) // Position the flags
+//                        ) {
+//                            Text(
+//                                text = "%.2f".format(position), // Flag position text
+//                                textAlign = TextAlign.Center
+//                            )
+//                        }
+//                    }
+//                }
             }
         }
         AnimatedVisibility(visible = isVideoEnded,

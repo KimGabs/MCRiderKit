@@ -1,14 +1,20 @@
 package com.example.mcriderkit.ui
 
+import com.example.mcriderkit.R
+import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
@@ -17,64 +23,88 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import com.example.mcriderkit.data.DataSource.TutorialPage
+import com.example.mcriderkit.data.DataSource.tutorialPages
 
 @Composable
 fun TutorialScreen(
-    onNextClicked: () -> Unit
-
+    tutorialType: String,
+    onFinishTutorial: () -> Unit
 ) {
+    val pages = getPagesByType(tutorialType)
+    var currentPage = remember { mutableStateOf(0) }
+
+    if (pages.isEmpty()) {
+        // Handle empty list scenario (no pages for this type)
+        Text("No tutorial pages available.")
+        return
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
             .padding(16.dp),
-//        verticalArrangement = Arrangement.SpaceBetween,
+        verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Image Placeholder
+        // Image placeholder
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(400.dp) // Adjust height as needed
-                .background(Color.LightGray), // Placeholder color
-            contentAlignment = Alignment.Center
+                .background(Color.Black)
         ) {
-            Text(
-                text = "Image Placeholder",
-                color = Color.Gray,
-                style = MaterialTheme.typography.bodyMedium
+            Image(
+                painter = painterResource(id = pages[currentPage.value].image),
+                contentDescription = "Tutorial Image",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(1f)
             )
+
         }
 
-        // Text Content
+        // Page text
         Text(
-            text = "This is where you explain the purpose or instructions of the tutorial. Add concise and clear details here.",
-            color = Color.Black,
-            style = MaterialTheme.typography.bodyLarge,
-            textAlign = TextAlign.Justify,
-            modifier = Modifier.padding(vertical = 16.dp),
+            text = pages[currentPage.value].text,
+            modifier = Modifier.padding(16.dp),
+            textAlign = TextAlign.Center
         )
 
-        Spacer(modifier = Modifier.height(26.dp))
-        // Next Button
-        Button(
-            onClick = onNextClicked,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp)
+        // Navigation buttons
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(
-                text = "Next",
-                style = MaterialTheme.typography.headlineSmall,
-                color = Color.White
-            )
+            Button(
+                onClick = { if (currentPage.value > 0) currentPage.value-- },
+                enabled = currentPage.value > 0
+            ) {
+                Text("Previous")
+            }
+
+            if (currentPage.value < pages.size - 1) {
+                Button(
+                    onClick = { currentPage.value++ }
+                ) {
+                    Text("Next")
+                }
+            } else {
+                Button(
+                    onClick = onFinishTutorial
+                ) {
+                    Text("Finish")
+                }
+            }
         }
     }
+
 }
 
-@Preview(showBackground = true)
-@Composable
-fun TutorialScreenPreview() {
-    TutorialScreen(onNextClicked = {})
+fun getPagesByType(title: String): List<TutorialPage> {
+    return tutorialPages.filter { it.title == title }
 }

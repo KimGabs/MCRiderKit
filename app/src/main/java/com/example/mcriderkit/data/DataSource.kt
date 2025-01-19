@@ -31,9 +31,6 @@ object DataSource {
         "Road Sign"
     )
 
-    val reviewerMenu = listOf(
-        "Reviewer"
-    )
 
     val examCategoryList = listOf(
         "All Questions",
@@ -52,7 +49,6 @@ object DataSource {
         val options: List<String>, // List of answer options
         val correctAnswerIndex: Int // Index of the correct answer
     )
-
 
     val examQuestions = listOf(
         Question("The minimum age to get a non-professional license is:",
@@ -112,9 +108,25 @@ object DataSource {
         )
     )
 
-    data class QuestionImage(
-        val questionImage: Int,
-        val options: List<String>,
-        val correctAnswerIndex: Int
+    data class TutorialPage(
+        val title: String,
+        val text: String,
+        val image: Int
     )
+
+    val tutorialPages = listOf(
+        // Hazard Perception Test Tutorial
+        TutorialPage(
+            title = "HazardTest",
+            text = "Hazard Perception Test is designed to assess your ability to identify potential hazards on the road.",
+            image = R.drawable.tutorial_hazard_1
+            ),
+        TutorialPage(
+            title = "HazardTest",
+            text = "As you watch the video, your task is to tap the on the gray area at the moment you spot a hazard developing. " +
+                    "A red flag is shown to acknowledge your tap.",
+            image = R.drawable.tutorial_hazard_2
+        ),
+    )
+
 }
