@@ -33,9 +33,8 @@ object DataSource {
 
 
     val examCategoryList = listOf(
-        "All Questions",
-        "Emergencies",
         "General Knowledge",
+        "Emergencies",
         "Handling & Driving",
         "Parking",
         "Read Position",
@@ -51,7 +50,7 @@ object DataSource {
     )
 
     val examQuestions = listOf(
-        Question("The minimum age to get a non-professional license is:",
+        Question("What's the minimum age to get a non-professional license in the Philippines",
             options = listOf("15 years old", "17 years old", "18 years old", "19 years old"),
             correctAnswerIndex = 1
         ),
@@ -74,6 +73,26 @@ object DataSource {
         Question("To have one's driver's license suspended means to:",
             options = listOf("Have it revalidated by the LTO", "Have it taken away permanently by the LTO", "Have it taken temporarily by the LTO", "Have it renewed by the LTO"),
             correctAnswerIndex = 2
+        ),
+        Question("What does this road sign mean?",
+            imageResId = R.drawable.sign_give_way,
+            options = listOf("Keep left", "Keep right", "Stop", "Give way"),
+            correctAnswerIndex = 3
+        ),
+        Question("What does this road sign mean?",
+            imageResId = R.drawable.sign_no_turns,
+            options = listOf("No turns", "Give way", "One way", "Pass either side"),
+            correctAnswerIndex = 0
+        ),
+        Question("What does this road sign mean?",
+            imageResId = R.drawable.sign_keep_left,
+            options = listOf("Two way", "Turn left", "Keep left", "One way"),
+            correctAnswerIndex = 2
+        ),
+        Question("What does this road sign mean?",
+            imageResId = R.drawable.sign_one_way,
+            options = listOf("No turn", "Keep right", "Turn left", "One way"),
+            correctAnswerIndex = 3
         )
     )
 

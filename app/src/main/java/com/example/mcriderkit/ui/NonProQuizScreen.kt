@@ -1,9 +1,11 @@
 package com.example.mcriderkit.ui
 
+import androidx.compose.foundation.Image
 import com.example.mcriderkit.R
 import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -18,6 +20,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.viewmodel.compose.viewModel
 
@@ -53,6 +57,20 @@ fun NonProQuizScreen(
             text = currentQuestion.question,
             style = MaterialTheme.typography.bodyLarge
         )
+        // Image placeholder
+        // Display image only if it exists
+        currentQuestion.imageResId?.let { imageResId ->
+            Spacer(modifier = Modifier.height(16.dp))
+            Image(
+                painter = painterResource(id = imageResId),
+                contentDescription = "Question Image",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(2f),
+                contentScale = ContentScale.Fit // Ensures the entire image is visible
+            )
+        }
+
         Spacer(modifier = Modifier.height(24.dp))
 
         // Display the Answer Choices
