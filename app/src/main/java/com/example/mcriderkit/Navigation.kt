@@ -37,8 +37,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mcriderkit.data.DataSource
-import com.example.mcriderkit.data.DataSource.TutorialPage
-import com.example.mcriderkit.data.DataSource.tutorialPages
 import com.example.mcriderkit.ui.ExamResultScreen
 import com.example.mcriderkit.ui.ExamViewModel
 import com.example.mcriderkit.ui.HazardTestMenuScreen
@@ -51,8 +49,10 @@ import com.example.mcriderkit.ui.MainMenuScreen
 import com.example.mcriderkit.ui.NonProQuizScreen
 import com.example.mcriderkit.ui.ProfileScreen
 import com.example.mcriderkit.ui.RevScreen
+import com.example.mcriderkit.ui.RoadSignsScreen
 import com.example.mcriderkit.ui.SelectedVideoScreen
 import com.example.mcriderkit.ui.SettingsScreen
+import com.example.mcriderkit.ui.TrafficRulesAndRegulationsScreen
 import com.example.mcriderkit.ui.TutorialScreen
 
 enum class NavigationScreen(@StringRes val title: Int) {
@@ -67,7 +67,9 @@ enum class NavigationScreen(@StringRes val title: Int) {
     SelectedVideo(title = R.string.selected_video_screen),
     HazardTest(title = R.string.hazard_test_screen),
     HazardTestReview(title = R.string.hazard_review),
-    HazardResult(title = R.string.hazard_result)
+    HazardResult(title = R.string.hazard_result),
+    RoadSignAndMarkings(title = R.string.road_signs_and_markings),
+    TrafficRulesAndRegulations(title = R.string.traffic_rules_and_regulations)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -179,8 +181,7 @@ fun NavigationApp(
                             when (index) {
                                 0 -> navController.navigate(NavigationScreen.LTOMenu.name)
                                 1 -> navController.navigate(NavigationScreen.Reviewer.name)
-                                2 -> navController.navigate(NavigationScreen.Settings.name)
-                                3 -> navController.navigate(NavigationScreen.HazardTestMenu.name)
+                                2 -> navController.navigate(NavigationScreen.HazardTestMenu.name)
                             }
                         }
                     )
@@ -245,8 +246,20 @@ fun NavigationApp(
                         examCategory = DataSource.examCategoryList,
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(dimensionResource(R.dimen.padding_medium))
+                            .padding(dimensionResource(R.dimen.padding_medium)),
+                        onNextButtonClicked = { index ->
+                            when(index) {
+                                0 -> navController.navigate(NavigationScreen.RoadSignAndMarkings.name)
+                                1 -> navController.navigate(NavigationScreen.TrafficRulesAndRegulations.name)
+                            }
+                        }
                     )
+                }
+                composable(route = NavigationScreen.RoadSignAndMarkings.name) {
+                    RoadSignsScreen()
+                }
+                composable(route = NavigationScreen.TrafficRulesAndRegulations.name) {
+                    TrafficRulesAndRegulationsScreen()
                 }
                 composable(route = NavigationScreen.HazardTestMenu.name){
                     backStackEntry ->

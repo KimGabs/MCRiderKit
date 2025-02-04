@@ -21,25 +21,24 @@ object DataSource {
     val menuList = listOf(
         "LTO Exams",
         "Reviewer",
-        "Traffic Sign",
         "Hazard Perception Test"
     )
 
     val examList = listOf(
+        "Student",
         "Non-professional",
-        "Professional",
-        "Road Sign"
+        "Professional"
     )
 
-
     val examCategoryList = listOf(
-        "General Knowledge",
-        "Emergencies",
-        "Handling & Driving",
-        "Parking",
-        "Read Position",
-        "Signs & Markings",
-        "Violations & Penalties"
+        "Road Signs & Markings",
+        "Traffic Rules & Regulations",
+        "Driving Etiquette & Road Courtesy",
+        "Traffic Violations & Penalties",
+        "Special Driving Situations",
+        "Vehicle Basics & Maintenance",
+        "LTO Licensing Process & Requirements",
+        "First Aid & Accident Response"
     )
 
     data class Question(

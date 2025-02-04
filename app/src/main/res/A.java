@@ -1,0 +1,2 @@
+play_store_512.png
+res

@@ -57,7 +57,7 @@ dependencies {
     implementation ("com.google.android.exoplayer:exoplayer:2.18.2")
     implementation("androidx.media3:media3-exoplayer-dash:1.5.0")
     implementation("androidx.media3:media3-ui:1.5.0")
-
+    implementation("androidx.core:core-splashscreen:1.0.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

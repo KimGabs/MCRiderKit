@@ -10,6 +10,8 @@
     <string name="road_sign_test_menu">Road Sign Menu</string>
     <string name="road_sign_test_result">Road Sign Test Result</string>
     <string name="road_sign_test_review">Road Sign Test Review</string>
+    <string name="road_signs_and_markings">Road Signs and Markings</string>
+    <string name="traffic_rules_and_regulations">Traffic Rules and Regulations</string>
     <string name="lto_reviewer">LTO Exam Reviewer</string>
     <string name="non_pro_exam">Non-professional Exam</string>
     <string name="exam_result">Exam Result</string>
