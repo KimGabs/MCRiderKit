@@ -208,7 +208,7 @@ fun NavigationApp(
                             .padding(dimensionResource(R.dimen.padding_medium)),
                         onNextButtonClicked = { index ->
                             when(index) {
-                                0 -> navController.navigate(NavigationScreen.NonProExam.name)
+                                1 -> navController.navigate(NavigationScreen.NonProExam.name)
                             }
                         }
 
