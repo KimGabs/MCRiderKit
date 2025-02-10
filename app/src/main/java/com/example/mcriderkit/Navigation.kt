@@ -30,7 +30,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -45,15 +44,19 @@ import com.example.mcriderkit.ui.HazardResultScreen
 import com.example.mcriderkit.ui.HazardTestScreenReview
 import com.example.mcriderkit.ui.HazardTestViewModel
 import com.example.mcriderkit.ui.LTOMenuScreen
+import com.example.mcriderkit.ui.studyMaterials.LicensingInformationMenu
 import com.example.mcriderkit.ui.MainMenuScreen
 import com.example.mcriderkit.ui.NonProQuizScreen
 import com.example.mcriderkit.ui.ProfileScreen
 import com.example.mcriderkit.ui.RevScreen
-import com.example.mcriderkit.ui.RoadSignsScreen
+import com.example.mcriderkit.ui.studyMaterials.RoadSignsScreen
 import com.example.mcriderkit.ui.SelectedVideoScreen
 import com.example.mcriderkit.ui.SettingsScreen
-import com.example.mcriderkit.ui.TrafficRulesAndRegulationsScreen
+import com.example.mcriderkit.ui.studyMaterials.TrafficRulesAndRegulationsScreen
 import com.example.mcriderkit.ui.TutorialScreen
+import com.example.mcriderkit.ui.studyMaterials.DLClassification
+import com.example.mcriderkit.ui.studyMaterials.PermitsLicenses
+import com.example.mcriderkit.ui.studyMaterials.Qualifications
 
 enum class NavigationScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
@@ -68,7 +71,19 @@ enum class NavigationScreen(@StringRes val title: Int) {
     HazardTest(title = R.string.hazard_test_screen),
     HazardTestReview(title = R.string.hazard_review),
     HazardResult(title = R.string.hazard_result),
+
+    LicensingInfo(title = R.string.licensing_info),
+    PermitsLicenses(title = R.string.permits_licenses),
+    DriverLicense(title = R.string.driver_license),
+    Qualifications(title = R.string.qualifications),
+    GeneralProcedures(title = R.string.genera_procedures),
+
     RoadSignAndMarkings(title = R.string.road_signs_and_markings),
+    RegulatorySigns(title = R.string.regulatory_signs),
+    WarningSigns(title = R.string.warning_signs),
+    GuideSigns(title = R.string.guide_signs),
+    SignsOnExpressway(title = R.string.signs_expressway),
+
     TrafficRulesAndRegulations(title = R.string.traffic_rules_and_regulations)
 }
 
@@ -243,20 +258,77 @@ fun NavigationApp(
                 }
                 composable(route = NavigationScreen.Reviewer.name) {
                     RevScreen(
-                        examCategory = DataSource.examCategoryList,
+                        revCategory = DataSource.examCategoryList,
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(R.dimen.padding_medium)),
                         onNextButtonClicked = { index ->
                             when(index) {
-                                0 -> navController.navigate(NavigationScreen.RoadSignAndMarkings.name)
-                                1 -> navController.navigate(NavigationScreen.TrafficRulesAndRegulations.name)
+                                0 -> navController.navigate(NavigationScreen.LicensingInfo.name)
+                                1 -> navController.navigate(NavigationScreen.RoadSignAndMarkings.name)
+                                2 -> navController.navigate(NavigationScreen.TrafficRulesAndRegulations.name)
                             }
                         }
                     )
                 }
+                composable(route = NavigationScreen.LicensingInfo.name) {
+                    LicensingInformationMenu(
+                        licensingInfoList = DataSource.licensingInfo,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(dimensionResource(R.dimen.padding_medium)),
+                        onNextButtonClicked = { index ->
+                            when(index) {
+                                0 -> navController.navigate(NavigationScreen.PermitsLicenses.name)
+                                1 -> navController.navigate(NavigationScreen.DriverLicense.name)
+                                2 -> navController.navigate(NavigationScreen.Qualifications.name)
+                                3 -> navController.navigate(NavigationScreen.GeneralProcedures.name)
+                            }
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.PermitsLicenses.name) {
+                    PermitsLicenses(
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.DriverLicense.name)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.DriverLicense.name) {
+                    DLClassification(
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.PermitsLicenses.name)
+                        },
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.Qualifications.name)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.Qualifications.name) {
+                    Qualifications(
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.DriverLicense.name)
+                        },
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.GeneralProcedures.name)
+                        }
+                    )
+                }
                 composable(route = NavigationScreen.RoadSignAndMarkings.name) {
-                    RoadSignsScreen()
+                    RoadSignsScreen(
+                        roadSignsList = DataSource.roadSignsAndMarkings,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(dimensionResource(R.dimen.padding_medium)),
+                        onNextButtonClicked = { index ->
+                            when(index) {
+                                0 -> navController.navigate(NavigationScreen.RegulatorySigns.name)
+                                1 -> navController.navigate(NavigationScreen.WarningSigns.name)
+                                2 -> navController.navigate(NavigationScreen.GuideSigns.name)
+                                3 -> navController.navigate(NavigationScreen.SignsOnExpressway.name)
+                            }
+                        }
+                    )
                 }
                 composable(route = NavigationScreen.TrafficRulesAndRegulations.name) {
                     TrafficRulesAndRegulationsScreen()

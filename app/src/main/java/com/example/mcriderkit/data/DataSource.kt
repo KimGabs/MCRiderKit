@@ -31,6 +31,7 @@ object DataSource {
     )
 
     val examCategoryList = listOf(
+        "Licensing Information",
         "Road Signs & Markings",
         "Traffic Rules & Regulations",
         "Driving Etiquette & Road Courtesy",
@@ -39,6 +40,20 @@ object DataSource {
         "Vehicle Basics & Maintenance",
         "LTO Licensing Process & Requirements",
         "First Aid & Accident Response"
+    )
+
+    val licensingInfo = listOf(
+        "Permits and Licenses",
+        "Driver’s License Classification",
+        "Qualifications and Documentary Requirements",
+        "General Procedures in Securing Licenses and Permits"
+    )
+
+    val roadSignsAndMarkings = listOf(
+        "Regulatory Signs",
+        "Warning Signs",
+        "Guide/Informative Signs",
+        "Signs on Expressway"
     )
 
     data class Question(

@@ -1,6 +1,5 @@
-package com.example.mcriderkit.ui
+package com.example.mcriderkit.ui.studyMaterials
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,9 +9,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.mcriderkit.R
 
 @Composable
 fun TrafficRulesAndRegulationsScreen() {
@@ -84,27 +83,63 @@ fun SectionContent(title: String, content: List<String>) {
             Text(
                 text = "• $item",
                 fontSize = 16.sp,
-                modifier = Modifier.padding(start = 8.dp, top = 4.dp)
+                modifier = Modifier.padding(start = 8.dp, top = 4.dp),
+                textAlign = TextAlign.Justify
             )
         }
     }
 }
 
 @Composable
+fun SectionText(content: List<String>) {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        content.forEach { item ->
+            Text(
+                text = "• $item",
+                fontSize = 16.sp,
+                modifier = Modifier.padding(start = 8.dp, top = 4.dp),
+                textAlign = TextAlign.Justify
+            )
+        }
+    }
+}
+
+@Composable
+fun SubsectionContent(title: String, content: List<String>) {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Text(text = title, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+        content.forEach { item ->
+            Text(
+                text = "• $item",
+                fontSize = 16.sp,
+                modifier = Modifier.padding(start = 8.dp, top = 4.dp),
+                textAlign = TextAlign.Justify
+                )
+        }
+    }
+}
+
+@Composable
+fun SectionTitle(title: String){
+    Text(text = title, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+}
+
+@Composable
 fun Banner(textBanner: String) {
     Box(modifier = Modifier
         .fillMaxWidth()
-        .height(200.dp)
+        .height(120.dp)
         .padding(0.dp, 8.dp)
         .background(Color(0xFF4CAF50))) {  // You can customize the color here
         Text(
             text = textBanner,
-            fontSize = 28.sp,
+            fontSize = 26.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White,
             modifier = Modifier
                 .align(Alignment.Center)
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = 16.dp),
+            lineHeight = 30.sp
         )
     }
 }

@@ -1,6 +1,5 @@
 package com.example.mcriderkit.ui
 
-import com.example.mcriderkit.R
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.background

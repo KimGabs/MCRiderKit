@@ -15,7 +15,7 @@ import com.example.mcriderkit.R
 
 @Composable
 fun RevScreen(
-    examCategory: List<String>,
+    revCategory: List<String>,
     onNextButtonClicked: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -29,7 +29,7 @@ fun RevScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
         ){
-            examCategory.forEachIndexed { index, item ->
+            revCategory.forEachIndexed { index, item ->
                 RevMenuButton(
                     item = item,
                     onClick = { onNextButtonClicked(index) }

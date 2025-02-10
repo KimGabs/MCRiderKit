@@ -6,13 +6,22 @@
     <string name="hazard_test_menu">Hazard Perception</string>
     <string name="selected_video_screen">Hazard Perception Clip</string>
     <string name="hazard_test_screen">Hazard Perception Test</string>
-    <string name="road_sign_test_screen">Road Sign Test</string>
-    <string name="road_sign_test_menu">Road Sign Menu</string>
-    <string name="road_sign_test_result">Road Sign Test Result</string>
-    <string name="road_sign_test_review">Road Sign Test Review</string>
+
+    <string name="licensing_info">Licensing Information</string>">
+    <string name="permits_licenses">Permits and Licenses</string>
+    <string name="driver_license">Driver\'s License Classification</string>
+    <string name="qualifications">Qualifications and Documentary</string>
+    <string name="genera_procedures">General Procedures</string>
+
     <string name="road_signs_and_markings">Road Signs and Markings</string>
+    <string name="regulatory_signs">Regulatory Signs</string>
+    <string name="warning_signs">Warning Signs</string>
+    <string name="guide_signs">Guide Signs</string>
+    <string name="signs_expressway">Signs on Expressway</string>
+
     <string name="traffic_rules_and_regulations">Traffic Rules and Regulations</string>
     <string name="lto_reviewer">LTO Exam Reviewer</string>
+
     <string name="non_pro_exam">Non-professional Exam</string>
     <string name="exam_result">Exam Result</string>
     <string name="view_result">View Result</string>
@@ -23,4 +32,69 @@
     <string name="back_button">Back</string>
     <string name="cancel">Cancel</string>
     <string name="next">Next</string>
+
+    <!-- LICENSING INFORMATION -->
+    <string name="PAL_BANNER">Permits and Licenses</string>
+    <string name="PAL_SEC_1">Student-Driver\'s Permit (SP)</string>
+    <string name="PAL_1">An authority granted by the LTO to a person who desires to learn to operate a motor vehicle.</string>
+    <string name="PAL_1_2">The student-driver must be accompanied by a duly licensed driver, acting as driving instructor, possessing the appropriate license code/s for the desired type of motor vehicle.</string>
+    <string name="PAL_SEC_2">Validity of Student-Driver\’s Permit (SP)</string>
+    <string name="PAL_SEC_2_1">Validity Period</string>
+    <string name="PAL_2_1_1">The SP is valid for 1 year from the date of issuance. </string>
+    <string name="PAL_2_1_2">After 1 year, it cannot be used for the practical driving course but can be used to apply for a Non-Professional Driver’s License (NPDL) if the course was completed within the validity period.</string>
+    <string name="PAL_SEC_2_2">After 2 Years</string>
+    <string name="PAL_2_2_1">The holder must acquire a new SP with the same SP number and restart the apprenticeship period from the new issuance date.</string>
+    <string name="PAL_2_2_2">All previous training records are retained.</string>
+    <string name="PAL_SEC_2_3">Renewal</string>
+    <string name="PAL_2_3_1">The SP can be renewed on or before the expiry date if the holder is not ready to apply for a Driver’s License (DL).</string>
+    <string name="PAL_2_3_2"> Renewal after expiry requires only the basic fee, except for penalties due to traffic violations.</string>
+
+    <string name="PAL_SEC_3">Conductor\’s License (CL)</string>
+    <string name="PAL_3">An authority granted by the LTO to a qualified person to assist the driver of a public utility vehicle in fare collection and/or ensuring the safety of the passengers and/or cargo while the said vehicle is in operation.</string>
+    <string name="PAL_SEC_4">Validity Of Conductor’s License (CL)</string>
+    <string name="PAL_4">A new CL is valid for 5 years from the licensee’s date of birth, unless revoked or suspended.</string>
+    <string name="PAL_SEC_4_1">Renewal for Compliant Holders</string>
+    <string name="PAL_4_1">If the holder commits no violations during the 5-year period, the CL can be renewed for 10 years.</string>
+    <string name="PAL_SEC_4_2">Late Renewal</string>
+    <string name="PAL_4_2">If renewed after 2 years from the expiry date, the holder must pass a written examination and pay the basic fee and an additional penalty.</string>
+
+    <string name="PAL_SEC_5">Driver\’s License (DL)</string>
+    <string name="PAL_5">An authority in the form prescribed by the LTO granted to a person to operate motor vehicle that is either nonprofessional or professional driver’s license.</string>
+    <string name="PAL_SEC_6">Non-professional DL (NPDL)</string>
+    <string name="PAL_6">An authority in the form prescribed by the LTO granted to a person to operate a private motor vehicle.</string>
+    <string name="PAL_SEC_7">Professional DL (PDL)</string>
+    <string name="PAL_7">An authority in the form prescribed by the LTO granted to any driver hired or paid for driving or operating a motor vehicle whether for private use or for hire to the public.</string>
+    <string name="PAL_SEC_8">Driver\’s License Code (DL Code)</string>
+    <string name="PAL_8">Refers to the collective code representing the vehicle category/ies that a licensed person is allowed to operate.</string>
+    <string name="PAL_SEC_9">Driving Enhancement Program (DEP)</string>
+    <string name="PAL_9">An updated road safety seminar designed by LTO for DL holders. Drivers are required to attend this seminar prior to renewal of the initial five (5) year license.</string>
+    <string name="PAL_SEC_10">Vehicle Category (VC)</string>
+    <string name="PAL_10">Refers to motor vehicle category as specified in the Philippine National Standard on Road Vehicles-Classification and Definition.</string>
+    <string name="PAL_SEC_11">Restriction Code (RC)</string>
+    <string name="PAL_11">Refers to previous code representing the vehicle category/ies that a licensed person is allowed to operate.</string>
+
+    <string name="DLC_Banner">Restriction Code and its Equivalent to Driver\’s License Code</string>
+    <string name="DLC_SEC_1">Notes:</string>
+    <string name="DLC_1">Holders of DL with MT Clutch Code are allowed to operate vehicles with Automatic Transmission (AT).</string>
+    <string name="DLC_2">Holders of DL with AT Clutch Code are not allowed to operate vehicles with Manual Transmission (MT).</string>
+    <string name="DLC_3">For new DL, applicants are only allowed to apply for NPDL under DL Codes A, A1, B, B1 and B2, or combination thereof.</string>
+
+    <string name="QDR_Banner">Qualifications and Documentary Requirements</string>
+    <string name="QDR_SEC_1">Medical Conditions and Driving Indications</string>
+    <string name="QDR_SEC_2">Medical Certificate</string>
+    <string name="QDR_1">A certification issued by a registered physician of an LTO accredited medical clinic stating the result of applicant’s medical examination and valid for a period of sixty (60) days from the date of issuance.</string>
+    <string name="QDR_2">Drivers with driving conditions “2” or “3” or “4” or “5” are not allowed to operate For-Hire/ Public Utility Vehicles or Commercial Vehicles, unless, expressly allowed, in writing, by a qualified medical specialist.</string>
+
+    <string name="QDR_SEC_3">Student-Driver\'s Permit</string>
+    <string name="QDR_SEC_4">New Driver\'s License</string>
+    <string name="QDR_3">A new DL is valid for five (5) years reckoned from the date of birth of the licensee, unless sooner revoked or suspended. A DL holder who has not committed any violation/s during the five (5) year period preceding its expiration is entitled to a renewal of such license valid for ten (10) years.</string>
+    <string name="QDR_SEC_5">Renewal of Driver\'s License</string>
+    <string name="QDR_SEC_6">Late Renewal (After 2 Years)</string>
+    <string name="QDR_4">Requires the holder to: Pass theoretical and practical examination, Pay the basic fee and an additional penalty.</string>
+
+    <string name="GP_SEC_1">General Procedures</string>
+
+    <!-- END OF LICENSING INFORMATION -->
+
+
 </resources>
