@@ -15,16 +15,15 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.MaterialTheme
-
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -38,25 +37,26 @@ import androidx.navigation.compose.rememberNavController
 import com.example.mcriderkit.data.DataSource
 import com.example.mcriderkit.ui.ExamResultScreen
 import com.example.mcriderkit.ui.ExamViewModel
+import com.example.mcriderkit.ui.HazardResultScreen
 import com.example.mcriderkit.ui.HazardTestMenuScreen
 import com.example.mcriderkit.ui.HazardTestScreen
-import com.example.mcriderkit.ui.HazardResultScreen
 import com.example.mcriderkit.ui.HazardTestScreenReview
 import com.example.mcriderkit.ui.HazardTestViewModel
 import com.example.mcriderkit.ui.LTOMenuScreen
-import com.example.mcriderkit.ui.studyMaterials.LicensingInformationMenu
 import com.example.mcriderkit.ui.MainMenuScreen
 import com.example.mcriderkit.ui.NonProQuizScreen
 import com.example.mcriderkit.ui.ProfileScreen
 import com.example.mcriderkit.ui.RevScreen
-import com.example.mcriderkit.ui.studyMaterials.RoadSignsScreen
 import com.example.mcriderkit.ui.SelectedVideoScreen
 import com.example.mcriderkit.ui.SettingsScreen
-import com.example.mcriderkit.ui.studyMaterials.TrafficRulesAndRegulationsScreen
 import com.example.mcriderkit.ui.TutorialScreen
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
+import com.example.mcriderkit.ui.studyMaterials.GeneralProcedures
+import com.example.mcriderkit.ui.studyMaterials.LicensingInformationMenu
 import com.example.mcriderkit.ui.studyMaterials.PermitsLicenses
 import com.example.mcriderkit.ui.studyMaterials.Qualifications
+import com.example.mcriderkit.ui.studyMaterials.RoadSignsScreen
+import com.example.mcriderkit.ui.studyMaterials.TrafficRulesAndRegulationsScreen
 
 enum class NavigationScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
@@ -203,9 +203,9 @@ fun NavigationApp(
                 }
                 composable(route = NavigationScreen.Profile.name) {
                     ProfileScreen(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(dimensionResource(R.dimen.padding_medium))
+                        examViewModel = quizViewModel,
+                        viewModel = hazardViewModel,
+                        context = LocalContext.current
                     )
                 }
                 composable(route = NavigationScreen.Settings.name) {
@@ -311,6 +311,13 @@ fun NavigationApp(
                         },
                         onNextButtonClicked = {
                             navController.navigate(NavigationScreen.GeneralProcedures.name)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.GeneralProcedures.name) {
+                    GeneralProcedures(
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.Qualifications.name)
                         }
                     )
                 }

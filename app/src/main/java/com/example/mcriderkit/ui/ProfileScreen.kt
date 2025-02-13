@@ -1,38 +1,81 @@
 package com.example.mcriderkit.ui
 
 import android.content.Context
-import androidx.compose.foundation.layout.Arrangement
-
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mcriderkit.R
-import com.example.mcriderkit.data.QuizScore
-
+import com.example.mcriderkit.ui.components.HazardTestGraph
 
 @Composable
 fun ProfileScreen(
-    modifier: Modifier = Modifier,
+    examViewModel: ExamViewModel,
+    viewModel: HazardTestViewModel,
+    context: Context
 ) {
-    val context = LocalContext.current
-    val sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-    val userName = sharedPref.getString("user_name", "Rider") ?: "Rider" // Default name
+    val userName = rememberSaveable { mutableStateOf("User") }
 
-    LazyColumn (
-        modifier = Modifier.padding(16.dp, 8.dp),
-        verticalArrangement = Arrangement.Center,
+    // Load saved user name
+    LaunchedEffect(Unit) {
+        val sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        userName.value = sharedPref.getString("user_name", "User") ?: "User"
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        item{
-            Text(text = "Welcome, $userName!", style = MaterialTheme.typography.headlineMedium)
+    ) {
+        // Profile Picture Placeholder
+        Box(
+            modifier = Modifier
+                .size(100.dp)
+                .clip(CircleShape)
+                .background(Color.Gray),
+            contentAlignment = Alignment.Center
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.robot_profile),
+                contentDescription = "Profile Picture",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // User Name
+        Text(
+            text = userName.value,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        HazardTestGraph(viewModel = viewModel)
     }
 }
 

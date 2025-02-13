@@ -117,6 +117,7 @@ object DataSource {
             speedLimit = "60 km/h",
             timeOfDay = "Morning",
             weather = "Clear",
+            lastScore = 70,
             videoPath = "test1",
             thumbnailId = R.drawable.hazard_thumbnail_1,
             videoLength = 12,
@@ -131,6 +132,7 @@ object DataSource {
             speedLimit = "40 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
+            lastScore = 100,
             videoPath = "test2",
             thumbnailId = R.drawable.hazard_thumbnail_2,
             videoLength = 19,
@@ -138,6 +140,36 @@ object DataSource {
             perfectRange = 0.5,
             goodRange = 0.60,
             lateRange = 0.77
+        ),
+        HazardTest(
+            title = "Test Video 3",
+            location = "EDSA Highway",
+            speedLimit = "30-40 km/h",
+            timeOfDay = "Afternoon",
+            weather = "Clear",
+            lastScore = 50,
+            videoPath = "test3",
+            thumbnailId = R.drawable.hazard_thumbnail_3,
+            videoLength = 31,
+            earlyRange = 0.68,
+            perfectRange = 0.72,
+            goodRange = 0.76,
+            lateRange = 0.80
+        ),
+        HazardTest(
+            title = "Test Video 4",
+            location = "Katipunan road",
+            speedLimit = "20 km/h",
+            timeOfDay = "Afternoon",
+            weather = "Clear",
+            lastScore = 90,
+            videoPath = "test4",
+            thumbnailId = R.drawable.hazard_thumbnail_4,
+            videoLength = 28,
+            earlyRange = 0.57,
+            perfectRange = 0.62,
+            goodRange = 0.64,
+            lateRange = 0.66
         )
     )
 

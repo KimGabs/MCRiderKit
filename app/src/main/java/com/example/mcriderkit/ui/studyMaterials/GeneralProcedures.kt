@@ -15,7 +15,10 @@ import androidx.compose.ui.unit.dp
 import com.example.mcriderkit.R
 
 @Composable
-fun GeneralProcedures() {
+fun GeneralProcedures(
+    modifier: Modifier = Modifier,
+    onPrevButtonClicked: () -> Unit,
+) {
     val context = LocalContext.current
 
     LazyColumn(modifier = Modifier.padding(16.dp, 0.dp)) {
@@ -31,6 +34,11 @@ fun GeneralProcedures() {
                     .fillMaxWidth()
                     .aspectRatio(0.8f)
             )
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
+        item{
+            PrevButton(onClick = { onPrevButtonClicked() })
             Spacer(modifier = Modifier.height(16.dp))
         }
     }
