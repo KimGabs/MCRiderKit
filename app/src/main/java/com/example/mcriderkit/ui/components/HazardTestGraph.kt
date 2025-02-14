@@ -1,10 +1,13 @@
 package com.example.mcriderkit.ui.components
 
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -12,21 +15,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import co.yml.charts.axis.AxisData
-import co.yml.charts.common.model.Point
-import co.yml.charts.ui.linechart.LineChart
-import co.yml.charts.ui.linechart.model.GridLines
-import co.yml.charts.ui.linechart.model.IntersectionPoint
-import co.yml.charts.ui.linechart.model.Line
-import co.yml.charts.ui.linechart.model.LineChartData
-import co.yml.charts.ui.linechart.model.LinePlotData
-import co.yml.charts.ui.linechart.model.LineStyle
-import co.yml.charts.ui.linechart.model.SelectionHighlightPoint
-import co.yml.charts.ui.linechart.model.SelectionHighlightPopUp
-import co.yml.charts.ui.linechart.model.ShadowUnderLine
 import com.example.mcriderkit.data.HazardTest
 import com.example.mcriderkit.ui.HazardTestViewModel
+import ir.ehsannarmani.compose_charts.ColumnChart
+import ir.ehsannarmani.compose_charts.models.BarProperties
+import ir.ehsannarmani.compose_charts.models.Bars
+import ir.ehsannarmani.compose_charts.models.LabelHelperProperties
 
 @Composable
 fun HazardTestGraph(viewModel: HazardTestViewModel) {
@@ -49,11 +45,12 @@ fun HazardTestGraph(viewModel: HazardTestViewModel) {
         ) {
             Text(
                 text = "Hazard Test Scores",
-                style = MaterialTheme.typography.headlineSmall
+                style = MaterialTheme.typography.headlineSmall,
+                textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(16.dp))
             if (hazardTests.isNotEmpty()) {
-                LineChartView(hazardTests)
+                HazardTestBarChart(hazardTests)
             } else {
                 Text("No data available")
             }
@@ -62,65 +59,45 @@ fun HazardTestGraph(viewModel: HazardTestViewModel) {
 }
 
 @Composable
-fun LineChartView(hazardTests: List<HazardTest>) {
-    if (hazardTests.isEmpty()) {
-        Text("No data available", style = MaterialTheme.typography.bodyMedium)
-        return
-    }
+fun HazardTestBarChart(hazardTests: List<HazardTest>) {
+    // Prepare data for the bar chart
+    val barData = remember(hazardTests) {
+        hazardTests.map { test ->
+            Bars(
+                label = "Test ${test.id}", // X-axis label for each bar
+                values = listOf(
+                    Bars.Data(
 
-    // Prepare data for the chart
-    val points = hazardTests.mapIndexed { index, test ->
-        Point(index.toFloat(), test.lastScore.toFloat()) // Y-values (lastScore)
-    }
-
-    // Define X-axis (Test IDs or Numbers)
-    val xAxisData = AxisData.Builder()
-        .axisStepSize(80.dp) // Adjust step size for spacing
-        .steps(points.size - 1) // Number of test points
-        .labelData { index -> "Test ${hazardTests[index].id}" } // Display integer values
-        .build()
-
-    // Define Y-axis (Score from 0 to 100)
-    val yAxisData = AxisData.Builder()
-        .axisStepSize(100.dp / 5) // Adjust step size for spacing
-        .steps(5) // 5 steps (e.g., 0, 20, 40, 60, 80, 100)
-        .build()
-
-    // Define the line chart data
-    val lineChartData = LineChartData(
-        linePlotData = LinePlotData(
-            lines = listOf(
-                Line(
-                    dataPoints = points,
-                    LineStyle(color = Color.Gray, width = 0.5f),
-                    IntersectionPoint(color = Color.Green),
-                    SelectionHighlightPoint(color = Color.Green),
-                    ShadowUnderLine(
-                        alpha = 0.5f,
-                        brush = Brush.verticalGradient(listOf(Color.Gray, Color.Transparent))
-                    ),
-                    SelectionHighlightPopUp(
-                        popUpLabel = { x, y ->
-                            val xLabel = "Test ${x.toInt() + 1},"
-                            val yLabel = "Score: ${String.format("%.2f", y)}"
-                            "$xLabel  $yLabel"
-                        }
+                        value = test.lastScore.toDouble(), // Y-axis value: lastScore
+                        color = Brush.verticalGradient(
+                            colors = listOf(Color(0xFFCDDC39), Color(0xFF4CAF50)),
+                            startY = 0.0f,
+                            endY = 500.0f
+                        ) // Bar color
                     )
                 )
             )
-        ),
-        xAxisData = xAxisData,
-        yAxisData = yAxisData,
-        gridLines = GridLines(color = Color.LightGray),
-        backgroundColor = Color.White
-    )
+        }
+    }
 
-    // Wrap the LineChart in a Box with padding to prevent label truncation
-    LineChart(
+    // Display the bar chart
+    ColumnChart(
         modifier = Modifier
             .fillMaxWidth()
-            .height(300.dp),
-        lineChartData = lineChartData
+            .height(300.dp)
+            .padding(horizontal = 20.dp),
+        data = barData,
+        barProperties = BarProperties(
+            cornerRadius = Bars.Data.Radius.Rectangle(topRight = 6.dp, topLeft = 6.dp), // Rounded corners
+            spacing = 6.dp, // Spacing between bars
+            thickness = 30.dp // Bar width
+        ),
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioLowBouncy,
+            stiffness = Spring.StiffnessLow
+        ),
+        labelHelperProperties = LabelHelperProperties(
+            enabled = false
+        )
     )
-
 }

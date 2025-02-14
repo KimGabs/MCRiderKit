@@ -77,7 +77,7 @@ fun TrafficRulesAndRegulationsScreen() {
 
 @Composable
 fun SectionContent(title: String, content: List<String>) {
-    Column(modifier = Modifier.fillMaxWidth()) {
+    Column(modifier = Modifier.fillMaxWidth().padding(16.dp, 0.dp)) {
         Text(text = title, fontSize = 20.sp, fontWeight = FontWeight.Bold)
         content.forEach { item ->
             Text(
@@ -92,7 +92,7 @@ fun SectionContent(title: String, content: List<String>) {
 
 @Composable
 fun SectionText(content: List<String>) {
-    Column(modifier = Modifier.fillMaxWidth()) {
+    Column(modifier = Modifier.fillMaxWidth().padding(16.dp, 0.dp)) {
         content.forEach { item ->
             Text(
                 text = "• $item",
@@ -106,7 +106,7 @@ fun SectionText(content: List<String>) {
 
 @Composable
 fun SubsectionContent(title: String, content: List<String>) {
-    Column(modifier = Modifier.fillMaxWidth()) {
+    Column(modifier = Modifier.fillMaxWidth().padding(16.dp, 0.dp)) {
         Text(text = title, fontSize = 18.sp, fontWeight = FontWeight.Bold)
         content.forEach { item ->
             Text(
@@ -121,7 +121,9 @@ fun SubsectionContent(title: String, content: List<String>) {
 
 @Composable
 fun SectionTitle(title: String){
-    Text(text = title, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+    Column(modifier = Modifier.fillMaxWidth().padding(16.dp, 0.dp)) {
+        Text(text = title, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+    }
 }
 
 @Composable

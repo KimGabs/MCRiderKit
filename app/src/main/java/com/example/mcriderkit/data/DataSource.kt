@@ -150,7 +150,7 @@ object DataSource {
             lastScore = 50,
             videoPath = "test3",
             thumbnailId = R.drawable.hazard_thumbnail_3,
-            videoLength = 31,
+            videoLength = 30,
             earlyRange = 0.68,
             perfectRange = 0.72,
             goodRange = 0.76,

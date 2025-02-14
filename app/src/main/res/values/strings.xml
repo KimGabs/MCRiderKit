@@ -38,7 +38,7 @@
     <string name="PAL_SEC_1">Student-Driver\'s Permit (SP)</string>
     <string name="PAL_1">An authority granted by the LTO to a person who desires to learn to operate a motor vehicle.</string>
     <string name="PAL_1_2">The student-driver must be accompanied by a duly licensed driver, acting as driving instructor, possessing the appropriate license code/s for the desired type of motor vehicle.</string>
-    <string name="PAL_SEC_2">Validity of Student-Driver\’s Permit (SP)</string>
+    <string name="PAL_SEC_2">Validity of Student-Driver\’s Permit</string>
     <string name="PAL_SEC_2_1">Validity Period</string>
     <string name="PAL_2_1_1">The SP is valid for 1 year from the date of issuance. </string>
     <string name="PAL_2_1_2">After 1 year, it cannot be used for the practical driving course but can be used to apply for a Non-Professional Driver’s License (NPDL) if the course was completed within the validity period.</string>

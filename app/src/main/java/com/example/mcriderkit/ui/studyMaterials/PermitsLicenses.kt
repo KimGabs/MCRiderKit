@@ -1,6 +1,8 @@
 package com.example.mcriderkit.ui.studyMaterials
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,9 +13,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.mcriderkit.R
-import androidx.compose.ui.platform.LocalContext
 
 @Composable
 fun PermitsLicenses(
@@ -21,10 +24,16 @@ fun PermitsLicenses(
 ) {
     val context = LocalContext.current
 
-    LazyColumn(modifier = Modifier.padding(16.dp, 0.dp)) {
+    LazyColumn() {
         item{
-            Spacer(modifier = Modifier.height(8.dp))
-            Banner(context.getString(R.string.PAL_BANNER))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color(0xFF4CAF50))
+            ){
+                Banner(context.getString(R.string.PAL_BANNER))
+            }
+            Spacer(modifier = Modifier.height(16.dp))
         }
         item {
             // Section for Student-Driver's Permit
@@ -120,7 +129,7 @@ fun NextButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth().padding(16.dp, 0.dp)
     ) {
         Text("Next")
     }
@@ -133,7 +142,7 @@ fun PrevButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth().padding(16.dp, 0.dp)
     ) {
         Text("Prev")
     }
