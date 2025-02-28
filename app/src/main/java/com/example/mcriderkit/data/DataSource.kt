@@ -34,12 +34,9 @@ object DataSource {
         "Licensing Information",
         "Road Signs & Markings",
         "Traffic Rules & Regulations",
-        "Driving Etiquette & Road Courtesy",
         "Traffic Violations & Penalties",
-        "Special Driving Situations",
         "Vehicle Basics & Maintenance",
-        "LTO Licensing Process & Requirements",
-        "First Aid & Accident Response"
+        "Driving Etiquette & Road Courtesy"
     )
 
     val licensingInfo = listOf(
@@ -52,8 +49,7 @@ object DataSource {
     val roadSignsAndMarkings = listOf(
         "Regulatory Signs",
         "Warning Signs",
-        "Guide/Informative Signs",
-        "Signs on Expressway"
+        "Guide/Informative Signs"
     )
 
     data class Question(

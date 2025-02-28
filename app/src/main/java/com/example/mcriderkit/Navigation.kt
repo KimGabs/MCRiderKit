@@ -52,12 +52,14 @@ import com.example.mcriderkit.ui.SettingsScreen
 import com.example.mcriderkit.ui.TutorialScreen
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
 import com.example.mcriderkit.ui.studyMaterials.GeneralProcedures
+import com.example.mcriderkit.ui.studyMaterials.GuideSigns
 import com.example.mcriderkit.ui.studyMaterials.LicensingInformationMenu
 import com.example.mcriderkit.ui.studyMaterials.PermitsLicenses
 import com.example.mcriderkit.ui.studyMaterials.Qualifications
 import com.example.mcriderkit.ui.studyMaterials.RegulatorySign
 import com.example.mcriderkit.ui.studyMaterials.RoadSignsScreen
 import com.example.mcriderkit.ui.studyMaterials.TrafficRulesAndRegulationsScreen
+import com.example.mcriderkit.ui.studyMaterials.WarningSign
 
 enum class NavigationScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
@@ -342,6 +344,26 @@ fun NavigationApp(
                     RegulatorySign(
                         onNextButtonClicked = {
                             navController.navigate(NavigationScreen.WarningSigns.name)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.WarningSigns.name){
+                    WarningSign (
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.RegulatorySigns.name)
+                        },
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.GuideSigns.name)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.GuideSigns.name){
+                    GuideSigns (
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.WarningSigns.name)
+                        },
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.SignsOnExpressway.name)
                         }
                     )
                 }

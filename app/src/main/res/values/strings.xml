@@ -150,6 +150,35 @@
     <string name="PARKING_SIGNS_12_1">Vehicles from the left lane may cross the broken line to turn right within the BUS/PUJ zone.</string>
 
     <!-- Warning Signs -->
-    <string name="WARN_SEC_1">Warning Signs</string>
+    <string name="WARN_SEC">Warning Signs</string>
+    <string name="HOR_SEC">1. Horizontal Signs</string>
+    <string name="HOR_SEC_1">These signs are used to indicate the type of road curve ahead of the motorist</string>
+    <string name="INT_SEC">2. Intersection Signs</string>
+    <string name="INT_SEC_1">Signs installed before intersection or junctions</string>
+    <string name="ADV_SEC">3. Advance Warning Signs</string>
+    <string name="ADV_SEC_1">Used to indicate signalized intersection and to warn the presence of STOP and GIVE WAY signs</string>
+    <string name="ADV_SEC_2">Traffic Light Ahead</string>
+    <string name="ADV_SEC_2_1">Driver must not park or stop within six (6) meters of this sign as it reduces visibility for other drivers</string>
+    <string name="RW_SEC">4. Road Width Signs</string>
+    <string name="OBS_SEC">5. Road Obstacles Signs</string>
+    <string name="PEDS_SEC">6. Pedestrian Signs</string>
+    <string name="PEDS_SEC_1">Pedestrian crossing ahead</string>
+    <string name="PEDS_SEC_2">Be aware of and stop for children crossing ahead</string>
+    <string name="PEDS_SEC_3">Persons with Disabilities (PWDs) crossing ahead</string>
+    <string name="PEDS_SEC_4">Advising the pedestrians to cross at designated areas</string>
+    <string name="PEDS_SEC_5">Be aware and slowdown on bicycle lane ahead</string>
+    <string name="RAIL_SEC">7. Railway Level Crossing Signs</string>
+    <string name="RAIL_SEC_1">Railroad Crossing</string>
+    <string name="RAIL_SEC_2">Railway Crossing Warning</string>
+    <string name="RAIL_SEC_3">Alternative railway crossing is positioned in an area that can be easily seen</string>
+    <string name="SUP_SEC">8. Supplementary Signs</string>
 
+    <!-- Guide Signs -->
+    <string name="GUIDE_SEC">Guide/Informative Signs</string>
+    <string name="ADV_DIR_SEC">1. Advance Direction Signs</string>
+    <string name="ADV_DIR_SEC_1">These signs indicate the direction(s) in which the motorists are given information or direction</string>
+    <string name="INT_DIR_SEC">2. Intersection Direction Signs</string>
+    <string name="INT_DIR_SEC_1">Visible in less than 1 kilometer before an intersection</string>
+    <string name="REAS_DIR_SEC">3. Reassurance Direction Signs</string>
+    <string name="REAS_DIR_SEC_1">Approximate distance of a particular exit</string>
 </resources>
