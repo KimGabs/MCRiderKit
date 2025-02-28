@@ -70,10 +70,10 @@ fun HazardTestBarChart(hazardTests: List<HazardTest>) {
 
                         value = test.lastScore.toDouble(), // Y-axis value: lastScore
                         color = Brush.verticalGradient(
-                            colors = listOf(Color(0xFFCDDC39), Color(0xFF4CAF50)),
+                            colors = listOf(Color(0xFFCDDC39), Color(0xFF4CAF50)), // Bar color
                             startY = 0.0f,
                             endY = 500.0f
-                        ) // Bar color
+                        )
                     )
                 )
             )

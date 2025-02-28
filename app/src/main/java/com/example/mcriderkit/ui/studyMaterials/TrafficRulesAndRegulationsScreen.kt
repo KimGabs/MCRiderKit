@@ -95,7 +95,7 @@ fun SectionText(content: List<String>) {
     Column(modifier = Modifier.fillMaxWidth().padding(16.dp, 0.dp)) {
         content.forEach { item ->
             Text(
-                text = "• $item",
+                text = item,
                 fontSize = 16.sp,
                 modifier = Modifier.padding(start = 8.dp, top = 4.dp),
                 textAlign = TextAlign.Justify

@@ -96,5 +96,60 @@
 
     <!-- END OF LICENSING INFORMATION -->
 
+    <!-- Road Traffic Signs -->
+    <!-- REGULATORY Signs -->
+    <string name="REG_SEC_1">Regulatory Signs</string>
+    <!-- Priority Signs -->
+    <string name="PRIORITY_SEC">1. Priority Signs</string>
+    <string name="REG_1">Signs that inform road users of traffic laws and regulations which, if disregarded, will constitute an offense.</string>
+    <string name="STOP_SIGN">Stop Sign</string>
+    <string name="STOP_SIGN_1">Driver must stop at designated STOP LINE. No parking within 6 meters.</string>
+    <string name="GIVE_WAY_SIGN">Give way Sign</string>
+    <string name="GIVE_WAY_SIGN_1">Yield to the vehicles on right side of intersection.</string>
+    <string name="LEFT_TURNER_SIGN">Left Turner Must Give Way</string>
+    <string name="LEFT_TURNER_SIGN_1">When turning left at intersections, you can only have the right of way if you use your turn signal at least 30 meters before reaching the intersection.</string>
+    <string name="LEFT_TURNER_SIGN_2">If there are cars arriving or already too close to the intersection, yield and make them pass.</string>
+    <!-- Directional Signs -->
+    <string name="DIRECTIONAL_SEC">2. Directional Signs</string>
+    <string name="DIRECTIONAL_1">These signs indicate the direction in which the motorist is obliged to follow.</string>
+    <string name="DIRECTIONAL_2">Vehicle May Pass Either Side</string>
+    <!-- Restrictive Signs -->
+    <string name="RESTRICTIVE_SEC">3. Restrictive Signs</string>
+    <string name="RESTRICTIVE_1">No entry for all types of vehicle</string>
+    <string name="RESTRICTIVE_2">No entry for specific types of vehicle</string>
+    <string name="NO_PED_CROSS_SIGN">No Pedestrian Crossing</string>
+    <string name="NO_PED_CROSS_SIGN_1">Pedestrian are not allowed to cross the road.</string>
+    <string name="USE_OVERPASS_SIGN">Using Overpass or Use Ped Xing</string>
+    <string name="USE_OVERPASS_SIGN_1">Pedestrian must use an overpass or pedestrian crossing.</string>
+    <string name="NO_RL_TURN_SIGN">No Right Turn or No Left Turn</string>
+    <string name="NO_RL_TURN_SIGN_1">Vehicles are not allowed to turn left or right.</string>
+    <string name="NO_U_TURN_SIGN">No U-Turn</string>
+    <string name="NO_U_TURN_SIGN_1">Vehicles are not allowed to make a U-turn.</string>
+    <string name="NO_OVERTAKING_SIGN">No Overtaking Zone</string>
+    <!-- Speed Signs -->
+    <string name="SPEED_SIGNS">4. Speed Signs</string>
+    <string name="SPEED_SIGNS_1">Maximum Speed Restriction</string>
+    <string name="SPEED_SIGNS_2">End of Speed Restrictions</string>
+    <string name="SPEED_SIGNS_3">Minimum Speed Restriction</string>
+    <!-- Parking Signs -->
+    <string name="PARKING_SIGNS">5. Parking and Stopping Signs</string>
+    <string name="PARKING_SIGNS_1">Allowable parking and loading zone at a given time and place.</string>
+    <string name="PARKING_SIGNS_2">No stopping anytime.</string>
+    <string name="PARKING_SIGNS_3">No loading and unloading zone.</string>
+    <string name="PARKING_SIGNS_4">No parking on fire hydrant within 4 meters.</string>
+    <string name="PARKING_SIGNS_5">No waiting.</string>
+    <string name="PARKING_SIGNS_6">Bus-PUJ Stop Zone.</string>
+    <string name="PARKING_SIGNS_6_1">Parking is not allowed.</string>
+    <string name="PARKING_SIGNS_7">Bus Stop Zone.</string>
+    <string name="PARKING_SIGNS_8">PUJ Stop Zone.</string>
+    <string name="PARKING_SIGNS_9">No Parking: Tow-Away Zone.</string>
+    <string name="PARKING_SIGNS_9_1">Parked vehicle will be towed.</string>
+    <string name="PARKING_SIGNS_10">No Stopping or Parking anytime within the yellow box.</string>
+    <string name="PARKING_SIGNS_11">No Parking anytime from Monday to Friday.</string>
+    <string name="PARKING_SIGNS_12">Right Turner Cross at Broken Lines.</string>
+    <string name="PARKING_SIGNS_12_1">Vehicles from the left lane may cross the broken line to turn right within the BUS/PUJ zone.</string>
+
+    <!-- Warning Signs -->
+    <string name="WARN_SEC_1">Warning Signs</string>
 
 </resources>

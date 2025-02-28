@@ -55,6 +55,7 @@ import com.example.mcriderkit.ui.studyMaterials.GeneralProcedures
 import com.example.mcriderkit.ui.studyMaterials.LicensingInformationMenu
 import com.example.mcriderkit.ui.studyMaterials.PermitsLicenses
 import com.example.mcriderkit.ui.studyMaterials.Qualifications
+import com.example.mcriderkit.ui.studyMaterials.RegulatorySign
 import com.example.mcriderkit.ui.studyMaterials.RoadSignsScreen
 import com.example.mcriderkit.ui.studyMaterials.TrafficRulesAndRegulationsScreen
 
@@ -334,6 +335,13 @@ fun NavigationApp(
                                 2 -> navController.navigate(NavigationScreen.GuideSigns.name)
                                 3 -> navController.navigate(NavigationScreen.SignsOnExpressway.name)
                             }
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.RegulatorySigns.name) {
+                    RegulatorySign(
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.WarningSigns.name)
                         }
                     )
                 }
