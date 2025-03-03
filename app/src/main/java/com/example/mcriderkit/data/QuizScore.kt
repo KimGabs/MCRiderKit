@@ -1,6 +1,5 @@
 package com.example.mcriderkit.data
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -8,5 +7,5 @@ import androidx.room.PrimaryKey
 data class QuizScore(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val quizType: String,
-    val highestScore: Int
+    val highestScore: Int = 0
 )

@@ -30,7 +30,7 @@ import com.example.mcriderkit.ui.components.HazardTestGraph
 
 @Composable
 fun ProfileScreen(
-    examViewModel: ExamViewModel,
+    examViewModel: NonProExamViewModel,
     viewModel: HazardTestViewModel,
     context: Context
 ) {

@@ -9,39 +9,39 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.unit.dp
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.example.mcriderkit.data.ExamUiState
+import com.example.mcriderkit.ui.components.BaseExamViewModel
 import kotlinx.coroutines.delay
 
 
 @Composable
 fun ExamResultScreen(
-    viewModel: ExamViewModel = viewModel(),
-        onRetry: () -> Unit,
+    viewModel: BaseExamViewModel,
+    onRetry: () -> Unit,
     onMainMenu: () -> Unit,
 ) {
 
-    val highestScore by viewModel.highestScore.collectAsState()
+    val highestScore by viewModel.highestScore.collectAsState(initial = null)
 
     // Fetch highest score when screen loads
     LaunchedEffect(Unit) {
         viewModel.fetchHighestScore("Non-Pro")
     }
 
-    val examState by viewModel.examState.collectAsState()
+    val examState by viewModel.examState.collectAsState(initial = ExamUiState())
     var isLoading by remember { mutableStateOf(false) } // Loading state
 
     // Show loading indicator when navigating or resetting quiz

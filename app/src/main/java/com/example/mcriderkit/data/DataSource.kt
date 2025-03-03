@@ -64,13 +64,13 @@ object DataSource {
         val question: String, // The text-based question
         val imageResId: Int? = null, // Optional image resource (null if no image)
         val options: List<String>, // List of answer options
-        val correctAnswerIndex: Int // Index of the correct answer
+        val correctAnswerIndex: Int, // Index of the correct answer
     )
 
     val examQuestions = listOf(
         Question("What's the minimum age to get a non-professional license in the Philippines",
             options = listOf("15 years old", "17 years old", "18 years old", "19 years old"),
-            correctAnswerIndex = 1
+            correctAnswerIndex = 1,
         ),
         Question("Drivers gather most information using their:",
             options = listOf("Cars", "Computer", "Eyes", "Hands"),

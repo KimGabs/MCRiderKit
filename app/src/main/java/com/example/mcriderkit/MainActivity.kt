@@ -8,15 +8,16 @@ import androidx.compose.runtime.*
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.example.mcriderkit.data.QuizDatabase
-import com.example.mcriderkit.ui.ExamViewModel
 import com.example.mcriderkit.ui.HazardTestViewModel
+import com.example.mcriderkit.ui.NonProExamViewModel
+import com.example.mcriderkit.ui.ProExamViewModel
+import com.example.mcriderkit.ui.StudentExamViewModel
 import com.example.mcriderkit.ui.UserInputScreen
 import com.example.mcriderkit.ui.components.HazardRepository
 import com.example.mcriderkit.ui.components.QuizRepository
 import com.example.mcriderkit.ui.theme.MCRiderKitTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import android.content.Context
 
 
 class MainActivity : ComponentActivity() {
@@ -37,7 +38,9 @@ class MainActivity : ComponentActivity() {
         val quizRepository = QuizRepository(database.quizScoreDao())
         val hazardRepository = HazardRepository(database.hazardTestDao())
 
-        val quizViewModel = ExamViewModel(quizRepository)
+        val nonProQuizViewModel = NonProExamViewModel(quizRepository)
+        val proQuizViewModel = ProExamViewModel(quizRepository)
+        val studentExamViewModel = StudentExamViewModel(quizRepository)
         val hazardViewModel = HazardTestViewModel(hazardRepository)
 
         enableEdgeToEdge()
@@ -45,7 +48,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MCRiderKitTheme {
                 // Load stored name
-                val sharedPref = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+                val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
                 var userName by remember { mutableStateOf(sharedPref.getString("user_name", null)) }
 
                 if (userName == null) {
@@ -55,7 +58,12 @@ class MainActivity : ComponentActivity() {
                     }, context = this@MainActivity)
                 } else {
                     // Navigate directly to main app if name is already stored
-                    NavigationApp(quizViewModel = quizViewModel, hazardViewModel = hazardViewModel)
+                    NavigationApp(
+                        nonProQuizViewModel = nonProQuizViewModel,
+                        proQuizViewModel = proQuizViewModel,
+                        studentExamViewModel = studentExamViewModel,
+                        hazardViewModel = hazardViewModel
+                    )
                 }
             }
         }

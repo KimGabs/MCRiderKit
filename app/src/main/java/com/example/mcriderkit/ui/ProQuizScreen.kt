@@ -27,8 +27,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mcriderkit.R
 
 @Composable
-fun NonProQuizScreen(
-    viewModel: NonProExamViewModel = viewModel(),
+fun ProQuizScreen(
+    viewModel: ProExamViewModel = viewModel(),
     onNextButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -117,7 +117,7 @@ fun NonProQuizScreen(
             Button(
                 onClick = {
                     if (examState.currentQuestionIndex == viewModel.questions.size - 1) {
-                        viewModel.finalQuestion(context.getString(R.string.non_pro_exam))
+                        viewModel.finalQuestion(context.getString(R.string.pro_exam))
                         onNextButtonClicked()
                     } else {
                         viewModel.nextQuestion()
@@ -136,4 +136,3 @@ fun NonProQuizScreen(
         }
     }
 }
-

@@ -30,13 +30,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.mcriderkit.data.DataSource
 import com.example.mcriderkit.ui.ExamResultScreen
-import com.example.mcriderkit.ui.ExamViewModel
 import com.example.mcriderkit.ui.HazardResultScreen
 import com.example.mcriderkit.ui.HazardTestMenuScreen
 import com.example.mcriderkit.ui.HazardTestScreen
@@ -44,12 +45,18 @@ import com.example.mcriderkit.ui.HazardTestScreenReview
 import com.example.mcriderkit.ui.HazardTestViewModel
 import com.example.mcriderkit.ui.LTOMenuScreen
 import com.example.mcriderkit.ui.MainMenuScreen
+import com.example.mcriderkit.ui.NonProExamViewModel
 import com.example.mcriderkit.ui.NonProQuizScreen
+import com.example.mcriderkit.ui.ProExamViewModel
+import com.example.mcriderkit.ui.ProQuizScreen
 import com.example.mcriderkit.ui.ProfileScreen
 import com.example.mcriderkit.ui.RevScreen
 import com.example.mcriderkit.ui.SelectedVideoScreen
 import com.example.mcriderkit.ui.SettingsScreen
+import com.example.mcriderkit.ui.StudentExamViewModel
+import com.example.mcriderkit.ui.StudentQuizScreen
 import com.example.mcriderkit.ui.TutorialScreen
+import com.example.mcriderkit.ui.components.BaseExamViewModel
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
 import com.example.mcriderkit.ui.studyMaterials.ExpresswaySigns
 import com.example.mcriderkit.ui.studyMaterials.GeneralProcedures
@@ -66,39 +73,54 @@ import com.example.mcriderkit.ui.studyMaterials.TrafficRulesAndRegulationsScreen
 import com.example.mcriderkit.ui.studyMaterials.TraversalLines
 import com.example.mcriderkit.ui.studyMaterials.WarningSign
 
-enum class NavigationScreen(@StringRes val title: Int) {
-    Start(title = R.string.app_name),
-    Profile(title = R.string.profile_),
-    Settings(title = R.string.settings_),
-    LTOMenu(title = R.string.lto_exam_menu),
-    Reviewer(title = R.string.lto_reviewer),
-    NonProExam(title = R.string.non_pro_exam),
-    ExamResult(title = R.string.exam_result),
-    HazardTestMenu(title = R.string.hazard_test_menu),
-    SelectedVideo(title = R.string.selected_video_screen),
-    HazardTest(title = R.string.hazard_test_screen),
-    HazardTestReview(title = R.string.hazard_review),
-    HazardResult(title = R.string.hazard_result),
+sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
+    object Start : NavigationScreen("Start", R.string.app_name)
+    object Profile : NavigationScreen("Profile", R.string.profile_)
+    object Settings : NavigationScreen("Settings", R.string.settings_)
+    object LTOMenu : NavigationScreen("LTOMenu", R.string.lto_exam_menu)
+    object Reviewer : NavigationScreen("Reviewer", R.string.lto_reviewer)
+    object StudentExam : NavigationScreen("StudentExam", R.string.student_exam)
+    object NonProExam : NavigationScreen("NonProExam", R.string.non_pro_exam)
+    object ProExam : NavigationScreen("ProExam", R.string.pro_exam)
+    object ExamResult : NavigationScreen("ExamResult", R.string.exam_result)
+    object HazardTestMenu : NavigationScreen("HazardTestMenu", R.string.hazard_test_menu)
+    object SelectedVideo : NavigationScreen("SelectedVideo", R.string.selected_video_screen)
+    object HazardTest : NavigationScreen("HazardTest", R.string.hazard_test_screen)
+    object HazardTestReview : NavigationScreen("HazardTestReview", R.string.hazard_review)
+    object HazardResult : NavigationScreen("HazardResult", R.string.hazard_result)
 
-    LicensingInfo(title = R.string.licensing_info),
-    PermitsLicenses(title = R.string.permits_licenses),
-    DriverLicense(title = R.string.driver_license),
-    Qualifications(title = R.string.qualifications),
-    GeneralProcedures(title = R.string.genera_procedures),
+    object LicensingInfo : NavigationScreen("LicensingInfo", R.string.licensing_info)
+    object PermitsLicenses : NavigationScreen("PermitsLicenses", R.string.permits_licenses)
+    object DriverLicense : NavigationScreen("DriverLicense", R.string.driver_license)
+    object Qualifications : NavigationScreen("Qualifications", R.string.qualifications)
+    object GeneralProcedures : NavigationScreen("GeneralProcedures", R.string.genera_procedures)
 
-    RoadSignAndMarkings(title = R.string.road_signs_and_markings),
-    RegulatorySigns(title = R.string.regulatory_signs),
-    WarningSigns(title = R.string.warning_signs),
-    GuideSigns(title = R.string.guide_signs),
-    SignsOnExpressway(title = R.string.signs_expressway),
+    object RoadSignAndMarkings : NavigationScreen("RoadSignAndMarkings", R.string.road_signs_and_markings)
+    object RegulatorySigns : NavigationScreen("RegulatorySigns", R.string.regulatory_signs)
+    object WarningSigns : NavigationScreen("WarningSigns", R.string.warning_signs)
+    object GuideSigns : NavigationScreen("GuideSigns", R.string.guide_signs)
+    object SignsOnExpressway : NavigationScreen("SignsOnExpressway", R.string.signs_expressway)
 
-    PavementMarkings(title = R.string.PAVEMENT_MARK),
-    LongitudinalLines(title = R.string.LONG_MARK_SEC),
-    TraversalLines(title = R.string.TRAV_SEC),
-    OtherLines(title = R.string.OTHER_LINES_SEC),
+    object PavementMarkings : NavigationScreen("PavementMarkings", R.string.PAVEMENT_MARK)
+    object LongitudinalLines : NavigationScreen("LongitudinalLines", R.string.LONG_MARK_SEC)
+    object TraversalLines : NavigationScreen("TraversalLines", R.string.TRAV_SEC)
+    object OtherLines : NavigationScreen("OtherLines", R.string.OTHER_LINES_SEC)
 
-    TrafficRulesAndRegulations(title = R.string.traffic_rules_and_regulations)
+    object TrafficRulesAndRegulations : NavigationScreen("TrafficRulesAndRegulations", R.string.traffic_rules_and_regulations)
+
+    companion object {
+        fun fromRoute(route: String?): NavigationScreen {
+            return when (route) {
+                Start.route -> Start
+                Profile.route -> Profile
+                Settings.route -> Settings
+                else -> Start // Default to Start if route is unknown
+            }
+        }
+    }
+
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -130,7 +152,9 @@ fun NavAppBar(
 @Composable
 fun NavigationApp(
     navController: NavHostController = rememberNavController(),
-    quizViewModel: ExamViewModel,
+    nonProQuizViewModel: NonProExamViewModel,
+    proQuizViewModel: ProExamViewModel,
+    studentExamViewModel: StudentExamViewModel,
     hazardViewModel: HazardTestViewModel,
 ) {
     var selectedItem by remember { mutableIntStateOf(0) }
@@ -140,19 +164,19 @@ fun NavigationApp(
     val selectedIcons = listOf(Icons.Filled.Home, Icons.Filled.Person, Icons.Filled.Settings)
     val unselectedIcons = listOf(Icons.Outlined.Home, Icons.Outlined.Person, Icons.Outlined.Settings)
     val backStackEntry by navController.currentBackStackEntryAsState()
-    val currentScreen = NavigationScreen.valueOf(
-        backStackEntry?.destination?.route ?: NavigationScreen.Start.name
+    val currentScreen = NavigationScreen.fromRoute(
+        backStackEntry?.destination?.route ?: NavigationScreen.Start.route
     )
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
     val topLevelDestinations = setOf(
-        NavigationScreen.Start.name,
-        NavigationScreen.Profile.name,
-        NavigationScreen.Settings.name
+        NavigationScreen.Start.route,
+        NavigationScreen.Profile.route,
+        NavigationScreen.Settings.route
     )
 
     Scaffold(
         topBar = {
-            if (currentRoute == NavigationScreen.ExamResult.name || currentRoute == NavigationScreen.HazardResult.name) {
+            if (currentRoute?.startsWith("ExamResult") == true || currentRoute?.startsWith("HazardResult") == true) {
                 NavAppBar(
                     currentScreen = currentScreen,
                     canNavigateBack = false,
@@ -162,13 +186,13 @@ fun NavigationApp(
             else {
                 NavAppBar(
                     currentScreen = currentScreen,
-                    canNavigateBack = navController.previousBackStackEntry != null && currentScreen.name !in topLevelDestinations,
+                    canNavigateBack = navController.previousBackStackEntry != null && currentScreen.route !in topLevelDestinations,
                     navigateUp = { navController.navigateUp() }
                 )
             }
         },
         bottomBar = {
-            if (currentRoute != NavigationScreen.HazardTest.name) {
+            if (currentRoute != NavigationScreen.HazardTest.route) {
                 NavigationBar {
                     items.forEachIndexed { index, item ->
                         NavigationBarItem(
@@ -183,9 +207,10 @@ fun NavigationApp(
                             onClick = {
                                 selectedItem = index
                                 when (index) {
-                                    0 -> navController.navigate(NavigationScreen.Start.name)
-                                    1 -> navController.navigate(NavigationScreen.Profile.name)
-                                    2 -> navController.navigate(NavigationScreen.Settings.name)
+                                    0 -> navController.navigate(NavigationScreen.Start.route)
+                                    1 -> navController.navigate(NavigationScreen.Profile.route)
+                                    2 -> navController.navigate(NavigationScreen.Settings.route)
+                                    else -> throw IllegalArgumentException("Invalid Screen")
                                 }
                             }
                         )
@@ -196,10 +221,10 @@ fun NavigationApp(
         content = { paddingValues ->
             NavHost(
                 navController = navController,
-                startDestination = NavigationScreen.Start.name,
+                startDestination = NavigationScreen.Start.route,
                 modifier = Modifier.padding(paddingValues)
             ) {
-                composable(route = NavigationScreen.Start.name) {
+                composable(route = NavigationScreen.Start.route) {
                     MainMenuScreen(
                         menuList = DataSource.menuList,
                         modifier = Modifier
@@ -207,28 +232,30 @@ fun NavigationApp(
                             .padding(dimensionResource(R.dimen.padding_medium)),
                         onNextButtonClicked = { index ->
                             when (index) {
-                                0 -> navController.navigate(NavigationScreen.LTOMenu.name)
-                                1 -> navController.navigate(NavigationScreen.Reviewer.name)
-                                2 -> navController.navigate(NavigationScreen.HazardTestMenu.name)
+                                0 -> navController.navigate(NavigationScreen.LTOMenu.route)
+                                1 -> navController.navigate(NavigationScreen.Reviewer.route)
+                                2 -> navController.navigate(NavigationScreen.HazardTestMenu.route)
+                                else -> throw IllegalArgumentException("Invalid Screen")
+
                             }
                         }
                     )
                 }
-                composable(route = NavigationScreen.Profile.name) {
+                composable(route = NavigationScreen.Profile.route) {
                     ProfileScreen(
-                        examViewModel = quizViewModel,
+                        examViewModel = nonProQuizViewModel,
                         viewModel = hazardViewModel,
                         context = LocalContext.current
                     )
                 }
-                composable(route = NavigationScreen.Settings.name) {
+                composable(route = NavigationScreen.Settings.route) {
                     SettingsScreen(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(R.dimen.padding_medium))
                     )
                 }
-                composable(route = NavigationScreen.LTOMenu.name) {
+                composable(route = NavigationScreen.LTOMenu.route) {
                     LTOMenuScreen(
                         examType = DataSource.examList,
                         modifier = Modifier
@@ -236,40 +263,80 @@ fun NavigationApp(
                             .padding(dimensionResource(R.dimen.padding_medium)),
                         onNextButtonClicked = { index ->
                             when(index) {
-                                1 -> navController.navigate(NavigationScreen.NonProExam.name)
+                                0 -> navController.navigate(NavigationScreen.StudentExam.route)
+                                1 -> navController.navigate(NavigationScreen.NonProExam.route)
+                                2 -> navController.navigate(NavigationScreen.ProExam.route)
+                                else -> throw IllegalArgumentException("Invalid Screen")
                             }
                         }
-
                     )
                 }
-                composable(route = NavigationScreen.NonProExam.name) {
+                composable(route = NavigationScreen.NonProExam.route) {
                     NonProQuizScreen(
-                        viewModel = quizViewModel,
+                        viewModel = nonProQuizViewModel,
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.ExamResult.name)
+                            navController.navigate("ExamResult/NonPro")
                         },
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(R.dimen.padding_medium)))
 
                 }
-                composable(route = NavigationScreen.ExamResult.name) {
+                composable(route = NavigationScreen.StudentExam.route) {
+                    StudentQuizScreen(
+                        viewModel = studentExamViewModel,
+                        onNextButtonClicked = {
+                            navController.navigate("ExamResult/Student")
+                        },
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(dimensionResource(R.dimen.padding_medium)))
+
+                }
+                composable(route = NavigationScreen.ProExam.route) {
+                    ProQuizScreen(
+                        viewModel = proQuizViewModel,
+                        onNextButtonClicked = {
+                            navController.navigate("ExamResult/Pro")
+                        },
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(dimensionResource(R.dimen.padding_medium)))
+
+                }
+                composable(
+                    route = "${NavigationScreen.ExamResult.route}/{examType}",
+                    arguments = listOf(navArgument("examType") { type = NavType.StringType })
+                ) { backStackEntry ->
+                    val examType = backStackEntry.arguments?.getString("examType") ?: "NonPro"
+
+                    val selectedViewModel: BaseExamViewModel = when (examType) {
+                        "Student" -> studentExamViewModel
+                        "Pro" -> proQuizViewModel
+                        else -> nonProQuizViewModel
+                    }
+
                     ExamResultScreen(
-                        viewModel = quizViewModel,
+                        viewModel = selectedViewModel,
                         onMainMenu = {
-                            quizViewModel.resetQuiz()
-                            navController.navigate(NavigationScreen.Start.name)
-                                     },
+                            selectedViewModel.resetQuiz()
+                            navController.navigate(NavigationScreen.Start.route)
+                        },
                         onRetry = {
-                            quizViewModel.resetQuiz()
+                            selectedViewModel.resetQuiz()
                             navController.popBackStack(
-                                NavigationScreen.NonProExam.name,
+                                when (examType) {
+                                    "Student" -> NavigationScreen.StudentExam.route
+                                    "Pro" -> NavigationScreen.ProExam.route
+                                    else -> NavigationScreen.NonProExam.route
+                                },
                                 true
                             )
                         }
                     )
                 }
-                composable(route = NavigationScreen.Reviewer.name) {
+
+                composable(route = NavigationScreen.Reviewer.route) {
                     RevScreen(
                         revCategory = DataSource.examCategoryList,
                         modifier = Modifier
@@ -277,14 +344,14 @@ fun NavigationApp(
                             .padding(dimensionResource(R.dimen.padding_medium)),
                         onNextButtonClicked = { index ->
                             when(index) {
-                                0 -> navController.navigate(NavigationScreen.LicensingInfo.name)
-                                1 -> navController.navigate(NavigationScreen.RoadSignAndMarkings.name)
-                                2 -> navController.navigate(NavigationScreen.TrafficRulesAndRegulations.name)
+                                0 -> navController.navigate(NavigationScreen.LicensingInfo.route)
+                                1 -> navController.navigate(NavigationScreen.RoadSignAndMarkings.route)
+                                2 -> navController.navigate(NavigationScreen.TrafficRulesAndRegulations.route)
                             }
                         }
                     )
                 }
-                composable(route = NavigationScreen.LicensingInfo.name) {
+                composable(route = NavigationScreen.LicensingInfo.route) {
                     LicensingInformationMenu(
                         licensingInfoList = DataSource.licensingInfo,
                         modifier = Modifier
@@ -292,49 +359,50 @@ fun NavigationApp(
                             .padding(dimensionResource(R.dimen.padding_medium)),
                         onNextButtonClicked = { index ->
                             when(index) {
-                                0 -> navController.navigate(NavigationScreen.PermitsLicenses.name)
-                                1 -> navController.navigate(NavigationScreen.DriverLicense.name)
-                                2 -> navController.navigate(NavigationScreen.Qualifications.name)
-                                3 -> navController.navigate(NavigationScreen.GeneralProcedures.name)
+                                0 -> navController.navigate(NavigationScreen.PermitsLicenses.route)
+                                1 -> navController.navigate(NavigationScreen.DriverLicense.route)
+                                2 -> navController.navigate(NavigationScreen.Qualifications.route)
+                                3 -> navController.navigate(NavigationScreen.GeneralProcedures.route)
+                                else -> throw IllegalArgumentException("Invalid Screen")
                             }
                         }
                     )
                 }
-                composable(route = NavigationScreen.PermitsLicenses.name) {
+                composable(route = NavigationScreen.PermitsLicenses.route) {
                     PermitsLicenses(
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.DriverLicense.name)
+                            navController.navigate(NavigationScreen.DriverLicense.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.DriverLicense.name) {
+                composable(route = NavigationScreen.DriverLicense.route) {
                     DLClassification(
                         onPrevButtonClicked = {
-                            navController.navigate(NavigationScreen.PermitsLicenses.name)
+                            navController.navigate(NavigationScreen.PermitsLicenses.route)
                         },
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.Qualifications.name)
+                            navController.navigate(NavigationScreen.Qualifications.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.Qualifications.name) {
+                composable(route = NavigationScreen.Qualifications.route) {
                     Qualifications(
                         onPrevButtonClicked = {
-                            navController.navigate(NavigationScreen.DriverLicense.name)
+                            navController.navigate(NavigationScreen.DriverLicense.route)
                         },
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.GeneralProcedures.name)
+                            navController.navigate(NavigationScreen.GeneralProcedures.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.GeneralProcedures.name) {
+                composable(route = NavigationScreen.GeneralProcedures.route) {
                     GeneralProcedures(
                         onPrevButtonClicked = {
-                            navController.navigate(NavigationScreen.Qualifications.name)
+                            navController.navigate(NavigationScreen.Qualifications.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.RoadSignAndMarkings.name) {
+                composable(route = NavigationScreen.RoadSignAndMarkings.route) {
                     RoadSignsScreen(
                         roadSignsList = DataSource.roadSignsAndMarkings,
                         modifier = Modifier
@@ -342,50 +410,51 @@ fun NavigationApp(
                             .padding(dimensionResource(R.dimen.padding_medium)),
                         onNextButtonClicked = { index ->
                             when(index) {
-                                0 -> navController.navigate(NavigationScreen.RegulatorySigns.name)
-                                1 -> navController.navigate(NavigationScreen.WarningSigns.name)
-                                2 -> navController.navigate(NavigationScreen.GuideSigns.name)
-                                3 -> navController.navigate(NavigationScreen.SignsOnExpressway.name)
-                                4 -> navController.navigate(NavigationScreen.PavementMarkings.name)
+                                0 -> navController.navigate(NavigationScreen.RegulatorySigns.route)
+                                1 -> navController.navigate(NavigationScreen.WarningSigns.route)
+                                2 -> navController.navigate(NavigationScreen.GuideSigns.route)
+                                3 -> navController.navigate(NavigationScreen.SignsOnExpressway.route)
+                                4 -> navController.navigate(NavigationScreen.PavementMarkings.route)
+                                else -> throw IllegalArgumentException("Invalid Screen")
                             }
                         }
                     )
                 }
-                composable(route = NavigationScreen.RegulatorySigns.name) {
+                composable(route = NavigationScreen.RegulatorySigns.route) {
                     RegulatorySign(
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.WarningSigns.name)
+                            navController.navigate(NavigationScreen.WarningSigns.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.WarningSigns.name){
+                composable(route = NavigationScreen.WarningSigns.route){
                     WarningSign (
                         onPrevButtonClicked = {
-                            navController.navigate(NavigationScreen.RegulatorySigns.name)
+                            navController.navigate(NavigationScreen.RegulatorySigns.route)
                         },
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.GuideSigns.name)
+                            navController.navigate(NavigationScreen.GuideSigns.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.GuideSigns.name){
+                composable(route = NavigationScreen.GuideSigns.route){
                     GuideSigns (
                         onPrevButtonClicked = {
-                            navController.navigate(NavigationScreen.WarningSigns.name)
+                            navController.navigate(NavigationScreen.WarningSigns.route)
                         },
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.SignsOnExpressway.name)
+                            navController.navigate(NavigationScreen.SignsOnExpressway.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.SignsOnExpressway.name){
+                composable(route = NavigationScreen.SignsOnExpressway.route){
                     ExpresswaySigns(
                         onPrevButtonClicked = {
-                            navController.navigate(NavigationScreen.GuideSigns.name)
+                            navController.navigate(NavigationScreen.GuideSigns.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.PavementMarkings.name){
+                composable(route = NavigationScreen.PavementMarkings.route){
                     PavementMarkings(
                         pavementMarkingList = DataSource.PavementMarkings,
                         modifier = Modifier
@@ -393,41 +462,41 @@ fun NavigationApp(
                             .padding(dimensionResource(R.dimen.padding_medium)),
                         onNextButtonClicked = { index ->
                             when(index) {
-                                0 -> navController.navigate(NavigationScreen.LongitudinalLines.name)
-                                1 -> navController.navigate(NavigationScreen.TraversalLines.name)
-                                2 -> navController.navigate(NavigationScreen.OtherLines.name)
+                                0 -> navController.navigate(NavigationScreen.LongitudinalLines.route)
+                                1 -> navController.navigate(NavigationScreen.TraversalLines.route)
+                                2 -> navController.navigate(NavigationScreen.OtherLines.route)
                             }
                         }
                     )
                 }
-                composable(route = NavigationScreen.LongitudinalLines.name) {
+                composable(route = NavigationScreen.LongitudinalLines.route) {
                     LongitudinalLines(
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.TraversalLines.name)
+                            navController.navigate(NavigationScreen.TraversalLines.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.TraversalLines.name) {
+                composable(route = NavigationScreen.TraversalLines.route) {
                     TraversalLines(
                         onPrevButtonClicked = {
-                            navController.navigate(NavigationScreen.LongitudinalLines.name)
+                            navController.navigate(NavigationScreen.LongitudinalLines.route)
                         },
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.OtherLines.name)
+                            navController.navigate(NavigationScreen.OtherLines.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.OtherLines.name) {
+                composable(route = NavigationScreen.OtherLines.route) {
                     OtherLines(
                         onPrevButtonClicked = {
-                            navController.navigate(NavigationScreen.TraversalLines.name)
+                            navController.navigate(NavigationScreen.TraversalLines.route)
                         }
                     )
                 }
-                composable(route = NavigationScreen.TrafficRulesAndRegulations.name) {
+                composable(route = NavigationScreen.TrafficRulesAndRegulations.route) {
                     TrafficRulesAndRegulationsScreen()
                 }
-                composable(route = NavigationScreen.HazardTestMenu.name){
+                composable(route = NavigationScreen.HazardTestMenu.route){
                     backStackEntry ->
                     val context = LocalContext.current
                     val hasSeenTutorial = remember { mutableStateOf(isTutorialShown(context)) }
@@ -445,64 +514,64 @@ fun NavigationApp(
                             onClipSelected = { id ->
                                 // Fetch the hazard test data by id
                                 hazardViewModel.selectHazardTest(id)
-                                navController.navigate(NavigationScreen.SelectedVideo.name)
+                                navController.navigate(NavigationScreen.SelectedVideo.route)
                             }
                         )
                     }
                 }
-                composable(route = NavigationScreen.SelectedVideo.name){
+                composable(route = NavigationScreen.SelectedVideo.route){
                     val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
                     selectedVideo?.let {
                         SelectedVideoScreen(
                             video = it,
-                            onStartTestClicked = { navController.navigate(NavigationScreen.HazardTest.name) },
+                            onStartTestClicked = { navController.navigate(NavigationScreen.HazardTest.route) },
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(dimensionResource(R.dimen.padding_medium))
                         )
                     }
                 }
-                composable(route = NavigationScreen.HazardTest.name){
+                composable(route = NavigationScreen.HazardTest.route){
                     val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
                     selectedVideo?.let {
                         HazardTestScreen(
                             viewModel = hazardViewModel,
                             video = it,
                             onTestFinished = {
-                                navController.navigate(NavigationScreen.HazardResult.name)
+                                navController.navigate(NavigationScreen.HazardResult.route)
                             },
-                            onBackPressed = {navController.navigate(NavigationScreen.HazardTestMenu.name)}
+                            onBackPressed = {navController.navigate(NavigationScreen.HazardTestMenu.route)}
                         )
                     }
                 }
-                composable(route = NavigationScreen.HazardTestReview.name){
+                composable(route = NavigationScreen.HazardTestReview.route){
                     val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
                     selectedVideo?.let {
                         HazardTestScreenReview(
                             video = it,
                             onReviewFinished = {
-                                navController.navigate(NavigationScreen.HazardResult.name)
+                                navController.navigate(NavigationScreen.HazardResult.route)
                             },
-                            onBackPressed = { navController.navigate(NavigationScreen.HazardTestMenu.name) },
+                            onBackPressed = { navController.navigate(NavigationScreen.HazardTestMenu.route) },
                         )
                     }
                 }
-                composable(route = NavigationScreen.HazardResult.name) {
+                composable(route = NavigationScreen.HazardResult.route) {
                     val selectedVideo = hazardViewModel.selectedHazardTest.collectAsState().value
                     selectedVideo?.let{
                         HazardResultScreen(
                             video = it,
                             onMainMenu = {
-                                navController.navigate(NavigationScreen.Start.name)
+                                navController.navigate(NavigationScreen.Start.route)
                             },
                             onRetry = {
                                 navController.popBackStack(
-                                    NavigationScreen.HazardTest.name,
+                                    NavigationScreen.HazardTest.route,
                                     true
                                 )
                             },
                             onReview = {
-                                navController.navigate(NavigationScreen.HazardTestReview.name)
+                                navController.navigate(NavigationScreen.HazardTestReview.route)
                             }
                         )
                     }

@@ -1,28 +1,27 @@
 package com.example.mcriderkit.ui
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mcriderkit.data.DataSource
 import com.example.mcriderkit.data.DataSource.Question
 import com.example.mcriderkit.data.ExamUiState
 import com.example.mcriderkit.data.QuizScore
-import com.example.mcriderkit.data.QuizScoreDao
+import com.example.mcriderkit.ui.components.BaseExamViewModel
 import com.example.mcriderkit.ui.components.QuizRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class ExamViewModel(
+class ProExamViewModel(
     private val repository: QuizRepository
-) : ViewModel() {
+) : BaseExamViewModel() {
 
     private val _highestScore = MutableStateFlow<Int?>(null)
-    val highestScore: StateFlow<Int?> = _highestScore
+    override val highestScore: StateFlow<Int?> = _highestScore
 
-    fun fetchHighestScore(quizType: String) {
+    override fun fetchHighestScore(quizType: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val score = repository.getScoreByType(quizType)
             _highestScore.value = score?.highestScore
@@ -45,7 +44,7 @@ class ExamViewModel(
     }
 
     private val _examState = MutableStateFlow(ExamUiState())
-    val examState: StateFlow<ExamUiState> = _examState.asStateFlow()
+    override val examState: StateFlow<ExamUiState> = _examState.asStateFlow()
 
     private var _questions: List<Question> = emptyList()
     val questions: List<Question>
@@ -59,7 +58,7 @@ class ExamViewModel(
         _questions = DataSource.examQuestions.shuffled() // Shuffle at initialization
     }
 
-    fun resetQuiz() {
+    override fun resetQuiz() {
         initializeQuestions()
         _examState.value = ExamUiState() // Reset state
     }
@@ -76,7 +75,7 @@ class ExamViewModel(
         }
     }
 
-    fun finalQuestion(){
+    fun finalQuestion(examType: String){
         _examState.update { currentState ->
             val currentQuestion = questions[currentState.currentQuestionIndex]
             val selectedAnswer = currentState.selectedAnswer
@@ -86,7 +85,7 @@ class ExamViewModel(
                 currentState.score
             }
 
-            saveScore("Non-Pro", updatedScore)
+            saveScore(examType, updatedScore)
 
             currentState.copy(
                 isExamComplete = true,
@@ -127,4 +126,3 @@ class ExamViewModel(
         }
     }
 }
-

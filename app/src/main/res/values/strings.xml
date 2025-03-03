@@ -22,7 +22,9 @@
     <string name="traffic_rules_and_regulations">Traffic Rules and Regulations</string>
     <string name="lto_reviewer">LTO Exam Reviewer</string>
 
+    <string name="student_exam">Student Exam</string>
     <string name="non_pro_exam">Non-professional Exam</string>
+    <string name="pro_exam">Professional Exam</string>
     <string name="exam_result">Exam Result</string>
     <string name="view_result">View Result</string>
     <string name="hazard_result">Hazard Perception Test Result</string>
