@@ -51,14 +51,19 @@ import com.example.mcriderkit.ui.SelectedVideoScreen
 import com.example.mcriderkit.ui.SettingsScreen
 import com.example.mcriderkit.ui.TutorialScreen
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
+import com.example.mcriderkit.ui.studyMaterials.ExpresswaySigns
 import com.example.mcriderkit.ui.studyMaterials.GeneralProcedures
 import com.example.mcriderkit.ui.studyMaterials.GuideSigns
 import com.example.mcriderkit.ui.studyMaterials.LicensingInformationMenu
+import com.example.mcriderkit.ui.studyMaterials.LongitudinalLines
+import com.example.mcriderkit.ui.studyMaterials.OtherLines
+import com.example.mcriderkit.ui.studyMaterials.PavementMarkings
 import com.example.mcriderkit.ui.studyMaterials.PermitsLicenses
 import com.example.mcriderkit.ui.studyMaterials.Qualifications
 import com.example.mcriderkit.ui.studyMaterials.RegulatorySign
 import com.example.mcriderkit.ui.studyMaterials.RoadSignsScreen
 import com.example.mcriderkit.ui.studyMaterials.TrafficRulesAndRegulationsScreen
+import com.example.mcriderkit.ui.studyMaterials.TraversalLines
 import com.example.mcriderkit.ui.studyMaterials.WarningSign
 
 enum class NavigationScreen(@StringRes val title: Int) {
@@ -86,6 +91,11 @@ enum class NavigationScreen(@StringRes val title: Int) {
     WarningSigns(title = R.string.warning_signs),
     GuideSigns(title = R.string.guide_signs),
     SignsOnExpressway(title = R.string.signs_expressway),
+
+    PavementMarkings(title = R.string.PAVEMENT_MARK),
+    LongitudinalLines(title = R.string.LONG_MARK_SEC),
+    TraversalLines(title = R.string.TRAV_SEC),
+    OtherLines(title = R.string.OTHER_LINES_SEC),
 
     TrafficRulesAndRegulations(title = R.string.traffic_rules_and_regulations)
 }
@@ -336,6 +346,7 @@ fun NavigationApp(
                                 1 -> navController.navigate(NavigationScreen.WarningSigns.name)
                                 2 -> navController.navigate(NavigationScreen.GuideSigns.name)
                                 3 -> navController.navigate(NavigationScreen.SignsOnExpressway.name)
+                                4 -> navController.navigate(NavigationScreen.PavementMarkings.name)
                             }
                         }
                     )
@@ -364,6 +375,52 @@ fun NavigationApp(
                         },
                         onNextButtonClicked = {
                             navController.navigate(NavigationScreen.SignsOnExpressway.name)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.SignsOnExpressway.name){
+                    ExpresswaySigns(
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.GuideSigns.name)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.PavementMarkings.name){
+                    PavementMarkings(
+                        pavementMarkingList = DataSource.PavementMarkings,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(dimensionResource(R.dimen.padding_medium)),
+                        onNextButtonClicked = { index ->
+                            when(index) {
+                                0 -> navController.navigate(NavigationScreen.LongitudinalLines.name)
+                                1 -> navController.navigate(NavigationScreen.TraversalLines.name)
+                                2 -> navController.navigate(NavigationScreen.OtherLines.name)
+                            }
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.LongitudinalLines.name) {
+                    LongitudinalLines(
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.TraversalLines.name)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.TraversalLines.name) {
+                    TraversalLines(
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.LongitudinalLines.name)
+                        },
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.OtherLines.name)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.OtherLines.name) {
+                    OtherLines(
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.TraversalLines.name)
                         }
                     )
                 }

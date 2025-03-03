@@ -17,32 +17,33 @@ import androidx.compose.ui.unit.dp
 import com.example.mcriderkit.R
 
 @Composable
-fun GuideSigns(
-    onPrevButtonClicked: () -> Unit,
-    onNextButtonClicked: () -> Unit
+fun TraversalLines(
+    onNextButtonClicked: () -> Unit,
+    onPrevButtonClicked: () -> Unit
 ) {
     val context = LocalContext.current
 
     LazyColumn() {
-        item {
+        item{
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(Color(0xFF4CAF50))
-            ) {
-                Banner(context.getString(R.string.GUIDE_SEC))
+            ){
+                Banner(context.getString(R.string.TRAV_SEC))
             }
             Spacer(modifier = Modifier.height(16.dp))
         }
-        // Advance Direction Signs
+
         item{
             SectionContent(
-                title = context.getString(R.string.ADV_DIR_SEC),
-                content = listOf(context.getString(R.string.ADV_DIR_SEC_1))
+                title = context.getString(R.string.TRAV_SEC_2),
+                content = listOf(context.getString(R.string.TRAV_SEC_2_2))
             )
+            Spacer(modifier = Modifier.height(16.dp))
             Image(
-                painter = painterResource(id = R.drawable.sign_advance_directions),
-                contentDescription = "Advance Direction Signs",
+                painter = painterResource(id = R.drawable.mark_stop_line),
+                contentDescription = context.getString(R.string.TRAV_SEC_2),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
@@ -50,15 +51,15 @@ fun GuideSigns(
             Spacer(modifier = Modifier.height(16.dp))
         }
 
-        // Intersection Direction Signs
         item{
             SectionContent(
-                title = context.getString(R.string.INT_DIR_SEC),
-                content = listOf(context.getString(R.string.INT_DIR_SEC_1))
+                title = context.getString(R.string.TRAV_SEC_3),
+                content = listOf(context.getString(R.string.TRAV_SEC_3_2))
             )
+            Spacer(modifier = Modifier.height(16.dp))
             Image(
-                painter = painterResource(id = R.drawable.sign_intersection_direction),
-                contentDescription = "Intersection Direction Signs",
+                painter = painterResource(id = R.drawable.mark_give_way),
+                contentDescription = context.getString(R.string.TRAV_SEC_3),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
@@ -66,15 +67,30 @@ fun GuideSigns(
             Spacer(modifier = Modifier.height(16.dp))
         }
 
-        // Reassurance Direction Signs
+        item{
+            SectionTitle(
+                title = context.getString(R.string.TRAV_SEC_4)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Image(
+                painter = painterResource(id = R.drawable.mark_pedestrian_crossing),
+                contentDescription = context.getString(R.string.TRAV_SEC_4),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(1.dp)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
         item{
             SectionContent(
-                title = context.getString(R.string.REAS_DIR_SEC),
-                content = listOf(context.getString(R.string.REAS_DIR_SEC_1))
+                title = context.getString(R.string.TRAV_SEC_5),
+                content = listOf(context.getString(R.string.TRAV_SEC_5_2))
             )
+            Spacer(modifier = Modifier.height(16.dp))
             Image(
-                painter = painterResource(id = R.drawable.sign_reassurance_direction),
-                contentDescription = "Reassurance Direction Signs",
+                painter = painterResource(id = R.drawable.mark_roundabout),
+                contentDescription = context.getString(R.string.TRAV_SEC_5),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)

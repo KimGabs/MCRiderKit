@@ -17,32 +17,32 @@ import androidx.compose.ui.unit.dp
 import com.example.mcriderkit.R
 
 @Composable
-fun GuideSigns(
-    onPrevButtonClicked: () -> Unit,
-    onNextButtonClicked: () -> Unit
+fun OtherLines(
+    onPrevButtonClicked: () -> Unit
 ) {
     val context = LocalContext.current
 
     LazyColumn() {
-        item {
+        item{
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(Color(0xFF4CAF50))
-            ) {
-                Banner(context.getString(R.string.GUIDE_SEC))
+            ){
+                Banner(context.getString(R.string.OTHER_LINES_SEC))
             }
             Spacer(modifier = Modifier.height(16.dp))
         }
-        // Advance Direction Signs
+
         item{
             SectionContent(
-                title = context.getString(R.string.ADV_DIR_SEC),
-                content = listOf(context.getString(R.string.ADV_DIR_SEC_1))
+                title = context.getString(R.string.OTHER_LINES_SEC_2),
+                content = listOf(context.getString(R.string.OTHER_LINES_SEC_2_2))
             )
+            Spacer(modifier = Modifier.height(16.dp))
             Image(
-                painter = painterResource(id = R.drawable.sign_advance_directions),
-                contentDescription = "Advance Direction Signs",
+                painter = painterResource(id = R.drawable.mark_turn_line),
+                contentDescription = context.getString(R.string.OTHER_LINES_SEC_2),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
@@ -50,31 +50,15 @@ fun GuideSigns(
             Spacer(modifier = Modifier.height(16.dp))
         }
 
-        // Intersection Direction Signs
         item{
             SectionContent(
-                title = context.getString(R.string.INT_DIR_SEC),
-                content = listOf(context.getString(R.string.INT_DIR_SEC_1))
-            )
-            Image(
-                painter = painterResource(id = R.drawable.sign_intersection_direction),
-                contentDescription = "Intersection Direction Signs",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(1.dp)
+                title = context.getString(R.string.OTHER_LINES_SEC_3),
+                content = listOf(context.getString(R.string.OTHER_LINES_SEC_3_2))
             )
             Spacer(modifier = Modifier.height(16.dp))
-        }
-
-        // Reassurance Direction Signs
-        item{
-            SectionContent(
-                title = context.getString(R.string.REAS_DIR_SEC),
-                content = listOf(context.getString(R.string.REAS_DIR_SEC_1))
-            )
             Image(
-                painter = painterResource(id = R.drawable.sign_reassurance_direction),
-                contentDescription = "Reassurance Direction Signs",
+                painter = painterResource(id = R.drawable.mark_parking_bay),
+                contentDescription = context.getString(R.string.OTHER_LINES_SEC_3),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
@@ -84,9 +68,8 @@ fun GuideSigns(
 
         // Previous and Next Button
         item{
-            PrevNextButton(
-                onPrevButtonClicked = onPrevButtonClicked,
-                onNextButtonClicked = onNextButtonClicked
+            PrevButton(
+                onClick = { onPrevButtonClicked() }
             )
         }
     }

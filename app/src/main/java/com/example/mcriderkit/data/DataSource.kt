@@ -49,7 +49,15 @@ object DataSource {
     val roadSignsAndMarkings = listOf(
         "Regulatory Signs",
         "Warning Signs",
-        "Guide/Informative Signs"
+        "Informative Signs",
+        "Signs on Expressway",
+        "Pavement Markings"
+    )
+
+    val PavementMarkings = listOf(
+        "Longitudinal Lines",
+        "Traversal Lines",
+        "Other Lines"
     )
 
     data class Question(

@@ -181,4 +181,67 @@
     <string name="INT_DIR_SEC_1">Visible in less than 1 kilometer before an intersection</string>
     <string name="REAS_DIR_SEC">3. Reassurance Direction Signs</string>
     <string name="REAS_DIR_SEC_1">Approximate distance of a particular exit</string>
+
+    <!-- Signs on Expressway -->
+    <string name="EXP_SEC">Signs on Expressway</string>
+    <string name="EXP_SEC_1">These signs are essential for the driver to have an advanced information to ensure that they can position their vehicles in the correct lanes</string>
+    <string name="EXP_APP_SEC">1. Expressway Approach Signs</string>
+    <string name="EXP_APP_SEC_1">Installed in advance or at the nearest intersection or interchange leading to the expressway</string>
+    <string name="EXP_INF_SEC">2. Expressway Information Signs</string>
+    <string name="EXP_INF_SEC_1">Prohibited on Expressway</string>
+    <string name="EXP_INF_SEC_1_2">Prohibits traveling on an expressway</string>
+    <string name="EXP_INF_SEC_2">Lane Direction</string>
+    <string name="EXP_INF_SEC_2_2">Used to guide the motorists into correct lanes leading to an interchange</string>
+    <string name="EXP_INF_SEC_3">Toll Charges</string>
+    <string name="EXP_INF_SEC_3_2">Inform motorists the amount of toll charges required to pay at the toll plaza</string>
+    <string name="ADV_EXIT_SEC">Advance Exit Signs</string>
+    <string name="ADV_EXIT_SEC_1">Placed in advance of an exit</string>
+
+    <!-- Pavement Markings -->
+    <string name="PAVEMENT_MARK">Pavement Markings</string>
+    <string name="LONG_MARK_SEC">Longitudinal Lines</string>
+    <string name="LONG_MARK_SEC_1">1. Center or Separation Line</string>
+    <string name="LONG_MARK_SEC_1_2">Crossing of solid white lines requires special care and is discouraged.</string>
+    <string name="LONG_MARK_SEC_2">2. Lane Line</string>
+    <string name="LONG_MARK_SEC_2_2">Changing of lane is allowed provided that it is safe and will not result to obstruction.</string>
+    <string name="LONG_MARK_SEC_3">3. Barrier Line</string>
+    <string name="LONG_MARK_SEC_3_1">a. Double Solid Lines</string>
+    <string name="LONG_MARK_SEC_3_1_2">No Overtaking and No Crossing.</string>
+    <string name="LONG_MARK_SEC_3_2">b. Single Solid Yellow Line</string>
+    <string name="LONG_MARK_SEC_3_2_2">Crossing is allowed but no overtaking</string>
+    <string name="LONG_MARK_SEC_3_3">c. Single Yellow Line with Broken White Line</string>
+    <string name="LONG_MARK_SEC_3_3_2">No overtaking but crossing is allowed on the side of the solid yellow line.</string>
+    <string name="LONG_MARK_SEC_3_3_3">Overtaking and crossing is allowed on the side of the broken white line.</string>
+    <string name="LONG_MARK_SEC_3_4">d. Broken Yellow Line</string>
+    <string name="LONG_MARK_SEC_3_4_2">Crossing and overtaking is allowed with necessary precaution.</string>
+    <string name="LONG_MARK_SEC_3_5">e. Broken and Solid Yellow Line</string>
+    <string name="LONG_MARK_SEC_3_5_2">Crossing and overtaking is allowed on the side of the broken line with caution but overtaking is not allowed on the side of the solid line.</string>
+    <string name="LONG_MARK_SEC_4">4. Edge Line</string>
+    <string name="LONG_MARK_SEC_4_2">Used to separate the outside edge of the road from the shoulder.</string>
+    <string name="LONG_MARK_SEC_5">5. Continuity Line</string>
+    <string name="LONG_MARK_SEC_5_2">Continuity line on the left side means the lane is ending or exiting and that the driver must change lanes if the driver wants to continue in the current direction.</string>
+    <string name="LONG_MARK_SEC_5_3">Continuity lines on the right means that the lane will continue unaffected.</string>
+
+    <!-- Traversal Lines -->
+    <string name="TRAV_SEC">Traversal Lines</string>
+    <string name="TRAV_SEC_2">Stop Line</string>
+    <string name="TRAV_SEC_2_2">Vehicles are required to stop before the white line</string>
+    <string name="TRAV_SEC_3">Give Way Line</string>
+    <string name="TRAV_SEC_3_2">Markings consisting of two adjacent broken white lines across the carriageway at which drivers must give way to all traffic in accordance with the standard sign.</string>
+    <string name="TRAV_SEC_4">Pedestrian Intersection</string>
+    <string name="TRAV_SEC_5">Roundabout Holding Lines</string>
+    <string name="TRAV_SEC_5_2">Vehicles within the rotunda have the right-of-way over vehicles which are just about to enter</string>
+
+    <!-- Other Lines -->
+    <string name="OTHER_LINES_SEC">Other Lines</string>
+    <string name="OTHER_LINES_SEC_2">Turn Line</string>
+    <string name="OTHER_LINES_SEC_2_2">Used to guide vehicles through a turning movement at intersections</string>
+    <string name="OTHER_LINES_SEC_3">Parking Bay</string>
+    <string name="OTHER_LINES_SEC_3_2">Used to designate parking space, but take note of PWD Parking Mark</string>
+
+    <!-- Checking Motor Vehicle -->
+    <string name="CHECK_MOTOR_VEHICLE">Checking Motor Vehicle</string>
+    <string name="BLOWBAGETS">BLOWBAGETS</string>
+    <string name="BLOWBAGETS_1">Before operating a motor vehicle, make a round check of the following:</string>
+
 </resources>
