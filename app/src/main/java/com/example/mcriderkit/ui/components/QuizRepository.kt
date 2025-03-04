@@ -1,5 +1,6 @@
 package com.example.mcriderkit.ui.components
 
+import com.example.mcriderkit.data.DataSource
 import com.example.mcriderkit.data.QuizScore
 import com.example.mcriderkit.data.QuizScoreDao
 
@@ -10,6 +11,13 @@ class QuizRepository(private val quizScoreDao: QuizScoreDao) {
 
     suspend fun insertOrUpdateScore(quizScore: QuizScore) {
         quizScoreDao.insertOrUpdateScore(quizScore)
+    }
+
+    suspend fun insertPresetQuizScores() {
+        val existingTests = quizScoreDao.getAllScores()
+        if (existingTests.isEmpty()) {
+            quizScoreDao.insertAll(DataSource.presetQuizScore)
+        }
     }
 
     suspend fun getAllScores(): List<QuizScore> {

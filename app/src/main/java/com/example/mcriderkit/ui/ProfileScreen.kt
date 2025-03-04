@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,11 +28,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.mcriderkit.R
+import com.example.mcriderkit.ui.components.ExamGraph
 import com.example.mcriderkit.ui.components.HazardTestGraph
 
 @Composable
 fun ProfileScreen(
-    examViewModel: NonProExamViewModel,
+    studentViewModel: StudentExamViewModel,
+    NonProViewModel: NonProExamViewModel,
+    proViewModel: ProExamViewModel,
     viewModel: HazardTestViewModel,
     context: Context
 ) {
@@ -45,6 +50,7 @@ fun ProfileScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -76,6 +82,17 @@ fun ProfileScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         HazardTestGraph(viewModel = viewModel)
+
+        Spacer(modifier = Modifier.height(24.dp)) // Ensure enough spacing at the bottom
+
+        ExamGraph(
+            studentViewModel = studentViewModel,
+            nonProViewModel = NonProViewModel,
+            proViewModel = proViewModel
+
+        )
+
+        Spacer(modifier = Modifier.height(24.dp)) // Ensure enough spacing at the bottom
     }
 }
 

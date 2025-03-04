@@ -36,7 +36,7 @@ class NonProExamViewModel(
             if (existingScore == null) {
                 // No existing score, insert a new record
                 repository.insertOrUpdateScore(QuizScore(quizType = quizType, highestScore = score))
-            } else if (score > existingScore.highestScore) {
+            } else {
                 // Update the score only if the new score is higher
                 repository.insertOrUpdateScore(existingScore.copy(highestScore = score))
             }

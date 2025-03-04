@@ -96,7 +96,10 @@ fun NonProQuizScreen(
                     .padding(vertical = 4.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = backgroundColor),
             ) {
-                Text(text = option, textAlign = TextAlign.Center)
+                Text(text = option,
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.titleMedium,
+                    )
             }
         }
 

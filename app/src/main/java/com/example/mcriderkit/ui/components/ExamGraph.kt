@@ -10,30 +10,51 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.mcriderkit.data.HazardTest
-import com.example.mcriderkit.ui.HazardTestViewModel
+import com.example.mcriderkit.ui.NonProExamViewModel
+import com.example.mcriderkit.ui.ProExamViewModel
+import com.example.mcriderkit.ui.StudentExamViewModel
 import ir.ehsannarmani.compose_charts.ColumnChart
 import ir.ehsannarmani.compose_charts.models.BarProperties
 import ir.ehsannarmani.compose_charts.models.Bars
 import ir.ehsannarmani.compose_charts.models.LabelHelperProperties
+import ir.ehsannarmani.compose_charts.models.LabelProperties
+import ir.ehsannarmani.compose_charts.models.LabelProperties.Rotation
 
 @Composable
-fun HazardTestGraph(viewModel: HazardTestViewModel) {
+fun ExamGraph(
+    studentViewModel: StudentExamViewModel,
+    nonProViewModel: NonProExamViewModel,
+    proViewModel: ProExamViewModel
+) {
 
-    // Observe the hazardTests StateFlow
-    val hazardTests by viewModel.hazardTests.collectAsState()
-
-    // Load data when the screen is first launched
     LaunchedEffect(Unit) {
-        viewModel.loadHazardTests()
+        studentViewModel.fetchHighestScore("Student Exam")
+        nonProViewModel.fetchHighestScore("Non-professional Exam")
+        proViewModel.fetchHighestScore("Professional Exam")
     }
+
+    // Collect quiz scores from each view model
+    val studentScore by studentViewModel.highestScore.collectAsState()
+    val nonProScore by nonProViewModel.highestScore.collectAsState()
+    val proScore by proViewModel.highestScore.collectAsState()
+
+    // Prepare quiz score data
+    val quizScores = listOf(
+        "Student Exam" to (studentScore ?: 0),
+        "Non-professional Exam" to (nonProScore ?: 0),
+        "Professional Exam" to (proScore ?: 0)
+    )
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -44,13 +65,14 @@ fun HazardTestGraph(viewModel: HazardTestViewModel) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Hazard Test Scores",
+                text = "Quiz Scores",
                 style = MaterialTheme.typography.headlineSmall,
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(16.dp))
-            if (hazardTests.isNotEmpty()) {
-                HazardTestBarChart(hazardTests)
+
+            if (quizScores.any { it.second > 0 }) {
+                QuizBarChart(quizScores)
             } else {
                 Text("No data available")
             }
@@ -59,18 +81,17 @@ fun HazardTestGraph(viewModel: HazardTestViewModel) {
 }
 
 @Composable
-fun HazardTestBarChart(hazardTests: List<HazardTest>) {
-    // Prepare data for the bar chart
-    val barData = remember(hazardTests) {
-        hazardTests.map { test ->
+fun QuizBarChart(quizScores: List<Pair<String, Int>>) {
+    // Prepare bar chart data
+    val barData = remember(quizScores) {
+        quizScores.map { (label, score) ->
             Bars(
-                label = "Test ${test.id}", // X-axis label for each bar
+                label = label,
                 values = listOf(
                     Bars.Data(
-
-                        value = test.lastScore.toDouble(), // Y-axis value: lastScore
+                        value = score.toDouble(),
                         color = Brush.verticalGradient(
-                            colors = listOf(Color(0xFFCDDC39), Color(0xFF4CAF50)), // Bar color
+                            colors = listOf(Color(0xFF2196F3), Color(0xFF1976D2)), // Blue gradient
                             startY = 0.0f,
                             endY = 500.0f
                         )
@@ -86,17 +107,22 @@ fun HazardTestBarChart(hazardTests: List<HazardTest>) {
             .fillMaxWidth()
             .height(300.dp),
         data = barData,
+        labelProperties = LabelProperties(
+            rotation = Rotation(
+                degree = 0f
+            ),
+            enabled = true,
+            labels = listOf("Student","Non-professional","Professional")
+        ),
         barProperties = BarProperties(
-            cornerRadius = Bars.Data.Radius.Rectangle(topRight = 6.dp, topLeft = 6.dp), // Rounded corners
-            spacing = 6.dp, // Spacing between bars
-            thickness = 40.dp // Bar width
+            cornerRadius = Bars.Data.Radius.Rectangle(topRight = 6.dp, topLeft = 6.dp),
+            spacing = 2.dp,
+            thickness = 60.dp
         ),
         animationSpec = spring(
             dampingRatio = Spring.DampingRatioLowBouncy,
             stiffness = Spring.StiffnessLow
         ),
-        labelHelperProperties = LabelHelperProperties(
-            enabled = false
-        )
+        labelHelperProperties = LabelHelperProperties(enabled = false)
     )
 }

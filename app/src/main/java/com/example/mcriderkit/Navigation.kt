@@ -243,7 +243,9 @@ fun NavigationApp(
                 }
                 composable(route = NavigationScreen.Profile.route) {
                     ProfileScreen(
-                        examViewModel = nonProQuizViewModel,
+                        studentViewModel = studentExamViewModel,
+                        NonProViewModel = nonProQuizViewModel,
+                        proViewModel = proQuizViewModel,
                         viewModel = hazardViewModel,
                         context = LocalContext.current
                     )

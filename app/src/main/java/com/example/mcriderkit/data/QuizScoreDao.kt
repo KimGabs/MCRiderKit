@@ -1,7 +1,6 @@
 package com.example.mcriderkit.data
 
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface QuizScoreDao {
@@ -13,4 +12,7 @@ interface QuizScoreDao {
 
     @Query("SELECT * FROM quiz_scores ORDER BY highestScore DESC")
     suspend fun getAllScores(): List<QuizScore>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(quizScore: List<QuizScore>)
 }
