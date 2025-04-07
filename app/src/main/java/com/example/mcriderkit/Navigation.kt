@@ -70,6 +70,7 @@ import com.example.mcriderkit.ui.studyMaterials.Qualifications
 import com.example.mcriderkit.ui.studyMaterials.RegulatorySign
 import com.example.mcriderkit.ui.studyMaterials.RoadSignsScreen
 import com.example.mcriderkit.ui.studyMaterials.TrafficRulesAndRegulationsScreen
+import com.example.mcriderkit.ui.studyMaterials.TrafficViolationsAndPenaltiesScreen
 import com.example.mcriderkit.ui.studyMaterials.TraversalLines
 import com.example.mcriderkit.ui.studyMaterials.WarningSign
 
@@ -107,6 +108,7 @@ sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
     object OtherLines : NavigationScreen("OtherLines", R.string.OTHER_LINES_SEC)
 
     object TrafficRulesAndRegulations : NavigationScreen("TrafficRulesAndRegulations", R.string.traffic_rules_and_regulations)
+    object ViolationsAndPenalties:NavigationScreen("TrafficViolationsAndPenalties", R.string.TVP_SEC)
 
     companion object {
         fun fromRoute(route: String?): NavigationScreen {
@@ -417,6 +419,7 @@ fun NavigationApp(
                                 2 -> navController.navigate(NavigationScreen.GuideSigns.route)
                                 3 -> navController.navigate(NavigationScreen.SignsOnExpressway.route)
                                 4 -> navController.navigate(NavigationScreen.PavementMarkings.route)
+                                5 -> navController.navigate(NavigationScreen.ViolationsAndPenalties.route)
                                 else -> throw IllegalArgumentException("Invalid Screen")
                             }
                         }
@@ -498,6 +501,13 @@ fun NavigationApp(
                 composable(route = NavigationScreen.TrafficRulesAndRegulations.route) {
                     TrafficRulesAndRegulationsScreen()
                 }
+                composable(route = NavigationScreen.ViolationsAndPenalties.route) {
+                    TrafficViolationsAndPenaltiesScreen()
+                }
+
+
+                /* End of Reviewer */
+                /* Hazard Testing Menu */
                 composable(route = NavigationScreen.HazardTestMenu.route){
                     backStackEntry ->
                     val context = LocalContext.current

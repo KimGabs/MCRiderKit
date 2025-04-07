@@ -1,10 +1,13 @@
 package com.example.mcriderkit.ui
 
+import android.content.Context
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import com.example.mcriderkit.data.DataSource
 import com.example.mcriderkit.data.DataSource.Question
 import com.example.mcriderkit.data.ExamUiState
 import com.example.mcriderkit.data.QuizScore
+import com.example.mcriderkit.ui.components.AchievementManager
 import com.example.mcriderkit.ui.components.BaseExamViewModel
 import com.example.mcriderkit.ui.components.QuizRepository
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +17,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class StudentExamViewModel(private val repository:QuizRepository) : BaseExamViewModel() {
+class StudentExamViewModel(
+    private val repository: QuizRepository,
+) : BaseExamViewModel() {
 
     private val _highestScore = MutableStateFlow<Int?>(null)
     override val highestScore: StateFlow<Int?> = _highestScore
@@ -59,7 +64,7 @@ class StudentExamViewModel(private val repository:QuizRepository) : BaseExamView
     }
 
     private fun initializeQuestions() {
-        _questions = DataSource.examQuestions.shuffled().take(20) // Shuffle at initialization
+        _questions = DataSource.examQuestions.shuffled().take(10) // Shuffle at initialization
     }
 
     override fun resetQuiz() {
@@ -79,7 +84,7 @@ class StudentExamViewModel(private val repository:QuizRepository) : BaseExamView
         }
     }
 
-    fun finalQuestion(examType: String){
+    fun finalQuestion(examType: String) {
         _examState.update { currentState ->
             val currentQuestion = questions[currentState.currentQuestionIndex]
             val selectedAnswer = currentState.selectedAnswer
@@ -130,5 +135,3 @@ class StudentExamViewModel(private val repository:QuizRepository) : BaseExamView
         }
     }
 }
-
-

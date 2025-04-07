@@ -246,4 +246,60 @@
     <string name="BLOWBAGETS">BLOWBAGETS</string>
     <string name="BLOWBAGETS_1">Before operating a motor vehicle, make a round check of the following:</string>
 
+    <!-- Banner Title -->
+    <string name="TVP_SEC">Traffic Violations and Penalties</string>
+
+    <!-- Driving Without a Valid License -->
+    <string name="driving_without_license_title">Driving Without a Valid License</string>
+    <string name="driving_without_license_desc">Operating a vehicle without a valid driver\'s license.</string>
+    <string name="driving_without_license_penalty">Penalty: Php 3,000 fine.</string>
+
+    <!-- Reckless Driving -->
+    <string name="reckless_driving_title">Reckless Driving</string>
+    <string name="reckless_driving_1st">1st Offense: Php 2,000 fine.</string>
+    <string name="reckless_driving_2nd">2nd Offense: Php 3,000 fine and suspension of driver\'s license for three months.</string>
+    <string name="reckless_driving_3rd">3rd Offense: Php 10,000 fine and suspension of driver\'s license for six months.</string>
+    <string name="reckless_driving_subsequent">Subsequent Offenses: Php 10,000 fine and revocation of driver\'s license.</string>
+
+    <!-- Driving Under the Influence (DUI) -->
+    <string name="dui_title">Driving Under the Influence (DUI)</string>
+    <string name="dui_non_professional">Non-Professional Drivers:</string>
+    <string name="dui_non_professional_1st">- 1st Conviction: Confiscation and suspension of driver\'s license for 12 months.</string>
+    <string name="dui_non_professional_2nd">- 2nd Conviction: Revocation of driver\'s license.</string>
+    <string name="dui_professional">Professional Drivers:</string>
+    <string name="dui_professional_1st">- 1st Conviction: Confiscation and perpetual revocation of driver\'s license.</string>
+
+    <!-- Failure to Wear Seatbelt -->
+    <string name="seatbelt_title">Failure to Wear Seatbelt</string>
+    <string name="seatbelt_1st">1st Offense: Php 1,000 fine.</string>
+    <string name="seatbelt_2nd">2nd Offense: Php 2,000 fine.</string>
+    <string name="seatbelt_3rd">3rd and Subsequent Offenses: Php 5,000 fine and suspension of driver\'s license for one week.</string>
+
+    <!-- Failure to Wear Standard Protective Motorcycle Helmet -->
+    <string name="helmet_title">Failure to Wear Standard Protective Motorcycle Helmet</string>
+    <string name="helmet_1st">1st Offense: Php 1,500 fine.</string>
+    <string name="helmet_2nd">2nd Offense: Php 3,000 fine.</string>
+    <string name="helmet_3rd">3rd Offense: Php 5,000 fine.</string>
+    <string name="helmet_subsequent">Subsequent Offenses: Php 10,000 fine.</string>
+
+    <!-- Illegal Parking -->
+    <string name="illegal_parking_title">Illegal Parking</string>
+    <string name="illegal_parking_desc">Parking in prohibited areas such as intersections, within 5 meters of intersections, in front of driveways, etc.</string>
+    <string name="illegal_parking_penalty">Penalty: Php 1,000 fine.</string>
+
+    <!-- Disregarding Traffic Signs -->
+    <string name="disregarding_signs_title">Disregarding Traffic Signs</string>
+    <string name="disregarding_signs_desc">Ignoring or disobeying traffic signs.</string>
+    <string name="disregarding_signs_penalty">Penalty: Php 1,000 fine.</string>
+
+    <!-- Driving an Unregistered Motor Vehicle -->
+    <string name="unregistered_vehicle_title">Driving an Unregistered Motor Vehicle</string>
+    <string name="unregistered_vehicle_desc">Operating a vehicle that is not registered with the LTO.</string>
+    <string name="unregistered_vehicle_penalty">Penalty: Php 10,000 fine and impoundment of the vehicle until properly registered.</string>
+
+    <!-- Unauthorized Modification of Motor Vehicle -->
+    <string name="unauthorized_modification_title">Unauthorized Modification of Motor Vehicle</string>
+    <string name="unauthorized_modification_desc">Modifying a vehicle without approval from the LTO.</string>
+    <string name="unauthorized_modification_penalty">Penalty: Php 5,000 fine.</string>
+
 </resources>
