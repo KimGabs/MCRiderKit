@@ -57,7 +57,9 @@ import com.example.mcriderkit.ui.StudentExamViewModel
 import com.example.mcriderkit.ui.StudentQuizScreen
 import com.example.mcriderkit.ui.TutorialScreen
 import com.example.mcriderkit.ui.components.BaseExamViewModel
+import com.example.mcriderkit.ui.studyMaterials.BlowbagetsChecklistScreen
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
+import com.example.mcriderkit.ui.studyMaterials.EngineOilInspectionScreen
 import com.example.mcriderkit.ui.studyMaterials.ExpresswaySigns
 import com.example.mcriderkit.ui.studyMaterials.GeneralProcedures
 import com.example.mcriderkit.ui.studyMaterials.GuideSigns
@@ -69,9 +71,11 @@ import com.example.mcriderkit.ui.studyMaterials.PermitsLicenses
 import com.example.mcriderkit.ui.studyMaterials.Qualifications
 import com.example.mcriderkit.ui.studyMaterials.RegulatorySign
 import com.example.mcriderkit.ui.studyMaterials.RoadSignsScreen
+import com.example.mcriderkit.ui.studyMaterials.TireInspectionScreen
 import com.example.mcriderkit.ui.studyMaterials.TrafficRulesAndRegulationsScreen
 import com.example.mcriderkit.ui.studyMaterials.TrafficViolationsAndPenaltiesScreen
 import com.example.mcriderkit.ui.studyMaterials.TraversalLines
+import com.example.mcriderkit.ui.studyMaterials.VehicleMaintenanceAndInspectionMenuScreen
 import com.example.mcriderkit.ui.studyMaterials.WarningSign
 
 sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
@@ -108,7 +112,11 @@ sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
     object OtherLines : NavigationScreen("OtherLines", R.string.OTHER_LINES_SEC)
 
     object TrafficRulesAndRegulations : NavigationScreen("TrafficRulesAndRegulations", R.string.traffic_rules_and_regulations)
-    object ViolationsAndPenalties:NavigationScreen("TrafficViolationsAndPenalties", R.string.TVP_SEC)
+    object ViolationsAndPenalties: NavigationScreen("TrafficViolationsAndPenalties", R.string.TVP_SEC)
+    object VehicleMaintenanceAndInspection: NavigationScreen("VehicleMaintenanceAndInspection", R.string.VMI_SEC)
+    object TireInspection: NavigationScreen("TireInspection", R.string.tire_inspection_banner_title)
+    object EngineOilInspection: NavigationScreen("EngineOilInspection", R.string.engine_oil_inspection_banner_title)
+    object BlowbagetsInspection: NavigationScreen("BLOWBAGETS Inspection", R.string.blowbagets_banner_title)
 
     companion object {
         fun fromRoute(route: String?): NavigationScreen {
@@ -162,7 +170,6 @@ fun NavigationApp(
     var selectedItem by remember { mutableIntStateOf(0) }
     val items = listOf("Home", "Profile", "Settings")
 
-//    val viewModel: ExamViewModel = viewModel()// Access ViewModel
     val selectedIcons = listOf(Icons.Filled.Home, Icons.Filled.Person, Icons.Filled.Settings)
     val unselectedIcons = listOf(Icons.Outlined.Home, Icons.Outlined.Person, Icons.Outlined.Settings)
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -351,6 +358,9 @@ fun NavigationApp(
                                 0 -> navController.navigate(NavigationScreen.LicensingInfo.route)
                                 1 -> navController.navigate(NavigationScreen.RoadSignAndMarkings.route)
                                 2 -> navController.navigate(NavigationScreen.TrafficRulesAndRegulations.route)
+                                3 -> navController.navigate(NavigationScreen.ViolationsAndPenalties.route)
+                                4 -> navController.navigate(NavigationScreen.VehicleMaintenanceAndInspection.route)
+                                else -> throw IllegalArgumentException("Invalid Screen")
                             }
                         }
                     )
@@ -419,7 +429,6 @@ fun NavigationApp(
                                 2 -> navController.navigate(NavigationScreen.GuideSigns.route)
                                 3 -> navController.navigate(NavigationScreen.SignsOnExpressway.route)
                                 4 -> navController.navigate(NavigationScreen.PavementMarkings.route)
-                                5 -> navController.navigate(NavigationScreen.ViolationsAndPenalties.route)
                                 else -> throw IllegalArgumentException("Invalid Screen")
                             }
                         }
@@ -505,6 +514,46 @@ fun NavigationApp(
                     TrafficViolationsAndPenaltiesScreen()
                 }
 
+                composable(route = NavigationScreen.VehicleMaintenanceAndInspection.route) {
+                    VehicleMaintenanceAndInspectionMenuScreen(
+                        MaintenanceInfoList = DataSource.VehicleMaintenance,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(dimensionResource(R.dimen.padding_medium)),
+                        onNextButtonClicked = { index ->
+                            when(index) {
+                                0 -> navController.navigate(NavigationScreen.TireInspection.route)
+                                1 -> navController.navigate(NavigationScreen.EngineOilInspection.route)
+                                2 -> navController.navigate(NavigationScreen.BlowbagetsInspection.route)
+                                else -> throw IllegalArgumentException("Invalid Screen")
+                            }
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.TireInspection.route) {
+                    TireInspectionScreen(
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.EngineOilInspection.route)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.EngineOilInspection.route) {
+                    EngineOilInspectionScreen(
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.BlowbagetsInspection.route)
+                        },
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.TireInspection.route)
+                        },
+                    )
+                }
+                composable(route = NavigationScreen.BlowbagetsInspection.route) {
+                    BlowbagetsChecklistScreen(
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.EngineOilInspection.route)
+                        }
+                    )
+                }
 
                 /* End of Reviewer */
                 /* Hazard Testing Menu */

@@ -241,11 +241,6 @@
     <string name="OTHER_LINES_SEC_3">Parking Bay</string>
     <string name="OTHER_LINES_SEC_3_2">Used to designate parking space, but take note of PWD Parking Mark</string>
 
-    <!-- Checking Motor Vehicle -->
-    <string name="CHECK_MOTOR_VEHICLE">Checking Motor Vehicle</string>
-    <string name="BLOWBAGETS">BLOWBAGETS</string>
-    <string name="BLOWBAGETS_1">Before operating a motor vehicle, make a round check of the following:</string>
-
     <!-- Banner Title -->
     <string name="TVP_SEC">Traffic Violations and Penalties</string>
 
@@ -301,5 +296,134 @@
     <string name="unauthorized_modification_title">Unauthorized Modification of Motor Vehicle</string>
     <string name="unauthorized_modification_desc">Modifying a vehicle without approval from the LTO.</string>
     <string name="unauthorized_modification_penalty">Penalty: Php 5,000 fine.</string>
+
+    <!-- Vehicle Maintenance and Inspection -->
+    <string name="VMI_SEC">Vehicle Maintenance and Inspection</string>
+
+    <!-- Tire Inspection -->
+    <string name="tire_inspection_banner_title">Tire Inspection Guidelines</string>
+
+    <!-- Visual Inspection Section -->
+    <string name="visual_inspection_title">Visual Inspection</string>
+    <string name="visual_inspection_point1">Check for any visible cuts, cracks, or bulges on the tire surface.</string>
+    <string name="visual_inspection_point2">Ensure there are no embedded objects like nails or glass that could cause punctures.</string>
+    <string name="visual_inspection_point3">Look for uneven wear patterns that might indicate alignment or suspension issues.</string>
+
+    <!-- Tread Depth Section -->
+    <string name="tread_depth_title">Tread Depth</string>
+    <string name="tread_depth_point1">Use a tread depth gauge to measure the depth; it should not fall below the minimum requirement.</string>
+    <string name="tread_depth_point2">Adequate tread depth is essential for proper traction, especially on wet roads.</string>
+    <string name="tread_depth_point3">Replace tires that have worn down to the tread wear indicators.</string>
+
+    <!-- Tire Pressure Section -->
+    <string name="tire_pressure_title">Tire Pressure</string>
+    <string name="tire_pressure_point1">Refer to the vehicle\'s manual for the recommended tire pressure.</string>
+    <string name="tire_pressure_point2">Use a reliable tire pressure gauge to check the pressure when tires are cold.</string>
+    <string name="tire_pressure_point3">Under-inflated or over-inflated tires can lead to poor handling and increased wear.</string>
+
+    <!-- Tire Age Section -->
+    <string name="tire_age_title">Tire Age</string>
+    <string name="tire_age_point1">Check the manufacturing date on the tire sidewall to determine its age.</string>
+    <string name="tire_age_point2">Tires older than five years may need to be replaced, regardless of tread wear.</string>
+    <string name="tire_age_point3">Aged tires can degrade and may not provide safe performance.</string>
+
+    <!-- Spare Tire Section -->
+    <string name="spare_tire_title">Spare Tire</string>
+    <string name="spare_tire_point1">Ensure the spare tire is in good condition and properly inflated.</string>
+    <string name="spare_tire_point2">Familiarize yourself with the location and operation of the jack and other tools.</string>
+    <string name="spare_tire_point3">Regularly inspect the spare tire as you would with the other tires.</string>
+
+    <!-- Banner Title -->
+    <string name="engine_oil_inspection_banner_title">Engine Oil Inspection Guidelines</string>
+
+    <!-- Importance of Engine Oil Section -->
+    <string name="importance_of_engine_oil_title">Importance of Engine Oil</string>
+    <string name="importance_of_engine_oil_point1">Lubricates moving parts to reduce friction and wear.</string>
+    <string name="importance_of_engine_oil_point2">Helps in cooling engine components by dissipating heat.</string>
+    <string name="importance_of_engine_oil_point3">Cleans internal components by preventing sludge buildup.</string>
+    <string name="importance_of_engine_oil_point4">Protects against rust and corrosion.</string>
+
+    <!-- Checking Oil Level Section -->
+    <string name="checking_oil_level_title">Checking Oil Level</string>
+    <string name="checking_oil_level_point1">Park the vehicle on level ground and turn off the engine.</string>
+    <string name="checking_oil_level_point2">Wait a few minutes to allow the oil to settle.</string>
+    <string name="checking_oil_level_point3">Locate the dipstick, pull it out, and wipe it clean.</string>
+    <string name="checking_oil_level_point4">Reinsert the dipstick fully, then remove it again to check the oil level.</string>
+    <string name="checking_oil_level_point5">Ensure the oil level is between the \'MIN\' and \'MAX\' marks.</string>
+
+    <!-- Assessing Oil Condition Section -->
+    <string name="assessing_oil_condition_title">Assessing Oil Condition</string>
+    <string name="assessing_oil_condition_point1">Fresh oil is typically amber in color; dark or dirty oil may indicate contamination.</string>
+    <string name="assessing_oil_condition_point2">Feel the oil between your fingers; grit or debris suggests the need for a change.</string>
+    <string name="assessing_oil_condition_point3">A burnt smell can indicate overheating or old oil.</string>
+
+    <!-- Oil Change Intervals Section -->
+    <string name="oil_change_intervals_title">Oil Change Intervals</string>
+    <string name="oil_change_intervals_point1">Follow the manufacturer\'s recommended oil change schedule, usually every 5,000 to 10,000 kilometers.</string>
+    <string name="oil_change_intervals_point2">Consider factors such as driving conditions and engine age, which may necessitate more frequent changes.</string>
+    <string name="oil_change_intervals_point3">Regular oil changes ensure optimal engine performance and longevity.</string>
+
+    <!-- Banner Title -->
+    <string name="blowbagets_banner_title">BLOWBAGETS Vehicle Safety Checklist</string>
+
+    <!-- Battery Section -->
+    <string name="battery_title">Battery</string>
+    <string name="battery_point1">Ensure the battery is fully charged and securely connected.</string>
+    <string name="battery_point2">Check for any corrosion on terminals and clean if necessary.</string>
+    <string name="battery_point3">Verify that all electrical components powered by the battery are functioning properly.</string>
+
+    <!-- Lights Section -->
+    <string name="lights_title">Lights</string>
+    <string name="lights_point1">Test all vehicle lights, including headlights, brake lights, turn signals, and hazard lights.</string>
+    <string name="lights_point2">Replace any burnt-out bulbs to maintain visibility and communication with other drivers.</string>
+    <string name="lights_point3">Ensure lenses are clean and free from obstructions.</string>
+
+    <!-- Oil Section -->
+    <string name="oil_title">Oil</string>
+    <string name="oil_point1">Check the engine oil level using the dipstick; add oil if below the recommended level.</string>
+    <string name="oil_point2">Observe the oil\'s color and consistency; dark or dirty oil may indicate the need for a change.</string>
+    <string name="oil_point3">Look for any signs of oil leaks under the vehicle.</string>
+
+    <!-- Water Section -->
+    <string name="water_title">Water (Coolant)</string>
+    <string name="water_point1">Inspect coolant levels in the radiator and reservoir; top up if necessary.</string>
+    <string name="water_point2">Examine hoses and connections for leaks or wear.</string>
+    <string name="water_point3">Ensure the coolant mixture is appropriate for current weather conditions.</string>
+
+    <!-- Brakes Section -->
+    <string name="brakes_title">Brakes</string>
+    <string name="brakes_point1">Test brake pedal for firmness and responsiveness.</string>
+    <string name="brakes_point2">Listen for any unusual noises when applying brakes, indicating potential issues.</string>
+    <string name="brakes_point3">Check brake fluid level and refill if below the recommended mark.</string>
+
+    <!-- Air Section -->
+    <string name="air_title">Air</string>
+    <string name="air_point1">Measure tire pressure with a reliable gauge; adjust to manufacturer specifications.</string>
+    <string name="air_point2">Inspect tires for cuts, bulges, or excessive wear.</string>
+    <string name="air_point3">Ensure the spare tire is also properly inflated and in good condition.</string>
+
+    <!-- Gas Section -->
+    <string name="gas_title">Gas (Fuel)</string>
+    <string name="gas_point1">Confirm sufficient fuel level for your intended journey.</string>
+    <string name="gas_point2">Check for any fuel leaks or odors around the vehicle.</string>
+    <string name="gas_point3">Ensure the fuel cap is securely fastened after refueling.</string>
+
+    <!-- Engine Section -->
+    <string name="engine_title">Engine</string>
+    <string name="engine_point1">Listen for abnormal engine noises that could indicate issues.</string>
+    <string name="engine_point2">Check for warning lights on the dashboard related to engine performance.</string>
+    <string name="engine_point3">Ensure belts and hoses are in good condition and properly tensioned.</string>
+
+    <!-- Tires Section -->
+    <string name="tires_title">Tires</string>
+    <string name="tires_point1">Examine tread depth to ensure it meets safety standards.</string>
+    <string name="tires_point2">Rotate tires regularly to promote even wear.</string>
+    <string name="tires_point3">Align wheels as needed to prevent uneven tire wear and improve handling.</string>
+
+    <!-- Self Section -->
+    <string name="self_title">Self</string>
+    <string name="self_point1">Assess your physical and mental state before driving; avoid driving when fatigued or unwell.</string>
+    <string name="self_point2">Ensure you have your driver\'s license and necessary documents with you.</string>
+    <string name="self_point3">Plan your route in advance to reduce stress and distractions while driving.</string>
 
 </resources>

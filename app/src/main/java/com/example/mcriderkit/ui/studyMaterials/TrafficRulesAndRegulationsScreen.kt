@@ -12,13 +12,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.mcriderkit.R
 
 @Composable
 fun TrafficRulesAndRegulationsScreen() {
-    LazyColumn(modifier = Modifier.padding(16.dp, 0.dp)) {
+    LazyColumn() {
         item{
-            Spacer(modifier = Modifier.height(8.dp))
-            Banner("Traffic Rules & Regulations")
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color(0xFF4CAF50))
+            ){
+                Banner("Traffic Rules & Regulations")
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
         }
         item {
             // Section for Speed Limits

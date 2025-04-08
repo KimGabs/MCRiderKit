@@ -1,9 +1,11 @@
 package com.example.mcriderkit.ui.studyMaterials
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalContext
 import com.example.mcriderkit.R
@@ -12,10 +14,17 @@ import com.example.mcriderkit.R
 fun TrafficViolationsAndPenaltiesScreen() {
     val context = LocalContext.current
 
-    LazyColumn(modifier = Modifier.padding(16.dp, 0.dp)) {
+    LazyColumn() {
         item {
-            Spacer(modifier = Modifier.height(8.dp))
-            Banner(context.getString(R.string.TVP_SEC))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color(0xFF4CAF50))
+            ){
+                Banner(context.getString(R.string.TVP_SEC))
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+
         }
         item {
             // Section for Driving Without a Valid License
