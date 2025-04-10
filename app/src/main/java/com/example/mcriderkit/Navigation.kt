@@ -59,6 +59,7 @@ import com.example.mcriderkit.ui.TutorialScreen
 import com.example.mcriderkit.ui.components.BaseExamViewModel
 import com.example.mcriderkit.ui.studyMaterials.BlowbagetsChecklistScreen
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
+import com.example.mcriderkit.ui.studyMaterials.DrivingAndRoadCourtesyScreen
 import com.example.mcriderkit.ui.studyMaterials.EngineOilInspectionScreen
 import com.example.mcriderkit.ui.studyMaterials.ExpresswaySigns
 import com.example.mcriderkit.ui.studyMaterials.GeneralProcedures
@@ -117,6 +118,8 @@ sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
     object TireInspection: NavigationScreen("TireInspection", R.string.tire_inspection_banner_title)
     object EngineOilInspection: NavigationScreen("EngineOilInspection", R.string.engine_oil_inspection_banner_title)
     object BlowbagetsInspection: NavigationScreen("BLOWBAGETS Inspection", R.string.blowbagets_banner_title)
+    object DrivingAndRoadCourtesy: NavigationScreen("Drive Safety and Road Courtesy", R.string.DRC_Banner)
+
 
     companion object {
         fun fromRoute(route: String?): NavigationScreen {
@@ -551,6 +554,21 @@ fun NavigationApp(
                     BlowbagetsChecklistScreen(
                         onPrevButtonClicked = {
                             navController.navigate(NavigationScreen.EngineOilInspection.route)
+                        }
+                    )
+                }
+
+                composable(route = NavigationScreen.DrivingAndRoadCourtesy.route) {
+                    DrivingAndRoadCourtesyScreen(
+                        DRCList = DataSource.DrivingAndRoadCourtesy,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(dimensionResource(R.dimen.padding_medium)),
+                        onNextButtonClicked = { index ->
+                            when(index) {
+                                0 -> navController.navigate(NavigationScreen.TireInspection.route)
+                                else -> throw IllegalArgumentException("Invalid Screen")
+                            }
                         }
                     )
                 }

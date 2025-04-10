@@ -36,7 +36,7 @@ object DataSource {
         "Traffic Rules & Regulations",
         "Traffic Violations & Penalties",
         "Vehicle Maintenance",
-        "Driving Etiquette & Road Courtesy"
+        "Drive Safety & Road Courtesy"
     )
 
     val licensingInfo = listOf(
@@ -66,7 +66,13 @@ object DataSource {
         "BLOWBAGETS Checklist",
     )
 
-                data class Question(
+    val DrivingAndRoadCourtesy = listOf(
+        "Attitude and Behavior",
+        "Dealing with Emergency Situations",
+        "Road Hazards"
+    )
+
+    data class Question(
         val question: String, // The text-based question
         val imageResId: Int? = null, // Optional image resource (null if no image)
         val options: List<String>, // List of answer options

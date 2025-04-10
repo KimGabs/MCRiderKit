@@ -426,4 +426,22 @@
     <string name="self_point2">Ensure you have your driver\'s license and necessary documents with you.</string>
     <string name="self_point3">Plan your route in advance to reduce stress and distractions while driving.</string>
 
+    <string name="DRC_Banner">Drive Safety and Road Courtesy</string>
+    <string name="AB_Banner">Attitude and Behavior</string>
+    <string name="AB_title1">Dealing with Drivers Going the Wrong Way</string>
+    <string name="AB_point1">On roads without a center divider, always watch out for vehicles that might suddenly move into your lane. Stay on the outer lane and drive at a safe speed.</string>
+    <string name="AB_point2">If a driver is coming towards you in the wrong direction (counterflow):</string>
+    <string name="AB_point2_1">Stay calm.</string>
+    <string name="AB_point2_2">Don’t insist on having the right of way.</string>
+    <string name="AB_point2_3">Signal early and switch lanes safely.</string>
+    <string name="AB_point2_4">Avoid making eye contact to keep things from getting tense.</string>
+    <string name="AB_point3">To avoid a collision if a vehicle moves toward you:</string>
+    <string name="AB_point3_1">Look ahead and understand the road situation.</string>
+    <string name="AB_point3_2">Steer to the right.</string>
+    <string name="AB_point3_3">Slow down.</string>
+    <string name="AB_point3_4">If needed, move off the road safely.</string>
+    <string name="AB_point4">If you’re forced to ride off the road and can’t avoid hitting something:</string>
+    <string name="AB_point4_1">Aim for something soft like bushes or plastic barriers.</string>
+    <string name="AB_point4_2">If you must hit something fixed like a fence, try to hit it at an angle—not head-on—to reduce damage.</string>
+
 </resources>
