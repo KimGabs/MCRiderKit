@@ -444,4 +444,12 @@
     <string name="AB_point4_1">Aim for something soft like bushes or plastic barriers.</string>
     <string name="AB_point4_2">If you must hit something fixed like a fence, try to hit it at an angle—not head-on—to reduce damage.</string>
 
+    <string name="AB_title2">Dealing with Large or Long Vehicles</string>
+    <string name="AB_point5">Give extra space when driving near big vehicles like trucks or buses. Be careful when passing them—only overtake if there\'s enough time and distance to do it safely.</string>
+    <string name="AB_point6">When driving uphill or stopping behind a large vehicle, leave more space. It might roll back a little when the driver lets go of the brake or clutch.</string>
+    <string name="AB_point7">Important Reminders:</string>
+    <string name="AB_point7_1">Don’t overtake a large truck while it’s turning left or right.</string>
+    <string name="AB_point7_2">These vehicles may take up more than one lane when turning.</string>
+    <string name="AB_point7_3">Stay alert—they can block part or all of the road while making a turn.</string>
+
 </resources>

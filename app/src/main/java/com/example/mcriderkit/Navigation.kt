@@ -57,6 +57,7 @@ import com.example.mcriderkit.ui.StudentExamViewModel
 import com.example.mcriderkit.ui.StudentQuizScreen
 import com.example.mcriderkit.ui.TutorialScreen
 import com.example.mcriderkit.ui.components.BaseExamViewModel
+import com.example.mcriderkit.ui.studyMaterials.AttAndBehaveScreen
 import com.example.mcriderkit.ui.studyMaterials.BlowbagetsChecklistScreen
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
 import com.example.mcriderkit.ui.studyMaterials.DrivingAndRoadCourtesyScreen
@@ -119,6 +120,7 @@ sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
     object EngineOilInspection: NavigationScreen("EngineOilInspection", R.string.engine_oil_inspection_banner_title)
     object BlowbagetsInspection: NavigationScreen("BLOWBAGETS Inspection", R.string.blowbagets_banner_title)
     object DrivingAndRoadCourtesy: NavigationScreen("Drive Safety and Road Courtesy", R.string.DRC_Banner)
+    object AttitudeAndBehavior: NavigationScreen("Attitude and Behavior", R.string.AB_Banner)
 
 
     companion object {
@@ -363,6 +365,7 @@ fun NavigationApp(
                                 2 -> navController.navigate(NavigationScreen.TrafficRulesAndRegulations.route)
                                 3 -> navController.navigate(NavigationScreen.ViolationsAndPenalties.route)
                                 4 -> navController.navigate(NavigationScreen.VehicleMaintenanceAndInspection.route)
+                                5 -> navController.navigate(NavigationScreen.DrivingAndRoadCourtesy.route)
                                 else -> throw IllegalArgumentException("Invalid Screen")
                             }
                         }
@@ -557,18 +560,24 @@ fun NavigationApp(
                         }
                     )
                 }
-
                 composable(route = NavigationScreen.DrivingAndRoadCourtesy.route) {
                     DrivingAndRoadCourtesyScreen(
-                        DRCList = DataSource.DrivingAndRoadCourtesy,
+                        drcList = DataSource.DrivingAndRoadCourtesy,
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(R.dimen.padding_medium)),
                         onNextButtonClicked = { index ->
                             when(index) {
-                                0 -> navController.navigate(NavigationScreen.TireInspection.route)
+                                0 -> navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
                                 else -> throw IllegalArgumentException("Invalid Screen")
                             }
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.AttitudeAndBehavior.route) {
+                    AttAndBehaveScreen (
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.DrivingAndRoadCourtesy.route)
                         }
                     )
                 }

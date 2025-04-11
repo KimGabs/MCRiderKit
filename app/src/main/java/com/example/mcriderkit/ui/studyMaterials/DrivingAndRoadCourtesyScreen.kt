@@ -20,7 +20,7 @@ import com.example.mcriderkit.ui.MenuButton
 
 @Composable
 fun DrivingAndRoadCourtesyScreen(
-    DRCList: List<String>,
+    drcList: List<String>,
     onNextButtonClicked: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -32,7 +32,7 @@ fun DrivingAndRoadCourtesyScreen(
         verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium)),
         horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
     ) {
-        itemsIndexed(DRCList) { index, item ->
+        itemsIndexed(drcList) { index, item ->
             MenuButton(
                 item = item,
                 onClick = { onNextButtonClicked(index) },

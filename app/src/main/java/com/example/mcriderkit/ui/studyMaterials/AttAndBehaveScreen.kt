@@ -44,6 +44,7 @@ fun AttAndBehaveScreen(
                 contentDescription = "Attitude and Behavior 1",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .height(240.dp)
                     .padding(1.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
@@ -78,6 +79,7 @@ fun AttAndBehaveScreen(
                 contentDescription = "Attitude and Behavior 2",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .height(240.dp)
                     .padding(1.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
@@ -94,7 +96,39 @@ fun AttAndBehaveScreen(
         }
 
         item{
+            SectionTitle(context.getString(R.string.AB_title2))
+            Spacer(modifier = Modifier.height(8.dp))
+            SectionText(content = listOf(context.getString(R.string.AB_point5)))
+            Spacer(modifier = Modifier.height(16.dp))
+            SectionText(content = listOf(context.getString(R.string.AB_point6)))
+            Spacer(modifier = Modifier.height(16.dp))
+
+        }
+
+        item{
+            Image(
+                painter = painterResource(id = R.drawable.ab_visual3),
+                contentDescription = "Attitude and Behavior 2",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(240.dp)
+                    .padding(1.dp)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            SectionContent(
+                title = context.getString(R.string.AB_point7),
+                content = listOf(
+                    context.getString(R.string.AB_point7_1),
+                    context.getString(R.string.AB_point7_2),
+                    context.getString(R.string.AB_point7_3)
+                )
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
+        item{
             NextButton(onNextButtonClicked)
+            Spacer(modifier = Modifier.height(16.dp))
         }
 
     }
