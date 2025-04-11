@@ -452,4 +452,41 @@
     <string name="AB_point7_2">These vehicles may take up more than one lane when turning.</string>
     <string name="AB_point7_3">Stay alert—they can block part or all of the road while making a turn.</string>
 
+    <string name="Emergency_banner">Dealing with Emergency Situations</string>
+    <string name="Emergency_brake">Emergency Braking</string>
+    <string name="Emergency_brake_point1">If your brakes fail, stay calm and follow these steps:</string>
+    <string name="Emergency_brake_point1_1">Pump the brake pedal quickly to build pressure (Warning: Do NOT pump if your car has ABS).</string>
+    <string name="Emergency_brake_point1_2">Shift to a lower gear to help slow the car down.</string>
+    <string name="Emergency_brake_point1_3">Use your horn and flash your lights to warn others.</string>
+    <string name="Emergency_brake_point1_4">Gently use the parking brake on and off to slow down.</string>
+
+    <string name="Skidding">Skidding</string>
+    <string name="Skidding_point1">Skids usually happen when turning or stopping too fast on slippery or sloped roads (like when it’s wet or sandy).</string>
+    <string name="Skidding_point2">If your car starts to skid:</string>
+    <string name="Skidding_point2_1">Avoid braking if you can.</string>
+    <string name="Skidding_point2_2">Lift your foot off the gas pedal.</string>
+    <string name="Skidding_point2_3">Look where you want to go and gently steer in that direction.</string>
+    <string name="Skidding_point2_4">Straighten the wheels once you regain control.</string>
+
+    <string name="Collision_title">How to Avoid a Collision at Intersections</string>
+    <string name="Collision_scenario">Scenario: You\'re approaching an intersection, but your view is blocked by signs, people, or other vehicles.</string>
+    <string name="Collision_question">Question: Who goes first?</string>
+    <string name="Collision_intro_point">Most accidents at intersections happen because drivers don’t follow right-of-way rules. Here\'s what to remember:</string>
+    <string name="Collision_point1">🚦 No Signs or Traffic Lights</string>
+    <string name="Collision_point1_1">Let the vehicle on your right go first.</string>
+    <string name="Collision_point2">🛑 Stop Sign</string>
+    <string name="Collision_point2_1">Come to a full stop.</string>
+    <string name="Collision_point2_2">Yield to vehicles already in or near the intersection.</string>
+    <string name="Collision_point2_3">If you stop at the same time as another car, the one on the right goes first.</string>
+    <string name="Collision_point2_4">❌ Don’t do a rolling stop.</string>
+
+    <string name="Collision_point3">⚠️ Give Way / Yield Sign</string>
+    <string name="Collision_point3_1">Slow down and be ready to stop.</string>
+    <string name="Collision_point3_2">Let other vehicles in or near the intersection go first.</string>
+
+    <string name="Collision_point4">🚥 With Traffic Lights</string>
+    <string name="Collision_point4_1">Green light? You can go, but yield to cars and pedestrians already crossing.</string>
+    <string name="Collision_point4_2">Turning right on red? Stop completely first. Yield to people and traffic before turning.</string>
+    <string name="Collision_point4_3">❌ Again, no rolling stops.</string>
+
 </resources>

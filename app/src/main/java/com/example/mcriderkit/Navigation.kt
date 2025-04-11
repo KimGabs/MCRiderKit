@@ -61,6 +61,7 @@ import com.example.mcriderkit.ui.studyMaterials.AttAndBehaveScreen
 import com.example.mcriderkit.ui.studyMaterials.BlowbagetsChecklistScreen
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
 import com.example.mcriderkit.ui.studyMaterials.DrivingAndRoadCourtesyScreen
+import com.example.mcriderkit.ui.studyMaterials.EmergencyScreen
 import com.example.mcriderkit.ui.studyMaterials.EngineOilInspectionScreen
 import com.example.mcriderkit.ui.studyMaterials.ExpresswaySigns
 import com.example.mcriderkit.ui.studyMaterials.GeneralProcedures
@@ -121,7 +122,7 @@ sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
     object BlowbagetsInspection: NavigationScreen("BLOWBAGETS Inspection", R.string.blowbagets_banner_title)
     object DrivingAndRoadCourtesy: NavigationScreen("Drive Safety and Road Courtesy", R.string.DRC_Banner)
     object AttitudeAndBehavior: NavigationScreen("Attitude and Behavior", R.string.AB_Banner)
-
+    object Emergency: NavigationScreen("Dealing with Emergency Situations", R.string.Emergency_banner)
 
     companion object {
         fun fromRoute(route: String?): NavigationScreen {
@@ -569,6 +570,7 @@ fun NavigationApp(
                         onNextButtonClicked = { index ->
                             when(index) {
                                 0 -> navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
+                                1 -> navController.navigate(NavigationScreen.Emergency.route)
                                 else -> throw IllegalArgumentException("Invalid Screen")
                             }
                         }
@@ -577,7 +579,17 @@ fun NavigationApp(
                 composable(route = NavigationScreen.AttitudeAndBehavior.route) {
                     AttAndBehaveScreen (
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.DrivingAndRoadCourtesy.route)
+                            navController.navigate(NavigationScreen.Emergency.route)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.Emergency.route) {
+                    EmergencyScreen (
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
+                        },
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
                         }
                     )
                 }
