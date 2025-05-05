@@ -241,9 +241,252 @@
     <string name="OTHER_LINES_SEC_3">Parking Bay</string>
     <string name="OTHER_LINES_SEC_3_2">Used to designate parking space, but take note of PWD Parking Mark</string>
 
-    <!-- Checking Motor Vehicle -->
-    <string name="CHECK_MOTOR_VEHICLE">Checking Motor Vehicle</string>
-    <string name="BLOWBAGETS">BLOWBAGETS</string>
-    <string name="BLOWBAGETS_1">Before operating a motor vehicle, make a round check of the following:</string>
+    <!-- Banner Title -->
+    <string name="TVP_SEC">Traffic Violations and Penalties</string>
+
+    <!-- Driving Without a Valid License -->
+    <string name="driving_without_license_title">Driving Without a Valid License</string>
+    <string name="driving_without_license_desc">Operating a vehicle without a valid driver\'s license.</string>
+    <string name="driving_without_license_penalty">Penalty: Php 3,000 fine.</string>
+
+    <!-- Reckless Driving -->
+    <string name="reckless_driving_title">Reckless Driving</string>
+    <string name="reckless_driving_1st">1st Offense: Php 2,000 fine.</string>
+    <string name="reckless_driving_2nd">2nd Offense: Php 3,000 fine and suspension of driver\'s license for three months.</string>
+    <string name="reckless_driving_3rd">3rd Offense: Php 10,000 fine and suspension of driver\'s license for six months.</string>
+    <string name="reckless_driving_subsequent">Subsequent Offenses: Php 10,000 fine and revocation of driver\'s license.</string>
+
+    <!-- Driving Under the Influence (DUI) -->
+    <string name="dui_title">Driving Under the Influence (DUI)</string>
+    <string name="dui_non_professional">Non-Professional Drivers:</string>
+    <string name="dui_non_professional_1st">- 1st Conviction: Confiscation and suspension of driver\'s license for 12 months.</string>
+    <string name="dui_non_professional_2nd">- 2nd Conviction: Revocation of driver\'s license.</string>
+    <string name="dui_professional">Professional Drivers:</string>
+    <string name="dui_professional_1st">- 1st Conviction: Confiscation and perpetual revocation of driver\'s license.</string>
+
+    <!-- Failure to Wear Seatbelt -->
+    <string name="seatbelt_title">Failure to Wear Seatbelt</string>
+    <string name="seatbelt_1st">1st Offense: Php 1,000 fine.</string>
+    <string name="seatbelt_2nd">2nd Offense: Php 2,000 fine.</string>
+    <string name="seatbelt_3rd">3rd and Subsequent Offenses: Php 5,000 fine and suspension of driver\'s license for one week.</string>
+
+    <!-- Failure to Wear Standard Protective Motorcycle Helmet -->
+    <string name="helmet_title">Failure to Wear Standard Protective Motorcycle Helmet</string>
+    <string name="helmet_1st">1st Offense: Php 1,500 fine.</string>
+    <string name="helmet_2nd">2nd Offense: Php 3,000 fine.</string>
+    <string name="helmet_3rd">3rd Offense: Php 5,000 fine.</string>
+    <string name="helmet_subsequent">Subsequent Offenses: Php 10,000 fine.</string>
+
+    <!-- Illegal Parking -->
+    <string name="illegal_parking_title">Illegal Parking</string>
+    <string name="illegal_parking_desc">Parking in prohibited areas such as intersections, within 5 meters of intersections, in front of driveways, etc.</string>
+    <string name="illegal_parking_penalty">Penalty: Php 1,000 fine.</string>
+
+    <!-- Disregarding Traffic Signs -->
+    <string name="disregarding_signs_title">Disregarding Traffic Signs</string>
+    <string name="disregarding_signs_desc">Ignoring or disobeying traffic signs.</string>
+    <string name="disregarding_signs_penalty">Penalty: Php 1,000 fine.</string>
+
+    <!-- Driving an Unregistered Motor Vehicle -->
+    <string name="unregistered_vehicle_title">Driving an Unregistered Motor Vehicle</string>
+    <string name="unregistered_vehicle_desc">Operating a vehicle that is not registered with the LTO.</string>
+    <string name="unregistered_vehicle_penalty">Penalty: Php 10,000 fine and impoundment of the vehicle until properly registered.</string>
+
+    <!-- Unauthorized Modification of Motor Vehicle -->
+    <string name="unauthorized_modification_title">Unauthorized Modification of Motor Vehicle</string>
+    <string name="unauthorized_modification_desc">Modifying a vehicle without approval from the LTO.</string>
+    <string name="unauthorized_modification_penalty">Penalty: Php 5,000 fine.</string>
+
+    <!-- Vehicle Maintenance and Inspection -->
+    <string name="VMI_SEC">Vehicle Maintenance and Inspection</string>
+
+    <!-- Tire Inspection -->
+    <string name="tire_inspection_banner_title">Tire Inspection Guidelines</string>
+
+    <!-- Visual Inspection Section -->
+    <string name="visual_inspection_title">Visual Inspection</string>
+    <string name="visual_inspection_point1">Check for any visible cuts, cracks, or bulges on the tire surface.</string>
+    <string name="visual_inspection_point2">Ensure there are no embedded objects like nails or glass that could cause punctures.</string>
+    <string name="visual_inspection_point3">Look for uneven wear patterns that might indicate alignment or suspension issues.</string>
+
+    <!-- Tread Depth Section -->
+    <string name="tread_depth_title">Tread Depth</string>
+    <string name="tread_depth_point1">Use a tread depth gauge to measure the depth; it should not fall below the minimum requirement.</string>
+    <string name="tread_depth_point2">Adequate tread depth is essential for proper traction, especially on wet roads.</string>
+    <string name="tread_depth_point3">Replace tires that have worn down to the tread wear indicators.</string>
+
+    <!-- Tire Pressure Section -->
+    <string name="tire_pressure_title">Tire Pressure</string>
+    <string name="tire_pressure_point1">Refer to the vehicle\'s manual for the recommended tire pressure.</string>
+    <string name="tire_pressure_point2">Use a reliable tire pressure gauge to check the pressure when tires are cold.</string>
+    <string name="tire_pressure_point3">Under-inflated or over-inflated tires can lead to poor handling and increased wear.</string>
+
+    <!-- Tire Age Section -->
+    <string name="tire_age_title">Tire Age</string>
+    <string name="tire_age_point1">Check the manufacturing date on the tire sidewall to determine its age.</string>
+    <string name="tire_age_point2">Tires older than five years may need to be replaced, regardless of tread wear.</string>
+    <string name="tire_age_point3">Aged tires can degrade and may not provide safe performance.</string>
+
+    <!-- Spare Tire Section -->
+    <string name="spare_tire_title">Spare Tire</string>
+    <string name="spare_tire_point1">Ensure the spare tire is in good condition and properly inflated.</string>
+    <string name="spare_tire_point2">Familiarize yourself with the location and operation of the jack and other tools.</string>
+    <string name="spare_tire_point3">Regularly inspect the spare tire as you would with the other tires.</string>
+
+    <!-- Banner Title -->
+    <string name="engine_oil_inspection_banner_title">Engine Oil Inspection Guidelines</string>
+
+    <!-- Importance of Engine Oil Section -->
+    <string name="importance_of_engine_oil_title">Importance of Engine Oil</string>
+    <string name="importance_of_engine_oil_point1">Lubricates moving parts to reduce friction and wear.</string>
+    <string name="importance_of_engine_oil_point2">Helps in cooling engine components by dissipating heat.</string>
+    <string name="importance_of_engine_oil_point3">Cleans internal components by preventing sludge buildup.</string>
+    <string name="importance_of_engine_oil_point4">Protects against rust and corrosion.</string>
+
+    <!-- Checking Oil Level Section -->
+    <string name="checking_oil_level_title">Checking Oil Level</string>
+    <string name="checking_oil_level_point1">Park the vehicle on level ground and turn off the engine.</string>
+    <string name="checking_oil_level_point2">Wait a few minutes to allow the oil to settle.</string>
+    <string name="checking_oil_level_point3">Locate the dipstick, pull it out, and wipe it clean.</string>
+    <string name="checking_oil_level_point4">Reinsert the dipstick fully, then remove it again to check the oil level.</string>
+    <string name="checking_oil_level_point5">Ensure the oil level is between the \'MIN\' and \'MAX\' marks.</string>
+
+    <!-- Assessing Oil Condition Section -->
+    <string name="assessing_oil_condition_title">Assessing Oil Condition</string>
+    <string name="assessing_oil_condition_point1">Fresh oil is typically amber in color; dark or dirty oil may indicate contamination.</string>
+    <string name="assessing_oil_condition_point2">Feel the oil between your fingers; grit or debris suggests the need for a change.</string>
+    <string name="assessing_oil_condition_point3">A burnt smell can indicate overheating or old oil.</string>
+
+    <!-- Oil Change Intervals Section -->
+    <string name="oil_change_intervals_title">Oil Change Intervals</string>
+    <string name="oil_change_intervals_point1">Follow the manufacturer\'s recommended oil change schedule, usually every 5,000 to 10,000 kilometers.</string>
+    <string name="oil_change_intervals_point2">Consider factors such as driving conditions and engine age, which may necessitate more frequent changes.</string>
+    <string name="oil_change_intervals_point3">Regular oil changes ensure optimal engine performance and longevity.</string>
+
+    <!-- Banner Title -->
+    <string name="blowbagets_banner_title">BLOWBAGETS Vehicle Safety Checklist</string>
+
+    <!-- Battery Section -->
+    <string name="battery_title">Battery</string>
+    <string name="battery_point1">Ensure the battery is fully charged and securely connected.</string>
+    <string name="battery_point2">Check for any corrosion on terminals and clean if necessary.</string>
+    <string name="battery_point3">Verify that all electrical components powered by the battery are functioning properly.</string>
+
+    <!-- Lights Section -->
+    <string name="lights_title">Lights</string>
+    <string name="lights_point1">Test all vehicle lights, including headlights, brake lights, turn signals, and hazard lights.</string>
+    <string name="lights_point2">Replace any burnt-out bulbs to maintain visibility and communication with other drivers.</string>
+    <string name="lights_point3">Ensure lenses are clean and free from obstructions.</string>
+
+    <!-- Oil Section -->
+    <string name="oil_title">Oil</string>
+    <string name="oil_point1">Check the engine oil level using the dipstick; add oil if below the recommended level.</string>
+    <string name="oil_point2">Observe the oil\'s color and consistency; dark or dirty oil may indicate the need for a change.</string>
+    <string name="oil_point3">Look for any signs of oil leaks under the vehicle.</string>
+
+    <!-- Water Section -->
+    <string name="water_title">Water (Coolant)</string>
+    <string name="water_point1">Inspect coolant levels in the radiator and reservoir; top up if necessary.</string>
+    <string name="water_point2">Examine hoses and connections for leaks or wear.</string>
+    <string name="water_point3">Ensure the coolant mixture is appropriate for current weather conditions.</string>
+
+    <!-- Brakes Section -->
+    <string name="brakes_title">Brakes</string>
+    <string name="brakes_point1">Test brake pedal for firmness and responsiveness.</string>
+    <string name="brakes_point2">Listen for any unusual noises when applying brakes, indicating potential issues.</string>
+    <string name="brakes_point3">Check brake fluid level and refill if below the recommended mark.</string>
+
+    <!-- Air Section -->
+    <string name="air_title">Air</string>
+    <string name="air_point1">Measure tire pressure with a reliable gauge; adjust to manufacturer specifications.</string>
+    <string name="air_point2">Inspect tires for cuts, bulges, or excessive wear.</string>
+    <string name="air_point3">Ensure the spare tire is also properly inflated and in good condition.</string>
+
+    <!-- Gas Section -->
+    <string name="gas_title">Gas (Fuel)</string>
+    <string name="gas_point1">Confirm sufficient fuel level for your intended journey.</string>
+    <string name="gas_point2">Check for any fuel leaks or odors around the vehicle.</string>
+    <string name="gas_point3">Ensure the fuel cap is securely fastened after refueling.</string>
+
+    <!-- Engine Section -->
+    <string name="engine_title">Engine</string>
+    <string name="engine_point1">Listen for abnormal engine noises that could indicate issues.</string>
+    <string name="engine_point2">Check for warning lights on the dashboard related to engine performance.</string>
+    <string name="engine_point3">Ensure belts and hoses are in good condition and properly tensioned.</string>
+
+    <!-- Tires Section -->
+    <string name="tires_title">Tires</string>
+    <string name="tires_point1">Examine tread depth to ensure it meets safety standards.</string>
+    <string name="tires_point2">Rotate tires regularly to promote even wear.</string>
+    <string name="tires_point3">Align wheels as needed to prevent uneven tire wear and improve handling.</string>
+
+    <!-- Self Section -->
+    <string name="self_title">Self</string>
+    <string name="self_point1">Assess your physical and mental state before driving; avoid driving when fatigued or unwell.</string>
+    <string name="self_point2">Ensure you have your driver\'s license and necessary documents with you.</string>
+    <string name="self_point3">Plan your route in advance to reduce stress and distractions while driving.</string>
+
+    <string name="DRC_Banner">Drive Safety and Road Courtesy</string>
+    <string name="AB_Banner">Attitude and Behavior</string>
+    <string name="AB_title1">Dealing with Drivers Going the Wrong Way</string>
+    <string name="AB_point1">On roads without a center divider, always watch out for vehicles that might suddenly move into your lane. Stay on the outer lane and drive at a safe speed.</string>
+    <string name="AB_point2">If a driver is coming towards you in the wrong direction (counterflow):</string>
+    <string name="AB_point2_1">Stay calm.</string>
+    <string name="AB_point2_2">Don’t insist on having the right of way.</string>
+    <string name="AB_point2_3">Signal early and switch lanes safely.</string>
+    <string name="AB_point2_4">Avoid making eye contact to keep things from getting tense.</string>
+    <string name="AB_point3">To avoid a collision if a vehicle moves toward you:</string>
+    <string name="AB_point3_1">Look ahead and understand the road situation.</string>
+    <string name="AB_point3_2">Steer to the right.</string>
+    <string name="AB_point3_3">Slow down.</string>
+    <string name="AB_point3_4">If needed, move off the road safely.</string>
+    <string name="AB_point4">If you’re forced to ride off the road and can’t avoid hitting something:</string>
+    <string name="AB_point4_1">Aim for something soft like bushes or plastic barriers.</string>
+    <string name="AB_point4_2">If you must hit something fixed like a fence, try to hit it at an angle—not head-on—to reduce damage.</string>
+
+    <string name="AB_title2">Dealing with Large or Long Vehicles</string>
+    <string name="AB_point5">Give extra space when driving near big vehicles like trucks or buses. Be careful when passing them—only overtake if there\'s enough time and distance to do it safely.</string>
+    <string name="AB_point6">When driving uphill or stopping behind a large vehicle, leave more space. It might roll back a little when the driver lets go of the brake or clutch.</string>
+    <string name="AB_point7">Important Reminders:</string>
+    <string name="AB_point7_1">Don’t overtake a large truck while it’s turning left or right.</string>
+    <string name="AB_point7_2">These vehicles may take up more than one lane when turning.</string>
+    <string name="AB_point7_3">Stay alert—they can block part or all of the road while making a turn.</string>
+
+    <string name="Emergency_banner">Dealing with Emergency Situations</string>
+    <string name="Emergency_brake">Emergency Braking</string>
+    <string name="Emergency_brake_point1">If your brakes fail, stay calm and follow these steps:</string>
+    <string name="Emergency_brake_point1_1">Pump the brake pedal quickly to build pressure (Warning: Do NOT pump if your car has ABS).</string>
+    <string name="Emergency_brake_point1_2">Shift to a lower gear to help slow the car down.</string>
+    <string name="Emergency_brake_point1_3">Use your horn and flash your lights to warn others.</string>
+    <string name="Emergency_brake_point1_4">Gently use the parking brake on and off to slow down.</string>
+
+    <string name="Skidding">Skidding</string>
+    <string name="Skidding_point1">Skids usually happen when turning or stopping too fast on slippery or sloped roads (like when it’s wet or sandy).</string>
+    <string name="Skidding_point2">If your car starts to skid:</string>
+    <string name="Skidding_point2_1">Avoid braking if you can.</string>
+    <string name="Skidding_point2_2">Lift your foot off the gas pedal.</string>
+    <string name="Skidding_point2_3">Look where you want to go and gently steer in that direction.</string>
+    <string name="Skidding_point2_4">Straighten the wheels once you regain control.</string>
+
+    <string name="Collision_title">How to Avoid a Collision at Intersections</string>
+    <string name="Collision_scenario">Scenario: You\'re approaching an intersection, but your view is blocked by signs, people, or other vehicles.</string>
+    <string name="Collision_question">Question: Who goes first?</string>
+    <string name="Collision_intro_point">Most accidents at intersections happen because drivers don’t follow right-of-way rules. Here\'s what to remember:</string>
+    <string name="Collision_point1">🚦 No Signs or Traffic Lights</string>
+    <string name="Collision_point1_1">Let the vehicle on your right go first.</string>
+    <string name="Collision_point2">🛑 Stop Sign</string>
+    <string name="Collision_point2_1">Come to a full stop.</string>
+    <string name="Collision_point2_2">Yield to vehicles already in or near the intersection.</string>
+    <string name="Collision_point2_3">If you stop at the same time as another car, the one on the right goes first.</string>
+    <string name="Collision_point2_4">❌ Don’t do a rolling stop.</string>
+
+    <string name="Collision_point3">⚠️ Give Way / Yield Sign</string>
+    <string name="Collision_point3_1">Slow down and be ready to stop.</string>
+    <string name="Collision_point3_2">Let other vehicles in or near the intersection go first.</string>
+
+    <string name="Collision_point4">🚥 With Traffic Lights</string>
+    <string name="Collision_point4_1">Green light? You can go, but yield to cars and pedestrians already crossing.</string>
+    <string name="Collision_point4_2">Turning right on red? Stop completely first. Yield to people and traffic before turning.</string>
+    <string name="Collision_point4_3">❌ Again, no rolling stops.</string>
 
 </resources>

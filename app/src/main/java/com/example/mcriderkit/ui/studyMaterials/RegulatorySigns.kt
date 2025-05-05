@@ -18,7 +18,7 @@ import com.example.mcriderkit.R
 
 @Composable
 fun RegulatorySign(
-    onNextButtonClicked: () -> Unit,
+    onNextButtonClicked: () -> Unit
 ) {
     val context = LocalContext.current
 

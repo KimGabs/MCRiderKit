@@ -35,8 +35,8 @@ object DataSource {
         "Road Signs & Markings",
         "Traffic Rules & Regulations",
         "Traffic Violations & Penalties",
-        "Vehicle Basics & Maintenance",
-        "Driving Etiquette & Road Courtesy"
+        "Vehicle Maintenance",
+        "Drive Safety & Road Courtesy"
     )
 
     val licensingInfo = listOf(
@@ -58,6 +58,18 @@ object DataSource {
         "Longitudinal Lines",
         "Traversal Lines",
         "Other Lines"
+    )
+
+    val VehicleMaintenance = listOf(
+        "Regular Vehicle Checks",
+        "Basic Maintenance Tasks",
+        "BLOWBAGETS Checklist",
+    )
+
+    val DrivingAndRoadCourtesy = listOf(
+        "Attitude and Behavior",
+        "Dealing with Emergency Situations",
+        "Road Hazards"
     )
 
     data class Question(
@@ -262,6 +274,159 @@ object DataSource {
             options = listOf("Go faster and pray for safety", "Maintain maximum speed and be more alert than usual", "Take a U-turn", "Slow down and be more alert than usual"),
             correctAnswerIndex = 3
         ),
+        Question("You were apprehended because you were engaged in car racing while driving in a super highway, what traffic violation did you commit?",
+            options = listOf("Overspeeding", "Reckless Driving", "Gambling", "Color Coding Violation"),
+            correctAnswerIndex = 1
+        ),
+        Question("In case of injuries caused by an accident, the duty of the uninjured driver is to:",
+            options = listOf("Call a physician", "keep the victim lying down", "Find who is at fault", "Ignore the situation"),
+            correctAnswerIndex = 0
+        ),
+        Question("When a vehicle starts to skid, what should the driver do?",
+            options = listOf("Immediately step on the brakes", "Start drifting", "Hold firmly on to the wheel while slowing down the vehicle",
+                "Turn the wheels tp the opposite the direction of the skid"),
+            correctAnswerIndex = 2
+        ),
+        Question("In case of an accident, the first duty of the driver involved is to:",
+            options = listOf("Pick-up the injured person and take him to the nearest hospital", "Report the incident to the nearest hospital",
+                "Report the incident to the nearest police station", "Ignore the situation and wait for help"),
+            correctAnswerIndex = 0
+        ),
+        Question("What will happen when your front tire blows out?",
+            options = listOf("The back end will sway towards the side of the blowout", "The back end will sway away from the blowout",
+                "The front end will pull towards the side of the blowout", "The front end will pull to the opposite side of the blowout"),
+            correctAnswerIndex = 2
+        ),
+        Question("What should you do when an ambulance comes up behind you flashing red lights and/or sounding its siren?",
+            options = listOf("Stop as soon as you can", "Speed up so that you don't hold the ambulance",
+                "Maintain your speed, let the ambulance driver will find a way around you", "Pull over to the right and slow down or even stop if necessary"),
+            correctAnswerIndex = 3
+        ),
+        Question("When a vehicle is stalled or disabled, the driver must park the vehicle on the shoulder of the road and:",
+            options = listOf("Switch on the parking light", "Switch on the parking light and install the Early Warning Device to the front and rear of the motor vehicle",
+                "Stay in the car until help arrives", "Install the early warning device"),
+            correctAnswerIndex = 1
+        ),
+        Question("In case of a breakdown, which of the following should not be done by a driver?",
+            options = listOf("Stay in the car until help comes", "Ask for help",
+                "Get out of the car until help comes", "Leave the vehicle unattended on the road without warning signs"),
+            correctAnswerIndex = 0
+        ),
+        Question("What will happen when your rear tire blows out?",
+            options = listOf("The back end will sway towards the side of the blowout", "The back end will sway away from the blowout",
+                "The front end will pull towards the side of the blowout", "The front end will pull to the opposite side of the blowout"),
+            correctAnswerIndex = 1
+        ),
+        Question(
+            "The effects of alcohol in driving are the following except:",
+            options = listOf(
+                "Coordination of body movements and self judgment",
+                "Reduced concentration",
+                "Slow reaction time",
+                "Impaired vision"
+            ),
+            correctAnswerIndex = 0
+        ),
+        Question(
+            "The Temporary Operator's Permit (TOP) authorizes the apprehended driver to operate a motor vehicle for a period not exceeding:",
+            options = listOf(
+                "24 hours",
+                "48 hours",
+                "72 hours",
+                "One week"
+            ),
+            correctAnswerIndex = 2
+        ),
+        Question(
+            "Eating, drinking, reading, or doing anything that may take your attention from driving is:",
+            options = listOf(
+                "Never allowed",
+                "Allowed if you have a professional driver's license",
+                "Allowed as long as you can handle it",
+                "Allowed only during traffic stops"
+            ),
+            correctAnswerIndex = 0
+        ),
+        Question(
+            "Which of the following are not considered \"highways\"?",
+            options = listOf(
+                "Public park, alley and boulevard",
+                "Roadway upon property owned by private persons or universities",
+                "Driveway, avenue and boulevard",
+                "Street, road and expressway"
+            ),
+            correctAnswerIndex = 1
+        ),
+        Question(
+            "What should you do to avoid air pollution especially from motor vehicles?",
+            options = listOf(
+                "Plant more trees",
+                "Avoid driving during rush hour",
+                "Help enforce the law by having regular motor vehicle check-up and avoid overloading",
+                "Use a car that's not more than 10 years old"
+            ),
+            correctAnswerIndex = 2
+        ),
+        Question(
+            "Public Service Law prohibits public utility drivers from conversing with their passengers while the vehicle is:",
+            options = listOf(
+                "Climbing the mountain",
+                "In motion",
+                "Parked",
+                "Stopped at a traffic light"
+            ),
+            correctAnswerIndex = 1
+        ),
+        Question(
+            "What must a driver do in case his license gets lost?",
+            options = listOf(
+                "Apply for a new license",
+                "Execute an affidavit of loss and apply for a new license",
+                "Apply for a duplicate license from the CHPG",
+                "Report the loss to the police"
+            ),
+            correctAnswerIndex = 1
+        ),
+        Question(
+            "Passing/overtaking is allowed:",
+            options = listOf(
+                "On highway with solid yellow lines",
+                "On highway with at least 60kph speed limit",
+                "On highway with two or more lanes",
+                "On narrow roads"
+            ),
+            correctAnswerIndex = 2
+        ),
+        Question(
+            "Under the basic speed law, you may never drive faster than:",
+            options = listOf(
+                "That which is safe",
+                "The flow of traffic",
+                "The posted speed limit",
+                "What is comfortable"
+            ),
+            correctAnswerIndex = 0
+        ),
+        Question(
+            "The Director of the LTO may suspend/revoke a driver's license when:",
+            options = listOf(
+                "The holder has been convicted for three violations of the land transportation laws within a 12-month period",
+                "The driver operated a motor vehicle as an accessory in the commission of any crime",
+                "Both of the above",
+                "The driver has a history of accidents"
+            ),
+            correctAnswerIndex = 2
+        ),
+        Question(
+            "Chances of being hurt or killed while driving/riding are reduced if one is wearing:",
+            options = listOf(
+                "Alarm device",
+                "Helmet",
+                "Seat belts/helmets",
+                "Protective gloves"
+            ),
+            correctAnswerIndex = 2
+        )
     )
 
     val presetQuizScore = listOf(
