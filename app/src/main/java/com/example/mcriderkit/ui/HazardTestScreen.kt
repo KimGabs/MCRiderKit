@@ -86,6 +86,11 @@ fun HazardTestScreen(
             video.lastScore = 0
         }
 
+        /* Trophy Check*/
+        if (!video.trophy && video.lastScore == 100){
+            video.trophy = true
+        }
+
         viewModel.updateScore(video)
     }
 

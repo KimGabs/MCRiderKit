@@ -57,6 +57,7 @@ import com.example.mcriderkit.ui.StudentExamViewModel
 import com.example.mcriderkit.ui.StudentQuizScreen
 import com.example.mcriderkit.ui.TutorialScreen
 import com.example.mcriderkit.ui.components.BaseExamViewModel
+import com.example.mcriderkit.ui.components.BaseHazardViewModel
 import com.example.mcriderkit.ui.studyMaterials.AttAndBehaveScreen
 import com.example.mcriderkit.ui.studyMaterials.BlowbagetsChecklistScreen
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
@@ -672,7 +673,7 @@ fun NavigationApp(
                             },
                             onReview = {
                                 navController.navigate(NavigationScreen.HazardTestReview.route)
-                            }
+                            },
                         )
                     }
                 }

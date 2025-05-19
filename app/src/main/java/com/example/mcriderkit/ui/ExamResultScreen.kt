@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -38,7 +37,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.example.mcriderkit.R
 import com.example.mcriderkit.data.ExamUiState
-import com.example.mcriderkit.ui.components.AchievementManager
 import com.example.mcriderkit.ui.components.BaseExamViewModel
 import kotlinx.coroutines.delay
 import nl.dionsegijn.konfetti.compose.KonfettiView
@@ -67,7 +65,7 @@ fun ExamResultScreen(
     val showTrophyDialog by viewModel.showTrophyDialog.collectAsState()
 
     LaunchedEffect(examState.score) {
-        viewModel.checkAndShowTrophyDialog(examState.score, examState.totalQuestions)
+        viewModel.examShowTrophyDialog(examState.score, examState.totalQuestions)
     }
     // Show loading indicator when navigating or resetting quiz
     LaunchedEffect(isLoading) {
@@ -111,19 +109,23 @@ fun ExamResultScreen(
             when {
                 percent_score == 100f -> {
                     // Perfect Score
-                    Text("You got a perfect score! You're ready for the real thing! Book your exam and earn your license!", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
+                    Text("You got a perfect score! You're ready for the real thing! Book your exam and earn your license!",
+                        style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
                 }
                 percent_score >= 90f -> {
                     // High score (90% or higher)
-                    Text("This is a strong showing, but some additional studying will help you earn points on the real exam.", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
+                    Text("This is a strong showing, but some additional studying will help you earn points on the real exam.",
+                        style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
                 }
                 percent_score >= 70f -> {
                     // Medium score (70% - 89%)
-                    Text("You're so close! Keep working on the areas you're missing and fill in those gaps.", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
+                    Text("You're so close! Keep working on the areas you're missing and fill in those gaps.",
+                        style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
                 }
                 else -> {
                     // Low score (below 70%)
-                    Text("You have room for improvement. Keep practicing and focus on the areas where you struggled.", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
+                    Text("You have room for improvement. Keep practicing and focus on the areas where you struggled.",
+                        style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
                 }
             }
 

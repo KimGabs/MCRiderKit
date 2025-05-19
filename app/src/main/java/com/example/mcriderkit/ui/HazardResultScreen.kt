@@ -2,24 +2,22 @@ package com.example.mcriderkit.ui
 
 import android.R
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -27,7 +25,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mcriderkit.data.HazardTest
+import com.example.mcriderkit.ui.components.BaseHazardViewModel
 import kotlinx.coroutines.delay
 
 @Composable
@@ -38,8 +38,13 @@ fun HazardResultScreen(
     onReview: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-
+    val baseHazardViewModel: BaseHazardViewModel = viewModel()
     var isLoading by remember { mutableStateOf(true) } // Manage loading state
+    val showHazardTrophyDialog by baseHazardViewModel.showHazardTrophyDialog.collectAsState()
+
+    LaunchedEffect(video.lastScore) {
+        baseHazardViewModel.hazardShowTrophyDialog(video.lastScore)
+    }
 
     // Simulate loading state
     LaunchedEffect(isLoading) {
@@ -130,5 +135,10 @@ fun HazardResultScreen(
                 Text(text = "Return to Main Menu")
             }
         }
+    }
+    if (showHazardTrophyDialog) {
+        TrophyAchievementDialog(onDismiss = {
+            baseHazardViewModel.hideTrophyDialog()
+        })
     }
 }

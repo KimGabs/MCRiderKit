@@ -33,7 +33,7 @@ class StudentExamViewModel(
         }
     }
 
-  /*  init {
+   /* init {
         viewModelScope.launch {
             repository.insertPresetQuizScores() // Insert preset data if needed
         }
@@ -50,7 +50,7 @@ class StudentExamViewModel(
                     QuizScore(quizType = quizType, highestScore = score)
                 )
                 if (score == totalQuestions) {
-                    repository.updateTrophyIfPerfect(quizType, totalQuestions)
+                    repository.updateTrophyIfPerfect(quizType = quizType, totalQuestions)
                 }
             } else {
                 // Update only if the new score is higher
@@ -61,7 +61,7 @@ class StudentExamViewModel(
                         quizType == existingScore.quizType &&
                         score == totalQuestions
                     ) {
-                        repository.updateTrophyIfPerfect(quizType, totalQuestions)
+                        repository.updateTrophyIfPerfect(quizType = quizType, totalQuestions)
                     }
                 }
             }
@@ -80,7 +80,8 @@ class StudentExamViewModel(
     }
 
     private fun initializeQuestions() {
-        _questions = DataSource.examQuestions.shuffled().take(1) // Shuffle at initialization
+        _questions = DataSource.examQuestions.shuffled().take(10) // Shuffle at initialization
+        totalQuestions = _questions.size
     }
 
     override fun resetQuiz() {
