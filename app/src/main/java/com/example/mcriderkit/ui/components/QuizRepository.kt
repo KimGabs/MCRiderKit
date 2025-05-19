@@ -13,11 +13,18 @@ class QuizRepository(private val quizScoreDao: QuizScoreDao) {
         quizScoreDao.insertOrUpdateScore(quizScore)
     }
 
-    suspend fun insertPresetQuizScores() {
+    /*suspend fun insertPresetQuizScores() {
         val existingTests = quizScoreDao.getAllScores()
         if (existingTests.isEmpty()) {
             quizScoreDao.insertAll(DataSource.presetQuizScore)
         }
+    }*/
+
+    suspend fun updateTrophyIfPerfect(quizType: String, perfectScore: Int) {
+        quizScoreDao.updateTrophyIfPerfect(
+            quizType = quizType,
+            perfectScore = perfectScore
+        )
     }
 
     suspend fun getAllScores(): List<QuizScore> {

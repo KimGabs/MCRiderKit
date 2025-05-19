@@ -23,6 +23,8 @@ class StudentExamViewModel(
 
     private val _highestScore = MutableStateFlow<Int?>(null)
     override val highestScore: StateFlow<Int?> = _highestScore
+    private var totalQuestions = 0
+
 
     override fun fetchHighestScore(quizType: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -31,11 +33,11 @@ class StudentExamViewModel(
         }
     }
 
-    init {
+  /*  init {
         viewModelScope.launch {
             repository.insertPresetQuizScores() // Insert preset data if needed
         }
-    }
+    }*/
 
     fun saveScore(quizType: String, score: Int) {
         viewModelScope.launch {
@@ -43,11 +45,25 @@ class StudentExamViewModel(
             val existingScore = repository.getScoreByType(quizType)
 
             if (existingScore == null) {
-                // No existing score, insert a new record
-                repository.insertOrUpdateScore(QuizScore(quizType = quizType, highestScore = score))
+                // No existing score, insert new one
+                repository.insertOrUpdateScore(
+                    QuizScore(quizType = quizType, highestScore = score)
+                )
+                if (score == totalQuestions) {
+                    repository.updateTrophyIfPerfect(quizType, totalQuestions)
+                }
             } else {
-                // Update the score only if the new score is higher
-                repository.insertOrUpdateScore(existingScore.copy(highestScore = score))
+                // Update only if the new score is higher
+                if (score > existingScore.highestScore) {
+                    repository.insertOrUpdateScore(existingScore.copy(highestScore = score))
+
+                    if (!existingScore.trophy &&
+                        quizType == existingScore.quizType &&
+                        score == totalQuestions
+                    ) {
+                        repository.updateTrophyIfPerfect(quizType, totalQuestions)
+                    }
+                }
             }
         }
     }
@@ -64,7 +80,7 @@ class StudentExamViewModel(
     }
 
     private fun initializeQuestions() {
-        _questions = DataSource.examQuestions.shuffled().take(10) // Shuffle at initialization
+        _questions = DataSource.examQuestions.shuffled().take(1) // Shuffle at initialization
     }
 
     override fun resetQuiz() {
