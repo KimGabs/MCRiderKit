@@ -173,6 +173,7 @@ fun NavigationApp(
     proQuizViewModel: ProExamViewModel,
     studentExamViewModel: StudentExamViewModel,
     hazardViewModel: HazardTestViewModel,
+    onToggleDarkMode: (Boolean) -> Unit
 ) {
     var selectedItem by remember { mutableIntStateOf(0) }
     val items = listOf("Home", "Profile", "Settings")
@@ -268,6 +269,7 @@ fun NavigationApp(
                 }
                 composable(route = NavigationScreen.Settings.route) {
                     SettingsScreen(
+                        onDarkModeToggle = onToggleDarkMode,
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(R.dimen.padding_medium))

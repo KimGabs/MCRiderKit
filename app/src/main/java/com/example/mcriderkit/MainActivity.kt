@@ -1,12 +1,16 @@
 package com.example.mcriderkit
 
+import android.R.attr.content
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
+import com.example.mcriderkit.NavigationApp
 import com.example.mcriderkit.data.QuizDatabase
 import com.example.mcriderkit.ui.HazardTestViewModel
 import com.example.mcriderkit.ui.NonProExamViewModel
@@ -15,9 +19,12 @@ import com.example.mcriderkit.ui.StudentExamViewModel
 import com.example.mcriderkit.ui.UserInputScreen
 import com.example.mcriderkit.ui.components.HazardRepository
 import com.example.mcriderkit.ui.components.QuizRepository
+import com.example.mcriderkit.ui.theme.DarkColorScheme
+import com.example.mcriderkit.ui.theme.LightColorScheme
 import com.example.mcriderkit.ui.theme.MCRiderKitTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
 
 
 class MainActivity : ComponentActivity() {
@@ -45,28 +52,35 @@ class MainActivity : ComponentActivity() {
 
         enableEdgeToEdge()
 
-        setContent {
-            MCRiderKitTheme {
-                // Load stored name
-                val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
-                var userName by remember { mutableStateOf(sharedPref.getString("user_name", null)) }
+            setContent {
 
-                if (userName == null) {
-                    // Show input screen if no name is stored
-                    UserInputScreen(onSubmit = { name ->
-                        userName = name // Update state to trigger navigation
-                    }, context = this@MainActivity)
-                } else {
-                    // Navigate directly to main app if name is already stored
-                    NavigationApp(
-                        nonProQuizViewModel = nonProQuizViewModel,
-                        proQuizViewModel = proQuizViewModel,
-                        studentExamViewModel = studentExamViewModel,
-                        hazardViewModel = hazardViewModel
-                    )
+                var isDarkMode by remember { mutableStateOf(false) } // default to false, or load from DataStore
+
+                MCRiderKitTheme(
+                    darkTheme = isDarkMode
+                ) {
+                    // Load stored name
+                    val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
+                    var userName by remember { mutableStateOf(sharedPref.getString("user_name", null)) }
+
+                    if (userName == null) {
+                        // Show input screen if no name is stored
+                        UserInputScreen(onSubmit = { name ->
+                            userName = name // Update state to trigger navigation
+                        }, context = this@MainActivity)
+                    } else {
+                        // Navigate directly to main app if name is already stored
+                        NavigationApp(
+                            nonProQuizViewModel = nonProQuizViewModel,
+                            proQuizViewModel = proQuizViewModel,
+                            studentExamViewModel = studentExamViewModel,
+                            hazardViewModel = hazardViewModel,
+                            onToggleDarkMode = { isDarkMode = it }
+                        )
+                    }
                 }
             }
-        }
     }
 }
+
 

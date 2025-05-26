@@ -2,6 +2,7 @@ package com.example.mcriderkit.ui
 
 import android.content.Context
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,21 +20,22 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-
 @Composable
 fun SettingsScreen(
+    onDarkModeToggle: (Boolean) -> Unit,
     modifier: Modifier = Modifier
-//    onLanguageChange: (String) -> Unit,
 ) {
-    val appVersion = "1.0.0" // Replace with your app's version"
+    val appVersion = "1.0.0" // Replace with your app's version
+
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
@@ -42,34 +44,30 @@ fun SettingsScreen(
         Spacer(modifier = Modifier.height(8.dp))
 
         // Language selection drop-down
-//        val languages = listOf("English", "Filipino", "Spanish") // Example languages
-
         var currentLanguage = "English" // Replace with your default language
-        // Language selection drop-down
         var expanded by remember { mutableStateOf(false) }
         Box {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickable { expanded = !expanded }, // Handle the click event on the entire row
-                horizontalArrangement = Arrangement.spacedBy(8.dp), // Space between Text and Icon
-                verticalAlignment = Alignment.CenterVertically // Align items vertically
+                    .clickable { expanded = !expanded },
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = currentLanguage,
-                    style = MaterialTheme.typography.bodyMedium, // Customize the text style
+                    style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
                         .padding(8.dp)
-                        .weight(1f) // Let the text take up the available space
+                        .weight(1f)
                 )
                 IconButton(
-                    onClick = { expanded = !expanded }, // Toggle dropdown when icon is clicked
-                    modifier = Modifier.size(24.dp) // Adjust the size of the icon button
+                    onClick = { expanded = !expanded },
+                    modifier = Modifier.size(24.dp)
                 ) {
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Dropdown")
                 }
             }
-
 
             DropdownMenu(
                 expanded = expanded,
@@ -79,10 +77,34 @@ fun SettingsScreen(
                 languages.forEach { language ->
                     DropdownMenuItem(
                         text = { Text(text = language) },
-                        onClick = {}
+                        onClick = {
+                            currentLanguage = language
+                            expanded = false
+                        }
                     )
                 }
             }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        var darkMode by remember { mutableStateOf(false) }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 16.dp)
+        ) {
+            Text("Dark Mode", style = MaterialTheme.typography.labelLarge)
+            Switch(
+                checked = darkMode,
+                onCheckedChange = {
+                    darkMode = it
+                    onDarkModeToggle(it) // call back to main to switch theme
+                }
+            )
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -94,9 +116,9 @@ fun SettingsScreen(
         )
     }
 }
-
 // Function to get app version
 private fun getAppVersion(context: Context): String {
     val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)
     return packageInfo.versionName.toString()
 }
+
