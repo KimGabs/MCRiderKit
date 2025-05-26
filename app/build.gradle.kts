@@ -45,6 +45,7 @@ dependencies {
     implementation ("co.yml:ycharts:2.1.0")
     implementation ("io.github.ehsannarmani:compose-charts:0.1.1")
     implementation("nl.dionsegijn:konfetti-compose:2.0.5")
+    implementation("io.coil-kt:coil-compose:2.1.0")
 
     implementation("androidx.compose.material3:material3")
     implementation(platform("androidx.compose:compose-bom:2023.10.01"))

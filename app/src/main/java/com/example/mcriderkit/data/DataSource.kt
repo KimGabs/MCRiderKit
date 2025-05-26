@@ -432,15 +432,15 @@ object DataSource {
     val presetQuizScore = listOf(
         QuizScore(
             quizType = "Student Exam",
-            highestScore = 0
+            highestScore = 10
         ),
         QuizScore(
             quizType = "Non-professional Exam",
-            highestScore = 0
+            highestScore = 16
         ),
         QuizScore(
             quizType = "Professional Exam",
-            highestScore = 0
+            highestScore = 24
         )
     )
 
