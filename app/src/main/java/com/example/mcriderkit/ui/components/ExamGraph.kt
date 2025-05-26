@@ -74,7 +74,7 @@ fun ExamGraph(
             if (quizScores.any { it.second > 0 }) {
                 QuizBarChart(quizScores)
             } else {
-                Text("No data available")
+                Text("No data available", style = MaterialTheme.typography.labelLarge)
             }
         }
     }
@@ -108,10 +108,13 @@ fun QuizBarChart(quizScores: List<Pair<String, Int>>) {
             .height(300.dp),
         data = barData,
         labelProperties = LabelProperties(
+            enabled = true,
+            textStyle = MaterialTheme.typography.labelSmall.copy(
+                color = MaterialTheme.colorScheme.onBackground // adapts to dark/light mode
+            ),
             rotation = Rotation(
                 degree = 0f
             ),
-            enabled = true,
             labels = listOf("Student","Non-professional","Professional")
         ),
         barProperties = BarProperties(
@@ -119,6 +122,7 @@ fun QuizBarChart(quizScores: List<Pair<String, Int>>) {
             spacing = 2.dp,
             thickness = 60.dp
         ),
+
         animationSpec = spring(
             dampingRatio = Spring.DampingRatioLowBouncy,
             stiffness = Spring.StiffnessLow

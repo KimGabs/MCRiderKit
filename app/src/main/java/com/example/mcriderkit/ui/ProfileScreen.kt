@@ -195,7 +195,6 @@ fun ProfileScreen(
             studentViewModel = studentViewModel,
             nonProViewModel = NonProViewModel,
             proViewModel = proViewModel
-
         )
 
         Spacer(modifier = Modifier.height(24.dp)) // Ensure enough spacing at the bottom

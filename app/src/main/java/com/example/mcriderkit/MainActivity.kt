@@ -5,12 +5,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import com.example.mcriderkit.NavigationApp
 import com.example.mcriderkit.data.QuizDatabase
 import com.example.mcriderkit.ui.HazardTestViewModel
 import com.example.mcriderkit.ui.NonProExamViewModel
@@ -19,8 +16,6 @@ import com.example.mcriderkit.ui.StudentExamViewModel
 import com.example.mcriderkit.ui.UserInputScreen
 import com.example.mcriderkit.ui.components.HazardRepository
 import com.example.mcriderkit.ui.components.QuizRepository
-import com.example.mcriderkit.ui.theme.DarkColorScheme
-import com.example.mcriderkit.ui.theme.LightColorScheme
 import com.example.mcriderkit.ui.theme.MCRiderKitTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

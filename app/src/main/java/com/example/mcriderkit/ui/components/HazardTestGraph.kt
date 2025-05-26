@@ -23,6 +23,8 @@ import ir.ehsannarmani.compose_charts.ColumnChart
 import ir.ehsannarmani.compose_charts.models.BarProperties
 import ir.ehsannarmani.compose_charts.models.Bars
 import ir.ehsannarmani.compose_charts.models.LabelHelperProperties
+import ir.ehsannarmani.compose_charts.models.LabelProperties
+import ir.ehsannarmani.compose_charts.models.LabelProperties.Rotation
 
 @Composable
 fun HazardTestGraph(viewModel: HazardTestViewModel) {
@@ -67,7 +69,6 @@ fun HazardTestBarChart(hazardTests: List<HazardTest>) {
                 label = "Test ${test.id}", // X-axis label for each bar
                 values = listOf(
                     Bars.Data(
-
                         value = test.lastScore.toDouble(), // Y-axis value: lastScore
                         color = Brush.verticalGradient(
                             colors = listOf(Color(0xFFCDDC39), Color(0xFF4CAF50)), // Bar color
@@ -86,6 +87,12 @@ fun HazardTestBarChart(hazardTests: List<HazardTest>) {
             .fillMaxWidth()
             .height(300.dp),
         data = barData,
+        labelProperties = LabelProperties(
+            textStyle = MaterialTheme.typography.labelSmall.copy(
+                color = MaterialTheme.colorScheme.onBackground // adapts to dark/light mode
+            ),
+            enabled = true,
+        ),
         barProperties = BarProperties(
             cornerRadius = Bars.Data.Radius.Rectangle(topRight = 6.dp, topLeft = 6.dp), // Rounded corners
             spacing = 6.dp, // Spacing between bars
