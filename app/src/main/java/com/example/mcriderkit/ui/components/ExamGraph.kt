@@ -27,6 +27,8 @@ import com.example.mcriderkit.ui.StudentExamViewModel
 import ir.ehsannarmani.compose_charts.ColumnChart
 import ir.ehsannarmani.compose_charts.models.BarProperties
 import ir.ehsannarmani.compose_charts.models.Bars
+import ir.ehsannarmani.compose_charts.models.HorizontalIndicatorProperties
+import ir.ehsannarmani.compose_charts.models.IndicatorProperties
 import ir.ehsannarmani.compose_charts.models.LabelHelperProperties
 import ir.ehsannarmani.compose_charts.models.LabelProperties
 import ir.ehsannarmani.compose_charts.models.LabelProperties.Rotation
@@ -110,7 +112,7 @@ fun QuizBarChart(quizScores: List<Pair<String, Int>>) {
         labelProperties = LabelProperties(
             enabled = true,
             textStyle = MaterialTheme.typography.labelSmall.copy(
-                color = MaterialTheme.colorScheme.onBackground // adapts to dark/light mode
+                color = MaterialTheme.colorScheme.onBackground
             ),
             rotation = Rotation(
                 degree = 0f
@@ -122,11 +124,19 @@ fun QuizBarChart(quizScores: List<Pair<String, Int>>) {
             spacing = 2.dp,
             thickness = 60.dp
         ),
-
+        indicatorProperties = HorizontalIndicatorProperties(
+            enabled = true,
+            textStyle = MaterialTheme.typography.labelSmall.copy(
+                color = MaterialTheme.colorScheme.onBackground
+            ),
+            contentBuilder = { indicator -> "%.0f".format(indicator) },
+        ),
         animationSpec = spring(
             dampingRatio = Spring.DampingRatioLowBouncy,
             stiffness = Spring.StiffnessLow
         ),
-        labelHelperProperties = LabelHelperProperties(enabled = false)
+        labelHelperProperties = LabelHelperProperties(enabled = false),
+        maxValue = 60.0,
+        minValue = 0.0
     )
 }

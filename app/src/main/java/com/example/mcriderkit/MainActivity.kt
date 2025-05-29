@@ -1,6 +1,7 @@
 package com.example.mcriderkit
 
 import android.R.attr.content
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,6 +20,7 @@ import com.example.mcriderkit.ui.components.QuizRepository
 import com.example.mcriderkit.ui.theme.MCRiderKitTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import androidx.compose.runtime.saveable.rememberSaveable
 
 
 
@@ -28,6 +30,7 @@ class MainActivity : ComponentActivity() {
 
         val splashScreen = installSplashScreen()
         var keepSplashScreen = true
+        val isDarkMode = PreferenceHelper.isDarkMode(this)
 
         splashScreen.setKeepOnScreenCondition { keepSplashScreen }
 
@@ -49,10 +52,10 @@ class MainActivity : ComponentActivity() {
 
             setContent {
 
-                var isDarkMode by remember { mutableStateOf(false) } // default to false, or load from DataStore
+                var darkMode by remember { mutableStateOf(isDarkMode) }
 
                 MCRiderKitTheme(
-                    darkTheme = isDarkMode
+                    darkTheme = darkMode
                 ) {
                     // Load stored name
                     val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
@@ -70,7 +73,11 @@ class MainActivity : ComponentActivity() {
                             proQuizViewModel = proQuizViewModel,
                             studentExamViewModel = studentExamViewModel,
                             hazardViewModel = hazardViewModel,
-                            onToggleDarkMode = { isDarkMode = it }
+                            darkMode = darkMode,
+                            onToggleDarkMode = {
+                                darkMode = it
+                                PreferenceHelper.setDarkMode(this@MainActivity, it)
+                            }
                         )
                     }
                 }
@@ -78,4 +85,18 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+object PreferenceHelper {
+    private const val PREF_NAME = "app_preferences"
+    private const val KEY_DARK_MODE = "dark_mode"
+
+    fun setDarkMode(context: Context, enabled: Boolean) {
+        val prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        prefs.edit().putBoolean(KEY_DARK_MODE, enabled).apply()
+    }
+
+    fun isDarkMode(context: Context): Boolean {
+        val prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        return prefs.getBoolean(KEY_DARK_MODE, false)
+    }
+}
 

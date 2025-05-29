@@ -83,7 +83,7 @@ import com.example.mcriderkit.ui.studyMaterials.VehicleMaintenanceAndInspectionM
 import com.example.mcriderkit.ui.studyMaterials.WarningSign
 
 sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
-    object Start : NavigationScreen("Start", R.string.app_name)
+    object Start : NavigationScreen("Start", R.string.Home)
     object Profile : NavigationScreen("Profile", R.string.profile_)
     object Settings : NavigationScreen("Settings", R.string.settings_)
     object LTOMenu : NavigationScreen("LTOMenu", R.string.lto_exam_menu)
@@ -148,7 +148,7 @@ fun NavAppBar(
     modifier: Modifier = Modifier,
 ){
     TopAppBar(
-        title = { Text(stringResource(currentScreen.title)) },
+        title = { Text(text = stringResource(currentScreen.title), style = MaterialTheme.typography.titleLarge) },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer
         ),
@@ -173,6 +173,7 @@ fun NavigationApp(
     proQuizViewModel: ProExamViewModel,
     studentExamViewModel: StudentExamViewModel,
     hazardViewModel: HazardTestViewModel,
+    darkMode: Boolean,
     onToggleDarkMode: (Boolean) -> Unit
 ) {
     var selectedItem by remember { mutableIntStateOf(0) }
@@ -269,6 +270,7 @@ fun NavigationApp(
                 }
                 composable(route = NavigationScreen.Settings.route) {
                     SettingsScreen(
+                        darkMode = darkMode,
                         onDarkModeToggle = onToggleDarkMode,
                         modifier = Modifier
                             .fillMaxSize()

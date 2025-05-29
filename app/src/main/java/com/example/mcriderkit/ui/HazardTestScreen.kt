@@ -158,7 +158,7 @@ fun HazardTestScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(300.dp) // Detection area height
-                    .background(Color.LightGray)
+                    .background(MaterialTheme.colorScheme.primary)
                     .pointerInput(Unit) {
                         detectTapGestures { tapOffset ->
                             val currentTime = System.currentTimeMillis()

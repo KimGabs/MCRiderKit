@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
@@ -63,6 +64,14 @@ fun ExamResultScreen(
     val examState by viewModel.examState.collectAsState(initial = ExamUiState())
     var isLoading by remember { mutableStateOf(false) } // Loading
     val showTrophyDialog by viewModel.showTrophyDialog.collectAsState()
+    val percent_score = 100 * (examState.score.toFloat() / examState.totalQuestions.toFloat())
+
+    val badgeRes = when {
+        percent_score >= 100 -> R.drawable.badge_veteran
+        percent_score >= 75 -> R.drawable.badge_expert
+        percent_score >= 50 -> R.drawable.badge_rookie
+        else -> null
+    }
 
     LaunchedEffect(examState.score) {
         viewModel.examShowTrophyDialog(examState.score, examState.totalQuestions)
@@ -86,10 +95,21 @@ fun ExamResultScreen(
         if (isLoading) {
             CircularProgressIndicator()  // Loading spinner
         } else {
+            badgeRes?.let {
+                Image(
+                    painter = painterResource(id = it),
+                    contentDescription = "Achievement Badge",
+                    modifier = Modifier
+                        .size(120.dp)
+                        .padding(bottom = 16.dp)
+                )
+            }
             // Title
             Text(
                 text = "Quiz Completed!",
-                style = MaterialTheme.typography.headlineLarge,
+                style = MaterialTheme.typography.headlineLarge.copy(
+                    fontWeight = FontWeight.Medium
+                ),
                 color = MaterialTheme.colorScheme.primary
             )
 
@@ -104,12 +124,10 @@ fun ExamResultScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            val percent_score = 100 * (examState.score.toFloat() / examState.totalQuestions.toFloat())
-
             when {
                 percent_score == 100f -> {
                     // Perfect Score
-                    Text("You got a perfect score! You're ready for the real thing! Book your exam and earn your license!",
+                    Text("You got a perfect score! You're ready for the real thing!",
                         style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
                 }
                 percent_score >= 90f -> {

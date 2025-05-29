@@ -22,6 +22,7 @@ import com.example.mcriderkit.ui.HazardTestViewModel
 import ir.ehsannarmani.compose_charts.ColumnChart
 import ir.ehsannarmani.compose_charts.models.BarProperties
 import ir.ehsannarmani.compose_charts.models.Bars
+import ir.ehsannarmani.compose_charts.models.HorizontalIndicatorProperties
 import ir.ehsannarmani.compose_charts.models.LabelHelperProperties
 import ir.ehsannarmani.compose_charts.models.LabelProperties
 import ir.ehsannarmani.compose_charts.models.LabelProperties.Rotation
@@ -98,12 +99,21 @@ fun HazardTestBarChart(hazardTests: List<HazardTest>) {
             spacing = 6.dp, // Spacing between bars
             thickness = 40.dp // Bar width
         ),
+        indicatorProperties = HorizontalIndicatorProperties(
+            enabled = true,
+            textStyle = MaterialTheme.typography.labelSmall.copy(
+                color = MaterialTheme.colorScheme.onBackground
+            ),
+            contentBuilder = { indicator -> "%.0f".format(indicator) },
+        ),
         animationSpec = spring(
             dampingRatio = Spring.DampingRatioLowBouncy,
             stiffness = Spring.StiffnessLow
         ),
         labelHelperProperties = LabelHelperProperties(
             enabled = false
-        )
+        ),
+        maxValue = 100.0,
+        minValue = 0.0
     )
 }

@@ -33,11 +33,11 @@ class StudentExamViewModel(
         }
     }
 
-    init {
+/*    init {
         viewModelScope.launch {
             repository.insertPresetQuizScores() // Insert preset data if needed
         }
-    }
+    }*/
 
     fun saveScore(quizType: String, score: Int) {
         viewModelScope.launch {
@@ -80,7 +80,7 @@ class StudentExamViewModel(
     }
 
     private fun initializeQuestions() {
-        _questions = DataSource.examQuestions.shuffled().take(10) // Shuffle at initialization
+        _questions = DataSource.examQuestions.shuffled().take(20) // Shuffle at initialization
         totalQuestions = _questions.size
     }
 
