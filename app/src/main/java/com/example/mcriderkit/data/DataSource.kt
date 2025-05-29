@@ -124,7 +124,7 @@ object DataSource {
         ),
         Question("A driver of a vehicle approaching a yield sign in an intersection shall:",
             options = listOf("Go faster", "Go on without yielding to any vehicle in the intersection",
-                "maintain speed and stop only when other vehicles blow their horn", "slow down and yield the right of way to any vehicle in the intersection"),
+                "Maintain speed and stop only when other vehicles blow their horn", "Slow down and yield the right of way to any vehicle in the intersection"),
             correctAnswerIndex = 3
         ),
         Question("What is the meaning of the green traffic light?",
@@ -139,7 +139,7 @@ object DataSource {
         ),
         Question("When the traffic light is steady green and steady left/right arrow:",
             imageResId = R.drawable.traffic_light_green_arrow,
-        options = listOf("vehicles can go straight or vehicles on the right/left can make a left/right turn", "Vehicles can go left or right but not straight",
+        options = listOf("Vehicles can go straight or vehicles on the right/left can make a left/right turn", "Vehicles can go left or right but not straight",
             "Vehicles can go straight but not left or right", "Vehicles cannot go straight or vehicles on the right/left cannot make a left/right turn"),
         correctAnswerIndex = 0
     ),
@@ -432,15 +432,15 @@ object DataSource {
     val presetQuizScore = listOf(
         QuizScore(
             quizType = "Student Exam",
-            highestScore = 8
+            highestScore = 18
         ),
         QuizScore(
             quizType = "Non-professional Exam",
-            highestScore = 6
+            highestScore = 10
         ),
         QuizScore(
             quizType = "Professional Exam",
-            highestScore = 10
+            highestScore = 56
         )
     )
 
@@ -451,7 +451,7 @@ object DataSource {
             speedLimit = "60 km/h",
             timeOfDay = "Morning",
             weather = "Clear",
-            lastScore = 70,
+            lastScore = 0,
             videoPath = "test1",
             thumbnailId = R.drawable.hazard_thumbnail_1,
             videoLength = 12,
@@ -466,7 +466,7 @@ object DataSource {
             speedLimit = "40 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 100,
+            lastScore = 20,
             videoPath = "test2",
             thumbnailId = R.drawable.hazard_thumbnail_2,
             videoLength = 19,
