@@ -493,8 +493,5 @@
     <string name="language">Language</string>
     <string name="change_language">Language</string>
 
-    <!-- Quiz Section -->
-    <string name="change_language">Language</string>
-    <string name="Q1">Ano ang minimum na edad para makakuha ng non-professional na lisensya sa Pilipinas?</string>
 
 </resources>
