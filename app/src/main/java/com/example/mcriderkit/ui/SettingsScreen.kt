@@ -65,10 +65,5 @@ fun SettingsScreen(
         )
     }
 }
-// Function to get app version
-private fun getAppVersion(context: Context): String {
-    val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)
-    return packageInfo.versionName.toString()
-}
 
 

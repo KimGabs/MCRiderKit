@@ -64,12 +64,12 @@ fun ExamResultScreen(
     val examState by viewModel.examState.collectAsState(initial = ExamUiState())
     var isLoading by remember { mutableStateOf(false) } // Loading
     val showTrophyDialog by viewModel.showTrophyDialog.collectAsState()
-    val percent_score = 100 * (examState.score.toFloat() / examState.totalQuestions.toFloat())
+    val percentScore = 100 * (examState.score.toFloat() / examState.totalQuestions.toFloat())
 
     val badgeRes = when {
-        percent_score >= 100 -> R.drawable.badge_veteran
-        percent_score >= 75 -> R.drawable.badge_expert
-        percent_score >= 50 -> R.drawable.badge_rookie
+        percentScore >= 100 -> R.drawable.badge_veteran
+        percentScore >= 75 -> R.drawable.badge_expert
+        percentScore >= 50 -> R.drawable.badge_rookie
         else -> null
     }
 
@@ -100,7 +100,7 @@ fun ExamResultScreen(
                     painter = painterResource(id = it),
                     contentDescription = "Achievement Badge",
                     modifier = Modifier
-                        .size(120.dp)
+                        .size(200.dp)
                         .padding(bottom = 16.dp)
                 )
             }
@@ -125,17 +125,17 @@ fun ExamResultScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             when {
-                percent_score == 100f -> {
+                percentScore >= 100f -> {
                     // Perfect Score
                     Text("You got a perfect score! You're ready for the real thing!",
                         style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
                 }
-                percent_score >= 90f -> {
+                percentScore >= 90f -> {
                     // High score (90% or higher)
                     Text("This is a strong showing, but some additional studying will help you earn points on the real exam.",
                         style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
                 }
-                percent_score >= 70f -> {
+                percentScore >= 70f -> {
                     // Medium score (70% - 89%)
                     Text("You're so close! Keep working on the areas you're missing and fill in those gaps.",
                         style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))

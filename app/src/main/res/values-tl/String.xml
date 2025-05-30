@@ -1,4 +1,519 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">MC Rider Kit</string>
+    <string name="Home">Home</string>
+    <string name="profile_">Profile</string>
+    <string name="settings_">Settings</string>
+    <string name="lto_exam_menu">LTO Practice Exam</string>
+    <string name="hazard_test_menu">Hazard Perception</string>
+    <string name="selected_video_screen">Hazard Perception Clip</string>
+    <string name="hazard_test_screen">Hazard Perception Test</string>
 
+    <string name="licensing_info">Impormasyon sa Lisensya</string>
+    <string name="permits_licenses">Mga Permit at Lisensya</string>
+    <string name="driver_license">Klasipikasyon ng Lisensiya ng Pagmamaneho</string>
+    <string name="qualifications">Kwalipikasyon at Dokumentaryo</string>
+    <string name="genera_procedures">Pangkalahatang Proseso</string>
+
+    <string name="road_signs_and_markings">Mga Karatula at Marka sa Kalsada</string>
+    <string name="regulatory_signs">Mga Panuntunang Karatula</string>
+    <string name="warning_signs">Mga Babala</string>
+    <string name="guide_signs">Mga Karatulang Patnubay</string>
+    <string name="signs_expressway">Mga Karatula sa Expressway</string>
+
+    <string name="traffic_rules_and_regulations">Mga Batas at Regulasyon sa Trapiko</string>
+    <string name="lto_reviewer">Tagasuri para sa LTO Exam</string>
+
+    <string name="student_exam">Eksamin para sa Student Permit</string>
+    <string name="non_pro_exam">Eksamin para sa Non-Professional</string>
+    <string name="pro_exam">Eksamin para sa Professional</string>
+    <string name="exam_result">Resulta ng Eksamin</string>
+    <string name="view_result">Tingnan ang Resulta</string>
+    <string name="hazard_result">Resulta ng Hazard Perception Test</string>
+    <string name="hazard_review">Pagsusuri sa Hazard Perception Test</string>
+    <string name="next_question">Susunod na Tanong</string>
+    <string name="submit">Isumite</string>
+    <string name="back_button">Bumalik</string>
+    <string name="cancel">Kanselahin</string>
+    <string name="next">Susunod</string>
+
+    <string name="PAL_BANNER">Mga Permit at Lisensya</string>
+    <string name="PAL_SEC_1">Student-Driver\'s Permit (SP)</string>
+    <string name="PAL_1">Isang pahintulot na ibinibigay ng LTO sa isang tao na nais matutong magmaneho ng sasakyan.</string>
+    <string name="PAL_1_2">Ang student-driver ay dapat samahan ng isang lisensyadong drayber na kumikilos bilang instruktor at may angkop na lisensya para sa nais pag-aralang uri ng sasakyan.</string>
+
+    <string name="PAL_SEC_2">Bisa ng Student-Driver\'s Permit</string>
+    <string name="PAL_SEC_2_1">Panahon ng Pagkabisa</string>
+    <string name="PAL_2_1_1">Ang SP ay may bisa sa loob ng 1 taon mula sa petsa ng pagkakaloob.</string>
+    <string name="PAL_2_1_2">Pagkalipas ng 1 taon, hindi na ito maaaring gamitin sa praktikal na kursong pagmamaneho ngunit maaaring gamitin sa pag-aapply ng Non-Professional Driver\'s License (NPDL) kung natapos ang kurso sa loob ng bisa nito.</string>
+
+    <string name="PAL_SEC_2_2">Pagkalipas ng 2 Taon</string>
+    <string name="PAL_2_2_1">Dapat kumuha ng panibagong SP na may parehong SP number at muling simulan ang pagsasanay mula sa bagong petsa ng pagkakaloob.</string>
+    <string name="PAL_2_2_2">Ang lahat ng dating tala ng pagsasanay ay mananatili.</string>
+
+    <string name="PAL_SEC_2_3">Pag-renew</string>
+    <string name="PAL_2_3_1">Maaaring i-renew ang SP bago o sa mismong araw ng expiration kung hindi pa handang kumuha ng lisensya.</string>
+    <string name="PAL_2_3_2">Ang renewal pagkatapos ng expiration ay nangangailangan lamang ng pangunahing bayad, maliban sa mga multa mula sa paglabag sa trapiko.</string>
+
+    <string name="PAL_SEC_3">Conductor\'s License (CL)</string>
+    <string name="PAL_3">Isang pahintulot na ibinibigay ng LTO sa isang kuwalipikadong tao upang tumulong sa drayber ng pampasaherong sasakyan sa pangongolekta ng pamasahe at/o sa pagtiyak ng kaligtasan ng mga pasahero at/o kargamento habang ang sasakyan ay bumibiyahe.</string>
+
+    <string name="PAL_SEC_4">Validity Of Conductor\'s License (CL)</string>
+    <string name="PAL_4">Ang bagong CL ay may bisa sa loob ng 5 taon mula sa petsa ng kapanganakan ng may hawak nito, maliban kung ito ay kanselado o suspendido.</string>
+
+    <string name="PAL_SEC_4_1">Renewal for Compliant Holders</string>
+    <string name="PAL_4_1">Kung walang naging paglabag ang may hawak ng CL sa loob ng 5 taon, maaari itong i-renew ng hanggang 10 taon.</string>
+
+    <string name="PAL_SEC_4_2">Late Renewal</string>
+    <string name="PAL_4_2">Kung na-renew pagkatapos ng 2 taon mula sa petsa ng expiration, kailangan pumasa sa nakasulat na pagsusulit at magbayad ng pangunahing bayad kasama ng karampatang multa.</string>
+
+    <string name="PAL_SEC_5">Lisensya ng Drayber (DL)</string>
+    <string name="PAL_5">Isang pahintulot sa anyo na itinakda ng LTO na ibinibigay sa isang tao upang magpatakbo ng sasakyang de-motor bilang may Non-professional o Professional Driver\'s License.</string>
+
+    <string name="PAL_SEC_6">Non-professional DL (NPDL)</string>
+    <string name="PAL_6">Isang pahintulot sa anyo na itinakda ng LTO na ibinibigay sa isang tao upang magpatakbo ng pribadong sasakyang de-motor.</string>
+
+    <string name="PAL_SEC_7">Professional DL (PDL)</string>
+    <string name="PAL_7">Isang pahintulot sa anyo na itinakda ng LTO na ibinibigay sa sinumang drayber na may bayad o suweldo sa pagmamaneho o pagpapatakbo ng sasakyang de-motor, para man ito sa pribadong gamit o pampublikong pasada.</string>
+
+    <string name="PAL_SEC_8">Driver\'s License Code (DL Code)</string>
+    <string name="PAL_8">Tumutukoy sa kolektibong kodigo na kumakatawan sa kategorya ng sasakyan na pinapayagang imaneho ng may lisensya.</string>
+
+    <string name="PAL_SEC_9">Driving Enhancement Program (DEP)</string>
+    <string name="PAL_9">Isang updated na seminar tungkol sa kaligtasan sa kalsada na idinisenyo ng LTO para sa mga may DL. Kinakailangang dumalo ang mga drayber sa seminar na ito bago mag-renew ng limang (5) taong lisensya.</string>
+
+    <string name="PAL_SEC_10">Kategorya ng Sasakyan (VC)</string>
+    <string name="PAL_10">Tumutukoy sa kategorya ng sasakyang de-motor base sa Philippine National Standard on Road Vehicles – Classification and Definition.</string>
+
+    <string name="PAL_SEC_11">Restriction Code (RC)</string>
+    <string name="PAL_11">Tumutukoy sa dating kodigo na kumakatawan sa kategorya ng sasakyang pinapayagang imaneho ng may lisensya.</string>
+
+    <string name="DLC_Banner">Restriction Code at ang Katumbas nito sa Driver\'s License Code</string>
+    <string name="DLC_SEC_1">Mga Paalala:</string>
+    <string name="DLC_1">Ang mga may hawak ng DL na may MT Clutch Code ay pinapayagang magpatakbo ng mga sasakyang may Automatic Transmission (AT).</string>
+    <string name="DLC_2">Ang mga may hawak ng DL na may AT Clutch Code ay hindi pinapayagang magpatakbo ng mga sasakyang may Manual Transmission (MT).</string>
+    <string name="DLC_3">Para sa bagong DL, pinapayagan lamang ang mga aplikante na mag-apply ng NPDL sa ilalim ng DL Codes A, A1, B, B1, at B2, o kombinasyon ng mga ito.</string>
+
+    <string name="QDR_Banner">Mga Kwalipikasyon at Dokumentaryong Kinakailangan</string>
+    <string name="QDR_SEC_1">Mga Kondisyong Medikal at Indikasyon sa Pagmamaneho</string>
+    <string name="QDR_SEC_2">Medical Certificate</string>
+    <string name="QDR_1">Isang sertipikasyon na inisyu ng isang rehistradong manggagamot mula sa LTO-accredited na klinika na nagsasaad ng resulta ng medikal na eksaminasyon ng aplikante at may bisa sa loob ng animnapung (60) araw mula sa petsa ng pagkakaloob.</string>
+    <string name="QDR_2">Ang mga drayber na may kondisyong “2”, “3”, “4”, o “5” sa pagmamaneho ay hindi pinapayagang magpatakbo ng For-Hire/Public Utility Vehicles o Commercial Vehicles maliban kung hayagang pinahihintulutan sa pamamagitan ng sulat ng isang kwalipikadong espesyalistang medikal.</string>
+
+    <string name="QDR_SEC_3">Student-Driver\'s Permit</string>
+    <string name="QDR_SEC_4">Bagong Driver\'s License</string>
+    <string name="QDR_3">Ang bagong DL ay may bisa sa loob ng limang (5) taon mula sa petsa ng kapanganakan ng may-ari ng lisensya, maliban kung ito ay binawi o ipinagbabawal nang mas maaga. Ang may-ari ng DL na hindi gumawa ng anumang paglabag sa loob ng limang (5) taon bago ang expiration ng lisensya ay may karapatan na mag-renew ng lisensyang may bisa ng sampung (10) taon.</string>
+    <string name="QDR_SEC_5">Pag-renew ng Driver\'s License</string>
+    <string name="QDR_SEC_6">Late Renewal (Pagkatapos ng 2 Taon)</string>
+    <string name="QDR_4">Kinakailangan ng may-ari na: Pumasa sa teoretikal at praktikal na pagsusulit, Magbayad ng pangunahing bayad at karagdagang multa.</string>
+
+    <string name="GP_SEC_1">Pangkalahatang Pamamaraan</string>
+
+    <!-- END OF LICENSING INFORMATION -->
+
+    <!-- Road Traffic Signs -->
+    <!-- REGULATORY Signs -->
+    <string name="REG_SEC_1">Regulatory Signs</string>
+    <!-- Priority Signs -->
+    <string name="PRIORITY_SEC">1. Priority Signs</string>
+    <string name="REG_1">Mga senyas na nag-iinform sa mga gumagamit ng kalsada tungkol sa mga batas at regulasyon sa trapiko na, kung hindi susundin, ay magreresulta sa isang paglabag.</string>
+    <string name="STOP_SIGN">Stop Sign</string>
+    <string name="STOP_SIGN_1">Ang drayber ay kailangang huminto sa itinakdang STOP LINE. Walang paradahan sa loob ng 6 na metro.</string>
+    <string name="GIVE_WAY_SIGN">Give Way Sign</string>
+    <string name="GIVE_WAY_SIGN_1">Magbigay daan sa mga sasakyan sa kanan ng intersection.</string>
+    <string name="LEFT_TURNER_SIGN">Left Turner Must Give Way</string>
+    <string name="LEFT_TURNER_SIGN_1">Kapag kumaliwa sa intersection, maaari mo lamang magkaroon ng karapatang dumaan kung gagamitin mo ang iyong turn signal ng hindi bababa sa 30 metro bago makarating sa intersection.</string>
+    <string name="LEFT_TURNER_SIGN_2">Kung may mga sasakyan na paparating o malapit na sa intersection, magbigay daan at hayaang makadaan sila.</string>
+
+    <!-- Directional Signs -->
+    <string name="DIRECTIONAL_SEC">2. Directional Signs</string>
+    <string name="DIRECTIONAL_1">Ang mga senyas na ito ay nag-iindika ng direksyon na dapat sundin ng motorista.</string>
+    <string name="DIRECTIONAL_2">Maaaring dumaan ang sasakyan sa alinmang gilid</string>
+
+    <!-- Restrictive Signs -->
+    <string name="RESTRICTIVE_SEC">3. Restrictive Signs</string>
+    <string name="RESTRICTIVE_1">Walang pasok para sa lahat ng uri ng sasakyan</string>
+    <string name="RESTRICTIVE_2">Walang pasok para sa mga tiyak na uri ng sasakyan</string>
+    <string name="NO_PED_CROSS_SIGN">Walang Pedestrian Crossing</string>
+    <string name="NO_PED_CROSS_SIGN_1">Ang mga pedestrian ay hindi pinapayagang tumawid sa kalsada.</string>
+    <string name="USE_OVERPASS_SIGN">Gamitin ang Overpass o Ped Xing</string>
+    <string name="USE_OVERPASS_SIGN_1">Ang mga pedestrian ay kailangang gumamit ng overpass o pedestrian crossing.</string>
+    <string name="NO_RL_TURN_SIGN">Walang Right Turn o Walang Left Turn</string>
+    <string name="NO_RL_TURN_SIGN_1">Ang mga sasakyan ay hindi pinapayagang mag-left turn o right turn.</string>
+    <string name="NO_U_TURN_SIGN">Walang U-Turn</string>
+    <string name="NO_U_TURN_SIGN_1">Ang mga sasakyan ay hindi pinapayagang gumawa ng U-turn.</string>
+    <string name="NO_OVERTAKING_SIGN">Walang Overtaking Zone</string>
+
+    <!-- Speed Signs -->
+    <string name="SPEED_SIGNS">4. Speed Signs</string>
+    <string name="SPEED_SIGNS_1">Maximum Speed Restriction</string>
+    <string name="SPEED_SIGNS_2">End of Speed Restrictions</string>
+    <string name="SPEED_SIGNS_3">Minimum Speed Restriction</string>
+
+    <!-- Parking Signs -->
+    <string name="PARKING_SIGNS">5. Parking and Stopping Signs</string>
+    <string name="PARKING_SIGNS_1">Mga lugar kung saan pinapayagan ang parking at loading sa isang takdang oras at lugar.</string>
+    <string name="PARKING_SIGNS_2">Bawal tumigil anumang oras.</string>
+    <string name="PARKING_SIGNS_3">Bawal mag-load at unload sa lugar na ito.</string>
+    <string name="PARKING_SIGNS_4">Bawal mag-parking malapit sa fire hydrant, hindi lalampas sa 4 na metro.</string>
+    <string name="PARKING_SIGNS_5">Bawal maghintay.</string>
+    <string name="PARKING_SIGNS_6">Bus-PUJ Stop Zone.</string>
+    <string name="PARKING_SIGNS_6_1">Bawal mag-parking.</string>
+    <string name="PARKING_SIGNS_7">Bus Stop Zone.</string>
+    <string name="PARKING_SIGNS_8">PUJ Stop Zone.</string>
+    <string name="PARKING_SIGNS_9">No Parking: Tow-Away Zone.</string>
+    <string name="PARKING_SIGNS_9_1">Ang nakaparadang sasakyan ay itataas.</string>
+    <string name="PARKING_SIGNS_10">Bawal mag-parking o magtigil anumang oras sa loob ng yellow box.</string>
+    <string name="PARKING_SIGNS_11">Bawal mag-parking anumang oras mula Lunes hanggang Biyernes.</string>
+    <string name="PARKING_SIGNS_12">Right Turner Cross at Broken Lines.</string>
+    <string name="PARKING_SIGNS_12_1">Ang mga sasakyan mula sa kaliwang lane ay maaaring dumaan sa broken line upang mag-right turn sa loob ng BUS/PUJ zone.</string>
+
+    <!-- Warning Signs -->
+    <string name="WARN_SEC">Mga Babala na Karatula</string>
+
+    <string name="HOR_SEC">1. Mga Pahalang na Karatula</string>
+    <string name="HOR_SEC_1">Ang mga karatulang ito ay ginagamit upang ipakita ang uri ng kurba ng kalsada na makikita ng motorista</string>
+
+    <string name="INT_SEC">2. Mga Karatula sa Interseksiyon</string>
+    <string name="INT_SEC_1">Mga karatulang itinayo bago ang interseksiyon o junction</string>
+
+    <string name="ADV_SEC">3. Mga Karatula ng Paunang Babala</string>
+    <string name="ADV_SEC_1">Ginagamit upang ipakita ang mga signalized intersection at magbigay ng babala tungkol sa mga karatulang STOP at GIVE WAY</string>
+
+    <string name="ADV_SEC_2">Traffic Light sa Unahan</string>
+    <string name="ADV_SEC_2_1">Ang driver ay hindi dapat magpark o tumigil sa loob ng anim (6) na metro mula sa karatulang ito upang hindi makasagabal sa visibility ng ibang driver</string>
+
+    <string name="RW_SEC">4. Mga Karatula ng Lapad ng Daan</string>
+
+    <string name="OBS_SEC">5. Mga Karatula ng Hadlang sa Daan</string>
+
+    <string name="PEDS_SEC">6. Mga Karatula para sa mga Pedestrian</string>
+    <string name="PEDS_SEC_1">Pedestrian crossing sa unahan</string>
+    <string name="PEDS_SEC_2">Mag-ingat at tumigil para sa mga batang tatawid sa unahan</string>
+    <string name="PEDS_SEC_3">Mga Person with Disabilities (PWDs) na tatawid sa unahan</string>
+    <string name="PEDS_SEC_4">Payo sa mga pedestrian na tumawid lamang sa mga itinalagang lugar</string>
+    <string name="PEDS_SEC_5">Mag-ingat at magbawas ng bilis sa lane ng bisikleta sa unahan</string>
+
+    <string name="RAIL_SEC">7. Mga Karatula ng Railway Level Crossing</string>
+    <string name="RAIL_SEC_1">Daan ng Riles</string>
+    <string name="RAIL_SEC_2">Babala ng Railway Crossing</string>
+    <string name="RAIL_SEC_3">Ang alternatibong railway crossing ay inilagay sa isang lugar na madaling makita</string>
+
+    <string name="SUP_SEC">8. Mga Karatulang Pantulong</string>
+    <!-- Guide Signs -->
+    <string name="GUIDE_SEC">Mga Gabay/Pang-impormasyon na Karatula</string>
+    <string name="ADV_DIR_SEC">1. Mga Karatula ng Paunang Direksyon</string>
+    <string name="ADV_DIR_SEC_1">Ang mga karatulang ito ay nagpapakita ng direksyon kung saan ibinibigay ang impormasyon o direksyon sa mga motorista</string>
+    <string name="INT_DIR_SEC">2. Mga Karatula ng Direksyon sa Interseksiyon</string>
+    <string name="INT_DIR_SEC_1">Makikita sa loob ng isang kilometro bago ang isang interseksiyon</string>
+    <string name="REAS_DIR_SEC">3. Mga Karatula ng Reassurance na Direksyon</string>
+    <string name="REAS_DIR_SEC_1">Tinatayang distansya mula sa isang partikular na exit</string>
+
+    <!-- Signs on Expressway -->
+    <string name="EXP_SEC">Mga Karatula sa Expressway</string>
+    <string name="EXP_SEC_1">Ang mga karatulang ito ay mahalaga para sa driver upang magkaroon ng advance na impormasyon at matiyak na mailalagay nila ang kanilang mga sasakyan sa tamang mga lane</string>
+    <string name="EXP_APP_SEC">1. Mga Karatula ng Paglapit sa Expressway</string>
+    <string name="EXP_APP_SEC_1">Itinatayo nang maaga o sa pinakamalapit na interseksiyon o interchange papunta sa expressway</string>
+    <string name="EXP_INF_SEC">2. Mga Karatula ng Impormasyon sa Expressway</string>
+    <string name="EXP_INF_SEC_1">Ipinagbabawal sa Expressway</string>
+    <string name="EXP_INF_SEC_1_2">Nagbabawal sa pagbiyahe sa expressway</string>
+    <string name="EXP_INF_SEC_2">Direksyon ng Lane</string>
+    <string name="EXP_INF_SEC_2_2">Ginagamit upang gabayan ang mga motorista sa tamang mga lane papunta sa interchange</string>
+    <string name="EXP_INF_SEC_3">Mga Singil sa Toll</string>
+    <string name="EXP_INF_SEC_3_2">Nagbibigay ng impormasyon sa mga motorista tungkol sa halaga ng toll na kailangang bayaran sa toll plaza</string>
+    <string name="ADV_EXIT_SEC">Mga Karatula ng Paunang Exit</string>
+    <string name="ADV_EXIT_SEC_1">Itinatayo nang maaga bago ang isang exit</string>
+
+    <!-- Pavement Markings -->
+    <string name="PAVEMENT_MARK">Mga Marka ng Kalsada</string>
+    <string name="LONG_MARK_SEC">Mga Linya ng Pangmatagalan</string>
+    <string name="LONG_MARK_SEC_1">1. Sentro o Linya ng Paghiwalay</string>
+    <string name="LONG_MARK_SEC_1_2">Ang pagtawid sa solidong puting linya ay nangangailangan ng espesyal na pag-iingat at hindi inirerekomenda.</string>
+    <string name="LONG_MARK_SEC_2">2. Linya ng Lane</string>
+    <string name="LONG_MARK_SEC_2_2">Ang pagpapalit ng lane ay pinapayagan basta\'t ito ay ligtas at hindi magdudulot ng sagabal.</string>
+    <string name="LONG_MARK_SEC_3">3. Linya ng Hadlang</string>
+    <string name="LONG_MARK_SEC_3_1">a. Dobleng Solidong Linya</string>
+    <string name="LONG_MARK_SEC_3_1_2">Walang Overtaking at Walang Pagtawid.</string>
+    <string name="LONG_MARK_SEC_3_2">b. Isang Solidong Dilaw na Linya</string>
+    <string name="LONG_MARK_SEC_3_2_2">Pinapayagan ang pagtawid ngunit walang overtaking</string>
+    <string name="LONG_MARK_SEC_3_3">c. Isang Dilaw na Linya na may Pumutok na Puting Linya</string>
+    <string name="LONG_MARK_SEC_3_3_2">Walang overtaking ngunit pinapayagan ang pagtawid sa gilid ng solidong dilaw na linya.</string>
+    <string name="LONG_MARK_SEC_3_3_3">Pinapayagan ang overtaking at pagtawid sa gilid ng pumutok na puting linya.</string>
+    <string name="LONG_MARK_SEC_3_4">d. Pumutok na Dilaw na Linya</string>
+    <string name="LONG_MARK_SEC_3_4_2">Pinapayagan ang pagtawid at overtaking nang may kinakailangang pag-iingat.</string>
+    <string name="LONG_MARK_SEC_3_5">e. Pumutok at Solidong Dilaw na Linya</string>
+    <string name="LONG_MARK_SEC_3_5_2">Pinapayagan ang pagtawid at overtaking sa gilid ng pumutok na linya nang may pag-iingat ngunit hindi pinapayagan ang overtaking sa gilid ng solidong linya.</string>
+    <string name="LONG_MARK_SEC_4">4. Linya ng Gilid</string>
+    <string name="LONG_MARK_SEC_4_2">Ginagamit upang paghiwalayin ang labas ng gilid ng kalsada mula sa shoulder.</string>
+    <string name="LONG_MARK_SEC_5">5. Linya ng Pagpapatuloy</string>
+    <string name="LONG_MARK_SEC_5_2">Ang linya ng pagpapatuloy sa kaliwang bahagi ay nangangahulugang magtatapos o lalabas ang lane at kailangang magpalit ng lane ang driver kung nais nitong magpatuloy sa kasalukuyang direksyon.</string>
+    <string name="LONG_MARK_SEC_5_3">Ang mga linya ng pagpapatuloy sa kanang bahagi ay nangangahulugang magpapatuloy ang lane nang hindi naaapektohan.</string>
+
+    <!-- Traversal Lines -->
+    <string name="TRAV_SEC">Mga Linya ng Pagdaan</string>
+    <string name="TRAV_SEC_2">Linya ng Pagtigil</string>
+    <string name="TRAV_SEC_2_2">Kinakailangan ng mga sasakyan na tumigil bago ang puting linya</string>
+    <string name="TRAV_SEC_3">Linya ng Pagbigay Daan</string>
+    <string name="TRAV_SEC_3_2">Mga marka na binubuo ng dalawang magkasunod na pumutok na puting linya sa kalsada kung saan kailangang magbigay daan ang mga driver sa lahat ng mga sasakyan ayon sa pamantayan ng sign.</string>
+    <string name="TRAV_SEC_4">Interseksyon ng mga Pedestrian</string>
+    <string name="TRAV_SEC_5">Linya ng Pag-hold sa Roundabout</string>
+    <string name="TRAV_SEC_5_2">Ang mga sasakyan sa loob ng rotonda ay may priyoridad sa mga sasakyan na papasok pa lamang</string>
+
+    <!-- Other Lines -->
+    <string name="OTHER_LINES_SEC">Iba pang mga Linya</string>
+    <string name="OTHER_LINES_SEC_2">Linya ng Pagliko</string>
+    <string name="OTHER_LINES_SEC_2_2">Ginagamit upang gabayan ang mga sasakyan sa isang galaw ng pagliko sa mga interseksyon</string>
+    <string name="OTHER_LINES_SEC_3">Linya ng Paradahan</string>
+    <string name="OTHER_LINES_SEC_3_2">Ginagamit upang tukuyin ang espasyo para sa paradahan, ngunit tandaan ang PWD Parking Mark</string>
+
+    <!-- Banner Title -->
+    <string name="TVP_SEC">Mga Paglabag sa Trapiko at mga Parusa</string>
+
+    <!-- Driving Without a Valid License -->
+    <string name="driving_without_license_title">Pagmamaneho Nang Walang Valido na Lisensya</string>
+    <string name="driving_without_license_desc">Pagmamaneho ng sasakyan nang walang valid na lisensya sa pagmamaneho.</string>
+    <string name="driving_without_license_penalty">Parusa: Php 3,000 multa.</string>
+
+    <!-- Reckless Driving -->
+    <string name="reckless_driving_title">Pagmamaneho nang Walang Pag-iingat</string>
+    <string name="reckless_driving_1st">1st Offense: Php 2,000 multa.</string>
+    <string name="reckless_driving_2nd">2nd Offense: Php 3,000 multa at suspensyon ng lisensya sa pagmamaneho ng tatlong buwan.</string>
+    <string name="reckless_driving_3rd">3rd Offense: Php 10,000 multa at suspensyon ng lisensya sa pagmamaneho ng anim na buwan.</string>
+    <string name="reckless_driving_subsequent">Mga Sumunod na Paglabag: Php 10,000 multa at pagkansela ng lisensya sa pagmamaneho.</string>
+
+    <!-- Driving Under the Influence (DUI) -->
+    <string name="dui_title">Pagmamaneho sa Ilalim ng Impluwensya (DUI)</string>
+    <string name="dui_non_professional">Hindi Propesyonal na Mga Driver:</string>
+    <string name="dui_non_professional_1st">- 1st Pagkakasala: Pag-kumpiska at suspensyon ng lisensya sa pagmamaneho ng 12 buwan.</string>
+    <string name="dui_non_professional_2nd">- 2nd Pagkakasala: Pagkansela ng lisensya sa pagmamaneho.</string>
+    <string name="dui_professional">Propesyonal na Mga Driver:</string>
+    <string name="dui_professional_1st">- 1st Pagkakasala: Pag-kumpiska at permanenteng pagkansela ng lisensya sa pagmamaneho.</string>
+
+    <!-- Failure to Wear Seatbelt -->
+    <string name="seatbelt_title">Hindi Pagsusuot ng Seatbelt</string>
+    <string name="seatbelt_1st">1st Offense: Php 1,000 multa.</string>
+    <string name="seatbelt_2nd">2nd Offense: Php 2,000 multa.</string>
+    <string name="seatbelt_3rd">3rd at Mga Sumunod na Paglabag: Php 5,000 multa at suspensyon ng lisensya sa pagmamaneho ng isang linggo.</string>
+
+    <!-- Failure to Wear Standard Protective Motorcycle Helmet -->
+    <string name="helmet_title">Hindi Pagsusuot ng Standard na Proteksiyon na Helmet ng Motorsiklo</string>
+    <string name="helmet_1st">1st Offense: Php 1,500 multa.</string>
+    <string name="helmet_2nd">2nd Offense: Php 3,000 multa.</string>
+    <string name="helmet_3rd">3rd Offense: Php 5,000 multa.</string>
+    <string name="helmet_subsequent">Mga Sumunod na Paglabag: Php 10,000 multa.</string>
+
+    <!-- Illegal Parking -->
+    <string name="illegal_parking_title">Ilegal na Pag-parking</string>
+    <string name="illegal_parking_desc">Pag-parking sa mga ipinagbabawal na lugar tulad ng mga interseksyon, sa loob ng 5 metro mula sa mga interseksyon, sa harap ng mga driveway, atbp.</string>
+    <string name="illegal_parking_penalty">Parusa: Php 1,000 multa.</string>
+
+    <!-- Disregarding Traffic Signs -->
+    <string name="disregarding_signs_title">Hindi Pagtupad sa mga Palatandaan ng Trapiko</string>
+    <string name="disregarding_signs_desc">Pagmamatigas o hindi pagsunod sa mga palatandaan ng trapiko.</string>
+    <string name="disregarding_signs_penalty">Parusa: Php 1,000 multa.</string>
+
+    <!-- Driving an Unregistered Motor Vehicle -->
+    <string name="unregistered_vehicle_title">Pagmamaneho ng Hindi Rehistradong Sasakyan</string>
+    <string name="unregistered_vehicle_desc">Pagmaneho ng sasakyan na hindi rehistrado sa LTO.</string>
+    <string name="unregistered_vehicle_penalty">Parusa: Php 10,000 multa at pagkakumpiska ng sasakyan hanggang ito ay maayos na marehistro.</string>
+
+    <!-- Unauthorized Modification of Motor Vehicle -->
+    <string name="unauthorized_modification_title">Hindi Aprobadong Pagbabago ng Sasakyan</string>
+    <string name="unauthorized_modification_desc">Pagbabago ng sasakyan nang walang pahintulot mula sa LTO.</string>
+    <string name="unauthorized_modification_penalty">Parusa: Php 5,000 multa.</string>
+
+    <!-- Vehicle Maintenance and Inspection -->
+    <string name="VMI_SEC">Pagpapanatili at Inspeksyon ng Sasakyan</string>
+
+    <!-- Tire Inspection -->
+    <string name="tire_inspection_banner_title">Mga Patnubay sa Inspeksyon ng Gulong</string>
+
+    <!-- Visual Inspection Section -->
+    <string name="visual_inspection_title">Visual na Inspeksyon</string>
+    <string name="visual_inspection_point1">Suriin kung may mga visible na hiwa, bitak, o pagbulge sa ibabaw ng gulong.</string>
+    <string name="visual_inspection_point2">Siguraduhin na walang nakabaon na mga bagay tulad ng pako o baso na maaaring magdulot ng butas.</string>
+    <string name="visual_inspection_point3">Tingnan ang hindi pantay na pattern ng pagkasira na maaaring magpahiwatig ng problema sa alignment o suspension.</string>
+
+    <!-- Tread Depth Section -->
+    <string name="tread_depth_title">Lalim ng Tread</string>
+    <string name="tread_depth_point1">Gamitin ang isang tread depth gauge upang sukatin ang lalim; hindi ito dapat bumaba sa minimum na kinakailangan.</string>
+    <string name="tread_depth_point2">Mahalaga ang sapat na lalim ng tread para sa tamang traksyon, lalo na sa basang kalsada.</string>
+    <string name="tread_depth_point3">Palitan ang mga gulong na sobrang ginagamit na at umaabot na sa tread wear indicators.</string>
+
+    <!-- Tire Pressure Section -->
+    <string name="tire_pressure_title">Presyon ng Gulong</string>
+    <string name="tire_pressure_point1">Sumangguni sa manual ng sasakyan para sa inirekomendang presyon ng gulong.</string>
+    <string name="tire_pressure_point2">Gamitin ang isang maaasahang gauge ng presyon ng gulong upang suriin ang presyon kapag malamig ang mga gulong.</string>
+    <string name="tire_pressure_point3">Ang kulang o labis na inflasyon ng gulong ay maaaring magdulot ng mahirap na paghawak at mabilis na pagkasira.</string>
+
+    <!-- Tire Age Section -->
+    <string name="tire_age_title">Edad ng Gulong</string>
+    <string name="tire_age_point1">Suriin ang petsa ng paggawa sa gilid ng gulong upang matukoy ang edad nito.</string>
+    <string name="tire_age_point2">Ang mga gulong na higit sa limang taon ay maaaring kailanganing palitan, kahit na hindi pa ubos ang tread.</string>
+    <string name="tire_age_point3">Ang mga matandang gulong ay maaaring magdegrade at hindi magbigay ng ligtas na pagganap.</string>
+
+    <!-- Spare Tire Section -->
+    <string name="spare_tire_title">Spare na Gulong</string>
+    <string name="spare_tire_point1">Siguraduhin na ang spare na gulong ay nasa maayos na kondisyon at tamang inflasyon.</string>
+    <string name="spare_tire_point2">Kilalanin ang lokasyon at operasyon ng jack at iba pang mga kagamitan.</string>
+    <string name="spare_tire_point3">Regular na inspeksyonin ang spare na gulong tulad ng ibang mga gulong.</string>
+
+    <!-- Banner Title -->
+    <string name="engine_oil_inspection_banner_title">Mga Patnubay sa Inspeksyon ng Langis ng Makina</string>
+
+    <!-- Importance of Engine Oil Section -->
+    <string name="importance_of_engine_oil_title">Kahalagahan ng Langis ng Makina</string>
+    <string name="importance_of_engine_oil_point1">Pinapaluwag ang mga gumagalaw na bahagi upang mabawasan ang alitan at pagkasira.</string>
+    <string name="importance_of_engine_oil_point2">Tumutulong sa pagpapalamig ng mga bahagi ng makina sa pamamagitan ng pag-aalis ng init.</string>
+    <string name="importance_of_engine_oil_point3">Nililinis ang mga panloob na bahagi sa pamamagitan ng pagpigil sa pagbuo ng sludge.</string>
+    <string name="importance_of_engine_oil_point4">Pinoprotektahan laban sa kalawang at kaagnasan.</string>
+
+    <!-- Checking Oil Level Section -->
+    <string name="checking_oil_level_title">Pagsusuri ng Antas ng Langis</string>
+    <string name="checking_oil_level_point1">Itabi ang sasakyan sa pantay na lupa at patayin ang makina.</string>
+    <string name="checking_oil_level_point2">Maghintay ng ilang minuto upang payagan ang langis na mag-settle.</string>
+    <string name="checking_oil_level_point3">Hanapin ang dipstick, hilahin ito at punasan ito ng malinis.</string>
+    <string name="checking_oil_level_point4">Ibalik nang buo ang dipstick, pagkatapos ay alisin ito upang suriin ang antas ng langis.</string>
+    <string name="checking_oil_level_point5">Siguraduhin na ang antas ng langis ay nasa pagitan ng mga marka ng \'MIN\' at \'MAX\'.</string>
+
+    <!-- Assessing Oil Condition Section -->
+    <string name="assessing_oil_condition_title">Pagsusuri ng Kondisyon ng Langis</string>
+    <string name="assessing_oil_condition_point1">Ang sariwang langis ay karaniwang may kulay amber; ang madilim o maruming langis ay maaaring magpahiwatig ng kontaminasyon.</string>
+    <string name="assessing_oil_condition_point2">Hawakan ang langis sa pagitan ng iyong mga daliri; ang graba o dumi ay nagpapahiwatig ng pangangailangan ng pagpapalit.</string>
+    <string name="assessing_oil_condition_point3">Ang amoy ng sunog ay maaaring magpahiwatig ng sobrang pag-init o luma na langis.</string>
+
+    <!-- Oil Change Intervals Section -->
+    <string name="oil_change_intervals_title">Mga Interbalo ng Pagpapalit ng Langis</string>
+    <string name="oil_change_intervals_point1">Sundin ang inirekomendang iskedyul ng pagpapalit ng langis ng tagagawa, karaniwang tuwing 5,000 hanggang 10,000 kilometro.</string>
+    <string name="oil_change_intervals_point2">Isaalang-alang ang mga salik tulad ng kondisyon ng pagmamaneho at edad ng makina, na maaaring mangailangan ng mas madalas na pagpapalit.</string>
+    <string name="oil_change_intervals_point3">Ang regular na pagpapalit ng langis ay nagsisiguro ng pinakamainam na pagganap at haba ng buhay ng makina.</string>
+
+    <!-- Banner Title -->
+    <string name="blowbagets_banner_title">BLOWBAGETS Checklist ng Kaligtasan ng Sasakyan</string>
+
+    <!-- Battery Section -->
+    <string name="battery_title">Baterya</string>
+    <string name="battery_point1">Siguraduhing ganap na naka-charge ang baterya at maayos ang pagkakakonekta.</string>
+    <string name="battery_point2">Suriin ang anumang kalawang sa mga terminal at linisin kung kinakailangan.</string>
+    <string name="battery_point3">Tiyakin na ang lahat ng mga kagamitang elektrikal na pinapalakas ng baterya ay gumagana ng maayos.</string>
+
+    <!-- Lights Section -->
+    <string name="lights_title">Mga Ilaw</string>
+    <string name="lights_point1">Subukan ang lahat ng mga ilaw ng sasakyan, kabilang ang mga headlight, brake light, turn signal, at hazard light.</string>
+    <string name="lights_point2">Palitan ang anumang nasirang bombilya upang mapanatili ang kakayahang makita at komunikasyon sa ibang mga driver.</string>
+    <string name="lights_point3">Siguraduhing malinis ang mga lente at walang anumang harang.</string>
+
+    <!-- Oil Section -->
+    <string name="oil_title">Langis</string>
+    <string name="oil_point1">Suriin ang antas ng langis ng makina gamit ang dipstick; magdagdag ng langis kung mababa sa inirekomendang antas.</string>
+    <string name="oil_point2">Obserbahan ang kulay at consistency ng langis; ang madilim o maruming langis ay maaaring magpahiwatig ng pangangailangan ng pagpapalit.</string>
+    <string name="oil_point3">Tingnan kung may mga palatandaan ng tagas ng langis sa ilalim ng sasakyan.</string>
+
+    <!-- Water Section -->
+    <string name="water_title">Tubig (Coolant)</string>
+    <string name="water_point1">Suriin ang antas ng coolant sa radiator at reservoir; magdagdag kung kinakailangan.</string>
+    <string name="water_point2">Suriin ang mga hose at koneksyon para sa mga tagas o pagsusuong.</string>
+    <string name="water_point3">Tiyakin na ang timpla ng coolant ay angkop para sa kasalukuyang kondisyon ng panahon.</string>
+
+    <!-- Brakes Section -->
+    <string name="brakes_title">Prino</string>
+    <string name="brakes_point1">Subukan ang brake pedal para sa katatagan at pagiging sensitibo.</string>
+    <string name="brakes_point2">Makinig para sa anumang hindi pangkaraniwang tunog kapag nagpapalakas ng preno, na maaaring magpahiwatig ng posibleng problema.</string>
+    <string name="brakes_point3">Suriin ang antas ng brake fluid at magdagdag kung mababa sa inirekomendang antas.</string>
+
+    <!-- Air Section -->
+    <string name="air_title">Hangin</string>
+    <string name="air_point1">Sukatin ang presyon ng gulong gamit ang isang maaasahang gauge; ayusin ayon sa mga pagtutukoy ng gumawa.</string>
+    <string name="air_point2">Suriin ang mga gulong para sa mga hiwa, umbok, o labis na pagkasira.</string>
+    <string name="air_point3">Tiyakin na ang spare tire ay maayos na naka-inflate at nasa magandang kondisyon.</string>
+
+    <!-- Gas Section -->
+    <string name="gas_title">Gasolina (Panggatong)</string>
+    <string name="gas_point1">Siguraduhing may sapat na antas ng gasolina para sa iyong layunin na biyahe.</string>
+    <string name="gas_point2">Suriin kung may mga tagas o amoy ng gasolina sa paligid ng sasakyan.</string>
+    <string name="gas_point3">Tiyakin na ang takip ng gasolina ay maayos na nakakabit pagkatapos mag-refuel.</string>
+
+    <!-- Engine Section -->
+    <string name="engine_title">Makina</string>
+    <string name="engine_point1">Makinig para sa anumang abnormal na tunog mula sa makina na maaaring magpahiwatig ng problema.</string>
+    <string name="engine_point2">Suriin kung may mga warning lights sa dashboard na nauugnay sa pagganap ng makina.</string>
+    <string name="engine_point3">Tiyakin na ang mga sinturon at hose ay nasa maayos na kondisyon at tamang pagkakabit.</string>
+
+    <!-- Tires Section -->
+    <string name="tires_title">Gulong</string>
+    <string name="tires_point1">Suriin ang lalim ng tread upang matiyak na ito ay sumusunod sa mga pamantayan sa kaligtasan.</string>
+    <string name="tires_point2">I-rotate ang mga gulong nang regular upang mapanatili ang pantay-pantay na pagkasira.</string>
+    <string name="tires_point3">I-align ang mga gulong kung kinakailangan upang maiwasan ang hindi pantay na pagkasira ng gulong at mapabuti ang paghawak ng sasakyan.</string>
+
+    <!-- Self Section -->
+    <string name="self_title">Sarili</string>
+    <string name="self_point1">Suriin ang iyong pisikal at mental na kalagayan bago magmaneho; iwasan ang pagmamaneho kapag pagod o may sakit.</string>
+    <string name="self_point2">Siguraduhing dala mo ang iyong lisensya sa pagmamaneho at mga kinakailangang dokumento.</string>
+    <string name="self_point3">Iplano ang iyong ruta nang maaga upang mabawasan ang stress at distractions habang nagmamaneho.</string>
+
+    <string name="DRC_Banner">Kaligtasan sa Pagmamaneho at Paggalang sa Kalsada</string>
+    <string name="AB_Banner">Attitude at Pag-uugali</string>
+    <string name="AB_title1">Pagtugon sa mga Nagmamaneho sa Maling Daan</string>
+    <string name="AB_point1">Sa mga kalsadang walang gitnang divider, laging mag-ingat sa mga sasakyang maaaring biglang pumasok sa iyong linya. Manatili sa panlabas na linya at magmaneho sa ligtas na bilis.</string>
+    <string name="AB_point2">Kung may driver na papunta sa iyo na kasalungat na direksyon (counterflow):</string>
+    <string name="AB_point2_1">Maging kalmado.</string>
+    <string name="AB_point2_2">Huwag pilitin ang iyong karapatan sa daan.</string>
+    <string name="AB_point2_3">Mag-signal ng maaga at magpalit ng linya nang ligtas.</string>
+    <string name="AB_point2_4">Iwasan ang pagkakaroon ng eye contact upang hindi magka tensyon.</string>
+    <string name="AB_point3">Upang maiwasan ang banggaan kung may sasakyang papunta sa iyo:</string>
+    <string name="AB_point3_1">Tumingin nang maaga at unawain ang sitwasyon sa kalsada.</string>
+    <string name="AB_point3_2">Mag-manuever pakanan.</string>
+    <string name="AB_point3_3">Bumangon ng dahan-dahan.</string>
+    <string name="AB_point3_4">Kung kinakailangan, lumihis mula sa kalsada nang ligtas.</string>
+    <string name="AB_point4">Kung kailangan mong lumihis mula sa kalsada at hindi maiiwasan ang pagtama sa isang bagay:</string>
+    <string name="AB_point4_1">Tumama sa mga malambot na bagay tulad ng mga halaman o plastik na barrier.</string>
+    <string name="AB_point4_2">Kung kailangan mong tumama sa isang matigas na bagay tulad ng bakod, subukang tamaan ito nang pahilis—hindi tuwid na harap upang mabawasan ang pinsala.</string>
+
+    <string name="AB_title2">Pagtugon sa mga Malalaking Sasakyan</string>
+    <string name="AB_point5">Magbigay ng dagdag na espasyo kapag nagmamaneho malapit sa malalaking sasakyan tulad ng mga trak o bus. Mag-ingat kapag binabaybay ang mga ito—mangyaring mag-overtake lamang kung may sapat na oras at distansya upang gawin ito nang ligtas.</string>
+    <string name="AB_point6">Kapag umaakyat o humihinto sa likod ng isang malaking sasakyan, mag-iwan ng mas maraming espasyo. Maaaring umatras ito ng kaunti kapag pinakawalan ng driver ang preno o clutch.</string>
+    <string name="AB_point7">Mahalagang Paalala:</string>
+    <string name="AB_point7_1">Huwag mag-overtake sa isang malaking trak habang ito ay kumakaliwa o kanan.</string>
+    <string name="AB_point7_2">Ang mga sasakyang ito ay maaaring kumupit ng higit sa isang lane kapag kumaliwa.</string>
+    <string name="AB_point7_3">Maging alerto—maaaring harangan nila ang bahagi o buong kalsada habang lumiliko.</string>
+
+    <string name="Emergency_banner">Pagtugon sa mga Emergency na Sitwasyon</string>
+    <string name="Emergency_brake">Emergency na Pag-preno</string>
+    <string name="Emergency_brake_point1">Kung ang iyong mga preno ay nabigo, manatiling kalmado at sundin ang mga hakbang na ito:</string>
+    <string name="Emergency_brake_point1_1">I-pump ang preno pedal ng mabilis upang makapagbuo ng presyon (Babala: Huwag mag-pump kung ang iyong sasakyan ay may ABS).</string>
+    <string name="Emergency_brake_point1_2">Lumipat sa mas mababang gear upang makatulong na pabagalin ang sasakyan.</string>
+    <string name="Emergency_brake_point1_3">Gamitin ang iyong horn at mag-blink ng iyong ilaw upang magbigay babala sa iba.</string>
+    <string name="Emergency_brake_point1_4">Maingat na gamitin ang parking brake nang paunti-unti upang magpabagal.</string>
+
+    <string name="Skidding">Pagka-slide</string>
+    <string name="Skidding_point1">Ang pagkaslide ay karaniwang nangyayari kapag umiikot o humihinto nang mabilis sa madulas o matarik na kalsada (tulad ng kapag basa o maalikabok).</string>
+    <string name="Skidding_point2">Kung magsisimula kang mag-slide:</string>
+    <string name="Skidding_point2_1">Iwasang mag-preno kung maaari.</string>
+    <string name="Skidding_point2_2">Itanggal ang paa mula sa gas pedal.</string>
+    <string name="Skidding_point2_3">Tumingin sa lugar kung saan mo nais pumunta at dahan-dahang magmanuever patungo roon.</string>
+    <string name="Skidding_point2_4">Ituwid ang mga gulong kapag nabawi mo na ang kontrol.</string>
+
+    <string name="Collision_title">Paano Iwasan ang Banggaan sa mga Interseksyon</string>
+    <string name="Collision_scenario">Senaryo: Papalapit ka sa isang interseksyon, ngunit ang iyong tanawin ay nahaharangan ng mga karatula, tao, o iba pang mga sasakyan.</string>
+    <string name="Collision_question">Tanong: Sino ang mauuna?</string>
+    <string name="Collision_intro_point">Karamihan sa mga aksidente sa interseksyon ay nangyayari dahil hindi sinusunod ng mga driver ang mga patakaran sa right-of-way. Narito ang mga bagay na dapat tandaan:</string>
+    <string name="Collision_point1">🚦 Walang Karatula o Traffic Lights</string>
+    <string name="Collision_point1_1">Pabayaan mong dumaan muna ang sasakyan sa iyong kanan.</string>
+    <string name="Collision_point2">🛑 Stop Sign</string>
+    <string name="Collision_point2_1">Huminto nang buo.</string>
+    <string name="Collision_point2_2">Magbigay daan sa mga sasakyan na nasa o malapit sa interseksyon.</string>
+    <string name="Collision_point2_3">Kung huminto kayo ng sabay ng ibang sasakyan, ang nasa kanan ang mauuna.</string>
+    <string name="Collision_point2_4">❌ Huwag mag-rolling stop.</string>
+
+    <string name="Collision_point3">⚠️ Give Way / Yield Sign</string>
+    <string name="Collision_point3_1">Magdahan-dahan at maghanda na huminto.</string>
+    <string name="Collision_point3_2">Magbigay daan sa ibang sasakyan na nasa o malapit sa interseksyon.</string>
+
+    <string name="Collision_point4">🚥 May Traffic Lights</string>
+    <string name="Collision_point4_1">P Green na ilaw? Puwede kang dumaan, ngunit magbigay daan sa mga sasakyan at pedestrian na tumatawid na.</string>
+    <string name="Collision_point4_2">Lumingon pakanan habang may pulang ilaw? Huminto muna nang buo. Magbigay daan sa mga tao at sasakyan bago lumiko.</string>
+    <string name="Collision_point4_3">❌ Muli, walang rolling stop.</string>
+
+    <string name="change_language">Palitan ang Wika</string>
+    <string name="app_version">Bersyon ng App: %1$s</string>
 </resources>

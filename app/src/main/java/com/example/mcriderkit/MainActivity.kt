@@ -17,11 +17,12 @@ import com.example.mcriderkit.ui.StudentExamViewModel
 import com.example.mcriderkit.ui.UserInputScreen
 import com.example.mcriderkit.ui.components.HazardRepository
 import com.example.mcriderkit.ui.components.QuizRepository
+import com.example.mcriderkit.ui.local.LocalAppContext
 import com.example.mcriderkit.ui.theme.MCRiderKitTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.saveable.rememberSaveable
-
+import java.util.Locale
 
 
 class MainActivity : ComponentActivity() {
@@ -31,6 +32,7 @@ class MainActivity : ComponentActivity() {
         val splashScreen = installSplashScreen()
         var keepSplashScreen = true
         val isDarkMode = PreferenceHelper.isDarkMode(this)
+        var currentLanguage = mutableStateOf("en")
 
         splashScreen.setKeepOnScreenCondition { keepSplashScreen }
 
@@ -53,35 +55,45 @@ class MainActivity : ComponentActivity() {
             setContent {
 
                 var darkMode by remember { mutableStateOf(isDarkMode) }
+                val updatedContext = remember(currentLanguage.value) {
+                    LocaleUtils.updateLocale(this, currentLanguage.value)
+                }
 
-                MCRiderKitTheme(
-                    darkTheme = darkMode
-                ) {
-                    // Load stored name
-                    val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
-                    var userName by remember { mutableStateOf(sharedPref.getString("user_name", null)) }
+                CompositionLocalProvider(LocalAppContext provides updatedContext){
+                    MCRiderKitTheme(
+                        darkTheme = darkMode
+                    ) {
+                        // Load stored name
+                        val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
+                        var userName by remember { mutableStateOf(sharedPref.getString("user_name", null)) }
 
-                    if (userName == null) {
-                        // Show input screen if no name is stored
-                        UserInputScreen(onSubmit = { name ->
-                            userName = name // Update state to trigger navigation
-                        }, context = this@MainActivity)
-                    } else {
-                        // Navigate directly to main app if name is already stored
-                        NavigationApp(
-                            nonProQuizViewModel = nonProQuizViewModel,
-                            proQuizViewModel = proQuizViewModel,
-                            studentExamViewModel = studentExamViewModel,
-                            hazardViewModel = hazardViewModel,
-                            darkMode = darkMode,
-                            onToggleDarkMode = {
-                                darkMode = it
-                                PreferenceHelper.setDarkMode(this@MainActivity, it)
-                            }
-                        )
+                        if (userName == null) {
+                            // Show input screen if no name is stored
+                            UserInputScreen(onSubmit = { name ->
+                                userName = name // Update state to trigger navigation
+                            }, context = this@MainActivity)
+                        } else {
+                            // Navigate directly to main app if name is already stored
+                            NavigationApp(
+                                nonProQuizViewModel = nonProQuizViewModel,
+                                proQuizViewModel = proQuizViewModel,
+                                studentExamViewModel = studentExamViewModel,
+                                hazardViewModel = hazardViewModel,
+                                darkMode = darkMode,
+                                onToggleDarkMode = {
+                                    darkMode = it
+                                    PreferenceHelper.setDarkMode(this@MainActivity, it)
+                                }
+                            )
+                        }
                     }
                 }
             }
+    }
+
+    private fun getSavedLanguage(context: Context): String? {
+        val sharedPreferences = context.getSharedPreferences("language_prefs", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("language", null)
     }
 }
 
@@ -100,3 +112,16 @@ object PreferenceHelper {
     }
 }
 
+
+object LocaleUtils {
+    fun updateLocale(context: Context, languageCode: String): Context {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+
+        val config = context.resources.configuration
+        config.setLocale(locale)
+        config.setLayoutDirection(locale)
+
+        return context.createConfigurationContext(config)
+    }
+}
