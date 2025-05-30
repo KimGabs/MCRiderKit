@@ -168,13 +168,15 @@ fun NavAppBar(
 
 @Composable
 fun NavigationApp(
+    currentLanguage: MutableState<String>,
     navController: NavHostController = rememberNavController(),
     nonProQuizViewModel: NonProExamViewModel,
     proQuizViewModel: ProExamViewModel,
     studentExamViewModel: StudentExamViewModel,
     hazardViewModel: HazardTestViewModel,
     darkMode: Boolean,
-    onToggleDarkMode: (Boolean) -> Unit
+    onToggleDarkMode: (Boolean) -> Unit,
+    onLanguageChange: (String) -> Unit
 ) {
     var selectedItem by remember { mutableIntStateOf(0) }
     val items = listOf("Home", "Profile", "Settings")
@@ -271,6 +273,8 @@ fun NavigationApp(
                 composable(route = NavigationScreen.Settings.route) {
                     SettingsScreen(
                         darkMode = darkMode,
+                        currentLanguage = currentLanguage.value,
+                        onLanguageChange = onLanguageChange,
                         onDarkModeToggle = onToggleDarkMode,
                         modifier = Modifier
                             .fillMaxSize()
