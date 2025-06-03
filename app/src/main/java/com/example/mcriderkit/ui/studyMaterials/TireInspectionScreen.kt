@@ -21,7 +21,6 @@ fun TireInspectionScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFF4CAF50))
             ) {
                 Banner(context.getString(R.string.tire_inspection_banner_title))
             }

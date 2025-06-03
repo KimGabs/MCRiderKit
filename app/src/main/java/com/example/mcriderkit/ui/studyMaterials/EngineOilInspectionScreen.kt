@@ -22,7 +22,6 @@ fun EngineOilInspectionScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFF4CAF50))
             ) {
                 Banner(textBanner = context.getString(R.string.engine_oil_inspection_banner_title))
             }

@@ -620,7 +620,7 @@ object DataSource {
         ),
         QuizScore(
             quizType = "Non-professional Exam",
-            highestScore = 10
+            highestScore = 26
         ),
         QuizScore(
             quizType = "Professional Exam",

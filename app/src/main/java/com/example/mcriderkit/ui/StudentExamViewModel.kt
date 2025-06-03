@@ -33,11 +33,11 @@ class StudentExamViewModel(
         }
     }
 
-/*    init {
+    init {
         viewModelScope.launch {
             repository.insertPresetQuizScores() // Insert preset data if needed
         }
-    }*/
+    }
 
     fun saveScore(quizType: String, score: Int) {
         viewModelScope.launch {

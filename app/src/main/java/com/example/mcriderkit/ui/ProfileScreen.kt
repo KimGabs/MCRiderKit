@@ -3,6 +3,7 @@ package com.example.mcriderkit.ui
 import android.Manifest
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -44,6 +45,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.core.app.ActivityCompat
 import com.example.mcriderkit.ui.components.ExamGraph
 import com.example.mcriderkit.ui.components.HazardTestGraph
+import androidx.core.net.toUri
 
 
 @Composable
@@ -67,6 +69,14 @@ fun ProfileScreen(
     ) { uri: Uri? ->
         uri?.let {
             imageUri = it
+
+            // Persist permission
+            context.contentResolver.takePersistableUriPermission(
+                it,
+                Intent.FLAG_GRANT_READ_URI_PERMISSION
+            )
+
+            // Save URI
             val sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
             with(sharedPref.edit()) {
                 putString("profile_photo_uri", it.toString())
@@ -81,7 +91,7 @@ fun ProfileScreen(
         userName = sharedPref.getString("user_name", "User") ?: "User"
         newUserName = userName
         val savedUri = sharedPref.getString("profile_photo_uri", null)
-        imageUri = savedUri?.let { Uri.parse(it) }
+        imageUri = savedUri?.toUri()
 
         // Request permission (if needed)
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
