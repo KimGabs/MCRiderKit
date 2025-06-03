@@ -616,16 +616,16 @@ object DataSource {
     val presetQuizScore = listOf(
         QuizScore(
             quizType = "Student Exam",
-            highestScore = 18,
-            trophy = true
+            highestScore = 0,
         ),
         QuizScore(
             quizType = "Non-professional Exam",
-            highestScore = 26
+            highestScore = 0
         ),
         QuizScore(
             quizType = "Professional Exam",
-            highestScore = 56
+            highestScore = 0,
+            trophy = false
         )
     )
 
@@ -651,7 +651,7 @@ object DataSource {
             speedLimit = "40 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 20,
+            lastScore = 0,
             videoPath = "test2",
             thumbnailId = R.drawable.hazard_thumbnail_2,
             videoLength = 19,
@@ -666,7 +666,7 @@ object DataSource {
             speedLimit = "30-40 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 50,
+            lastScore = 0,
             videoPath = "test3",
             thumbnailId = R.drawable.hazard_thumbnail_3,
             videoLength = 30,
@@ -681,7 +681,7 @@ object DataSource {
             speedLimit = "20 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 90,
+            lastScore = 0,
             videoPath = "test4",
             thumbnailId = R.drawable.hazard_thumbnail_4,
             videoLength = 28,
@@ -689,7 +689,6 @@ object DataSource {
             perfectRange = 0.62,
             goodRange = 0.64,
             lateRange = 0.66,
-            trophy = true
         )
     )
 

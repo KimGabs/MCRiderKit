@@ -27,7 +27,6 @@ class QuizRepository(private val quizScoreDao: QuizScoreDao) {
         )
     }
 
-    suspend fun getAllScores(): List<QuizScore> {
-        return quizScoreDao.getAllScores()
-    }
+    suspend fun getAllScores(): List<QuizScore> = quizScoreDao.getAllScores()
+
 }

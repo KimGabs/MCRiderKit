@@ -29,6 +29,15 @@ class NonProExamViewModel(
         }
     }
 
+    private val _quizScores = MutableStateFlow<List<QuizScore>>(emptyList())
+    val quizScores: StateFlow<List<QuizScore>> = _quizScores
+
+    fun loadQuizScores() {
+        viewModelScope.launch {
+            _quizScores.value = repository.getAllScores()
+        }
+    }
+
     fun saveScore(quizType: String, score: Int) {
         viewModelScope.launch {
             // Retrieve the existing score for the given quizType

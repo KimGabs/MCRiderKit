@@ -47,7 +47,7 @@ fun MainMenuScreen(
             contentDescription = "App Logo",
             modifier = Modifier
                 .size(200.dp)
-                .clip(CircleShape)
+                .clip(RoundedCornerShape(10.dp))
                 .background(Color(0xFF6A3DE8))
                 .padding(bottom = 16.dp)
         )

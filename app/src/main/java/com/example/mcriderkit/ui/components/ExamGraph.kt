@@ -73,7 +73,7 @@ fun ExamGraph(
             )
             Spacer(modifier = Modifier.height(16.dp))
 
-            if (quizScores.any { it.second > 0 }) {
+            if (quizScores.isNotEmpty()) {
                 QuizBarChart(quizScores)
             } else {
                 Text("No data available", style = MaterialTheme.typography.labelLarge)

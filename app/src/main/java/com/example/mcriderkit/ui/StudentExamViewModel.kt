@@ -25,6 +25,14 @@ class StudentExamViewModel(
     override val highestScore: StateFlow<Int?> = _highestScore
     private var totalQuestions = 0
 
+    private val _quizScores = MutableStateFlow<List<QuizScore>>(emptyList())
+    val quizScores: StateFlow<List<QuizScore>> = _quizScores
+
+    fun loadQuizScores() {
+        viewModelScope.launch {
+            _quizScores.value = repository.getAllScores()
+        }
+    }
 
     override fun fetchHighestScore(quizType: String) {
         viewModelScope.launch(Dispatchers.IO) {

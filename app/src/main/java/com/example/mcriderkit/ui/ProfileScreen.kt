@@ -69,6 +69,8 @@ fun ProfileScreen(
     var newUserName by remember { mutableStateOf(userName) }
     val allHazards by viewModel.hazardTests.collectAsState()
     val unlockedTrophies by viewModel.trophyTests.collectAsState()
+    val quizScores by studentViewModel.quizScores.collectAsState()
+
 
 
     // Image picker launcher
@@ -95,6 +97,7 @@ fun ProfileScreen(
 
     // Load saved user data once
     LaunchedEffect(Unit) {
+        studentViewModel.loadQuizScores()
         val sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         userName = sharedPref.getString("user_name", "User") ?: "User"
         newUserName = userName
@@ -207,7 +210,7 @@ fun ProfileScreen(
 
         Text(
             text = "Hazard Trophies",
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.headlineSmall,
             modifier = Modifier.padding(bottom = 8.dp)
         )
         LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -223,7 +226,23 @@ fun ProfileScreen(
 
         HazardTestGraph(viewModel = viewModel)
 
-        Spacer(modifier = Modifier.height(24.dp)) // Ensure enough spacing at the bottom
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Text(text = "Quiz Trophies",
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier.padding(bottom = 8.dp)
+        )
+
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            items(quizScores) { score ->
+                TrophyItem(
+                    name = score.quizType,
+                    unlocked = score.trophy,
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
 
         ExamGraph(
             studentViewModel = studentViewModel,
