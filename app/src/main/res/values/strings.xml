@@ -490,4 +490,8 @@
     <string name="Collision_point4_2">Turning right on red? Stop completely first. Yield to people and traffic before turning.</string>
     <string name="Collision_point4_3">❌ Again, no rolling stops.</string>
 
+    <string name="language">Language</string>
+    <string name="change_language">Language</string>
+
+
 </resources>

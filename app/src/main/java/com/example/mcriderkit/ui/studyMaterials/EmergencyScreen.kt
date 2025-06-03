@@ -29,7 +29,6 @@ fun EmergencyScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFF4CAF50))
             ) {
                 Banner(context.getString(R.string.Emergency_banner))
             }

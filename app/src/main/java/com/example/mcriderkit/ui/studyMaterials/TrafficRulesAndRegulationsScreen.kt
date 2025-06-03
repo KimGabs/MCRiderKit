@@ -21,7 +21,6 @@ fun TrafficRulesAndRegulationsScreen() {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFF4CAF50))
             ){
                 Banner("Traffic Rules & Regulations")
             }
@@ -139,8 +138,8 @@ fun Banner(textBanner: String) {
     Box(modifier = Modifier
         .fillMaxWidth()
         .height(120.dp)
-        .padding(0.dp, 8.dp)
-        .background(Color(0xFF4CAF50))) {  // You can customize the color here
+        .padding(0.dp, 0.dp)
+        .background(Color(0xFF624085))) {  // You can customize the color here
         Text(
             text = textBanner,
             fontSize = 26.sp,

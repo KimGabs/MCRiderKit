@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,14 +25,25 @@ fun LongitudinalLines(
     val context = LocalContext.current
 
     LazyColumn() {
+
         item{
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFF4CAF50))
             ){
                 Banner(context.getString(R.string.LONG_MARK_SEC))
             }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
+        item{
+            Image(
+                painter = painterResource(id = R.drawable.road_markings),
+                contentDescription = context.getString(R.string.LONG_MARK_SEC_1),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(1.dp)
+            )
             Spacer(modifier = Modifier.height(16.dp))
         }
 
@@ -46,6 +58,7 @@ fun LongitudinalLines(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
+                    .size(200.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -61,6 +74,7 @@ fun LongitudinalLines(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
+                    .size(200.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -79,6 +93,7 @@ fun LongitudinalLines(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
+                    .size(200.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -94,6 +109,7 @@ fun LongitudinalLines(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
+                    .size(200.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -113,6 +129,7 @@ fun LongitudinalLines(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
+                    .size(200.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -128,6 +145,7 @@ fun LongitudinalLines(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
+                    .size(200.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -143,6 +161,7 @@ fun LongitudinalLines(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
+                    .size(200.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -158,6 +177,7 @@ fun LongitudinalLines(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(1.dp)
+                    .size(200.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
         }

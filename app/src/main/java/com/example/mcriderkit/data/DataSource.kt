@@ -15,6 +15,7 @@
  */
 package com.example.mcriderkit.data
 
+import androidx.compose.ui.platform.LocalContext
 import com.example.mcriderkit.R
 
 object DataSource {
@@ -82,239 +83,422 @@ object DataSource {
     val examQuestions = listOf(
         // Licensing Information
         Question("What's the minimum age to get a non-professional license in the Philippines",
-            options = listOf("15 years old", "17 years old", "18 years old", "19 years old"),
+            options = listOf(
+                "15 years old",
+                "17 years old",
+                "18 years old",
+                "19 years old"),
             correctAnswerIndex = 1,
         ),
         Question("Drivers gather most information using their:",
-            options = listOf("Cars", "Computer", "Eyes", "Hands"),
+            options = listOf(
+                "Cars",
+                "Computer",
+                "Eyes",
+                "Hands"),
             correctAnswerIndex = 2
         ),
         // Parking
         Question("Parking lights may be used:",
-            options = listOf("During an emergency only", "At anytime", "For Parking and when visibility is poor", "When driving on a well-lighted streets"),
+            options = listOf(
+                "During an emergency only",
+                "At anytime",
+                "For Parking and when visibility is poor",
+                "When driving on a well-lighted streets"),
             correctAnswerIndex = 2
         ),
         Question("The safest speed of a vehicle is according to:",
-            options = listOf("Road and weather conditions", "Capability of the vehicle", "Capability of the driver", "Capability of the passenger"),
+            options = listOf(
+                "Road and weather conditions",
+                "Capability of the vehicle",
+                "Capability of the driver",
+                "Capability of the passenger"),
             correctAnswerIndex = 0
         ),
         Question("What is the meaning of a blinking yellow traffic light?",
-            options = listOf("Stop and stay until light stops flashing", "Wait for the green light", "Wait for the traffic enforcer", "Slow down and proceed with caution"),
+            options = listOf(
+                "Stop and stay until light stops flashing",
+                "Wait for the green light",
+                "Wait for the traffic enforcer",
+                "Slow down and proceed with caution"),
             correctAnswerIndex = 3
         ),
         Question("How should you behave when an approaching officer flags down your vehicle?",
-            options = listOf("Ignore the apprehending officer and drive away at increased speed", "Stop and argue with the apprehending officer", "Surrender your driver's license and other documents upon demand", "Bribe the apprehending officer to avoid fee"),
+            options = listOf(
+                "Ignore the apprehending officer and drive away at increased speed",
+                "Stop and argue with the apprehending officer",
+                "Surrender your driver's license and other documents upon demand",
+                "Bribe the apprehending officer to avoid fee"),
             correctAnswerIndex = 2
         ),
         Question("To have one's driver's license suspended means to:",
-            options = listOf("Have it revalidated by the LTO", "Have it taken away permanently by the LTO", "Have it taken temporarily by the LTO", "Have it renewed by the LTO"),
+            options = listOf(
+                "Have it revalidated by the LTO",
+                "Have it taken away permanently by the LTO",
+                "Have it taken temporarily by the LTO",
+                "Have it renewed by the LTO"),
             correctAnswerIndex = 2
         ),
         Question("What is the meaning of a traffic sign that has a triangle with red color?",
-            options = listOf("Reminder Sign", "Crossroad sign", "Information sign", "Warning sign"),
+            options = listOf(
+                "Reminder Sign",
+                "Crossroad sign",
+                "Information sign",
+                "Warning sign"),
             correctAnswerIndex = 3
         ),
         Question("The traffic light or signal that tells you to stop before the intersection is:",
-            options = listOf("Steady red light", "Steady yellow light", "Steady green light", "Vehicle hazard lights"),
+            options = listOf(
+                "Steady red light",
+                "Steady yellow light",
+                "Steady green light",
+                "Vehicle hazard lights"),
             correctAnswerIndex = 0
         ),
         Question("What is the meaning of a blinking red traffic light?",
-            options = listOf("Go faster", "Stop at the given line", "Stop for a while and go if there is no danger ahead", "Stop 150 meters ahead"),
+            options = listOf(
+                "Go faster",
+                "Stop at the given line",
+                "Stop for a while and go if there is no danger ahead",
+                "Stop 150 meters ahead"),
             correctAnswerIndex = 2
         ),
         Question("A driver of a vehicle approaching a yield sign in an intersection shall:",
-            options = listOf("Go faster", "Go on without yielding to any vehicle in the intersection",
-                "Maintain speed and stop only when other vehicles blow their horn", "Slow down and yield the right of way to any vehicle in the intersection"),
+            options = listOf(
+                "Go faster",
+                "Go on without yielding to any vehicle in the intersection",
+                "Maintain speed and stop only when other vehicles blow their horn",
+                "Slow down and yield the right of way to any vehicle in the intersection"),
             correctAnswerIndex = 3
         ),
         Question("What is the meaning of the green traffic light?",
-            options = listOf("Go faster", "A go signal for the vehicle",
-                "Stop at given line", "slow down and yield to any approaching vehicle"),
+            options = listOf(
+                "Go faster",
+                "A go signal for the vehicle",
+                "Stop at given line",
+                "slow down and yield to any approaching vehicle"),
             correctAnswerIndex = 1
         ),
         Question("Which of the following hand signal must a driver give when he wants to turn left?",
-            options = listOf("Left arm bent at elbow, hand pointing up", "Left arm held down and hand pointing at the ground",
-                "Left arm bent and hand pointing upwards", "Left arm held straight horizontally"),
+            options = listOf(
+                "Left arm bent at elbow, hand pointing up",
+                "Left arm held down and hand pointing at the ground",
+                "Left arm bent and hand pointing upwards",
+                "Left arm held straight horizontally"),
             correctAnswerIndex = 3
         ),
         Question("When the traffic light is steady green and steady left/right arrow:",
             imageResId = R.drawable.traffic_light_green_arrow,
-        options = listOf("Vehicles can go straight or vehicles on the right/left can make a left/right turn", "Vehicles can go left or right but not straight",
-            "Vehicles can go straight but not left or right", "Vehicles cannot go straight or vehicles on the right/left cannot make a left/right turn"),
+        options = listOf(
+            "Vehicles can go straight or vehicles on the right/left can make a left/right turn",
+            "Vehicles can go left or right but not straight",
+            "Vehicles can go straight but not left or right",
+            "Vehicles cannot go straight or vehicles on the right/left cannot make a left/right turn"),
         correctAnswerIndex = 0
     ),
         // Pavement Markings
         Question("You are not allowed to cross a lane with continuous yellow line on the road except if you are:",
             imageResId = R.drawable.mark_yellow_center_line,
-            options = listOf("Changing lanes", "Turning left", "Turning right", "Overtaking"),
+            options = listOf(
+                "Changing lanes",
+                "Turning left",
+                "Turning right",
+                "Overtaking"),
             correctAnswerIndex = 1
         ),
         Question("Broken yellow line on the road means:",
             imageResId = R.drawable.mark_broken_yellow_line,
-            options = listOf("Overtaking on the right side is allowed", "No Overtaking", "Overtaking on the left side is allowed", "No turning right"),
+            options = listOf(
+                "Overtaking on the right side is allowed",
+                "No Overtaking",
+                "Overtaking on the left side is allowed",
+                "No turning right"),
             correctAnswerIndex = 2
         ),
-        Question("A continuous yellow line on the road means:",
-            imageResId = R.drawable.mark_yellow_center_line,
-            options = listOf("Overtaking on the left side is allowed", "No Overtaking on either side", "No overtaking on the right side", "No overtaking on the left side"),
+        Question("When is it safe to overtake another vehicle on a two-lane road?:",
+            options = listOf(
+                "When the center line is solid",
+                "When there is a curve ahead",
+                "When you're in a hurry",
+                "When the center line is broken and it is clear"),
             correctAnswerIndex = 3
         ),
         Question("What does this road marking indicates:",
             imageResId = R.drawable.mark_bike_lane,
-            options = listOf("Motorcycle lane", "Bike lane", "Pedestrian lane", "Sidewalk"),
+            options = listOf(
+                "Motorcycle lane",
+                "Bike lane",
+                "Pedestrian lane",
+                "Sidewalk"),
             correctAnswerIndex = 1
         ),
-        Question("You may not cross a single broken white or yellow line:",
-            imageResId = R.drawable.mark_broken_yellow_line,
-            options = listOf("When turning right into a driveway", "When turning left into a driveway", "When turning left into a drive thru", "When to do so would interfere with traffic"),
-            correctAnswerIndex = 3
+        Question("What should you do before making a turn or changing lanes on a motorcycle",
+            options = listOf(
+                "Speed up and change quickly",
+                "Blow the horn continuously",
+                "Use signal lights or hand signals and check your surroundings",
+                "When to do so would interfere with traffic"),
+            correctAnswerIndex = 2
         ),
         Question("You can overtake on a highway with two lanes if there is a:",
-            options = listOf("Bike lane", "Broken yellow line", "Continuous yellow line", "Continuous white line"),
+            options = listOf(
+                "Bike lane",
+                "Broken yellow line",
+                "Continuous yellow line",
+                "Continuous white line"),
             correctAnswerIndex = 1
         ),
         // Road Sign Quizzes
         Question("What does this road sign indicate?",
             imageResId = R.drawable.sign_pass_either_side,
-            options = listOf("Keep left or right", "Pass either side", "Divided highway ahead", "Give way"),
+            options = listOf(
+                "Keep left or right",
+                "Pass either side",
+                "Divided highway ahead",
+                "Give way"),
             correctAnswerIndex = 1
         ),
         Question("What does this road sign indicate?",
             imageResId = R.drawable.sign_no_turns,
-            options = listOf("No turns", "Give way", "One way", "Pass either side"),
+            options = listOf(
+                "No turns",
+                "Give way",
+                "One way",
+                "Pass either side"),
             correctAnswerIndex = 0
         ),
         Question("What does this road sign indicate?",
             imageResId = R.drawable.sign_keep_left,
-            options = listOf("Two way", "Turn left", "Keep left", "One way"),
+            options = listOf(
+                "Two way",
+                "Turn left",
+                "Keep left",
+                "One way"),
             correctAnswerIndex = 2
         ),
         Question("What does this road sign indicate?",
             imageResId = R.drawable.sign_one_way,
-            options = listOf("No turn", "Keep left", "Turn left", "One way"),
+            options = listOf(
+                "No turn",
+                "Keep left",
+                "Turn left",
+                "One way"),
             correctAnswerIndex = 3
         ),
         Question("What does this road sign mean?",
             imageResId = R.drawable.sign_no_ped_cross,
-            options = listOf("No pedestrian crossing", "No entry of pedestrians", "Pedestrian crossing", "No pedestrians Ahead"),
+            options = listOf(
+                "No pedestrian crossing",
+                "No entry of pedestrians",
+                "Pedestrian crossing",
+                "No pedestrians Ahead"),
             correctAnswerIndex = 0
         ),
         Question("What does this road sign mean?",
             imageResId = R.drawable.sign_no_overtaking,
-            options = listOf("No vehicles allowed", "No turning left", "No overtaking", "Pedestrians only"),
+            options = listOf(
+                "No vehicles allowed",
+                "No turning left",
+                "No overtaking",
+                "Pedestrians only"),
             correctAnswerIndex = 2
         ),
         Question("What does this sign indicate?",
             imageResId = R.drawable.sign_min_speed_limit,
-            options = listOf("Minimum of 40 minutes on road", "Maintain minimum speed limit of 40 km/h", "Minimum of 40 vehicles only", "Minimum distance between vehicles"),
+            options = listOf(
+                "Minimum of 40 minutes on road",
+                "Maintain minimum speed limit of 40 km/h",
+                "Minimum of 40 vehicles only",
+                "Minimum distance between vehicles"),
             correctAnswerIndex = 1
         ),
         Question("What does this sign mean?",
             imageResId = R.drawable.sign_roundabout,
-            options = listOf("Take a Donut Drift", "Rotonda (roundabout) ahead", "Intersection ahead", "Spin Ahead"),
+            options = listOf(
+                "Take a Donut Drift",
+                "Rotonda (roundabout) ahead",
+                "Intersection ahead",
+                "Spin Ahead"),
             correctAnswerIndex = 1
         ),
         Question("What does this road sign indicate?",
             imageResId = R.drawable.sign_speed_limit,
-            options = listOf("The distance to the next intersection is 60 km", "Minimum of 60 vehicles only", "Given distance between the vehicle", "Given Speed limit"),
+            options = listOf(
+                "The distance to the next intersection is 60 km",
+                "Minimum of 60 vehicles only",
+                "Given distance between the vehicle",
+                "Given Speed limit"),
             correctAnswerIndex = 3
         ),
         Question("What does this road sign indicate?",
             imageResId = R.drawable.sign_traffic_light_ahead,
-            options = listOf("Traffic signal ahead", "Railway crossing ahead", "No traffic light ahead", "Roundabout ahead"),
+            options = listOf(
+                "Traffic signal ahead",
+                "Railway crossing ahead",
+                "No traffic light ahead",
+                "Roundabout ahead"),
             correctAnswerIndex = 0
         ),
         Question("What does this sign indicate?",
             imageResId = R.drawable.sign_narrow_road,
-            options = listOf("Narrow road ahead", "Divided highway ahead", "Railway crossing ahead", "Pass either side"),
+            options = listOf(
+                "Narrow road ahead",
+                "Divided highway ahead",
+                "Railway crossing ahead",
+                "Pass either side"),
             correctAnswerIndex = 0
         ),
         Question("What should you do when you see this sign?",
             imageResId = R.drawable.sign_stop,
-            options = listOf("Stop only if other vehicles are approaching", "Stop sign 150 meters ahead", "Stop only near the drive thru", "Make a full stop at the intersection and proceed when the way is clear"),
+            options = listOf(
+                "Stop only if other vehicles are approaching",
+                "Stop sign 150 meters ahead",
+                "Stop only near the drive thru",
+                "Make a full stop at the intersection and proceed when the way is clear"),
             correctAnswerIndex = 3
         ),
         Question("What should you do when you see this sign?",
             imageResId = R.drawable.sign_no_parking,
-            options = listOf("No entry", "No parking", "No use of horn", "No pedestrians allowed"),
+            options = listOf(
+                "No entry",
+                "No parking",
+                "No use of horn",
+                "No pedestrians allowed"),
             correctAnswerIndex = 1
         ),
         Question("What does this road sign indicate?",
             imageResId = R.drawable.sign_curve_left,
-            options = listOf("Dangerous curve on the left side", "Dangerous curve on the right side", "Intersection warning", "Turn left ahead"),
+            options = listOf(
+                "Dangerous curve on the left side",
+                "Dangerous curve on the right side",
+                "Intersection warning",
+                "Turn left ahead"),
             correctAnswerIndex = 0
         ),
         Question("What does this road sign mean?",
             imageResId = R.drawable.sign_steep_descent,
-            options = listOf("Broken road", "Steep descent", "River", "Uneven road"),
+            options = listOf(
+                "Broken road",
+                "Steep descent",
+                "River",
+                "Uneven road"),
             correctAnswerIndex = 1
         ),
         Question("What does this sign indicate?",
             imageResId = R.drawable.sign_falling_debris,
-            options = listOf("Slippery road", "Steep descent", "Falling debris", "Flood"),
+            options = listOf(
+                "Slippery road",
+                "Steep descent",
+                "Falling debris",
+                "Flood"),
             correctAnswerIndex = 2
         ),
         Question("What does this road sign indicate?",
             imageResId = R.drawable.sign_two_way,
-            options = listOf("Two-way traffic", "Divided highway", "No entry", "One way"),
+            options = listOf(
+                "Two-way traffic",
+                "Divided highway",
+                "No entry",
+                "One way"),
             correctAnswerIndex = 0
         ),
         Question("What does this road sign mean?",
             imageResId = R.drawable.sign_no_uturn,
-            options = listOf("No right turn", "No left turn", "No U-turn", "No way"),
+            options = listOf(
+                "No right turn",
+                "No left turn",
+                "No U-turn",
+                "No way"),
             correctAnswerIndex = 2
         ),
         Question("What does this sign indicate?",
             imageResId = R.drawable.sign_merging_traffic_2,
-            options = listOf("Merging traffic approaching an intersection", "Approaching an intersection", "Approaching an intersection with a road on the side", "Merging traffic from the right"),
+            options = listOf(
+                "Merging traffic approaching an intersection",
+                "Approaching an intersection",
+                "Approaching an intersection with a road on the side",
+                "Merging traffic from the right"),
             correctAnswerIndex = 0
         ),
         Question("What should you do when you come across this sign?",
             imageResId = R.drawable.sign_slow_down,
-            options = listOf("Go faster and pray for safety", "Maintain maximum speed and be more alert than usual", "Take a U-turn", "Slow down and be more alert than usual"),
+            options = listOf(
+                "Go faster and pray for safety",
+                "Maintain maximum speed and be more alert than usual",
+                "Take a U-turn",
+                "Slow down and be more alert than usual"),
             correctAnswerIndex = 3
         ),
         Question("You were apprehended because you were engaged in car racing while driving in a super highway, what traffic violation did you commit?",
-            options = listOf("Overspeeding", "Reckless Driving", "Gambling", "Color Coding Violation"),
+            options = listOf(
+                "Overspeeding",
+                "Reckless Driving",
+                "Gambling",
+                "Color Coding Violation"),
             correctAnswerIndex = 1
         ),
         Question("In case of injuries caused by an accident, the duty of the uninjured driver is to:",
-            options = listOf("Call a physician", "keep the victim lying down", "Find who is at fault", "Ignore the situation"),
+            options = listOf(
+                "Call a physician",
+                "keep the victim lying down",
+                "Find who is at fault",
+                "Ignore the situation"),
             correctAnswerIndex = 0
         ),
         Question("When a vehicle starts to skid, what should the driver do?",
-            options = listOf("Immediately step on the brakes", "Start drifting", "Hold firmly on to the wheel while slowing down the vehicle",
+            options = listOf(
+                "Immediately step on the brakes",
+                "Start drifting",
+                "Hold firmly on to the wheel while slowing down the vehicle",
                 "Turn the wheels tp the opposite the direction of the skid"),
             correctAnswerIndex = 2
         ),
         Question("In case of an accident, the first duty of the driver involved is to:",
-            options = listOf("Pick-up the injured person and take him to the nearest hospital", "Report the incident to the nearest hospital",
-                "Report the incident to the nearest police station", "Ignore the situation and wait for help"),
+            options = listOf(
+                "Pick-up the injured person and take him to the nearest hospital",
+                "Report the incident to the nearest hospital",
+                "Report the incident to the nearest police station",
+                "Ignore the situation and wait for help"),
             correctAnswerIndex = 0
         ),
         Question("What will happen when your front tire blows out?",
-            options = listOf("The back end will sway towards the side of the blowout", "The back end will sway away from the blowout",
-                "The front end will pull towards the side of the blowout", "The front end will pull to the opposite side of the blowout"),
+            options = listOf(
+                "The back end will sway towards the side of the blowout",
+                "The back end will sway away from the blowout",
+                "The front end will pull towards the side of the blowout",
+                "The front end will pull to the opposite side of the blowout"),
             correctAnswerIndex = 2
         ),
         Question("What should you do when an ambulance comes up behind you flashing red lights and/or sounding its siren?",
-            options = listOf("Stop as soon as you can", "Speed up so that you don't hold the ambulance",
-                "Maintain your speed, let the ambulance driver will find a way around you", "Pull over to the right and slow down or even stop if necessary"),
+            options = listOf(
+                "Stop as soon as you can",
+                "Speed up so that you don't hold the ambulance",
+                "Maintain your speed, let the ambulance driver will find a way around you",
+                "Pull over to the right and slow down or even stop if necessary"),
             correctAnswerIndex = 3
         ),
         Question("When a vehicle is stalled or disabled, the driver must park the vehicle on the shoulder of the road and:",
-            options = listOf("Switch on the parking light", "Switch on the parking light and install the Early Warning Device to the front and rear of the motor vehicle",
-                "Stay in the car until help arrives", "Install the early warning device"),
+            options = listOf(
+                "Switch on the parking light",
+                "Switch on the parking light and install the Early Warning Device to the front and rear of the motor vehicle",
+                "Stay in the car until help arrives",
+                "Install the early warning device"),
             correctAnswerIndex = 1
         ),
         Question("In case of a breakdown, which of the following should not be done by a driver?",
-            options = listOf("Stay in the car until help comes", "Ask for help",
-                "Get out of the car until help comes", "Leave the vehicle unattended on the road without warning signs"),
+            options = listOf(
+                "Stay in the car until help comes",
+                "Ask for help",
+                "Get out of the car until help comes",
+                "Leave the vehicle unattended on the road without warning signs"),
             correctAnswerIndex = 0
         ),
-        Question("What will happen when your rear tire blows out?",
-            options = listOf("The back end will sway towards the side of the blowout", "The back end will sway away from the blowout",
-                "The front end will pull towards the side of the blowout", "The front end will pull to the opposite side of the blowout"),
+        Question("What does the acronym B.L.O.W.B.A.G.E.T.S. stand for in vehicle safety checks?",
+            options = listOf(
+                "Brake, Lights, Oil, Water, Battery, Air, Gas, Engine, Tires, Self",
+                "Battery, Lights, Oil, Water, Brakes, Air, Gas, Engine, Tires, Signal",
+                "Brakes, Load, Oil, Water, Battery, Air, Gas, Engine, Tires, Steering",
+                "Battery, Load, Oil, Wheels, Brakes, Air, Gear, Engine, Tires, Speed"),
             correctAnswerIndex = 1
         ),
         Question(
@@ -420,12 +604,12 @@ object DataSource {
         Question(
             "Chances of being hurt or killed while driving/riding are reduced if one is wearing:",
             options = listOf(
-                "Alarm device",
-                "Helmet",
-                "Seat belts/helmets",
-                "Protective gloves"
+                "Face mask",
+                "Safety Goggles",
+                "Protective gloves",
+                "Seat belts/helmets"
             ),
-            correctAnswerIndex = 2
+            correctAnswerIndex = 3
         )
     )
 
@@ -436,7 +620,7 @@ object DataSource {
         ),
         QuizScore(
             quizType = "Non-professional Exam",
-            highestScore = 10
+            highestScore = 26
         ),
         QuizScore(
             quizType = "Professional Exam",

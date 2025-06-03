@@ -15,6 +15,8 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import com.example.mcriderkit.LocaleUtils
+import com.example.mcriderkit.ui.local.LocalAppContext
 
 
 @Immutable
@@ -357,7 +359,6 @@ val unspecified_scheme = ColorFamily(
 @Composable
 fun MCRiderKitTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
     val colorScheme = if (!darkTheme) lightScheme else darkScheme
