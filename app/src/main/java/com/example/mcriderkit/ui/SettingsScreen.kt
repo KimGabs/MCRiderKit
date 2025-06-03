@@ -33,7 +33,7 @@ fun SettingsScreen(
     currentLanguage: String,
     modifier: Modifier = Modifier
 ) {
-    val appVersion = "1.2"
+    val appVersion = "1.3"
     val context = LocalContext.current
     var expanded by remember { mutableStateOf(false) }
     var selectedLanguage by remember(currentLanguage) { mutableStateOf(currentLanguage) }
