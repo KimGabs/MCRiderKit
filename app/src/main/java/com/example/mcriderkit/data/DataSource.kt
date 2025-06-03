@@ -616,7 +616,8 @@ object DataSource {
     val presetQuizScore = listOf(
         QuizScore(
             quizType = "Student Exam",
-            highestScore = 18
+            highestScore = 18,
+            trophy = true
         ),
         QuizScore(
             quizType = "Non-professional Exam",
@@ -630,7 +631,7 @@ object DataSource {
 
     val presetHazardTests = listOf(
         HazardTest(
-            title = "Test Video 1",
+            title = "Hazard 1",
             location = "Location 1",
             speedLimit = "60 km/h",
             timeOfDay = "Morning",
@@ -645,7 +646,7 @@ object DataSource {
             lateRange = 0.82
         ),
         HazardTest(
-            title = "Test Video 2",
+            title = "Hazard 2",
             location = "Location 2",
             speedLimit = "40 km/h",
             timeOfDay = "Afternoon",
@@ -660,7 +661,7 @@ object DataSource {
             lateRange = 0.77
         ),
         HazardTest(
-            title = "Test Video 3",
+            title = "Hazard 3",
             location = "EDSA Highway",
             speedLimit = "30-40 km/h",
             timeOfDay = "Afternoon",
@@ -675,7 +676,7 @@ object DataSource {
             lateRange = 0.80
         ),
         HazardTest(
-            title = "Test Video 4",
+            title = "Hazard 4",
             location = "Katipunan road",
             speedLimit = "20 km/h",
             timeOfDay = "Afternoon",
@@ -687,7 +688,8 @@ object DataSource {
             earlyRange = 0.57,
             perfectRange = 0.62,
             goodRange = 0.64,
-            lateRange = 0.66
+            lateRange = 0.66,
+            trophy = true
         )
     )
 

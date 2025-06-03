@@ -56,7 +56,7 @@ fun SettingsScreen(
                 value = selectedLanguage,
                 onValueChange = {},
                 readOnly = true,
-                label = { Text(context.getString(R.string.language)) },
+                label = { Text(context.getString(R.string.change_language)) },
                 trailingIcon = {
                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
                 },

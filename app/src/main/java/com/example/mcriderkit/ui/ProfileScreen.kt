@@ -36,16 +36,21 @@ import android.net.Uri
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.core.app.ActivityCompat
 import com.example.mcriderkit.ui.components.ExamGraph
 import com.example.mcriderkit.ui.components.HazardTestGraph
 import androidx.core.net.toUri
+import androidx.compose.foundation.lazy.items
+
 
 
 @Composable
@@ -62,6 +67,9 @@ fun ProfileScreen(
     var imageUri by rememberSaveable { mutableStateOf<Uri?>(null) }
     var showEditDialog by remember { mutableStateOf(false) }
     var newUserName by remember { mutableStateOf(userName) }
+    val allHazards by viewModel.hazardTests.collectAsState()
+    val unlockedTrophies by viewModel.trophyTests.collectAsState()
+
 
     // Image picker launcher
     val launcher = rememberLauncherForActivityResult(
@@ -197,6 +205,22 @@ fun ProfileScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
+        Text(
+            text = "Hazard Trophies",
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.padding(bottom = 8.dp)
+        )
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            items(items = allHazards, key = { it.id }) { hazard ->
+                TrophyItem(
+                    name = hazard.title,
+                    unlocked = hazard.trophy
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
         HazardTestGraph(viewModel = viewModel)
 
         Spacer(modifier = Modifier.height(24.dp)) // Ensure enough spacing at the bottom
@@ -211,3 +235,26 @@ fun ProfileScreen(
     }
 }
 
+@Composable
+fun TrophyItem(name: String, unlocked: Boolean) {
+    val icon = if (unlocked) R.drawable.trophy_icon else R.drawable.trophy_icon_locked
+
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Image(
+            painter = painterResource(id = icon),
+            contentDescription = "$name Trophy",
+            modifier = Modifier
+                .size(75.dp)
+                .clip(CircleShape)
+                .background(if (unlocked) Color(0xFF9966CC) else Color.LightGray)
+                .border(2.dp, if (unlocked) Color(0xFFE6C200) else Color.Gray, CircleShape)
+                .padding(13.dp)
+        )
+        Text(
+            text = name,
+            style = MaterialTheme.typography.bodySmall,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(top = 4.dp)
+        )
+    }
+}
