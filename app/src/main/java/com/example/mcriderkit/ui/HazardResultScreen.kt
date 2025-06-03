@@ -1,5 +1,6 @@
 package com.example.mcriderkit.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import com.example.mcriderkit.R
 import androidx.compose.foundation.layout.Arrangement
@@ -25,7 +26,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -42,6 +42,10 @@ fun HazardResultScreen(
     onReview: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    BackHandler(enabled = true) {
+        onMainMenu()  // Navigate to main menu
+    }
+
     val baseHazardViewModel: BaseHazardViewModel = viewModel()
     var isLoading by remember { mutableStateOf(true) } // Manage loading state
     val showHazardTrophyDialog by baseHazardViewModel.showHazardTrophyDialog.collectAsState()

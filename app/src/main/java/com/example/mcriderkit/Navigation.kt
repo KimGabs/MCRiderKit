@@ -83,7 +83,7 @@ import com.example.mcriderkit.ui.studyMaterials.VehicleMaintenanceAndInspectionM
 import com.example.mcriderkit.ui.studyMaterials.WarningSign
 
 sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
-    object Start : NavigationScreen("Start", R.string.Home)
+    object Start : NavigationScreen("Start", R.string.app_name)
     object Profile : NavigationScreen("Profile", R.string.profile_)
     object Settings : NavigationScreen("Settings", R.string.settings_)
     object LTOMenu : NavigationScreen("LTOMenu", R.string.lto_exam_menu)
@@ -126,12 +126,21 @@ sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
     object Emergency: NavigationScreen("Dealing with Emergency Situations", R.string.Emergency_banner)
 
     companion object {
-        fun fromRoute(route: String?): NavigationScreen {
-            return when (route) {
-                Start.route -> Start
-                Profile.route -> Profile
-                Settings.route -> Settings
-                else -> Start // Default to Start if route is unknown
+        fun fromRoute(route: String): NavigationScreen {
+            return when {
+                route.startsWith("ExamResult") -> ExamResult
+                route.startsWith("HazardResult") -> HazardResult
+                route == Start.route -> Start
+                route == Profile.route -> Profile
+                route == Settings.route -> Settings
+                route == LTOMenu.route -> LTOMenu
+                route == Reviewer.route -> Reviewer
+                route == HazardTestMenu.route -> HazardTestMenu
+                route == SelectedVideo.route -> SelectedVideo
+                route == StudentExam.route -> StudentExam
+                route == NonProExam.route -> NonProExam
+                route == ProExam.route -> ProExam
+                else -> Start // fallback
             }
         }
     }
@@ -196,20 +205,23 @@ fun NavigationApp(
 
     Scaffold(
         topBar = {
-            if (currentRoute?.startsWith("ExamResult") == true || currentRoute?.startsWith("HazardResult") == true) {
-                NavAppBar(
-                    currentScreen = currentScreen,
-                    canNavigateBack = false,
-                    navigateUp = { navController.navigateUp() }
-                )
-            }
-            else {
-                NavAppBar(
-                    currentScreen = currentScreen,
-                    canNavigateBack = navController.previousBackStackEntry != null && currentScreen.route !in topLevelDestinations,
-                    navigateUp = { navController.navigateUp() }
-                )
-            }
+            val isResultScreen = currentRoute?.startsWith("ExamResult") == true ||
+                    currentRoute?.startsWith("HazardResult") == true
+
+
+            val canNavigateBack = !isResultScreen &&
+                    currentScreen.route != NavigationScreen.Start.route &&
+                    currentScreen.route != NavigationScreen.Profile.route &&
+                    currentScreen.route != NavigationScreen.Settings.route
+            navController.previousBackStackEntry != null &&
+                    currentScreen.route !in topLevelDestinations
+
+
+            NavAppBar(
+                currentScreen = currentScreen,
+                canNavigateBack = canNavigateBack,
+                navigateUp = { navController.navigateUp() }
+            )
         },
         bottomBar = {
             if (currentRoute != NavigationScreen.HazardTest.route) {

@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -158,7 +159,7 @@ fun HazardTestScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(300.dp) // Detection area height
-                    .background(MaterialTheme.colorScheme.primary)
+                    .background(Color.LightGray)
                     .pointerInput(Unit) {
                         detectTapGestures { tapOffset ->
                             val currentTime = System.currentTimeMillis()
@@ -182,10 +183,12 @@ fun HazardTestScreen(
                 contentAlignment = Alignment.Center)
             {
                 Text(text = "Tap to Flag Hazard",
-                    style = MaterialTheme.typography.titleMedium)
-
+                    style = MaterialTheme.typography.titleMedium,
+                    color = Color.Black
+                )
 //                 Overlay flag positions
-                Box(modifier = Modifier.fillMaxSize()) {
+                /* Remove or comment this if distributing */
+                /*Box(modifier = Modifier.fillMaxSize()) {
                     flagPositions.forEachIndexed { index, position ->
                         Box(
                             modifier = modifier
@@ -197,7 +200,7 @@ fun HazardTestScreen(
                             )
                         }
                     }
-                }
+                }*/
             }
         }
         AnimatedVisibility(visible = isVideoEnded,
@@ -243,6 +246,7 @@ fun VideoPlayer(video: HazardTest, onVideoStarted: () -> Unit, onVideoEnded: () 
     // Initialize ExoPlayer
     val exoPlayer = remember { ExoPlayer.Builder(context).build().apply {
         setMediaItem(MediaItem.fromUri(Uri.parse(videoUri)))
+        volume = 0f //Mute audio
         prepare()
         playWhenReady = true  // Automatically start video
         // Add listener to detect when video has ended

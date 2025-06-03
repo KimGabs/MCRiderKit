@@ -47,6 +47,7 @@ import nl.dionsegijn.konfetti.core.Position
 import nl.dionsegijn.konfetti.core.Spread
 import nl.dionsegijn.konfetti.core.emitter.Emitter
 import java.util.concurrent.TimeUnit
+import androidx.activity.compose.BackHandler
 
 @Composable
 fun ExamResultScreen(
@@ -54,6 +55,10 @@ fun ExamResultScreen(
     onRetry: () -> Unit,
     onMainMenu: () -> Unit,
 ) {
+    BackHandler(enabled = true) {
+        onMainMenu()  // Navigate to main menu
+    }
+
     val highestScore by viewModel.highestScore.collectAsState(initial = null)
 
     // Fetch highest score when screen loads
