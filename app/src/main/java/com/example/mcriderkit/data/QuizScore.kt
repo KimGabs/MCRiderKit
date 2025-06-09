@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class QuizScore(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val quizType: String,
-    val highestScore: Int = 0
+    val highestScore: Int = 0,
+    val trophy: Boolean = false
 )

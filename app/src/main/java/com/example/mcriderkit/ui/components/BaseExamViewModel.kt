@@ -1,6 +1,5 @@
 package com.example.mcriderkit.ui.components
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.mcriderkit.data.ExamUiState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,15 +21,11 @@ abstract class BaseExamViewModel : ViewModel() {
         return score == totalQuestions
     }
 
-    fun checkAndShowTrophyDialog(score: Int, totalQuestions: Int) {
+    fun examShowTrophyDialog(score: Int, totalQuestions: Int) {
         // Ensure that the dialog is shown only for a perfect score
         if (checkQuizResult(score, totalQuestions) && !hasAchievedTrophy) {
             _showTrophyDialog.value = true
             hasAchievedTrophy = true  // Set the flag to true to prevent showing the trophy again
-        }
-        else {
-            Log.d("QuizViewModel", "Score: $score, Total Questions: $totalQuestions")
-            Log.d("QuizViewModel", "Has Achieved Trophy: $hasAchievedTrophy")
         }
     }
 

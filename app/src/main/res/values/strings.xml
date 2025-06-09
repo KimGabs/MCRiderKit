@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MC Rider Kit</string>
+    <string name="Home">Home</string>
     <string name="profile_">Profile</string>
     <string name="settings_">Settings</string>
     <string name="lto_exam_menu">LTO Exam</string>
@@ -488,5 +489,9 @@
     <string name="Collision_point4_1">Green light? You can go, but yield to cars and pedestrians already crossing.</string>
     <string name="Collision_point4_2">Turning right on red? Stop completely first. Yield to people and traffic before turning.</string>
     <string name="Collision_point4_3">❌ Again, no rolling stops.</string>
+
+    <string name="language">Language</string>
+    <string name="change_language">Language</string>
+
 
 </resources>

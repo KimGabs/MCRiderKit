@@ -20,6 +20,13 @@ class QuizRepository(private val quizScoreDao: QuizScoreDao) {
         }
     }
 
+    suspend fun updateTrophyIfPerfect(quizType: String, perfectScore: Int) {
+        quizScoreDao.updateTrophyIfPerfect(
+            quizType = quizType,
+            perfectScore = perfectScore
+        )
+    }
+
     suspend fun getAllScores(): List<QuizScore> {
         return quizScoreDao.getAllScores()
     }

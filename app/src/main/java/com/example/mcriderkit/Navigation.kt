@@ -57,6 +57,7 @@ import com.example.mcriderkit.ui.StudentExamViewModel
 import com.example.mcriderkit.ui.StudentQuizScreen
 import com.example.mcriderkit.ui.TutorialScreen
 import com.example.mcriderkit.ui.components.BaseExamViewModel
+import com.example.mcriderkit.ui.components.BaseHazardViewModel
 import com.example.mcriderkit.ui.studyMaterials.AttAndBehaveScreen
 import com.example.mcriderkit.ui.studyMaterials.BlowbagetsChecklistScreen
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
@@ -82,7 +83,7 @@ import com.example.mcriderkit.ui.studyMaterials.VehicleMaintenanceAndInspectionM
 import com.example.mcriderkit.ui.studyMaterials.WarningSign
 
 sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
-    object Start : NavigationScreen("Start", R.string.app_name)
+    object Start : NavigationScreen("Start", R.string.Home)
     object Profile : NavigationScreen("Profile", R.string.profile_)
     object Settings : NavigationScreen("Settings", R.string.settings_)
     object LTOMenu : NavigationScreen("LTOMenu", R.string.lto_exam_menu)
@@ -147,7 +148,7 @@ fun NavAppBar(
     modifier: Modifier = Modifier,
 ){
     TopAppBar(
-        title = { Text(stringResource(currentScreen.title)) },
+        title = { Text(text = stringResource(currentScreen.title), style = MaterialTheme.typography.titleLarge) },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer
         ),
@@ -167,11 +168,15 @@ fun NavAppBar(
 
 @Composable
 fun NavigationApp(
+    currentLanguage: MutableState<String>,
     navController: NavHostController = rememberNavController(),
     nonProQuizViewModel: NonProExamViewModel,
     proQuizViewModel: ProExamViewModel,
     studentExamViewModel: StudentExamViewModel,
     hazardViewModel: HazardTestViewModel,
+    darkMode: Boolean,
+    onToggleDarkMode: (Boolean) -> Unit,
+    onLanguageChange: (String) -> Unit
 ) {
     var selectedItem by remember { mutableIntStateOf(0) }
     val items = listOf("Home", "Profile", "Settings")
@@ -267,6 +272,10 @@ fun NavigationApp(
                 }
                 composable(route = NavigationScreen.Settings.route) {
                     SettingsScreen(
+                        darkMode = darkMode,
+                        currentLanguage = currentLanguage.value,
+                        onLanguageChange = onLanguageChange,
+                        onDarkModeToggle = onToggleDarkMode,
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(R.dimen.padding_medium))
@@ -672,7 +681,7 @@ fun NavigationApp(
                             },
                             onReview = {
                                 navController.navigate(NavigationScreen.HazardTestReview.route)
-                            }
+                            },
                         )
                     }
                 }

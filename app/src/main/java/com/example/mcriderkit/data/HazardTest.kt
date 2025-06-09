@@ -18,5 +18,6 @@ data class HazardTest(
     val earlyRange: Double,              // Start of hazard
     val perfectRange: Double,                // Perfect timing range
     val goodRange: Double,                 // Good timing range
-    val lateRange: Double                // End of hazard
+    val lateRange: Double,                // End of hazard
+    var trophy: Boolean = false
 )

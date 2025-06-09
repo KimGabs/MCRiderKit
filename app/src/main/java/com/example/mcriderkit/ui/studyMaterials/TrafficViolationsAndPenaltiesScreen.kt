@@ -19,7 +19,6 @@ fun TrafficViolationsAndPenaltiesScreen() {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFF4CAF50))
             ){
                 Banner(context.getString(R.string.TVP_SEC))
             }

@@ -15,4 +15,7 @@ interface QuizScoreDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(quizScore: List<QuizScore>)
+
+    @Query("UPDATE quiz_scores SET trophy = 1 WHERE quizType = :quizType AND highestScore = :perfectScore")
+    suspend fun updateTrophyIfPerfect(quizType: String, perfectScore: Int)
 }

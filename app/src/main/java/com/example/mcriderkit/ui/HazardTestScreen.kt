@@ -86,6 +86,11 @@ fun HazardTestScreen(
             video.lastScore = 0
         }
 
+        /* Trophy Check*/
+        if (!video.trophy && video.lastScore == 100){
+            video.trophy = true
+        }
+
         viewModel.updateScore(video)
     }
 
@@ -153,7 +158,7 @@ fun HazardTestScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(300.dp) // Detection area height
-                    .background(Color.LightGray)
+                    .background(MaterialTheme.colorScheme.primary)
                     .pointerInput(Unit) {
                         detectTapGestures { tapOffset ->
                             val currentTime = System.currentTimeMillis()
