@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
@@ -46,56 +47,61 @@ fun TutorialScreen(
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Image placeholder
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.Black)
-        ) {
-            Image(
-                painter = painterResource(id = pages[currentPage.value].image),
-                contentDescription = "Tutorial Image",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1f)
-            )
 
+        LazyColumn() {
+            item {
+                // Image placeholder
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color.Black)
+                ) {
+                    Image(
+                        painter = painterResource(id = pages[currentPage.value].image),
+                        contentDescription = "Tutorial Image",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .aspectRatio(1f)
+                    )
+
+                }
+
+                // Page text
+                Text(
+                    text = pages[currentPage.value].text,
+                    modifier = Modifier.padding(16.dp),
+                    textAlign = TextAlign.Center
+                )
+
+                // Navigation buttons
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Button(
+                        onClick = { if (currentPage.value > 0) currentPage.value-- },
+                        enabled = currentPage.value > 0
+                    ) {
+                        Text("Previous")
+                    }
+
+                    if (currentPage.value < pages.size - 1) {
+                        Button(
+                            onClick = { currentPage.value++ }
+                        ) {
+                            Text("Next")
+                        }
+                    } else {
+                        Button(
+                            onClick = onFinishTutorial
+                        ) {
+                            Text("Finish")
+                        }
+                    }
+                }
+            }}
         }
 
-        // Page text
-        Text(
-            text = pages[currentPage.value].text,
-            modifier = Modifier.padding(16.dp),
-            textAlign = TextAlign.Center
-        )
-
-        // Navigation buttons
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Button(
-                onClick = { if (currentPage.value > 0) currentPage.value-- },
-                enabled = currentPage.value > 0
-            ) {
-                Text("Previous")
-            }
-
-            if (currentPage.value < pages.size - 1) {
-                Button(
-                    onClick = { currentPage.value++ }
-                ) {
-                    Text("Next")
-                }
-            } else {
-                Button(
-                    onClick = onFinishTutorial
-                ) {
-                    Text("Finish")
-                }
-            }
-        }
-    }
 
 }
 

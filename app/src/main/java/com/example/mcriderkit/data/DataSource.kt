@@ -616,21 +616,21 @@ object DataSource {
     val presetQuizScore = listOf(
         QuizScore(
             quizType = "Student Exam",
-            highestScore = 18
+            highestScore = 0,
         ),
         QuizScore(
             quizType = "Non-professional Exam",
-            highestScore = 26
+            highestScore = 0
         ),
         QuizScore(
             quizType = "Professional Exam",
-            highestScore = 56
+            highestScore = 0
         )
     )
 
     val presetHazardTests = listOf(
         HazardTest(
-            title = "Test Video 1",
+            title = "Hazard 1",
             location = "Location 1",
             speedLimit = "60 km/h",
             timeOfDay = "Morning",
@@ -645,27 +645,27 @@ object DataSource {
             lateRange = 0.82
         ),
         HazardTest(
-            title = "Test Video 2",
+            title = "Hazard 2",
             location = "Location 2",
             speedLimit = "40 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 20,
+            lastScore = 0,
             videoPath = "test2",
             thumbnailId = R.drawable.hazard_thumbnail_2,
             videoLength = 19,
-            earlyRange = 0.31,
-            perfectRange = 0.5,
-            goodRange = 0.60,
-            lateRange = 0.77
+            earlyRange = 0.41,
+            perfectRange = 0.60,
+            goodRange = 0.70,
+            lateRange = 0.85
         ),
         HazardTest(
-            title = "Test Video 3",
+            title = "Hazard 3",
             location = "EDSA Highway",
             speedLimit = "30-40 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 50,
+            lastScore = 0,
             videoPath = "test3",
             thumbnailId = R.drawable.hazard_thumbnail_3,
             videoLength = 30,
@@ -675,19 +675,19 @@ object DataSource {
             lateRange = 0.80
         ),
         HazardTest(
-            title = "Test Video 4",
+            title = "Hazard 4",
             location = "Katipunan road",
             speedLimit = "20 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 90,
+            lastScore = 0,
             videoPath = "test4",
             thumbnailId = R.drawable.hazard_thumbnail_4,
             videoLength = 28,
             earlyRange = 0.57,
-            perfectRange = 0.62,
-            goodRange = 0.64,
-            lateRange = 0.66
+            perfectRange = 0.66,
+            goodRange = 0.74,
+            lateRange = 0.80
         )
     )
 

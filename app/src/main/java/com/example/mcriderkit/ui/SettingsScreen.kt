@@ -33,8 +33,9 @@ fun SettingsScreen(
     currentLanguage: String,
     modifier: Modifier = Modifier
 ) {
-    val appVersion = "1.2"
     val context = LocalContext.current
+    val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)
+    val appVersion = packageInfo.versionName
     var expanded by remember { mutableStateOf(false) }
     var selectedLanguage by remember(currentLanguage) { mutableStateOf(currentLanguage) }
 
@@ -56,7 +57,7 @@ fun SettingsScreen(
                 value = selectedLanguage,
                 onValueChange = {},
                 readOnly = true,
-                label = { Text(context.getString(R.string.language)) },
+                label = { Text(context.getString(R.string.change_language)) },
                 trailingIcon = {
                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
                 },

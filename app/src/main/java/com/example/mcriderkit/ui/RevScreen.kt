@@ -32,7 +32,7 @@ fun RevScreen(
         verticalArrangement = Arrangement.spacedBy(32.dp, Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Screen Title
+        // Title
         Text(
             text = "Review Categories",
             style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
