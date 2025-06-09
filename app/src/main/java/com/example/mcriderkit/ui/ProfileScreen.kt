@@ -72,10 +72,9 @@ fun ProfileScreen(
     val quizScores by studentViewModel.quizScores.collectAsState()
 
 
-
     // Image picker launcher
     val launcher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.GetContent()
+        contract = ActivityResultContracts.OpenDocument()
     ) { uri: Uri? ->
         uri?.let {
             imageUri = it
@@ -86,7 +85,7 @@ fun ProfileScreen(
                 Intent.FLAG_GRANT_READ_URI_PERMISSION
             )
 
-            // Save URI
+            // Save to SharedPreferences
             val sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
             with(sharedPref.edit()) {
                 putString("profile_photo_uri", it.toString())
@@ -94,6 +93,7 @@ fun ProfileScreen(
             }
         }
     }
+
 
     // Load saved user data once
     LaunchedEffect(Unit) {
@@ -166,7 +166,7 @@ fun ProfileScreen(
                 .size(100.dp)
                 .clip(CircleShape)
                 .background(Color.Gray)
-                .clickable { launcher.launch("image/*") },
+                .clickable {launcher.launch(arrayOf("image/*"))},
             contentAlignment = Alignment.Center
         ) {
             imageUri?.let {

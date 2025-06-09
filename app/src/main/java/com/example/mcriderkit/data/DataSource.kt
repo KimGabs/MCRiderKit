@@ -616,16 +616,16 @@ object DataSource {
     val presetQuizScore = listOf(
         QuizScore(
             quizType = "Student Exam",
-            highestScore = 0,
+            highestScore = 15,
         ),
         QuizScore(
             quizType = "Non-professional Exam",
-            highestScore = 0
+            highestScore = 26
         ),
         QuizScore(
             quizType = "Professional Exam",
-            highestScore = 0,
-            trophy = false
+            highestScore = 60,
+            trophy = true
         )
     )
 
@@ -651,14 +651,14 @@ object DataSource {
             speedLimit = "40 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 0,
+            lastScore = 20,
             videoPath = "test2",
             thumbnailId = R.drawable.hazard_thumbnail_2,
             videoLength = 19,
-            earlyRange = 0.31,
-            perfectRange = 0.5,
-            goodRange = 0.60,
-            lateRange = 0.77
+            earlyRange = 0.41,
+            perfectRange = 0.60,
+            goodRange = 0.70,
+            lateRange = 0.85
         ),
         HazardTest(
             title = "Hazard 3",
@@ -666,7 +666,7 @@ object DataSource {
             speedLimit = "30-40 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 0,
+            lastScore = 50,
             videoPath = "test3",
             thumbnailId = R.drawable.hazard_thumbnail_3,
             videoLength = 30,
@@ -681,7 +681,7 @@ object DataSource {
             speedLimit = "20 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
-            lastScore = 0,
+            lastScore = 100,
             videoPath = "test4",
             thumbnailId = R.drawable.hazard_thumbnail_4,
             videoLength = 28,
@@ -689,6 +689,7 @@ object DataSource {
             perfectRange = 0.62,
             goodRange = 0.64,
             lateRange = 0.66,
+            trophy = true
         )
     )
 

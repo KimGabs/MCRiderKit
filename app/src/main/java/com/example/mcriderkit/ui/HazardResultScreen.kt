@@ -116,7 +116,8 @@ fun HazardResultScreen(
                     video.lastScore >= 50 -> "Good effort! Keep practicing."
                     else -> "You have room for improvement. Keep practicing."
                 },
-                style = MaterialTheme.typography.titleMedium
+                style = MaterialTheme.typography.titleMedium,
+                textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(32.dp))

@@ -54,7 +54,7 @@ fun HazardTestScreenReview(
     // Simulate loading state
     LaunchedEffect(isLoading) {
         if (isLoading) {
-            delay(1500)  // Simulate a delay for loading
+            delay(350)  // Simulate a delay for loading
             isLoading = false // After loading, set isLoading to false
         }
     }

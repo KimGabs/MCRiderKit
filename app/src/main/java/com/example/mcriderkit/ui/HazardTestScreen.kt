@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -112,8 +113,7 @@ fun HazardTestScreen(
 
     // Column to arrange video and flags vertically
     Column(
-        modifier = modifier.fillMaxSize(),
-//        verticalArrangement = Arrangement.Top // Keep video at the top
+        modifier = modifier.fillMaxSize()
     ) {
         if (isLoading) {
             Box(
@@ -155,66 +155,58 @@ fun HazardTestScreen(
                     FlagMarker(relativePosition = position)
                 }
             }
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(300.dp) // Detection area height
-                    .background(Color.LightGray)
-                    .pointerInput(Unit) {
-                        detectTapGestures { tapOffset ->
-                            val currentTime = System.currentTimeMillis()
+            LazyColumn() {
+                item{
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(200.dp) // Detection area height
+                            .background(Color.LightGray)
+                            .pointerInput(Unit) {
+                                detectTapGestures { tapOffset ->
+                                    val currentTime = System.currentTimeMillis()
 
-                            if (startTime == null) {
-                                startTime = currentTime
-                            } else {
-                                val elapsedTime = currentTime - startTime!!
+                                    if (startTime == null) {
+                                        startTime = currentTime
+                                    } else {
+                                        val elapsedTime = currentTime - startTime!!
 
-                                // Map the tap position to the video timeline relative to the hazard's start time
-                                val relativePosition =
-                                    elapsedTime.toFloat() / (video.videoLength * 1000f)
+                                        // Map the tap position to the video timeline relative to the hazard's start time
+                                        val relativePosition =
+                                            elapsedTime.toFloat() / (video.videoLength * 1000f)
 
-                                // Ensure the user flags after the hazard start time (8 seconds)
-                                if (relativePosition in 0.0..1.0) {
-                                    flagPositions = flagPositions + relativePosition
+                                        // Ensure the user flags after the hazard start time (8 seconds)
+                                        if (relativePosition in 0.0..1.0) {
+                                            flagPositions = flagPositions + relativePosition
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                    },
-                contentAlignment = Alignment.Center)
-            {
-                Text(text = "Tap to Flag Hazard",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = Color.Black
-                )
-//                 Overlay flag positions
-                /* Remove or comment this if distributing */
-                /*Box(modifier = Modifier.fillMaxSize()) {
-                    flagPositions.forEachIndexed { index, position ->
-                        Box(
-                            modifier = modifier
-                                .offset(x = (position * 380).dp) // Position the flags
+                            },
+                        contentAlignment = Alignment.Center)
+                    {
+                        Text(text = "Tap to Flag Hazard",
+                            style = MaterialTheme.typography.titleMedium,
+                            color = Color.Black
+                        )
+                    }
+                }
+
+                item{
+                    AnimatedVisibility(visible = isVideoEnded,
+                        enter = fadeIn(animationSpec = tween(durationMillis = 500)),
+                        exit = fadeOut(animationSpec = tween(durationMillis = 500)),
+                        modifier = Modifier.align(Alignment.CenterHorizontally)){
+                        Button(
+                            onClick = { calculateScore()
+                                onTestFinished(flagPositions.size) },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp)
                         ) {
-                            Text(
-                                text = "%.2f".format(position), // Flag position text
-                                textAlign = TextAlign.Center
-                            )
+                            Text("Finish Test")
                         }
                     }
-                }*/
-            }
-        }
-        AnimatedVisibility(visible = isVideoEnded,
-            enter = fadeIn(animationSpec = tween(durationMillis = 500)),
-            exit = fadeOut(animationSpec = tween(durationMillis = 500)),
-            modifier = Modifier.align(Alignment.CenterHorizontally)){
-            Button(
-                onClick = { calculateScore()
-                    onTestFinished(flagPositions.size) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp)
-            ) {
-                Text("Finish Test")
+                }
             }
         }
     }
