@@ -188,6 +188,21 @@ fun HazardTestScreen(
                             style = MaterialTheme.typography.titleMedium,
                             color = Color.Black
                         )
+
+                        /* Uncomment this section to display flag position value */
+                        /*Box(modifier = Modifier.fillMaxSize()) {
+                            flagPositions.forEachIndexed { index, position ->
+                                Box(
+                                    modifier = modifier
+                                        .offset(x = (position * 380).dp) // Position the flags
+                                ) {
+                                    Text(
+                                        text = "%.2f".format(position), // Flag position text
+                                        textAlign = TextAlign.Center
+                                    )
+                                }
+                            }
+                        }*/
                     }
                 }
 

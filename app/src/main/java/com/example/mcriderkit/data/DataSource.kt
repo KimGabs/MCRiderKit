@@ -624,51 +624,21 @@ object DataSource {
         ),
         QuizScore(
             quizType = "Professional Exam",
-            highestScore = 60,
-            trophy = true
+            highestScore = 60
         )
     )
 
     val presetHazardTests = listOf(
+
         HazardTest(
             title = "Hazard 1",
-            location = "Location 1",
-            speedLimit = "60 km/h",
-            timeOfDay = "Morning",
-            weather = "Clear",
-            lastScore = 0,
-            videoPath = "test1",
-            thumbnailId = R.drawable.hazard_thumbnail_1,
-            videoLength = 12,
-            earlyRange = 0.61,
-            perfectRange = 0.68,
-            goodRange = 0.75,
-            lateRange = 0.82
-        ),
-        HazardTest(
-            title = "Hazard 2",
-            location = "Location 2",
-            speedLimit = "40 km/h",
-            timeOfDay = "Afternoon",
-            weather = "Clear",
-            lastScore = 20,
-            videoPath = "test2",
-            thumbnailId = R.drawable.hazard_thumbnail_2,
-            videoLength = 19,
-            earlyRange = 0.41,
-            perfectRange = 0.60,
-            goodRange = 0.70,
-            lateRange = 0.85
-        ),
-        HazardTest(
-            title = "Hazard 3",
             location = "EDSA Highway",
             speedLimit = "30-40 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
             lastScore = 50,
-            videoPath = "test3",
-            thumbnailId = R.drawable.hazard_thumbnail_3,
+            videoPath = "hpt1",
+            thumbnailId = R.drawable.hazard_thumbnail_1,
             videoLength = 30,
             earlyRange = 0.68,
             perfectRange = 0.72,
@@ -676,21 +646,82 @@ object DataSource {
             lateRange = 0.80
         ),
         HazardTest(
-            title = "Hazard 4",
+            title = "Hazard 2",
             location = "Katipunan road",
             speedLimit = "20 km/h",
             timeOfDay = "Afternoon",
             weather = "Clear",
             lastScore = 100,
-            videoPath = "test4",
-            thumbnailId = R.drawable.hazard_thumbnail_4,
+            videoPath = "hpt2",
+            thumbnailId = R.drawable.hazard_thumbnail_2,
             videoLength = 28,
-            earlyRange = 0.57,
-            perfectRange = 0.62,
-            goodRange = 0.64,
-            lateRange = 0.66,
-            trophy = true
-        )
+            earlyRange = 0.78,
+            perfectRange = 0.81,
+            goodRange = 0.84,
+            lateRange = 0.87,
+        ),
+        HazardTest(
+            title = "Hazard 3",
+            location = "Highway",
+            speedLimit = "60 km/h",
+            timeOfDay = "Morning",
+            weather = "Clear",
+            lastScore = 0,
+            videoPath = "hpt3",
+            thumbnailId = R.drawable.hazard_thumbnail_3,
+            videoLength = 40,
+            earlyRange = 0.29,
+            perfectRange = 0.33,
+            goodRange = 0.38,
+            lateRange = 0.43
+        ),
+
+        HazardTest(
+            title = "Hazard 4",
+            location = "Highway",
+            speedLimit = "60 km/h",
+            timeOfDay = "Night",
+            weather = "Clear",
+            lastScore = 0,
+            videoPath = "hpt4",
+            thumbnailId = R.drawable.hazard_thumbnail_4,
+            videoLength = 35,
+            earlyRange = 0.46,
+            perfectRange = 0.50,
+            goodRange = 0.54,
+            lateRange = 0.58
+        ),
+/*
+        HazardTest(
+            title = "Hazard 5",
+            location = "Location 5",
+            speedLimit = "60 km/h",
+            timeOfDay = "Morning",
+            weather = "Clear",
+            lastScore = 0,
+            videoPath = "HPT5",
+            thumbnailId = R.drawable.hazard_thumbnail_5,
+            videoLength = 12,
+            earlyRange = 0.61,
+            perfectRange = 0.68,
+            goodRange = 0.75,
+            lateRange = 0.82
+        ),
+        HazardTest(
+            title = "Hazard 6",
+            location = "Location 6",
+            speedLimit = "40 km/h",
+            timeOfDay = "Afternoon",
+            weather = "Clear",
+            lastScore = 20,
+            videoPath = "test2",
+            thumbnailId = R.drawable.hazard_thumbnail_6,
+            videoLength = 19,
+            earlyRange = 0.41,
+            perfectRange = 0.60,
+            goodRange = 0.70,
+            lateRange = 0.85
+        ),*/
     )
 
     data class TutorialPage(
@@ -708,8 +739,8 @@ object DataSource {
             ),
         TutorialPage(
             title = "HazardTest",
-            text = "As you watch the video, your task is to tap the on the gray area at the moment you spot a hazard developing. " +
-                    "A red flag is shown to acknowledge your tap.",
+            text = "As you watch the video, your goal is to spot hazards and react to them as they begin to develop." +
+                    "Tap on the gray area as soon as you see a developing hazard. A red flag is shown to acknowledge your tap.",
             image = R.drawable.tutorial_hazard_2
         ),
     )

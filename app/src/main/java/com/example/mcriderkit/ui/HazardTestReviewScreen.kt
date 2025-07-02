@@ -127,9 +127,9 @@ fun HazardTestScreenReview(
                 Box(
                     modifier = Modifier
                         .fillMaxHeight()
-                        .width(((video.perfectRange - video.earlyRange) * 355).dp) // Adjust width for 20% of total width (relative to video length)
+                        .width(((video.perfectRange - video.earlyRange) * 390).dp) // Adjust width for 20% of total width (relative to video length)
                         .align(Alignment.CenterStart)
-                        .offset(x = (video.earlyRange * 350).dp) // Offset for the start of the perfect range
+                        .offset(x = (video.earlyRange * 390).dp) // Offset for the start of the perfect range
                         .background(colorResource(R.color.green))
                 )
 
@@ -137,9 +137,9 @@ fun HazardTestScreenReview(
                 Box(
                     modifier = Modifier
                         .fillMaxHeight()
-                        .width(((video.goodRange - video.perfectRange) * 355).dp) // Adjust width for 20% of total width (relative to video length)
+                        .width(((video.goodRange - video.perfectRange) * 390).dp) // Adjust width for 20% of total width (relative to video length)
                         .align(Alignment.CenterStart)
-                        .offset(x = (video.perfectRange * 350).dp) // Offset for the start of the perfect range
+                        .offset(x = (video.perfectRange * 390).dp) // Offset for the start of the perfect range
                         .background(colorResource(R.color.lightGreen))
                 )
 
@@ -147,8 +147,8 @@ fun HazardTestScreenReview(
                 Box(
                     modifier = Modifier
                         .fillMaxHeight()
-                        .width(((video.lateRange - video.goodRange) * 350).dp) // Width based on range difference
-                        .offset(x = (video.goodRange * 350).dp) // Start of the good range
+                        .width(((video.lateRange - video.goodRange) * 390).dp) // Width based on range difference
+                        .offset(x = (video.goodRange * 390).dp) // Start of the good range
                         .background(colorResource(R.color.lightYellow)) // Good range color
                 )
 
