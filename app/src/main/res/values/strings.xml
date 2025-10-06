@@ -490,6 +490,18 @@
     <string name="Collision_point4_2">Turning right on red? Stop completely first. Yield to people and traffic before turning.</string>
     <string name="Collision_point4_3">❌ Again, no rolling stops.</string>
 
+    <string name="RoadHazards_banner" translatable="false">Road Hazards</string>
+    <string name="RH_title" translatable="false">Hazards</string>
+    <string name="RH_title2" translatable="false">Fixed Hazards</string>
+    <string name="RH_title3" translatable="false">Dynamic Hazards</string>
+    <string name="RH_point1" translatable="false">Hazards refer to any temporary structures, road construction materials, scrap materials, even trees and bushes that may cause road crash.</string>
+    <string name="RH_point2" translatable="false">Take appropriate precautions when encountering hazardous driving conditions, such as:</string>
+    <string name="RH_point3" translatable="false">Structures along the roadway that may restrict your vision in areas such as curves, hills and hidden driveways, intersections, and merging roadways</string>
+    <string name="RH_point4" translatable="false">Hazards that may change through the day such as school zones, market areas, and other commercial districts. These also include emergency vehicles.</string>
+    <string name="RH_point5" translatable="false">Drivers have the duty to maintain control of their vehicle by being alert, paying attention and being able to stop quickly</string>
+    <string name="RH_point6" translatable="false">Check all brakes and lights if they are properly functioning</string>
+    <string name="RH_point7" translatable="false">Avoid distractions while driving. Texting, receiving calls, and using gadgets are prohibited by law while driving</string>
+
     <string name="language">Language</string>
     <string name="change_language">Change language</string>
 

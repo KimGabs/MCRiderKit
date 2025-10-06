@@ -106,14 +106,14 @@ fun EmergencyScreen(
         }
         item{
             SectionText(content = listOf(context.getString(R.string.Collision_intro_point)))
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             SectionContent(
                 title = context.getString(R.string.Collision_point1),
                 content = listOf(
                     context.getString(R.string.Collision_point1_1)
                 )
             )
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(24.dp))
         }
         item{
             SectionContent(

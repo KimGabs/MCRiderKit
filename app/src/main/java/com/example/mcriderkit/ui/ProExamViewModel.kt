@@ -2,8 +2,9 @@ package com.example.mcriderkit.ui
 
 import androidx.lifecycle.viewModelScope
 import com.example.mcriderkit.data.DataSource
-import com.example.mcriderkit.data.DataSource.Question
+import com.example.mcriderkit.data.ProQuestions.Question
 import com.example.mcriderkit.data.ExamUiState
+import com.example.mcriderkit.data.ProQuestions
 import com.example.mcriderkit.data.QuizScore
 import com.example.mcriderkit.ui.components.BaseExamViewModel
 import com.example.mcriderkit.ui.components.QuizRepository
@@ -80,7 +81,7 @@ class ProExamViewModel(
     }
 
     private fun initializeQuestions() {
-        _questions = DataSource.examQuestions.shuffled() // Shuffle at initialization
+        _questions = ProQuestions.proMotExamQuestions.shuffled() // Shuffle at initialization
         totalQuestions = _questions.size
     }
 

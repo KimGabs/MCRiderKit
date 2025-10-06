@@ -74,6 +74,7 @@ import com.example.mcriderkit.ui.studyMaterials.PavementMarkings
 import com.example.mcriderkit.ui.studyMaterials.PermitsLicenses
 import com.example.mcriderkit.ui.studyMaterials.Qualifications
 import com.example.mcriderkit.ui.studyMaterials.RegulatorySign
+import com.example.mcriderkit.ui.studyMaterials.RoadHazardsScreen
 import com.example.mcriderkit.ui.studyMaterials.RoadSignsScreen
 import com.example.mcriderkit.ui.studyMaterials.TireInspectionScreen
 import com.example.mcriderkit.ui.studyMaterials.TrafficRulesAndRegulationsScreen
@@ -124,6 +125,7 @@ sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
     object DrivingAndRoadCourtesy: NavigationScreen("Drive Safety and Road Courtesy", R.string.DRC_Banner)
     object AttitudeAndBehavior: NavigationScreen("Attitude and Behavior", R.string.AB_Banner)
     object Emergency: NavigationScreen("Dealing with Emergency Situations", R.string.Emergency_banner)
+    object RoadHazards: NavigationScreen("Road Hazards", R.string.RoadHazards_banner)
 
     companion object {
         fun fromRoute(route: String): NavigationScreen {
@@ -592,6 +594,7 @@ fun NavigationApp(
                             when(index) {
                                 0 -> navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
                                 1 -> navController.navigate(NavigationScreen.Emergency.route)
+                                2 -> navController.navigate(NavigationScreen.RoadHazards.route)
                                 else -> throw IllegalArgumentException("Invalid Screen")
                             }
                         }
@@ -611,6 +614,13 @@ fun NavigationApp(
                         },
                         onNextButtonClicked = {
                             navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
+                        }
+                    )
+                }
+                composable(route = NavigationScreen.RoadHazards.route) {
+                    RoadHazardsScreen (
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.Emergency.route)
                         }
                     )
                 }

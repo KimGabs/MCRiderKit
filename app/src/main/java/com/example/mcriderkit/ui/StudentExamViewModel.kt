@@ -88,7 +88,7 @@ class StudentExamViewModel(
     }
 
     private fun initializeQuestions() {
-        _questions = DataSource.examQuestions.shuffled().take(20) // Shuffle at initialization
+        _questions = DataSource.examQuestions.shuffled().take(40) // Shuffle at initialization
         totalQuestions = _questions.size
     }
 

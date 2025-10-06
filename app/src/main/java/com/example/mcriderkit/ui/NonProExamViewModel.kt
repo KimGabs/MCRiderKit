@@ -79,7 +79,7 @@ class NonProExamViewModel(
     }
 
     private fun initializeQuestions() {
-        _questions = DataSource.examQuestions.shuffled().take(30) // Shuffle at initialization
+        _questions = DataSource.examQuestions.shuffled().take(50) // Shuffle at initialization
         totalQuestions = _questions.size
     }
 
