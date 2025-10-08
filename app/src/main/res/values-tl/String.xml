@@ -452,6 +452,19 @@
     <string name="self_point3">Iplano ang iyong ruta nang maaga upang mabawasan ang stress at distractions habang nagmamaneho.</string>
 
     <string name="DRC_Banner">Kaligtasan sa Pagmamaneho at Paggalang sa Kalsada</string>
+
+    <string name="DEF_point1">Ang defensive driving ay ang pagsasagawa ng mga teknik sa pagmamaneho upang mabawasan ang panganib at maiwasan ang aksidente sa kalsada. Ito ay isang tamang pagpapakita ng wastong pag-uugali, kamalayan, at kasanayan sa pagmamaneho.</string>
+    <string name="DEF_point2_1">Sundin ang itinakdang bilis ng takbo, isinasaalang-alang ang kondisyon ng panahon at daloy ng trapiko.</string>
+    <string name="DEF_point2_2">Tumingin nang maaga upang makapagplano ng mga hakbang sa oras ng aksidente, emerhensiya, at iba pang sitwasyon.</string>
+    <string name="DEF_point2_3">Sundin ang Batas laban sa Distracted Driving.</string>
+    <string name="DEF_point2_4">Sundin ang mga patakaran sa pagpalit ng linya, pagliko, paghinto, at pagparada kahit walang mga ilaw ng trapiko, senyas, o tagapagpatupad ng batas.</string>
+    <string name="DEF_point2_5">Isaalang-alang ang haba, lapad, at bigat ng sasakyan sa pagpapanatili ng ligtas na distansya sa pagmamaneho.</string>
+    <string name="DEF_point2_6">Igalang ang mga karapatan at desisyon ng ibang gumagamit ng kalsada.</string>
+    <string name="DEF_point2_7">Ibigay ang karapatang dumaan sa mga pedestrian tulad ng mga PWD, Nakatatanda, Bata, Buntis, Manggagawa sa kalsada, at iba pa.</string>
+    <string name="DEF_point2_8">Ibigay ang karapatang dumaan sa mga prayoridad na sasakyan gaya ng mga sasakyang pang-emerhensiya.</string>
+    <string name="DEF_point2_9">Ibigay ang karapatang dumaan sa mga paakyat na sasakyan, school service, at mga sasakyang may mas maliit na likong radius, mga sasakyang lumiliko pakaliwa, mga nasa yellow box, at iba pa.</string>
+
+
     <string name="AB_Banner">Attitude at Pag-uugali</string>
     <string name="AB_title1">Pagtugon sa mga Nagmamaneho sa Maling Daan</string>
     <string name="AB_point1">Sa mga kalsadang walang gitnang divider, laging mag-ingat sa mga sasakyang maaaring biglang pumasok sa iyong linya. Manatili sa panlabas na linya at magmaneho sa ligtas na bilis.</string>
@@ -513,6 +526,15 @@
     <string name="Collision_point4_1">P Green na ilaw? Puwede kang dumaan, ngunit magbigay daan sa mga sasakyan at pedestrian na tumatawid na.</string>
     <string name="Collision_point4_2">Lumingon pakanan habang may pulang ilaw? Huminto muna nang buo. Magbigay daan sa mga tao at sasakyan bago lumiko.</string>
     <string name="Collision_point4_3">❌ Muli, walang rolling stop.</string>
+
+    <string name="RH_point1">Ang mga panganib o hazard ay tumutukoy sa anumang pansamantalang istruktura, materyales sa konstruksyon ng kalsada, basurang materyales, pati na rin mga puno at palumpong na maaaring maging sanhi ng aksidente sa kalsada.</string>
+    <string name="RH_point2">Magsagawa ng angkop na pag-iingat kapag nakakaranas ng mga mapanganib na kundisyon sa pagmamaneho, tulad ng:</string>
+    <string name="RH_point3">Mga istrukturang nasa gilid ng kalsada na maaaring hadlangan ang iyong paningin sa mga bahagi gaya ng kurbada, burol, tagong driveway, interseksyon, at mga kalsadang nagsasanib.</string>
+    <string name="RH_point4">Mga panganib na maaaring magbago sa loob ng maghapon tulad ng mga school zone, pamilihan, at iba pang komersyal na lugar. Kasama rin dito ang mga sasakyang pang-emerhensiya.</string>
+    <string name="RH_point5">Tungkulin ng mga drayber na mapanatili ang kontrol sa kanilang sasakyan sa pamamagitan ng pagiging alerto, maasikaso, at handang huminto agad kung kinakailangan.</string>
+    <string name="RH_point6">Suriin ang lahat ng preno at ilaw kung maayos ang pagkakagana nito.</string>
+    <string name="RH_point7">Iwasan ang anumang uri ng panggugulo o distraksyon habang nagmamaneho. Ipinagbabawal ng batas ang pagte-text, pagtanggap ng tawag, at paggamit ng mga gadget habang nagmamaneho.</string>
+
 
     <string name="language">Wika</string>
     <string name="change_language">Palitan ang Wika</string>

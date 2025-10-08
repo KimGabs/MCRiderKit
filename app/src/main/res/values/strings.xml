@@ -428,6 +428,20 @@
     <string name="self_point3">Plan your route in advance to reduce stress and distractions while driving.</string>
 
     <string name="DRC_Banner">Drive Safety and Road Courtesy</string>
+
+    <string name="DEF_Banner" translatable="false">Defensive Driving</string>
+    <string name="DEF_Title1" translatable="false">Tips for Defensive Driving</string>
+    <string name="DEF_point1">Defensive driving is the practice of using driving techniques to minimize risk and help avoid road crash. It is an appropriate demonstration of attitude, awareness and driving skills.</string>
+    <string name="DEF_point2_1">Follow the speed limit taking into consideration the weather and traffic conditions.</string>
+    <string name="DEF_point2_2">Look ahead to have an advance plan in instances of road crash, emergencies, and the likes.</string>
+    <string name="DEF_point2_3">Follow the Law on Anti-Distracted Driving.</string>
+    <string name="DEF_point2_4">Follow the rules on changing lanes, turning, stopping, and parking even without the presence of traffic signals, signs, or enforcers. </string>
+    <string name="DEF_point2_5">Consider the length, width, and weight of the vehicle in a safe distance driving.</string>
+    <string name="DEF_point2_6">Respect the rights and decisions of other road users.</string>
+    <string name="DEF_point2_7">Give the right-of-way to pedestrians such as PWDs, Senior Citizens, Children, Pregnant Women, Road Workers, and the likes.</string>
+    <string name="DEF_point2_8">Give the right-of-way to priority vehicles such as emergency vehicles.</string>
+    <string name="DEF_point2_9">Yield the right-of-way to ascending vehicles, school service, and vehicles with lesser steering radius, vehicles that are already turning left, vehicles on yellow boxes and the likes.</string>
+
     <string name="AB_Banner">Attitude and Behavior</string>
     <string name="AB_title1">Dealing with Drivers Going the Wrong Way</string>
     <string name="AB_point1">On roads without a center divider, always watch out for vehicles that might suddenly move into your lane. Stay on the outer lane and drive at a safe speed.</string>
@@ -494,13 +508,13 @@
     <string name="RH_title" translatable="false">Hazards</string>
     <string name="RH_title2" translatable="false">Fixed Hazards</string>
     <string name="RH_title3" translatable="false">Dynamic Hazards</string>
-    <string name="RH_point1" translatable="false">Hazards refer to any temporary structures, road construction materials, scrap materials, even trees and bushes that may cause road crash.</string>
-    <string name="RH_point2" translatable="false">Take appropriate precautions when encountering hazardous driving conditions, such as:</string>
-    <string name="RH_point3" translatable="false">Structures along the roadway that may restrict your vision in areas such as curves, hills and hidden driveways, intersections, and merging roadways</string>
-    <string name="RH_point4" translatable="false">Hazards that may change through the day such as school zones, market areas, and other commercial districts. These also include emergency vehicles.</string>
-    <string name="RH_point5" translatable="false">Drivers have the duty to maintain control of their vehicle by being alert, paying attention and being able to stop quickly</string>
-    <string name="RH_point6" translatable="false">Check all brakes and lights if they are properly functioning</string>
-    <string name="RH_point7" translatable="false">Avoid distractions while driving. Texting, receiving calls, and using gadgets are prohibited by law while driving</string>
+    <string name="RH_point1">Hazards refer to any temporary structures, road construction materials, scrap materials, even trees and bushes that may cause road crash.</string>
+    <string name="RH_point2">Take appropriate precautions when encountering hazardous driving conditions, such as:</string>
+    <string name="RH_point3">Structures along the roadway that may restrict your vision in areas such as curves, hills and hidden driveways, intersections, and merging roadways</string>
+    <string name="RH_point4">Hazards that may change through the day such as school zones, market areas, and other commercial districts. These also include emergency vehicles.</string>
+    <string name="RH_point5">Drivers have the duty to maintain control of their vehicle by being alert, paying attention and being able to stop quickly</string>
+    <string name="RH_point6">Check all brakes and lights if they are properly functioning</string>
+    <string name="RH_point7">Avoid distractions while driving. Texting, receiving calls, and using gadgets are prohibited by law while driving</string>
 
     <string name="language">Language</string>
     <string name="change_language">Change language</string>

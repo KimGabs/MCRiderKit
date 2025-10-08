@@ -61,6 +61,7 @@ import com.example.mcriderkit.ui.components.BaseHazardViewModel
 import com.example.mcriderkit.ui.studyMaterials.AttAndBehaveScreen
 import com.example.mcriderkit.ui.studyMaterials.BlowbagetsChecklistScreen
 import com.example.mcriderkit.ui.studyMaterials.DLClassification
+import com.example.mcriderkit.ui.studyMaterials.DefensiveDrivingScreen
 import com.example.mcriderkit.ui.studyMaterials.DrivingAndRoadCourtesyScreen
 import com.example.mcriderkit.ui.studyMaterials.EmergencyScreen
 import com.example.mcriderkit.ui.studyMaterials.EngineOilInspectionScreen
@@ -122,7 +123,9 @@ sealed class NavigationScreen(val route: String, @StringRes val title: Int) {
     object TireInspection: NavigationScreen("TireInspection", R.string.tire_inspection_banner_title)
     object EngineOilInspection: NavigationScreen("EngineOilInspection", R.string.engine_oil_inspection_banner_title)
     object BlowbagetsInspection: NavigationScreen("BLOWBAGETS Inspection", R.string.blowbagets_banner_title)
+
     object DrivingAndRoadCourtesy: NavigationScreen("Drive Safety and Road Courtesy", R.string.DRC_Banner)
+    object DefensiveDriving: NavigationScreen("Defensive Driving", R.string.DEF_Banner)
     object AttitudeAndBehavior: NavigationScreen("Attitude and Behavior", R.string.AB_Banner)
     object Emergency: NavigationScreen("Dealing with Emergency Situations", R.string.Emergency_banner)
     object RoadHazards: NavigationScreen("Road Hazards", R.string.RoadHazards_banner)
@@ -592,16 +595,27 @@ fun NavigationApp(
                             .padding(dimensionResource(R.dimen.padding_medium)),
                         onNextButtonClicked = { index ->
                             when(index) {
-                                0 -> navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
-                                1 -> navController.navigate(NavigationScreen.Emergency.route)
-                                2 -> navController.navigate(NavigationScreen.RoadHazards.route)
+                                0 -> navController.navigate(NavigationScreen.DefensiveDriving.route)
+                                1 -> navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
+                                2 -> navController.navigate(NavigationScreen.Emergency.route)
+                                3 -> navController.navigate(NavigationScreen.RoadHazards.route)
                                 else -> throw IllegalArgumentException("Invalid Screen")
                             }
                         }
                     )
                 }
+                composable(route = NavigationScreen.DefensiveDriving.route) {
+                    DefensiveDrivingScreen (
+                        onNextButtonClicked = {
+                            navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
+                        }
+                    )
+                }
                 composable(route = NavigationScreen.AttitudeAndBehavior.route) {
                     AttAndBehaveScreen (
+                        onPrevButtonClicked = {
+                            navController.navigate(NavigationScreen.DefensiveDriving.route)
+                        },
                         onNextButtonClicked = {
                             navController.navigate(NavigationScreen.Emergency.route)
                         }
@@ -613,7 +627,7 @@ fun NavigationApp(
                             navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
                         },
                         onNextButtonClicked = {
-                            navController.navigate(NavigationScreen.AttitudeAndBehavior.route)
+                            navController.navigate(NavigationScreen.RoadHazards.route)
                         }
                     )
                 }

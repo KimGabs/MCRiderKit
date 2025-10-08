@@ -18,6 +18,7 @@ import com.example.mcriderkit.R
 
 @Composable
 fun AttAndBehaveScreen(
+    onPrevButtonClicked: () -> Unit,
     onNextButtonClicked: () -> Unit
 ) {
     val context = LocalContext.current
@@ -126,7 +127,10 @@ fun AttAndBehaveScreen(
         }
 
         item{
-            NextButton(onNextButtonClicked)
+            PrevNextButton(
+                onPrevButtonClicked = onPrevButtonClicked,
+                onNextButtonClicked = onNextButtonClicked
+            )
             Spacer(modifier = Modifier.height(16.dp))
         }
 

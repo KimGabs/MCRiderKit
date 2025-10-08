@@ -2,6 +2,8 @@ package com.example.mcriderkit.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -69,15 +71,22 @@ fun MenuButton(
         onClick = onClick,
         modifier = modifier
             .fillMaxWidth(0.9f)
-            .height(56.dp),
+            .defaultMinSize(minHeight = 56.dp),
         shape = RoundedCornerShape(12.dp),
-        elevation = ButtonDefaults.buttonElevation(6.dp)
+        elevation = ButtonDefaults.buttonElevation(6.dp),
+        contentPadding = PaddingValues(
+            start = 16.dp,
+            end = 16.dp,
+            top = 12.dp,
+            bottom = 12.dp
+        ) // <-- increase internal space
     ) {
         Text(
             text = item,
             style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium),
             textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            maxLines = Int.MAX_VALUE
         )
     }
 }

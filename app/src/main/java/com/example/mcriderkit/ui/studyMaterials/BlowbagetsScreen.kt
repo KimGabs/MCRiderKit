@@ -1,5 +1,6 @@
 package com.example.mcriderkit.ui.studyMaterials
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,6 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import com.example.mcriderkit.R
 
 @Composable
@@ -25,6 +27,17 @@ fun BlowbagetsChecklistScreen(
             ) {
                 Banner(textBanner = context.getString(R.string.blowbagets_banner_title))
             }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+        item {
+            Image(
+                painter = painterResource(id = R.drawable.blowbagets),
+                contentDescription = "Attitude and Behavior 1",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(240.dp)
+                    .padding(1.dp)
+            )
             Spacer(modifier = Modifier.height(16.dp))
         }
         item {
