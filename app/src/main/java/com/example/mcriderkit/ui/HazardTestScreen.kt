@@ -190,7 +190,7 @@ fun HazardTestScreen(
                         )
 
                         /* Uncomment this section to display flag position value */
-                        /*Box(modifier = Modifier.fillMaxSize()) {
+/*                        Box(modifier = Modifier.fillMaxSize()) {
                             flagPositions.forEachIndexed { index, position ->
                                 Box(
                                     modifier = modifier

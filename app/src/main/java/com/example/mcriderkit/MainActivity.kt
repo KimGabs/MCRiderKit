@@ -49,8 +49,8 @@ class MainActivity : ComponentActivity() {
         splashScreen.setKeepOnScreenCondition { keepSplashScreen }
 
         lifecycleScope.launch() {
-            delay(3000) //Splash Screen delay
-            keepSplashScreen = false // Hide splash screen after 4 seconds
+            delay(1000) //Splash Screen delay
+            keepSplashScreen = false // Hide splash screen after 2 seconds
         }
         // Initialize database and repository
         val database = QuizDatabase.getDatabase(applicationContext)
