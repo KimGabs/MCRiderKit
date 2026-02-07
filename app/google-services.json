@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "977352458439",
+    "project_id": "mcriderkit-18",
+    "storage_bucket": "mcriderkit-18.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977352458439:android:ecd69b43a91fb3444e3ee2",
+        "android_client_info": {
+          "package_name": "com.example.mcriderkit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO7NUTEgZZOLTLqqHqyK3ChIovMvAjdbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
