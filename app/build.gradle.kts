@@ -1,4 +1,4 @@
-    plugins {
+plugins {
         alias(libs.plugins.android.application)
         alias(libs.plugins.kotlin.android)
         alias(libs.plugins.google.gms.google.services)
@@ -34,13 +34,11 @@
             }
         }
         compileOptions {
-            // For Java 11, the standard is VERSION_1_8, unless you have specific needs.
-            // Let's keep it as is, but be aware of this. For AGP 8+, Java 17 is standard.
-            sourceCompatibility = JavaVersion.VERSION_11
-            targetCompatibility = JavaVersion.VERSION_11
+            sourceCompatibility = JavaVersion.VERSION_21
+            targetCompatibility = JavaVersion.VERSION_21
         }
         kotlinOptions {
-            jvmTarget = "11"
+            jvmTarget = "21"
         }
         buildFeatures {
             // viewBinding is not needed for a pure Jetpack Compose project
@@ -55,10 +53,18 @@
     }
 
 dependencies {
+    implementation("androidx.core:core-splashscreen:1.0.1")
+    // Video Player
+    implementation("androidx.media3:media3-exoplayer:1.2.0")
+    implementation("androidx.media3:media3-ui:1.2.0")
+
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:2.9.7")
     implementation("androidx.navigation:navigation-fragment:2.9.7")
     implementation("androidx.navigation:navigation-ui:2.9.7")
+
+    implementation(platform("com.google.firebase:firebase-bom:34.9.0"))
+    implementation ("com.google.firebase:firebase-firestore:26.1.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -77,4 +83,8 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation("io.coil-kt.coil3:coil-compose:3.3.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.3.0")
+    implementation("com.google.code.gson:gson:2.10.1")
 }

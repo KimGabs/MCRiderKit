@@ -1,0 +1,44 @@
+[
+  {
+    "id": "hpt1",
+    "title": "Highway Daytime",
+    "videoFileName": "hpt1",
+    "windowStart": 11000,
+    "windowEnd": 16000
+  },
+  {
+    "id": "hpt2",
+    "title": "Rainy Driving",
+    "videoFileName": "hpt2",
+    "windowStart": 26000,
+    "windowEnd": 31000
+  },
+  {
+    "id": "hpt3",
+    "title": "Night Driving",
+    "videoFileName": "hpt3",
+    "windowStart": 16000,
+    "windowEnd": 21000
+  },
+  {
+    "id": "hpt4",
+    "title": "Pedestrian Crossing",
+    "videoFileName": "hpt4",
+    "windowStart": 15000,
+    "windowEnd": 20000
+  },
+  {
+    "id": "hpt5",
+    "title": "Intramuros Exit",
+    "videoFileName": "hpt5",
+    "windowStart": 26500,
+    "windowEnd": 31500
+  },
+  {
+    "id": "hpt6",
+    "title": "Pasay City Intersection",
+    "videoFileName": "hpt6",
+    "windowStart": 29000,
+    "windowEnd": 34000
+  }
+]

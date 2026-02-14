@@ -1,0 +1,962 @@
+[
+  {
+    "text": "Chances of being hurt or killed while driving or riding are reduced if one is wearing:",
+    "textTL": "Ang pagkakataong masugatan o mamatay habang nagmamaneho o sumasakay ay mababawasan kung ang isa ay nakasuot ng:",
+    "choices": [
+      "A heavy jacket",
+      "Seat belt or a standard protective helmet",
+      "Sunglasses and gloves",
+      "Bright colored clothes"
+    ],
+    "choicesTL": [
+      "Makapal na jacket",
+      "Seat belt o standard na protective helmet",
+      "Salamin sa araw at guwantes",
+      "Matingkad na kulay na damit"
+    ],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "Proper use of seat belts in cars and standard helmets for motorcycles significantly reduces the risk of fatal injuries during a collision, as mandated by RA 8750 (Seat Belts Use Act) and RA 10054 (Motorcycle Helmet Act).",
+    "explanationTL": "Ang tamang paggamit ng seat belt sa mga kotse at standard na helmet para sa mga motorsiklo ay malaki ang nababawas sa panganib ng nakamamatay na pinsala sa oras ng banggaan, gaya ng itinakda ng RA 8750 at RA 10054."
+  },
+  {
+    "text": "Night driving is dangerous because:",
+    "textTL": "Ang pagmamaneho sa gabi ay mapanganib dahil:",
+    "choices": [
+      "More people are outside",
+      "Visibility is reduced and there is higher glare from oncoming lights",
+      "Streetlights are too bright",
+      "The air is cooler"
+    ],
+    "choicesTL": [
+      "Mas maraming tao sa labas",
+      "Limitado ang paningin at mas nakakasilaw ang mga ilaw ng kasalubong",
+      "Masyadong maliwanag ang mga ilaw sa kalye",
+      "Mas malamig ang hangin"
+    ],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "According to the LTO Driver's Manual, night driving presents risks due to decreased visibility, limited peripheral vision, and the blinding effect of oncoming high-beam headlights.",
+    "explanationTL": "Ayon sa LTO Driver's Manual, ang pagmamaneho sa gabi ay may panganib dahil sa bawas na paningin, limitadong peripheral vision, at nakakasilaw na high-beam na ilaw mula sa kasalubong."
+  },
+  {
+    "text": "The license issued to a driver shall entitle him to operate:",
+    "textTL": "Ang lisensyang ibinigay sa isang drayber ay nagpapahintulot sa kanya na magmaneho ng:",
+    "choices": [
+      "Any kind of motor vehicle",
+      "Only motor vehicle/s specified in the license",
+      "Only public utility vehicles",
+      "Motorcycles only"
+    ],
+    "choicesTL": [
+      "Anumang uri ng sasakyang de-motor",
+      "Sasakyan o mga sasakyang nakasaad lamang sa lisensya",
+      "Mga pampublikong sasakyan lamang",
+      "Mga motorsiklo lamang"
+    ],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "A driver's license is restricted to specific vehicle categories (Restriction Codes/DL Codes) based on the driver's qualification and the type of vehicle they are authorized to operate as stated in [Republic Act 4136](https://lto.gov.ph).",
+    "explanationTL": "Ang lisensya sa pagmamaneho ay limitado sa mga partikular na kategorya (Restriction Codes/DL Codes) base sa kwalipikasyon ng drayber at sa uri ng sasakyang pinahihintulutan silang imaneho ayon sa [Republic Act 4136](https://lto.gov.ph)."
+  },
+  {
+    "text": "Children must be held in approved child restraint if they are:",
+    "textTL": "Ang mga bata ay dapat nakalagay sa aprubadong child restraint kung sila ay:",
+    "choices": ["7 years old and below", "6 years old and below", "12 years old and below", "9 years old and below"],
+    "choicesTL": ["7 taong gulang pababa", "6 na taong gulang pababa", "12 taong gulang pababa", "9 na taong gulang pababa"],
+    "answerIndex": 2,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "According to RA 11229, children 12 years and below are prohibited from sitting in the front seat and must use a child restraint system.",
+    "explanationTL": "Ayon sa RA 11229, ang mga batang 12 taong gulang pababa ay bawal umupo sa harapang upuan at dapat gumamit ng child restraint system."
+  },
+  {
+    "text": "What is the maximum speed limit for a passenger car on a wide open highway (National Road)?",
+    "textTL": "Ano ang maximum na speed limit para sa pampasaherong sasakyan sa malawak na highway (National Road)?",
+    "choices": ["60 kph", "80 kph", "100 kph", "120 kph"],
+    "choicesTL": ["60 kph", "80 kph", "100 kph", "120 kph"],
+    "answerIndex": 1
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "The standard speed limit for cars and motorcycles on open national highways is 80 kph.",
+    "explanationTL": "Ang karaniwang speed limit para sa mga kotse at motor sa mga open national highway ay 80 kph."
+  },
+  {
+    "text": "A person whose driver's license is confiscated by authorized agents may still drive as long as they have:",
+    "textTL": "Ang isang tao na ang lisensya ay kinumpiska ng mga awtorisadong ahente ay maaaring magmaneho pa rin basta't mayroon silang:",
+    "choices": ["A photocopy of the license", "A police report", "A valid Top (Temporary Operator's Permit)", "A letter from the Mayor"],
+    "choicesTL": ["Photocopy ng lisensya", "Police report", "Valid na TOP (Temporary Operator's Permit)", "Liham mula sa Mayor"],
+    "answerIndex": 2,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "The TOP serves as a temporary license for 72 hours from the time of apprehension.",
+    "explanationTL": "Ang TOP ay nagsisilbing pansamantalang lisensya sa loob ng 72 oras mula sa oras ng pagkakahuli."
+  },
+  {
+    "text": "Under the Anti-Drunk and Drugged Driving Act, a driver is prohibited from operating a vehicle if their blood alcohol content is above:",
+    "textTL": "Sa ilalim ng Anti-Drunk and Drugged Driving Act, bawal magmaneho ang isang drayber kung ang alcohol content ng kanyang dugo ay lampas sa:",
+    "choices": ["0.01%", "0.05%", "0.08%", "0.10%"],
+    "choicesTL": ["0.01%", "0.05%", "0.08%", "0.10%"],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "For private vehicle drivers, the limit is 0.05% BAC. For professional drivers, it must be 0.0%.",
+    "explanationTL": "Para sa mga driver ng pribadong sasakyan, ang limitasyon ay 0.05% BAC. Para sa mga propesyonal na driver, dapat itong 0.0%."
+  },
+  {
+    "text": "What should you do if your driver's license is lost?",
+    "textTL": "Ano ang dapat mong gawin kung nawala ang iyong driver's license?",
+    "choices": ["Apply for a new one immediately", "File an Affidavit of Loss and apply for a duplicate", "Wait until renewal date", "Just continue driving"],
+    "choicesTL": ["Mag-apply agad ng bago", "Mag-file ng Affidavit of Loss at mag-apply para sa duplicate", "Maghintay hanggang sa renewal date", "Ipagpatuloy lang ang pagmamaneho"],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "You must legally report the loss via an Affidavit of Loss to get a duplicate license from the LTO.",
+    "explanationTL": "Dapat mong iulat ang pagkawala sa pamamagitan ng Affidavit of Loss upang makakuha ng duplicate na lisensya mula sa LTO."
+  },
+  {
+    "text": "The 'Keep Distance' rule or the 3-second rule is used to avoid:",
+    "textTL": "Ang 'Keep Distance' rule o ang 3-second rule ay ginagamit upang maiwasan ang:",
+    "choices": ["Side-swipe collisions", "Rear-end collisions", "Head-on collisions", "Engine overheating"],
+    "choicesTL": ["Side-swipe collisions", "Rear-end collisions (banggaan mula sa likod)", "Head-on collisions", "Pag-overheat ng makina"],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "Maintaining a 3-second gap gives you enough time to react if the car in front stops suddenly.",
+    "explanationTL": "Ang pagpapanatili ng 3-segundong agwat ay nagbibigay sa iyo ng sapat na oras para mag-react kung biglang huminto ang sasakyan sa harap."
+  },
+  {
+    "text": "A public utility vehicle can only be driven by a holder of a:",
+    "textTL": "Ang pampublikong sasakyan (PUV) ay maaari lamang imaneho ng may-ari ng:",
+    "choices": ["Student Permit", "Non-Professional Driver's License", "Professional Driver's License", "Conductor's License"],
+    "choicesTL": ["Student Permit", "Non-Professional Driver's License", "Professional Driver's License", "Conductor's License"],
+    "answerIndex": 2,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "According to RA 4136, a Professional Driver's License is required for anyone driving a vehicle for compensation or public utility.",
+    "explanationTL": "Ayon sa RA 4136, ang Professional Driver's License ay kinakailangan para sa sinumang nagmamaneho ng sasakyan para sa kita o pampublikong gamit."
+  },
+  {
+    "text": "When are you allowed to use the 'shoulder' of a highway?",
+    "textTL": "Kailan ka pinapayagang gumamit ng 'shoulder' ng isang highway?",
+    "choices": ["To overtake slow vehicles", "Only for emergency stops or breakdowns", "During heavy traffic", "When turning right"],
+    "choicesTL": ["Upang mag-overtake sa mababagal na sasakyan", "Para lamang sa mga emergency stop o pagkasira ng sasakyan", "Kapag matindi ang trapiko", "Kapag kakanan"],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "The shoulder is not a driving lane; it is strictly for emergencies or disabled vehicles.",
+    "explanationTL": "Ang shoulder ay hindi driving lane; ito ay mahigpit na para sa mga emergency o sirang sasakyan lamang."
+  },
+  {
+    "text": "If you are driving and a mobile phone rings, what is the safest action?",
+    "textTL": "Kung ikaw ay nagmamaneho at may tumunog na cellphone, ano ang pinakaligtas na gawin?",
+    "choices": ["Answer it quickly", "Text while driving", "Pull over to a safe area before answering", "Lower the speed and answer"],
+    "choicesTL": ["Sagutin ito nang mabilis", "Mag-text habang nagmamaneho", "Tumabi sa ligtas na lugar bago sumagot", "Bagalan ang takbo at sumagot"],
+    "answerIndex": 2,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "The Anti-Distracted Driving Act prohibits using mobile devices while the vehicle is in motion or stopped at a red light.",
+    "explanationTL": "Ipinagbabawal ng Anti-Distracted Driving Act ang paggamit ng mobile devices habang umaandar ang sasakyan o nakahinto sa pulang ilaw."
+  },
+  {
+    "text": "Which of the following is a disqualification for getting a driver's license?",
+    "textTL": "Alin sa mga sumusunod ang dahilan para hindi mabigyan ng driver's license?",
+    "choices": ["Being over 60 years old", "Being color blind", "Being unable to read and write in English or Filipino", "Having a tattoo"],
+    "choicesTL": ["Lampas 60 taong gulang na", "Color blind", "Hindi marunong magbasa at magsulat sa Ingles o Filipino", "May tattoo"],
+    "answerIndex": 2,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "A driver must be able to read and write to understand road signs and traffic instructions.",
+    "explanationTL": "Ang isang drayber ay dapat marunong magbasa at magsulat upang maunawaan ang mga road sign at traffic instructions."
+  },
+  {
+    "text": "What should you check first before starting a long drive?",
+    "textTL": "Ano ang dapat mong unang suriin bago magsimula ng malayuang biyahe?",
+    "choices": ["The car's audio system", "The BLOWBAGETS (Battery, Lights, Oil, etc.)", "The air conditioning", "The car's paint"],
+    "choicesTL": ["Ang audio system ng kotse", "Ang BLOWBAGETS (Battery, Lights, Oil, atbp.)", "Ang air conditioning", "Ang pintura ng kotse"],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "BLOWBAGETS is the standard checklist for vehicle safety: Battery, Lights, Oil, Water, Brake, Air, Gas, Engine, Tire, Self.",
+    "explanationTL": "Ang BLOWBAGETS ay ang standard na checklist para sa kaligtasan ng sasakyan: Battery, Lights, Oil, Water, Brake, Air, Gas, Engine, Tire, Self."
+  },
+  {
+    "text": "When two vehicles meet on a narrow steep road where neither can pass, who must yield?",
+    "textTL": "Kapag nagkasalubong ang dalawang sasakyan sa makitid at matarik na kalsada kung saan walang makadaan, sino ang dapat magbigay daan?",
+    "choices": ["The vehicle going uphill", "The vehicle going downhill", "The smaller vehicle", "The faster vehicle"],
+    "choicesTL": ["Ang sasakyang paakyat", "Ang sasakyang pababa", "Ang mas maliit na sasakyan", "Ang mas mabilis na sasakyan"],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "The vehicle going downhill must yield as it has more control when backing up compared to the vehicle going uphill.",
+    "explanationTL": "Ang sasakyang pababa ang dapat magbigay daan dahil mas may kontrol ito sa pag-atras kumpara sa sasakyang paakyat."
+  },
+  {
+    "text": "A double solid yellow line on the road means:",
+    "textTL": "Ang double solid yellow line sa kalsada ay nangangahulugang:",
+    "choices": ["Overtaking is allowed", "Strictly no overtaking on both sides", "Parking allowed", "One-way street"],
+    "choicesTL": ["Pinapayagan ang pag-overtake", "Mahigpit na bawal ang pag-overtake sa magkabilang panig", "Pinapayagan ang paradahan", "One-way na kalye"],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "Double solid lines mean it is dangerous to overtake and cross the line from either direction.",
+    "explanationTL": "Ang double solid lines ay nangangahulugang mapanganib mag-overtake at tumawid sa linya mula sa alinmang direksyon."
+  },
+  {
+    "text": "How many days do you have to settle a traffic violation fine?",
+    "textTL": "Ilang araw mayroon ka upang bayaran ang multa sa traffic violation?",
+    "choices": ["5 days", "15 days", "30 days", "60 days"],
+    "choicesTL": ["5 araw", "15 araw", "30 araw", "60 araw"],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "You generally have 15 days from the date of apprehension to settle fines or contest the violation.",
+    "explanationTL": "Karaniwang mayroon kang 15 araw mula sa petsa ng pagkakahuli upang bayaran ang multa o i-contest ang paglabag."
+  },
+  {
+    "text": "When you are involved in a traffic accident, what is the first thing you should do?",
+    "text_tagalog": "Kapag ikaw ay nasangkot sa isang aksidente sa trapiko, ano ang unang dapat mong gawin?",
+    "choices": ["Drive away quickly", "Argue with the other driver", "Stop the vehicle and help the injured if any", "Call your lawyer immediately"],
+    "choices_tagalog": ["Umalis nang mabilis", "Makipagtalo sa kabilang drayber", "Ihinto ang sasakyan at tulungan ang mga nasugatan kung mayroon man", "Tawagan agad ang iyong abogado"],
+    "answerIndex": 2,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "RA 4136 states that a driver involved in an accident must stop to show their license and render assistance to any person injured.",
+    "explanation_tagalog": "Isinasaad ng RA 4136 na ang drayber na nasangkot sa aksidente ay dapat huminto upang ipakita ang lisensya at magbigay ng tulong sa sinumang nasugatan."
+  },
+  {
+    "text": "What is the primary purpose of the 'Anti-Distracted Driving Act' (RA 10913)?",
+    "text_tagalog": "Ano ang pangunahing layunin ng 'Anti-Distracted Driving Act' (RA 10913)?",
+    "choices": ["To ban old vehicles", "To prohibit using mobile devices while driving", "To increase speed limits", "To require seatbelts"],
+    "choices_tagalog": ["Ipagbawal ang mga lumang sasakyan", "Ipagbawal ang paggamit ng mobile devices habang nagmamaneho", "Dagdagan ang speed limits", "I-require ang seatbelt"],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "The law prohibits the use of mobile communication devices and electronic entertainment gadgets while the vehicle is in motion or even stopped at a red light.",
+    "explanation_tagalog": "Ipinagbabawal ng batas ang paggamit ng mobile communication devices at electronic gadgets habang umaandar ang sasakyan o kahit nakahinto sa pulang ilaw."
+  },
+  {
+    "text": "What should you do before changing lanes?",
+    "text_tagalog": "Ano ang dapat mong gawin bago lumipat ng lane?",
+    "choices": ["Honk your horn loudly", "Check mirrors, use signal lights, and check blind spots", "Switch lanes quickly to avoid traffic", "Turn off your headlights"],
+    "choices_tagalog": ["Bumusina nang malakas", "Tumingin sa salamin, gumamit ng signal light, at suriin ang blind spots", "Lumipat nang mabilis para iwas-trapiko", "Patayin ang iyong headlights"],
+    "answerIndex": 1,
+    "category": "General Knowledge",
+    "imageUrl": "",
+    "explanation": "Safety procedure dictates checking mirrors and blind spots while signaling your intent to ensure the path is clear.",
+    "explanation_tagalog": "Ang ligtas na paraan ay ang pagsuri sa mga salamin at blind spots habang nagsisignal upang masiguradong ligtas ang dadaanan."
+  },
+  {
+    "text": "What does an octagonal red sign with white text mean?",
+    "textTL": "Ano ang kahulugan ng isang octagonal na pulang sign na may puting teksto?",
+    "choices": ["Give Way", "Stop", "No Entry", "Yield"],
+    "choicesTL": ["Magbigay daan", "Hinto", "Bawal Pumasok", "Yield"],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://png.pngtree.com/png-vector/20250902/ourmid/pngtree-red-octagon-sign-with-black-border-png-image_16550930.png",
+    "explanation": "The octagon shape is exclusive to the STOP sign, requiring a complete halt at the stop line.",
+    "explanationTL": "Ang hugis octagon ay para lamang sa STOP sign, na nangangailangan ng ganap na paghinto sa stop line."
+  },
+  {
+    "text": "Which sign shape is used for general warnings of hazards ahead?",
+    "textTL": "Anong hugis ng sign ang ginagamit para sa mga babala ng panganib sa harap?",
+    "choices": ["Circle", "Rectangle", "Upward Triangle", "Octagon"],
+    "choicesTL": ["Bilog", "Parihaba", "Pataas na Tatsulok", "Octagon"],
+    "answerIndex": 2,
+    "category": "Road Signs",
+    "imageUrl": "",
+    "explanation": "Upward-pointing triangles with red borders are standard Warning signs (e.g., Curve Ahead, Slippery Road).",
+    "explanationTL": "Ang mga tatsulok na nakaturo pataas na may pulang gilid ay mga standard na Warning sign (halimbawa, Curve Ahead, Slippery Road)."
+  },
+  {
+    "text": "What does a circular sign with a red border and a '60' inside mean?",
+    "textTL": "Ano ang kahulugan ng bilog na sign na may pulang gilid at may '60' sa loob?",
+    "choices": ["Minimum speed 60 kph", "Recommended speed 60 kph", "Maximum speed 60 kph", "Distance to next exit 60 km"],
+    "choicesTL": ["Minimum na bilis na 60 kph", "Inirerekomendang bilis na 60 kph", "Maximum na bilis na 60 kph", "Distansya sa susunod na exit ay 60 km"],
+    "answerIndex": 2,
+    "category": "Road Signs",
+    "imageUrl": "https://traffic-rules.com/img/asia/ph/signs/prohibitory/prohibited-action-speed.png",
+    "explanation": "Circular signs with red borders are Regulatory signs; a number inside indicates the maximum legal speed limit.",
+    "explanationTL": "Ang mga bilog na sign na may pulang gilid ay mga Regulatory sign; ang numero sa loob ay nagpapahiwatig ng maximum legal na bilis."
+  },
+  {
+    "text": "An inverted triangle sign (one point facing down) indicates:",
+    "textTL": "Ang baligtad na tatsulok na sign (isang dulo ay nakaturo pababa) ay nagpapahiwatig ng:",
+    "choices": ["Stop", "Give Way / Yield", "No Entry", "No Parking"],
+    "choicesTL": ["Hinto", "Magbigay Daan / Yield", "Bawal Pumasok", "Bawal Pumarada"],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://www.safetysignsforsale.co.za/storage/products/April2020/c9dYafMq2jUHES8VEjim.png",
+    "explanation": "The downward-pointing triangle is used specifically for 'Give Way' or 'Yield' instructions.",
+    "explanationTL": "Ang tatsulok na nakaturo pababa ay partikular na ginagamit para sa tagubilin na 'Magbigay Daan' o 'Yield'."
+  },
+  {
+    "text": "A triangular sign with a red border showing two lines that draw closer at the top indicates:",
+    "textTL": "Ang tatsulok na sign na may pulang gilid na nagpapakita ng dalawang linya na naglalapit sa itaas ay nagpapahiwatig ng:",
+    "choices": ["Road Widening", "Narrow Road Ahead", "Divided Highway Ends", "One-Way Street"],
+    "choicesTL": ["Paglapad ng Kalsada", "Papakitid na Kalsada sa Harap", "Katapusan ng Divided Highway", "One-Way na Kalye"],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://traffic-rules.com/img/asia/ph/signs/warning/warning-road-narrowing.png",
+    "explanation": "This warning sign alerts drivers that the road ahead will become narrower, requiring extra caution when passing.",
+    "explanationTL": "Ang babalang ito ay nagpapaalala sa mga drayber na ang kalsada sa harap ay papakitid, kaya kinakailangan ang dobleng pag-iingat sa pagdaan."
+  },
+  {
+    "text": "What is the meaning of a circular blue sign with a white arrow pointing straight?",
+    "textTL": "Ano ang kahulugan ng bilog na asul na sign na may puting arrow na nakaturo nang diretso?",
+    "choices": ["One Way Street", "Mandatory Direction: Straight Only", "Parking Ahead", "End of Restriction"],
+    "choicesTL": ["One Way Street", "Mandatory Direction: Diretso Lamang", "Paradahan sa Harap", "Katapusan ng Pagbabawal"],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://traffic-rules.com/img/asia/ph/signs/mandatory/mandatory-direction-up.png",
+    "explanation": "Blue circular signs indicate mandatory actions. This specific sign means you must proceed straight.",
+    "explanationTL": "Ang mga asul na bilog na sign ay nagpapahiwatig ng mga mandatory na pagkilos. Ang partikular na sign na ito ay nangangahulugang dapat kang dumiretso lamang."
+  },
+  {
+    "text": "A sign showing a car skidding in a wavy pattern warns of:",
+    "textTL": "Ang sign na nagpapakita ng kotseng dumudulas sa linyang paalon-alon ay babala ng:",
+    "choices": ["Steep Descent", "Uneven Road", "Slippery Road", "Road Work Ahead"],
+    "choicesTL": ["Matarik na Pababa", "Bako-bakong Kalsada", "Madulas na Kalsada", "May Ginagawa sa Kalsada"],
+    "answerIndex": 2,
+    "category": "Road Signs",
+    "imageUrl": "https://media.istockphoto.com/id/1218344579/vector/slippery-street-sign.jpg?s=612x612&w=0&k=20&c=OIaPJfK29B7SO3OkBzUgfSJXbUL4S7i-rf7EcHUqUl8=",
+    "explanation": "This warning sign alerts drivers to road surfaces that may become slippery when wet.",
+    "explanationTL": "Ang babalang ito ay nagpapaalala sa mga drayber tungkol sa kalsada na maaaring maging madulas kapag nabasa."
+  },
+  {
+    "text": "A rectangular or square blue sign with a large 'P' indicates:",
+    "textTL": "Ang hugis parihaba o parisukat na asul na sign na may malaking 'P' ay nagpapahiwatig ng:",
+    "choices": ["Police Station", "Pedestrian Crossing", "Parking Area", "Public Telephone"],
+    "choicesTL": ["Pistinto ng Pulisya", "Pedestrian Crossing", "Lugar ng Paradahan", "Public Telephone"],
+    "answerIndex": 2,
+    "category": "Road Signs",
+    "imageUrl": "https://e7.pngegg.com/pngimages/713/704/png-clipart-p-logo-illustration-car-park-parking-traffic-sign-symbol-building-no-parking-miscellaneous-blue-thumbnail.png",
+    "explanation": "Blue rectangular or square signs are Informative signs, typically used for services like parking.",
+    "explanationTL": "Ang mga asul na parihaba o parisukat na sign ay mga Informative sign, na karaniwang ginagamit para sa mga serbisyo tulad ng paradahan."
+  },
+  {
+    "text": "What does a red circle with a horizontal white bar in the middle mean?",
+    "textTL": "Ano ang kahulugan ng pulang bilog na may pahalang na puting bar sa gitna?",
+    "choices": ["No Parking", "No Overtaking", "No Entry", "No Stopping"],
+    "choicesTL": ["Bawal Pumarada", "Bawal Mag-overtake", "Bawal Pumasok", "Bawal Huminto"],
+    "answerIndex": 2,
+    "category": "Road Signs",
+    "imageUrl": "https://traffic-rules.com/img/asia/ph/signs/prohibitory/prohibited-access-entry.png",
+    "explanation": "This is the 'No Entry' sign, prohibiting all vehicles from entering the road from that direction.",
+    "explanationTL": "Ito ang 'No Entry' sign, na nagbabawal sa lahat ng sasakyan na pumasok sa kalsada mula sa direksyong iyon."
+  },
+  {
+    "text": "A sign showing two arrows in opposite directions (one up, one down) means:",
+    "textTL": "Ang sign na nagpapakita ng dalawang arrow sa magkasalungat na direksyon (isa pataas, isa pababa) ay nangangahulugang:",
+    "choices": ["Two-way traffic ahead", "One-way street", "Overtaking allowed", "Keep Right"],
+    "choicesTL": ["Two-way traffic sa harap", "One-way na kalye", "Pwede ang overtaking", "Manatili sa Kanan"],
+    "answerIndex": 0,
+    "category": "Road Signs",
+    "imageUrl": "https://cdn.creazilla.com/cliparts/3514029/two-way-traffic-ahead-sign-in-philippines-clipart-lg.png",
+    "explanation": "This warning sign alerts you that the one-way road is ending and two-way traffic is beginning.",
+    "explanationTL": "Ang babalang ito ay nagpapaalam sa iyo na matatapos na ang one-way na kalsada at magsisimula na ang two-way traffic."
+  },
+  {
+    "text": "A sign showing a person walking inside a fluorescent yellow-green pentagon means:",
+    "textTL": "Ang sign na nagpapakita ng taong naglalakad sa loob ng fluorescent yellow-green na pentagon ay nangangahulugang:",
+    "choices": ["Park nearby", "Hospital zone", "Pedestrian or School Crossing", "Hiking trail"],
+    "choicesTL": ["Malapit na parke", "Hospital zone", "Pedestrian o School Crossing", "Hiking trail"],
+    "answerIndex": 2,
+    "category": "Road Signs",
+    "imageUrl": "https://translineinc.com/wp-content/uploads/2024/08/S1-1-Pedestrian-School-Sign.png",
+    "explanation": "The pentagon shape and bright color are specifically used for high-caution areas like schools.",
+    "explanationTL": "Ang hugis pentagon at maliwanag na kulay ay partikular na ginagamit para sa mga lugar na nangangailangan ng matinding pag-iingat tulad ng mga paaralan."
+  },
+  {
+    "text": "What does a sign with a red slash over a U-shaped arrow mean?",
+    "textTL": "Ano ang kahulugan ng sign na may pulang slash sa ibabaw ng U-shaped na arrow?",
+    "choices": ["No Left Turn", "No U-Turn", "No Overtaking", "Roundabout Ahead"],
+    "choicesTL": ["Bawal Kumaliwa", "Bawal Mag-U-turn", "Bawal Mag-overtake", "Rotonda sa Harap"],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://cdn.creazilla.com/cliparts/3514896/no-u-turn-sign-in-uruguay-clipart-md.png",
+    "explanation": "A red circle with a slash indicates a prohibition; the U-arrow means U-turns are forbidden.",
+    "explanationTL": "Ang pulang bilog na may slash ay nagpapahiwatig ng pagbabawal; ang U-arrow ay nangangahulugang bawal ang mga U-turn."
+  },
+  {
+    "text": "A sign showing a horn with a red slash indicates:",
+    "textTL": "Ang sign na nagpapakita ng busina na may pulang slash ay nagpapahiwatig ng:",
+    "choices": ["No Radios", "No Blowing of Horns", "Emergency Vehicles Only", "Quiet Zone / Hospital"],
+    "choicesTL": ["Bawal ang Radyo", "Bawal ang Pagbusina", "Para sa mga Emergency Vehicle Lamang", "Quiet Zone / Ospital"],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://toyotaquezonavenue.com.ph/wp-content/uploads/2021/07/no-blowing-of-horns.png",
+    "explanation": "This regulatory sign prohibits the use of horns, usually near hospitals, schools, or churches.",
+    "explanationTL": "Ang regulatory sign na ito ay nagbabawal sa paggamit ng busina, karaniwan sa malapit sa mga ospital, paaralan, o simbahan."
+  },
+  {
+    "text": "A red circular sign with a truck symbol and a red slash means:",
+    "textTL": "Ang pulang bilog na sign na may simbolo ng trak at pulang slash ay nangangahulugang:",
+    "choices": ["Trucks only", "No Trucks Allowed", "Weighing Scale Ahead", "Slow moving vehicles"],
+    "choicesTL": ["Para sa trak lamang", "Bawal ang Trak", "Timbangan sa harap", "Mababagal na sasakyan"],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://traffic-rules.com/img/asia/ph/signs/prohibitory/prohibited-access-truck.png",
+    "explanation": "This indicates that trucks or heavy vehicles are prohibited from entering that specific road.",
+    "explanationTL": "Ito ay nagpapahiwatig na ang mga trak o mabibigat na sasakyan ay ipinagbabawal na pumasok sa partikular na kalsadang iyon."
+  },
+  {
+    "text": "What does a sign showing a vertical arrow with a small side road branching off mean?",
+    "textTL": "Ano ang kahulugan ng sign na nagpapakita ng vertical na arrow na may maliit na kalsada sa gilid?",
+    "choices": ["T-Junction", "Crossroads", "Side Road Junction", "Roundabout"],
+    "choicesTL": ["T-Junction", "Crossroads (Krus na daan)", "Side Road Junction", "Rotonda"],
+    "answerIndex": 2,
+    "category": "Road Signs",
+    "imageUrl": "https://traffic-rules.com/img/asia/ph/signs/warning/warning-crossroad-side-road-right.png",
+    "explanation": "This warning sign informs drivers of an upcoming intersection where a side road joins the main road.",
+    "explanationTL": "Ang babalang ito ay nagpapaalam sa mga drayber na mayroong intersection sa harap kung saan ang isang maliit na kalsada ay lilitaw sa gilid ng pangunahing kalsada."
+  },
+  {
+    "text": "A fluorescent yellow-green circular sign with a black bicycle symbol means:",
+    "textTL": "Ang bilog na fluorescent yellow-green na sign na may itim na simbolo ng bisikleta ay nangangahulugang:",
+    "choices": ["No Bicycles", "Watch out for Bicycles", "Mandatory Bicycle Lane", "Bicycle Parking"],
+    "choicesTL": ["Bawal ang Bisikleta", "Mag-ingat sa mga Bisikleta", "Mandatory Bicycle Lane", "Paradahan ng Bisikleta"],
+    "answerIndex": 2,
+    "category": "Road Signs",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZtSqHXUVg9zK4GK0Gk6muhYpEeycRUn5EZA&s",
+    "explanation": "Fluorescent yellow-green circular signs are mandatory; this sign designates a lane specifically for cyclists.",
+    "explanationTL": "Ang mga bilog na fluorescent yellow-green na sign ay mandatory; itinatalaga ng sign na ito ang lane na para lamang sa mga nagbibisikleta."
+  },
+  {
+    "text": "A sign showing a 'winding road' pattern (Z-shape) warns of:",
+    "text_tagalog": "Ang sign na nagpapakita ng 'winding road' pattern (hugis Z) ay babala ng:",
+    "choices": ["Sharp turn ahead", "Series of curves or winding road", "U-turn slot", "Slippery road"],
+    "choices_tagalog": ["Matalim na liko sa harap", "Magkakasunod na kurbada o paliko-likong kalsada", "U-turn slot", "Madulas na kalsada"],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://traffic-rules.com/img/asia/ph/signs/warning/warning-curves.png",
+    "explanation": "This warning sign alerts drivers to a succession of curves, requiring reduced speed and extra caution.",
+    "explanation_tagalog": "Ang babalang ito ay nagpapaalala sa mga drayber tungkol sa magkakasunod na kurbada, na nangangailangan ng pagbagal at dobleng pag-iingat."
+  },
+  {
+    "text": "What does a red circular sign with three black arrows following each other in a circle mean?",
+    "text_tagalog": "Ano ang kahulugan ng pulang bilog na sign na may tatlong itim arrow na nagkakasunod sa isang bilog?",
+    "choices": ["No U-Turn", "Roundabout Ahead / Mandatory Direction", "One Way Street", "End of Restriction"],
+    "choices_tagalog": ["Bawal ang U-Turn", "Rotonda sa Harap / Mandatory na Direksyon", "One Way na Kalye", "Katapusan ng Pagbabawal"],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://traffic-rules.com/img/asia/ph/signs/warning/warning-crossroad-roundabout.png",
+    "explanation": "This mandatory sign indicates a roundabout (rotonda). Drivers must follow the circular direction indicated by the arrows.",
+    "explanation_tagalog": "Ang mandatory sign na ito ay nagpapahiwatig ng rotonda. Ang mga drayber ay dapat sumunod sa paikot na direksyong itinuturo ng mga arrow."
+  },
+  {
+    "text": "A triangular warning sign showing rocks sliding down a slope indicates:",
+    "textTL": "Ang tatsulok na warning sign na nagpapakita ng mga batong bumabagsak mula sa gilid ng bundok ay nagpapahiwatig ng:",
+    "choices": ["Slippery Road", "Falling Rocks Ahead", "Steep Descent", "Road Work Ahead"],
+    "choicesTL": ["Madulas na Kalsada", "Panganib ng mga Nahuhulog na Bato", "Matarik na Pababa", "May Ginagawa sa Kalsada"],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://traffic-rules.com/img/asia/ph/signs/warning/warning-falling-rocks.png",
+    "explanation": "This sign warns drivers of areas prone to landslides or falling debris, requiring extra vigilance.",
+    "explanationTL": "Ang sign na ito ay nagbabala sa mga drayber tungkol sa mga lugar na madalas magkaroon ng landslide o pagguho ng lupa, kaya kinakailangan ang dobleng pag-iingat."
+  },
+  {
+    "text": "What does a circular blue road sign with a white number in the center indicate?",
+    "textTL": "Ano ang ipinapahiwatig ng isang bilog na asul na road sign na may puting numero sa gitna?",
+    "choices": [
+      "Maximum Speed Limit",
+      "Minimum Speed Limit",
+      "Recommended Speed",
+      "End of Speed Restriction"
+    ],
+    "choicesTL": [
+      "Maximum na Speed Limit",
+      "Minimum na Speed Limit",
+      "Inirerekomendang Bilis",
+      "Katapusan ng Speed Restriction"
+    ],
+    "answerIndex": 1,
+    "category": "Road Signs",
+    "imageUrl": "https://traffic-rules.com/img/asia/ph/signs/mandatory/mandatory-speed-minimum.png",
+    "explanation": "A blue circular sign with white text is a regulatory sign that indicates a mandatory instruction. This specific sign marks the beginning of a minimum speed limit zone, where you must drive at or above the indicated speed.",
+    "explanationTL": "Ang asul na bilog na sign na may puting teksto ay isang regulatory sign na nagpapakita ng mandatoryong instruksyon. Ang sign na ito ay hudyat ng simula ng minimum speed limit zone, kung saan dapat kang magmaneho sa bilis na katumbas o higit pa sa nakasaad na numero."
+  },
+  {
+    "text": "What is the penalty for driving without a valid driver's license?",
+    "textTL": "Ano ang parusa sa pagmamaneho nang walang valid na driver's license?",
+    "choices": ["₱1,000", "₱3,000", "₱5,000", "₱10,000"],
+    "choicesTL": ["₱1,000", "₱3,000", "₱5,000", "₱10,000"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Under JAO 2014-01, driving without a license (expired, suspended, or fake) carries a fine of ₱3,000.",
+    "explanationTL": "Sa ilalim ng JAO 2014-01, ang pagmamaneho nang walang lisensya (expired, suspendido, o peke) ay may multang ₱3,000."
+  },
+  {
+    "text": "How much is the fine for a driver caught not wearing a seatbelt for the first offense?",
+    "textTL": "Magkano ang multa para sa drayber na nahuling hindi nakasuot ng seatbelt sa unang pagkakataon?",
+    "choices": ["₱500", "₱1,000", "₱2,000", "₱5,000"],
+    "choicesTL": ["₱500", "₱1,000", "₱2,000", "₱5,000"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "The Seat Belts Use Act (RA 8750) specifies a ₱1,000 fine for the first offense.",
+    "explanationTL": "Isinasaad ng Seat Belts Use Act (RA 8750) ang multang ₱1,000 para sa unang paglabag."
+  },
+  {
+    "text": "If a driver is caught driving an unregistered motor vehicle, the fine is:",
+    "textTL": "Kung ang drayber ay nahuling nagmamaneho ng hindi rehistradong sasakyan, ang multa ay:",
+    "choices": ["₱2,000", "₱5,000", "₱10,000", "₱12,000"],
+    "choicesTL": ["₱2,000", "₱5,000", "₱10,000", "₱12,000"],
+    "answerIndex": 2,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Driving an unregistered vehicle carries a heavy fine of ₱10,000.",
+    "explanationTL": "Ang pagmamaneho ng hindi rehistradong sasakyan ay may mabigat na multang ₱10,000."
+  },
+  {
+    "text": "What is the penalty for 'Reckless Driving' on the first offense?",
+    "textTL": "Ano ang parusa para sa 'Reckless Driving' (Garahe o Walang Ingat na Pagmamaneho) sa unang pagkakataon?",
+    "choices": ["₱500", "₱1,000", "₱2,000", "₱5,000"],
+    "choicesTL": ["₱500", "₱1,000", "₱2,000", "₱5,000"],
+    "answerIndex": 2,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "First-offense reckless driving carries a ₱2,000 fine and potentially a suspension of the license.",
+    "explanationTL": "Ang unang paglabag sa reckless driving ay may multang ₱2,000 at posibleng suspensyon ng lisensya."
+  },
+  {
+    "text": "Smoking while driving or while inside a public utility vehicle is a violation of:",
+    "textTL": "Ang paninigarilyo habang nagmamaneho o habang nasa loob ng pampublikong sasakyan (PUV) ay paglabag sa:",
+    "choices": ["Anti-Drunk Driving Act", "Clean Air Act", "Children's Safety on Motorcycles Act", "No specific law"],
+    "choicesTL": ["Anti-Drunk Driving Act", "Clean Air Act", "Children's Safety on Motorcycles Act", "Walang partikular na batas"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Smoking in public places or vehicles is penalized under the Clean Air Act and related executive orders.",
+    "explanationTL": "Ang paninigarilyo sa mga pampublikong lugar o sasakyan ay may parusa sa ilalim ng Clean Air Act at mga kaugnay na executive orders."
+  },
+  {
+    "text": "A driver's license is suspended for how long if the driver is caught with a second offense of reckless driving?",
+    "textTL": "Gaano katagal masususpinde ang lisensya kung ang drayber ay nahuli sa ikalawang pagkakataon ng reckless driving?",
+    "choices": ["30 days", "3 months", "6 months", "1 year"],
+    "choicesTL": ["30 araw", "3 buwan", "6 na buwan", "1 taon"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "A second offense for reckless driving results in a ₱3,000 fine and a 3-month suspension.",
+    "explanationTL": "Ang ikalawang paglabag sa reckless driving ay nagreresulta sa multang ₱3,000 at 3 buwang suspensyon."
+  },
+  {
+    "text": "What happens if you fail to pay a traffic violation fine within 15 days?",
+    "textTL": "Ano ang mangyayari kung mabigo kang bayaran ang multa sa traffic violation sa loob ng 15 araw?",
+    "choices": ["The fine is cancelled", "Your license is automatically revoked", "Suspension of license/inability to renew", "Double the fine"],
+    "choicesTL": ["Makakansela ang multa", "Awtomatikong mababawi ang lisensya", "Suspensyon ng lisensya/hindi makakapag-renew", "Madodoble ang multa"],
+    "answerIndex": 2,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Unsettled alarms in the LTO system prevent you from renewing your license or vehicle registration.",
+    "explanationTL": "Ang mga hindi nababayarang huli o 'alarms' sa sistema ng LTO ay pipigil sa iyo na makapag-renew ng lisensya o rehistro ng sasakyan."
+  },
+  {
+    "text": "The fine for driving under the influence of alcohol (DUI) that does not result in physical injuries or homicide is at least:",
+    "textTL": "Ang multa sa pagmamaneho sa ilalim ng impluwensya ng alak (DUI) na hindi nagresulta sa pinsala sa katawan o pagkamatay ay hindi bababa sa:",
+    "choices": ["₱10,000", "₱20,000", "₱50,000", "₱100,000"],
+    "choicesTL": ["₱10,000", "₱20,000", "₱50,000", "₱100,000"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Under RA 10586, the fine starts at ₱20,000 up to ₱80,000, plus imprisonment and license suspension.",
+    "explanationTL": "Sa ilalim ng RA 10586, ang multa ay nagsisimula sa ₱20,000 hanggang ₱80,000, kasama ang pagkakulong at suspensyon ng lisensya."
+  },
+  {
+    "text": "How much is the fine for illegal parking (attended or unattended)?",
+    "textTL": "Magkano ang multa para sa illegal parking (may tao o walang tao sa loob)?",
+    "choices": ["₱500", "₱1,000", "₱2,000", "₱5,000"],
+    "choicesTL": ["₱500", "₱1,000", "₱2,000", "₱5,000"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Standard LTO/MMDA fines for illegal parking typically start at ₱1,000 for attended and higher for unattended/towed vehicles.",
+    "explanationTL": "Ang karaniwang multa ng LTO/MMDA para sa illegal parking ay karaniwang nagsisimula sa ₱1,000 (attended) at mas mataas para sa mga sasakyang walang tao o hihilahin (towed)."
+  },
+  {
+    "text": "Using a motorcycle with a modified muffler that creates excessive noise is a violation carrying a fine of:",
+    "textTL": "Ang paggamit ng motorsiklo na may modipikadong tambutso na lumilikha ng sobrang ingay ay may multang:",
+    "choices": ["₱1,000", "₱5,000", "₱10,000", "₱15,000"],
+    "choicesTL": ["₱1,000", "₱5,000", "₱10,000", "₱15,000"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Modified mufflers that exceed noise decibel limits are penalized with a ₱5,000 fine.",
+    "explanationTL": "Ang mga modipikadong tambutso na lumalampas sa limitasyon ng ingay (decibel limits) ay may parusang ₱5,000."
+  },
+  {
+    "text": "If you allow an unlicensed person to drive your vehicle, the fine is:",
+    "textTL": "Kung papayagan mo ang isang taong walang lisensya na magmaneho ng iyong sasakyan, ang multa ay:",
+    "choices": ["₱1,000", "₱3,000", "₱5,000", "₱10,000"],
+    "choicesTL": ["₱1,000", "₱3,000", "₱5,000", "₱10,000"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Allowing an unlicensed person to drive carries a ₱3,000 fine for the vehicle owner/driver.",
+    "explanationTL": "Ang pagpapahintulot sa taong walang lisensya na magmaneho ay may multang ₱3,000 para sa may-ari ng sasakyan o drayber."
+  },
+  {
+    "text": "Driving a motorcycle while wearing flip-flops (tsinelas) carries a fine of:",
+    "textTL": "Ang pagmamaneho ng motorsiklo nang naka-tsinelas ay may multang:",
+    "choices": ["₱500", "₱1,000", "₱2,000", "₱3,000"],
+    "choicesTL": ["₱500", "₱1,000", "₱2,000", "₱3,000"],
+    "answerIndex": 0,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "LTO Administrative Order requires proper footwear (shoes) for motorcycle riders. First offense is ₱500.",
+    "explanationTL": "Ayon sa LTO Administrative Order, kinakailangan ang maayos na sapin sa paa (sapatos) para sa mga nagmomotorsiklo. Ang unang paglabag ay ₱500."
+  },
+  {
+    "text": "Failure to use signal lights when turning or changing lanes carries a fine of:",
+    "textTL": "Ang hindi paggamit ng signal lights kapag liliko o lilipat ng lane ay may multang:",
+    "choices": ["₱500", "₱1,000", "₱2,000", "₱3,000"],
+    "choicesTL": ["₱500", "₱1,000", "₱2,000", "₱3,000"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Improper use or failure to use signals is a form of 'unsafe driving' penalized at ₱1,000.",
+    "explanationTL": "Ang maling paggamit o hindi paggamit ng signals ay isang uri ng 'unsafe driving' na may multang ₱1,000."
+  },
+  {
+    "text": "What is the penalty for using a 'fake' driver's license?",
+    "textTL": "Ano ang parusa sa paggamit ng 'peke' na driver's license?",
+    "choices": ["₱1,000", "₱3,000", "₱5,000", "₱10,000"],
+    "choicesTL": ["₱1,000", "₱3,000", "₱5,000", "₱10,000"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Using a fake license is classified as driving without a valid license (₱3,000) and can lead to a 1-year ban from applying for a real one.",
+    "explanationTL": "Ang paggamit ng pekeng lisensya ay itinuturing na pagmamaneho nang walang valid na lisensya (₱3,000) at maaaring magresulta sa 1-taong ban sa pag-apply ng tunay na lisensya."
+  },
+  {
+    "text": "Overloading of passengers beyond the vehicle's registered capacity is a violation worth:",
+    "textTL": "Ang pagkakarga ng labis na pasahero lampas sa rehistradong kapasidad ng sasakyan ay may multang:",
+    "choices": ["₱500", "₱1,000", "₱2,000", "₱3,000"],
+    "choicesTL": ["₱500", "₱1,000", "₱2,000", "₱3,000"],
+    "answerIndex": 1,
+    "category": "Fines and Penalties",
+    "imageUrl": "",
+    "explanation": "Overloading is penalized at ₱1,000 under standard LTO guidelines.",
+    "explanationTL": "Ang overloading ay may multang ₱1,000 sa ilalim ng mga standard guidelines ng LTO."
+  },
+  {
+    "text": "The blind spot is the area to your right or left that you do not see in the side view mirror; what should you do before you back up?",
+    "textTL": "Ang blind spot ay ang lugar sa iyong kanan o kaliwa na hindi mo nakikita sa side view mirror; ano ang dapat mong gawin bago umatras?",
+    "choices": ["Look at the rearview mirror only", "Turn your head to look over your shoulder", "Sound your horn and proceed", "Wait for someone to signal you"],
+    "choicesTL": ["Tumingin sa rearview mirror lamang", "Ilingon ang ulo at tumingin sa iyong balikat", "Bumusina at tumuloy na", "Maghintay ng senyas mula sa iba"],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "To ensure safety in blind spots, a driver must perform a physical head check (shoulder check) before changing lanes or backing up.",
+    "explanationTL": "Para matiyak ang kaligtasan sa blind spots, dapat lumingon ang drayber (shoulder check) bago lumipat ng lane o umatras."
+  },
+  {
+    "text": "When driving in heavy rain, why should you avoid tailgating the vehicle in front?",
+    "textTL": "Kapag nagmamaneho sa malakas na ulan, bakit dapat iwasan ang pagbuntot (tailgating) sa sasakyan sa harap?",
+    "choices": ["To save fuel", "Because the road is slippery and braking distance increases", "To avoid splashing water", "To keep your windshield clean"],
+    "choicesTL": ["Para makatipid sa krudo", "Dahil madulas ang kalsada at humahaba ang braking distance", "Para maiwasang makatalsik ng tubig", "Para manatiling malinis ang windshield"],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Wet roads reduce tire traction, meaning it takes more time and distance to stop safely.",
+    "explanationTL": "Ang basang kalsada ay nakakabawas ng kapit ng gulong, kaya mas matagal at mas malayo ang kailangang distansya para huminto nang ligtas."
+  },
+  {
+    "text": "What is the proper hand position on the steering wheel for better control while driving?",
+    "textTL": "Ano ang tamang posisyon ng mga kamay sa manibela para sa mas magandang kontrol habang nagmamaneho?",
+    "choices": ["12 o'clock and 6 o'clock", "10 o'clock and 2 o'clock", "9 o'clock and 3 o'clock", "One hand on top"],
+    "choicesTL": ["Ika-12 at ika-6 na posisyon", "Ika-10 at ika-2 na posisyon", "Ika-9 at ika-3 na posisyon", "Isang kamay sa itaas"],
+    "answerIndex": 2,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "The 9 and 3 position (or 10 and 2) is recommended by experts for maximum leverage and safety in case the airbag deploys.",
+    "explanationTL": "Ang 9 at 3 (o 10 at 2) na posisyon ay inirerekomenda ng mga eksperto para sa mas magandang kontrol at kaligtasan sakaling bumuka ang airbag."
+  },
+  {
+    "text": "If you experience a tire blowout while driving at high speed, what is the safest action?",
+    "textTL": "Kung pumutok ang iyong gulong habang mabilis ang takbo, ano ang pinakaligtas na gawin?",
+    "choices": ["Step on the brakes immediately", "Shift to neutral", "Hold the steering wheel firmly and ease off the gas", "Turn the steering wheel sharply"],
+    "choicesTL": ["Pumreno agad nang malakas", "I-shift sa neutral", "Hawakan nang mahigpit ang manibela at dahan-dahang alisin ang paa sa gas", "Kabigin ang manibela nang mabilis"],
+    "answerIndex": 2,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Sudden braking during a blowout can cause loss of control; instead, maintain steering and slow down gradually.",
+    "explanationTL": "Ang biglang pagpreno kapag pumutok ang gulong ay maaaring magresulta sa pagkawala ng kontrol; sa halip, panatilihin ang direksyon at dahan-dahang bagalan ang takbo."
+  },
+  {
+    "text": "When approaching a curve, when is the best time to reduce your speed?",
+    "textTL": "Kapag papalapit sa isang kurbada, kailan ang pinakamagandang oras para bagalan ang takbo?",
+    "choices": ["While you are in the middle of the curve", "Before entering the curve", "After exiting the curve", "Only if there is another car"],
+    "choicesTL": ["Habang nasa gitna na ng kurbada", "Bago pumasok sa kurbada", "Pagkatapos lumabas ng kurbada", "Kung may ibang sasakyan lamang"],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Braking inside a curve can cause skidding due to centrifugal force; always slow down before the turn.",
+    "explanationTL": "Ang pagpreno sa loob ng kurbada ay maaaring magdulot ng pag-skid; laging bagalan ang takbo bago pa man kumiwal."
+  },
+  {
+    "text": "When parked facing uphill on a road with a curb, in which direction should you turn your front wheels?",
+    "textTL": "Kapag nakaparada nang paakyat sa kalsadang may bangketa (curb), saang direksyon mo dapat itabi ang iyong mga unahang gulong?",
+    "choices": ["Toward the curb", "Away from the curb", "Parallel to the curb", "It does not matter"],
+    "choicesTL": ["Pa-tungo sa bangketa", "Palyo sa bangketa", "Diretso lang sa bangketa", "Kahit saan"],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Turning wheels away from the curb ensures that if the vehicle rolls back, the back of the front tire will hit the curb and stop the car.",
+    "explanationTL": "Ang pagpihit ng gulong palayo sa bangketa ay tinitiyak na kung umatras man ang sasakyan, tatama ang likod ng gulong sa bangketa at hihinto ito."
+  },
+  {
+    "text": "What should you do if an oncoming vehicle's high-beam headlights are blinding you at night?",
+    "textTL": "Ano ang dapat mong gawin kung nasisilaw ka sa high-beam na ilaw ng kasalubong na sasakyan sa gabi?",
+    "choices": ["Turn on your high-beams too", "Look directly at their headlights", "Look toward the right edge of the road (fog line)", "Close your eyes momentarily"],
+    "choicesTL": ["I-on din ang iyong high-beam", "Tumingin nang diretso sa kanilang ilaw", "Tumingin sa kanang bahagi ng kalsada (fog line)", "Ipikit ang mata sandali"],
+    "answerIndex": 2,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Looking toward the right edge of your lane helps you maintain your position and prevents temporary blindness from the glare.",
+    "explanationTL": "Ang pagtingin sa kanang bahagi ng iyong lane ay tumutulong sa iyo na mapanatili ang iyong posisyon at maiwasan ang pansamantalang pagkabulag sa silaw."
+  },
+  {
+    "text": "What is the proper way to use your brakes when driving down a long, steep hill?",
+    "textTL": "Ano ang tamang paraan ng paggamit ng preno kapag bumababa sa isang mahaba at matarik na burol?",
+    "choices": ["Keep your foot on the brake pedal constantly", "Shift to a lower gear and pump the brakes lightly if needed", "Shift to neutral to save gas", "Turn off the engine"],
+    "choicesTL": ["Panatilihin ang paa sa preno palagi", "Mag-shift sa mababang gear at dahan-dahang tapakan ang preno kung kailangan", "Mag-neutral para makatipid sa gas", "Patayin ang makina"],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Using a lower gear (engine braking) prevents the brakes from overheating and failing during long descents.",
+    "explanationTL": "Ang paggamit ng mababang gear (engine braking) ay umiiwas sa pag-overheat at pagpalya ng preno habang bumababa sa matarik na lugar."
+  },
+  {
+    "text": "When turning left at an intersection, where should you position your vehicle?",
+    "textTL": "Kapag kakaliwa sa isang intersection, saan mo dapat iposisyon ang iyong sasakyan?",
+    "choices": ["On the rightmost lane", "In the center of the intersection", "On the leftmost lane of your side of the road", "Anywhere is fine"],
+    "choicesTL": ["Sa pinakanang lane", "Sa gitna ng intersection", "Sa pinakakaliwang lane sa iyong panig ng kalsada", "Kahit saan ay pwede"],
+    "answerIndex": 2,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "You must approach the turn from the lane closest to the direction you are turning to avoid cutting off other drivers.",
+    "explanationTL": "Dapat kang lumapit mula sa lane na pinakamalapit sa direksyon ng iyong pagliko upang maiwasang masalubong o maharangan ang ibang drayber."
+  },
+  {
+    "text": "What should you do if your accelerator pedal gets stuck while driving?",
+    "textTL": "Ano ang dapat mong gawin kung ang silinyador (accelerator) ay bumarado o naipit habang nagmamaneho?",
+    "choices": ["Turn off the engine immediately while moving", "Shift to neutral, apply brakes, and look for a safe place to pull over", "Pull the handbrake as hard as possible", "Keep driving until you run out of gas"],
+    "choicesTL": ["Patayin agad ang makina habang tumatakbo", "Mag-shift sa neutral, magpreno, at maghanap ng ligtas na tabihan", "Hilahin ang handbrake nang buong lakas", "Ituloy lang ang pagmamaneho hanggang maubusan ng gas"],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Shifting to neutral cuts the power to the wheels, allowing you to stop safely without losing steering control (which happens if the engine is turned off).",
+    "explanationTL": "Ang pag-shift sa neutral ay pinuputol ang daloy ng lakas sa mga gulong, na nagbibigay-daan sa iyo na huminto nang ligtas nang hindi nawawala ang kontrol sa manibela."
+  },
+  {
+    "text": "When an oncoming vehicle (car A) deliberately crosses the centerline to pass another vehicle, you (car B) should:",
+    "textTL": "Kapag ang kasalubong na sasakyan (sasakyan A) ay sadyang lumampas sa centerline para mag-overtake, ikaw (sasakyan B) ay dapat:",
+    "choices": ["Maintain your speed and stay in your lane", "Honk your horn and speed up", "Slow down and move to the right if possible", "Flash your high beams and block their path"],
+    "choicesTL": ["Panatilihin ang iyong bilis at manatili sa iyong lane", "Bumusina at bilisan ang takbo", "Bagalan ang takbo at lumipat sa kanan kung maaari", "Mag-high beam at harangan ang kanilang daan"],
+    "answerIndex": 2,
+    "category": "Road Courtesy",
+    "imageUrl": "https://www.pinoydriver.com/images/question-images/2-lane-overtake.jpg",
+    "explanation": "Defensive driving dictates that you should prioritize safety by slowing down and providing space for the passing vehicle to avoid a head-on collision.",
+    "explanationTL": "Isinasaad ng defensive driving na dapat mong unahin ang kaligtasan sa pamamagitan ng pagbagal at pagbibigay ng espasyo sa nag-o-overtake na sasakyan upang maiwasan ang salubungang banggaan."
+  },
+  {
+    "text": "When driving along with bicyclists, you should:",
+    "textTL": "Kapag nagmamaneho kasabay ang mga nagbibisikleta, dapat kang:",
+    "choices": [
+      "Sound your horn to make them move",
+      "Share the road and maintain a safe distance",
+      "Overtake them as quickly as possible",
+      "Drive close to them to force them off the road"
+    ],
+    "choicesTL": [
+      "Bumusina para sila ay tumabi",
+      "Ibahagi ang kalsada at panatilihin ang ligtas na distansya",
+      "Unahan sila sa lalong madaling panahon",
+      "Dikitan sila para mapilitang lumabas ng kalsada"
+    ],
+    "answerIndex": 1,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "Bicycles have the same right to the road as motor vehicles. According to the [LTO Portal](https://ltoportal.ph), drivers must share the road and keep a safe lateral distance of at least 1.5 meters when passing.",
+    "explanationTL": "Ang mga bisikleta ay may parehong karapatan sa kalsada gaya ng mga sasakyan. Ayon sa [LTO Portal](https://ltoportal.ph), dapat ibahagi ang kalsada at panatilihin ang ligtas na distansya na hindi bababa sa 1.5 metro sa paglampas."
+  },
+  {
+    "text": "If a faster vehicle wants to overtake you on a two-lane highway, you should:",
+    "textTL": "Kung may mas mabilis na sasakyan na gustong lumampas sa iyo sa isang two-lane highway, dapat mong:",
+    "choices": [
+      "Speed up to prevent them from passing",
+      "Stay on the left side of the lane",
+      "Slow down slightly and move to the right to help them pass safely",
+      "Stop in the middle of the road"
+    ],
+    "choicesTL": [
+      "Bilisan ang takbo para hindi sila makalagpas",
+      "Manatili sa kaliwang bahagi ng lane",
+      "Bagalan nang kaunti ang takbo at tumabi sa kanan para makalagpas sila nang ligtas",
+      "Huminto sa gitna ng kalsada"
+    ],
+    "answerIndex": 2,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "Road courtesy dictates that you should assist overtaking vehicles by not increasing your speed and providing enough space for a safe maneuver.",
+    "explanationTL": "Isinasaad ng road courtesy na dapat mong tulungan ang mga sasakyang nag-o-overtake sa pamamagitan ng hindi pagpapabilis at pagbibigay ng sapat na espasyo para sa ligtas na pagmaniobra."
+  },
+  {
+    "text": "When approaching an intersection with no traffic lights or signs and two vehicles arrive at the same time, who has the right of way?",
+    "textTL": "Kapag papalapit sa isang intersection na walang traffic lights o signs at dalawang sasakyan ang dumating nang sabay, sino ang may karapatan sa daan?",
+    "choices": [
+      "The vehicle on the left",
+      "The vehicle on the right",
+      "The larger vehicle",
+      "The faster vehicle"
+    ],
+    "choicesTL": [
+      "Ang sasakyan sa kaliwa",
+      "Ang sasakyan sa kanan",
+      "Ang mas malaking sasakyan",
+      "Ang mas mabilis na sasakyan"
+    ],
+    "answerIndex": 1,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "According to RA 4136, when two vehicles enter an intersection at approximately the same time, the driver of the vehicle on the left shall yield the right of way to the vehicle on the right.",
+    "explanationTL": "Ayon sa RA 4136, kapag ang dalawang sasakyan ay pumasok sa intersection nang halos magkasabay, ang drayber sa kaliwa ay dapat magbigay-daan sa sasakyang nasa kanan."
+  },
+  {
+    "text": "What is the proper attitude when another driver commits a mistake that affects you?",
+    "textTL": "Ano ang tamang saloobin kapag ang ibang drayber ay nagkamali na nakaapekto sa iyo?",
+    "choices": [
+      "Shout at them to teach them a lesson",
+      "Tailgate them to show your frustration",
+      "Remain calm, be patient, and practice defensive driving",
+      "Block their path and confront them"
+    ],
+    "choicesTL": [
+      "Sigawan sila para turuan ng leksyon",
+      "Buntutan sila nang dikit para ipakita ang iyong inis",
+      "Manatiling tenang, maging pasensyoso, at magsanay ng defensive driving",
+      "Harangan ang kanilang daan at confrontahin sila"
+    ],
+    "answerIndex": 2,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "To prevent road rage, a professional or non-pro driver must always maintain emotional control and prioritize safety over ego.",
+    "explanationTL": "Para maiwasan ang road rage, ang isang propesyonal o non-pro na drayber ay dapat laging may kontrol sa emosyon at unahin ang kaligtasan kaysa sa garbo."
+  },
+  {
+    "text": "What should you do when an ambulance comes up behind you flashing red lights and/or sounding its siren?",
+    "textTL": "Ano ang dapat mong gawin kapag may ambulansya sa iyong likuran na may nagfa-flash na pulang ilaw at/o bumubusina ng sirena?",
+    "choices": ["Speed up to stay ahead", "Stop immediately where you are", "Pull over to the right and stop if safe", "Maintain your speed and lane"],
+    "choicesTL": ["Bilisan ang takbo para mauna", "Huminto agad sa kinalalagyan", "Tumabi sa kanan at huminto kung ligtas", "Panatilihin ang bilis at lane"],
+    "answerIndex": 2,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "By law, drivers must yield the right of way to emergency vehicles by pulling over to the right edge of the road.",
+    "explanationTL": "Ayon sa batas, dapat magbigay-daan ang mga drayber sa mga sasakyang pang-emergency sa pamamagitan ng pagtabi sa kanang bahagi ng kalsada."
+  },
+  {
+    "text": "If your brakes fail while driving, what is the first thing you should do?",
+    "textTL": "Kung mawalan ng preno habang nagmamaneho, ano ang unang dapat mong gawin?",
+    "choices": ["Turn off the engine", "Pump the brake pedal rapidly to build pressure", "Shift to high gear", "Jump out of the car"],
+    "choicesTL": ["Patayin ang makina", "Bombahin ang preno nang mabilis para magkaroon ng pressure", "Mag-shift sa mataas na gear", "Tumalon palabas ng kotse"],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Pumping the brakes can often build enough hydraulic pressure to stop. You should also use engine braking by downshifting.",
+    "explanationTL": "Ang pagbomba sa preno ay madalas na nagbibigay ng sapat na pressure para huminto. Dapat ding gamitin ang engine braking sa pamamagitan ng pag-downshift."
+  },
+  {
+    "text": "What should you do if your car begins to skid on a slippery road?",
+    "textTL": "Ano ang dapat mong gawin kung ang iyong sasakyan ay nagsimulang mag-skid sa madulas na kalsada?",
+    "choices": ["Brake hard to stop", "Steer in the direction you want the front of the car to go", "Turn the wheel in the opposite direction of the skid", "Accelerate to gain traction"],
+    "choicesTL": ["Magpreno nang malakas", "Ipihit ang manibela sa direksyon na nais mong puntahan ng harap ng kotse", "Ipihit ang manibela sa kasalungat na direksyon ng skid", "Bilisan ang takbo para kumapit"],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "To regain control during a skid, stay off the brakes and steer into the direction of the skid until you regain traction.",
+    "explanationTL": "Para maibalik ang kontrol, huwag magpreno at ipihit ang manibela sa direksyon ng skid hanggang sa kumapit muli ang mga gulong."
+  },
+  {
+    "text": "What is the safest action if your hood suddenly flies open while driving?",
+    "textTL": "Ano ang pinakaligtas na gawin kung biglang bumukas ang iyong hood habang nagmamaneho?",
+    "choices": ["Stop immediately in the middle of the road", "Look through the gap under the hood or out the side window and pull over", "Try to reach out and pull it down", "Accelerate to make it close"],
+    "choicesTL": ["Huminto agad sa gitna ng kalsada", "Tumingin sa siwang sa ilalim ng hood o sa bintana at tumabi", "Subukang abutin at hilahin ito pababa", "Bilisan ang takbo para sumara ito"],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "If your vision is blocked, use the space between the hood and the dashboard or the side window to guide you to a safe stop.",
+    "explanationTL": "Kung naharangan ang iyong paningin, gamitin ang puwang sa ilalim ng hood o ang bintana sa gilid para gabayan ka sa ligtas na paghinto."
+  },
+  {
+    "text": "If you see a fire starting under your hood, what is the best thing to do?",
+    "textTL": "Kung makakita ka ng apoy sa ilalim ng iyong hood, ano ang pinakamabuting gawin?",
+    "choices": ["Open the hood fully to see the fire", "Spray it with a garden hose", "Pull over, turn off the engine, and get everyone out", "Keep driving to let the wind blow it out"],
+    "choicesTL": ["Buksan nang husto ang hood para makita ang apoy", "Buhusan ito gamit ang garden hose", "Tumabi, patayin ang makina, at palabasin ang lahat", "Ituloy ang pagmamaneho para mahipan ng hangin ang apoy"],
+    "answerIndex": 2,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Safety first: park safely, evacuate all passengers, and call for help. Do not open the hood fully as oxygen will feed the fire.",
+    "explanationTL": "Kaligtasan muna: pumarada nang maayos, palabasin ang lahat, at humingi ng tulong. Huwag buksan nang husto ang hood dahil lalong lalaki ang apoy sa hangin."
+  },
+  {
+    "text": "What should you do if your engine stalls while you are driving?",
+    "textTL": "Ano ang dapat mong gawin kung biglang tumigil (stall) ang iyong makina habang ikaw ay nagmamaneho?",
+    "choices": ["Shift to neutral and steer to a safe spot", "Step on the brakes immediately", "Panic and leave the vehicle", "Keep trying to start it while moving"],
+    "choicesTL": ["Mag-shift sa neutral at itabi ang sasakyan nang ligtas", "Pumreno agad nang malakas", "Mag-panic at iwanan ang sasakyan", "Subukang i-start nang paulit-ulit habang tumatakbo"],
+    "answerIndex": 0,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Shifting to neutral allows you to coast and steer the vehicle to a safe area without the engine's power.",
+    "explanationTL": "Ang pag-shift sa neutral ay nagbibigay-daan sa iyo na mag-giya at itabi ang sasakyan sa ligtas na lugar kahit patay ang makina."
+  },
+  {
+    "text": "If you are involved in a crash where someone is injured, what is your legal obligation?",
+    "textTL": "Kung ikaw ay nasangkot sa isang banggaan kung saan may nasugatan, ano ang iyong legal na obligasyon?",
+    "choices": ["Drive away to find a police station", "Wait for someone else to help", "Stop, render aid, and call for medical help", "Take pictures and leave"],
+    "choicesTL": ["Umalis para maghanap ng istasyon ng pulis", "Maghintay na may ibang tumulong", "Huminto, magbigay ng tulong, at tumawag ng medikal na saklolo", "Kumuha ng larawan at umalis"],
+    "answerIndex": 2,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "RA 4136 requires drivers to stop and provide assistance to any person injured in an accident they are involved in.",
+    "explanationTL": "Hinihiling ng RA 4136 sa mga drayber na huminto at magbigay ng tulong sa sinumang nasugatan sa aksidenteng kinasangkutan nila."
+  },
+  {
+    "text": "What should you do if your headlights suddenly go out while driving at night?",
+    "textTL": "Ano ang dapat mong gawin kung biglang mamatay ang iyong mga ilaw habang nagmamaneho sa gabi?",
+    "choices": ["Speed up to reach your destination faster", "Turn on your hazard lights and pull over safely", "Continue driving using only streetlights", "Keep switching them on and off"],
+    "choicesTL": ["Bilisan ang takbo para makarating agad", "I-on ang hazard lights at tumabi nang ligtas", "Ipagpatuloy ang pagmamaneho gamit ang ilaw sa kalye", "Patuloy na i-on at i-off ang switch"],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Hazard lights help other drivers see you while you find a safe place to stop when your main lights fail.",
+    "explanationTL": "Ang hazard lights ay tumutulong sa ibang drayber na makita ka habang naghahanap ka ng ligtas na tabihan kapag pumalya ang iyong mga ilaw."
+  },
+  {
+    "text": "If you see smoke coming from your dashboard, what is the best initial action?",
+    "textTL": "Kung makakita ka ng usok na lumalabas sa iyong dashboard, ano ang pinakamabuting unang gawin?",
+    "choices": ["Pour water on the dashboard", "Ignore it until you reach home", "Pull over safely and turn off the ignition", "Open all windows and keep driving"],
+    "choicesTL": ["Buhusan ng tubig ang dashboard", "Hayaan lang hanggang makauwi", "Tumabi nang ligtas at patayin ang makina", "Buksan ang lahat ng bintana at ituloy ang pagmamaneho"],
+    "answerIndex": 2,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Turning off the ignition cuts the electrical power, which is the most common source of dashboard smoke or fires.",
+    "explanationTL": "Ang pagpatay sa makina ay pinuputol ang kuryente, na siyang karaniwang pinagmumulan ng usok o apoy sa dashboard."
+  },
+  {
+    "text": "What is the primary danger of driving through deep floodwater?",
+    "textTL": "Ano ang pangunahing panganib ng pagmamaneho sa malalim na baha?",
+    "choices": ["The car will get dirty", "Water may enter the intake and cause hydro-lock", "The tires will lose air pressure", "The radio will stop working"],
+    "choicesTL": ["Madudumihan ang kotse", "Maaaring pumasok ang tubig sa intake at magdulot ng hydro-lock", "Mawawalan ng pressure ang mga gulong", "Hihinto ang paggana ng radyo"],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Hydro-lock occurs when water enters the engine cylinders, causing massive and often permanent mechanical failure.",
+    "explanationTL": "Ang hydro-lock ay nangyayari kapag pumasok ang tubig sa cylinders ng makina, na nagdudulot ng malala at permanenteng pagkasira."
+  }
+]
