@@ -5,9 +5,11 @@ package com.example.mcriderkit.hpt
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.pm.ActivityInfo
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -41,6 +43,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowCompat
@@ -53,6 +56,7 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.media3.ui.PlayerView
 import androidx.navigation.NavHostController
+import com.example.mcriderkit.R
 import com.example.mcriderkit.data.HazardClip
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.delay
@@ -181,65 +185,64 @@ fun HazardReviewScreen(
                         modifier = Modifier
                             .align(Alignment.BottomCenter)
                             .fillMaxWidth()
-                            .padding(horizontal = 24.dp, vertical = 24.dp)
+                            .padding(horizontal = 24.dp, vertical = 40.dp) // Added padding so it's not too low
                     ) {
                         val localMaxWidth = maxWidth
                         val windowStartProgress = it.windowStart.toFloat() / exoPlayer.duration.toFloat()
                         val windowEndProgress = it.windowEnd.toFloat() / exoPlayer.duration.toFloat()
                         val userTapProgress = userTapTime.toFloat() / exoPlayer.duration.toFloat()
 
-                        LinearProgressIndicator(
-                            progress = { playbackProgress },
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(8.dp),
-                            color = MaterialTheme.colorScheme.primary,
-                            trackColor = Color.Transparent
-                        )
+                        // Wrap everything in a Column to stack the flag ABOVE the bars
+                        Column(modifier = Modifier.fillMaxWidth()) {
 
-                        // Scoring window
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(8.dp)
-                                .background(Color.Gray.copy(alpha = 0.5f))
-                        ) {
-                            val colors = listOf(
-                                Color.Green,        // 5 points
-                                Color(0xFF9CCC65),    // 4 points (Light Green)
-                                Color.Yellow,       // 3 points
-                                Color(0xFFFFA726),    // 2 points (Orange)
-                                Color.Red           // 1 point
-                            )
-                            val scoreLabel = 5
-
-                            Row(
+                            // 1. THE FLAG (Sits on top)
+                            Image(
+                                painter = painterResource(id = R.drawable.hazard_flag),
+                                contentDescription = "User Tap Flag",
                                 modifier = Modifier
-                                    .fillMaxHeight()
-                                    .width(localMaxWidth * (windowEndProgress - windowStartProgress))
-                                    .offset(x = localMaxWidth * windowStartProgress)
+                                    // Offset moves it horizontally along the timeline
+                                    .offset(x = (localMaxWidth * userTapProgress) - 8.dp)
+                                    .size(24.dp)
+                            )
+
+                            // 2. THE SCORING WINDOWS (Sits below the flag)
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(10.dp) // Increased height slightly
+                                    .background(Color.Gray.copy(alpha = 0.3f))
                             ) {
-                                colors.forEach { color ->
-                                    scoreLabel - 1
-                                    Box(
-                                        modifier = Modifier
-                                            .fillMaxHeight()
-                                            .weight(1f)
-                                            .background(color.copy(alpha = 0.7f))
-                                    )
+                                val colors = listOf(
+                                    Color.Green, Color(0xFF9CCC65), Color.Yellow,
+                                    Color(0xFFFFA726), Color.Red
+                                )
+
+                                // The coloured score zones
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxHeight()
+                                        .width(localMaxWidth * (windowEndProgress - windowStartProgress))
+                                        .offset(x = localMaxWidth * windowStartProgress)
+                                ) {
+                                    colors.forEach { color ->
+                                        Box(
+                                            modifier = Modifier
+                                                .fillMaxHeight()
+                                                .weight(1f)
+                                                .background(color.copy(alpha = 0.8f))
+                                        )
+                                    }
                                 }
+
+                                // Overlay the playback progress on the same bar
+                                LinearProgressIndicator(
+                                    progress = { playbackProgress },
+                                    modifier = Modifier.fillMaxSize(),
+                                    color = MaterialTheme.colorScheme.primary,
+                                    trackColor = Color.Transparent
+                                )
                             }
                         }
-
-                        // User's tap
-                        Box(
-                            modifier = Modifier
-                                .align(Alignment.CenterStart                        )
-                                .offset(x = localMaxWidth * userTapProgress)
-                                .size(16.dp)
-                                .background(Color.Yellow, shape = MaterialTheme.shapes.small)
-                        )
-
                     }
                 }
             }

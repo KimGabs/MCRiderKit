@@ -1,7 +1,11 @@
 package com.example.mcriderkit
 
+import android.content.Context
+import android.widget.Toast
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -149,18 +154,54 @@ fun LoginScreen(navController: NavHostController) {
                 Text("Login")
             }
 
-
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextButton(onClick = {
-                // Navigate to the signup screen
-                navController.navigate("signup") {
-                    popUpTo("login") { inclusive = true }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ) {
+                TextButton(onClick = { handleForgotPassword(email, context) }) {
+                    Text(
+                        text = "Forgot Password?",
+                        style = MaterialTheme.typography.labelLarge,
+                        color = Color(0xFF1A4FD9) // Your App Blue
+                    )
                 }
-            }) {
-                // Changed text to direct users to signup
-                Text("Don't have an account? Sign up here.")
+            }
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ){
+                TextButton(onClick = {
+                    // Navigate to the signup screen
+                    navController.navigate("signup") {
+                        popUpTo("login") { inclusive = true }
+                    }
+                }) {
+                    // Changed text to direct users to signup
+                    Text(text = "Don't have an account? Sign up here.",
+                        style = MaterialTheme.typography.labelLarge,
+                        color = Color(0xFF1A4FD9)
+                        )
+                }
             }
         }
     }
+}
+
+fun handleForgotPassword(email: String, context: Context) {
+    if (email.isBlank()) {
+        Toast.makeText(context, "Please enter your email first.", Toast.LENGTH_SHORT).show()
+        return
+    }
+
+    Firebase.auth.sendPasswordResetEmail(email)
+        .addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(context, "Reset link sent to $email! 📧", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(context, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
 }

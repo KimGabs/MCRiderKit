@@ -5,7 +5,12 @@ import android.util.Log
 import com.example.mcriderkit.lastEarnedTrophyName
 import com.example.mcriderkit.showTrophyBanner
 import com.google.firebase.Firebase
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.MutableData
+import com.google.firebase.database.Transaction
+import com.google.firebase.database.database
 import com.google.firebase.firestore.firestore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -176,6 +181,7 @@ fun updateHazardStreakAndSave(
         val currentStreak = snapshot.child("streakCount").getValue(Int::class.java) ?: 0
         val maxStreak = snapshot.child("maxStreak").getValue(Int::class.java) ?: 0
         val examPassed = snapshot.child("examPassCount").getValue(Int::class.java) ?: 0
+        val todayDateKey = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
         val isPassed = highestScore > 0
         val isPerfect = highestScore == 5
@@ -183,19 +189,42 @@ fun updateHazardStreakAndSave(
         val updates = mutableMapOf<String, Any>()
 
         // --- STREAK LOGIC (DAILY ONLY) ---
-        if (isDaily && lastHazardDate != todayMs) {
-            val newStreak = when {
-                !isPassed -> 0
-                todayMs - lastHazardDate == oneDayMs -> currentStreak + 1
-                else -> 1
-            }
-            val newMax = if (newStreak > maxStreak) newStreak else maxStreak
+        if (isDaily) {
+            // 🔥 MOVE THIS HERE so it's not blocked by the 'lastHazardDate' check
+            val globalPath = "globalStats/$todayDateKey/$clipId/$highestScore"
+            val globalRef = Firebase.database.getReference(globalPath)
 
-            updates["streakCount"] = newStreak
-            updates["maxStreak"] = newMax
-            updates["lastHazardDate"] = todayMs
-            updates["lastHazardDateKey"] = dateKey
+            globalRef.runTransaction(object : Transaction.Handler {
+                override fun doTransaction(mutableData: MutableData): Transaction.Result {
+                    val currentValue = mutableData.getValue(Int::class.java) ?: 0
+                    mutableData.value = currentValue + 1
+                    return Transaction.success(mutableData)
+                }
+
+                override fun onComplete(
+                    error: DatabaseError?,
+                    committed: Boolean,
+                    snapshot: DataSnapshot?
+                ) {
+                    if (error != null) Log.e("FIREBASE", "Global stats failed: ${error.message}")
+                }
+            })
+
+            if (lastHazardDate != todayMs) {
+                val newStreak = when {
+                    !isPassed -> 0
+                    todayMs - lastHazardDate == oneDayMs -> currentStreak + 1
+                    else -> 1
+                }
+                val newMax = if (newStreak > maxStreak) newStreak else maxStreak
+
+                updates["streakCount"] = newStreak
+                updates["maxStreak"] = newMax
+                updates["lastHazardDate"] = todayMs
+                updates["lastHazardDateKey"] = dateKey
+            }
         }
+
 
         // --- PERFECT SCORE LOGIC (PRACTICE ONLY) ---
         // 🚀 We only increment if isDaily is FALSE

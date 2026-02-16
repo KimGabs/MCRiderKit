@@ -13,13 +13,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -40,8 +45,11 @@ import androidx.navigation.NavHostController
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.database.database
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
-@OptIn(UnstableApi::class)
+@OptIn(UnstableApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun HazardResultScreen(
     score: Int,
@@ -57,6 +65,21 @@ fun HazardResultScreen(
     var winPercentage by remember { mutableIntStateOf(0) }
     var currentStreak by remember { mutableIntStateOf(0) }
     var maxStreak by remember { mutableIntStateOf(0) }
+    var globalDistribution by remember { mutableStateOf(mapOf(1 to 0, 2 to 0, 3 to 0, 4 to 0, 5 to 0)) }
+
+    LaunchedEffect(clipId) {
+        val dateKey = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        val communityRef = Firebase.database.getReference("globalStats/$dateKey/$clipId")
+
+        // Fetch global stats for this specific clip
+        communityRef.get().addOnSuccessListener { snapshot ->
+            val counts = mutableMapOf<Int, Int>()
+            for (i in 1..5) {
+                counts[i] = snapshot.child(i.toString()).getValue(Int::class.java) ?: 0
+            }
+            globalDistribution = counts
+        }
+    }
 
     LaunchedEffect(userId) {
         if (userId != null) {
@@ -169,8 +192,54 @@ fun HazardResultScreen(
 
         // Streak Feedback
         if (isDaily) {
+            var selectedDistributionTab by remember { mutableIntStateOf(0) }
+
             WordleStatsBar(playedCount, winPercentage, currentStreak, maxStreak)
-            ScoreDistributionChart(distribution = scoreDistribution, currentScore = score)
+            Surface(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp),
+                shape = RoundedCornerShape(16.dp), // Smooth rounded corners
+                color = Color.White,                // Background of the container
+                shadowElevation = 4.dp,             // 🚀 THE "SHADOWY" PART
+                tonalElevation = 2.dp               // Adds a subtle Material 3 tint
+            ){
+                Column(modifier = Modifier.fillMaxWidth()) {
+
+                    Text("SCORE DISTRIBUTION", fontWeight = FontWeight.Bold, style = MaterialTheme.typography.labelLarge, modifier = Modifier.align(Alignment.CenterHorizontally).padding(vertical = 8.dp))
+
+                    // 2. The Tab Switcher
+                    TabRow(
+                        selectedTabIndex = selectedDistributionTab,
+                        containerColor = Color.Transparent,
+                        divider = {} // Clean look
+                    ) {
+                        Tab(
+                            selected = selectedDistributionTab == 0,
+                            onClick = { selectedDistributionTab = 0 },
+                            text = { Text("Personal", style = MaterialTheme.typography.labelLarge) }
+                        )
+                        Tab(
+                            selected = selectedDistributionTab == 1,
+                            onClick = { selectedDistributionTab = 1 },
+                            text = { Text("Community", style = MaterialTheme.typography.labelLarge) }
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // 3. Conditional Rendering based on Tab
+                    when (selectedDistributionTab) {
+                        0 -> {
+                            ScoreDistributionChart(distribution = scoreDistribution, currentScore = score)
+                        }
+                        1 -> {
+                            // Community chart (currentScore is 0 so no bar is highlighted green)
+                            ScoreDistributionChart(distribution = globalDistribution, currentScore = score)
+                        }
+                    }
+                }
+            }
         }
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -237,10 +306,7 @@ fun HazardResultScreen(
 fun ScoreDistributionChart(distribution: Map<Int, Int>, currentScore: Int) {
     val maxCount = distribution.values.maxOrNull()?.coerceAtLeast(1) ?: 1
 
-    Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
-        Text("SCORE DISTRIBUTION", fontWeight = FontWeight.Bold, style = MaterialTheme.typography.labelLarge, modifier = Modifier.align(Alignment.CenterHorizontally))
-        Spacer(modifier = Modifier.height(12.dp))
-
+    Column(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
         for (score in 5 downTo 1) { // LTO/HPT usually cares about high scores first
             val count = distribution[score] ?: 0
             val progress = count.toFloat() / maxCount
@@ -296,4 +362,17 @@ fun StatItem(label: String, value: Int) {
             lineHeight = 12.sp
         )
     }
+}
+
+@Composable
+fun GlobalScoreChart(distribution: Map<Int, Int>) {
+    Text(
+        text = "COMMUNITY DISTRIBUTION",
+        style = MaterialTheme.typography.labelLarge,
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier.padding(top = 16.dp)
+    )
+
+    // Pass 0 as currentScore so no bar is highlighted in green
+    ScoreDistributionChart(distribution = distribution, currentScore = 0)
 }

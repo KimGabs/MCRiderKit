@@ -1,6 +1,7 @@
 package com.example.mcriderkit.hpt
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -26,11 +27,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.mcriderkit.HeaderSection
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +44,7 @@ fun HazardDashboard(navController: NavHostController) {
             .verticalScroll(rememberScrollState())
     ) {
         // reuse your existing blue header
-        HeaderSection(username = "User")
+        HazardHeaderSection()
 
         Column(modifier = Modifier.padding(16.dp)) {
             // --- TUTORIAL CARD ---
@@ -97,6 +99,47 @@ fun TutorialCard() {
                     Text(text = text, style = MaterialTheme.typography.bodyMedium)
                 }
             }
+        }
+    }
+}
+
+
+@Composable
+fun HazardHeaderSection() {
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(130.dp)
+            .background(
+                Brush.verticalGradient(
+                    colors = listOf(
+                        Color(0xFF2A6CF6),
+                        Color(0xFF1A4FD9)
+                    )
+                )
+            )
+            .padding(24.dp)
+    ) {
+
+        Column {
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Text(
+                text = "Test your reactions!",
+                color = Color.White,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = "Hazard Perception Test",
+                color = Color.White,
+                fontSize = 28.sp,
+                fontWeight = FontWeight.Bold
+            )
         }
     }
 }

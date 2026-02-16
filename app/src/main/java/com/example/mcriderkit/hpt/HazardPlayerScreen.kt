@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.pm.ActivityInfo
 import androidx.annotation.OptIn
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -13,9 +14,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -39,6 +40,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowCompat
@@ -52,6 +54,7 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.media3.ui.PlayerView
 import androidx.navigation.NavHostController
+import com.example.mcriderkit.R
 import com.example.mcriderkit.data.HazardClip
 import com.example.mcriderkit.data.updateHazardStreakAndSave
 import com.google.firebase.Firebase
@@ -250,13 +253,14 @@ fun HazardPlayerScreen(resId: Int, isDaily: Boolean, navController: NavHostContr
                         gapSize = 0.dp
                     )
                     tapPositions.forEach { progress ->
-                        Icon(
-                            imageVector = Icons.Default.LocationOn,
+                        Image(
+                            painter = painterResource(id = R.drawable.hazard_flag),
                             contentDescription = "Tap Marker",
-                            tint = Color.Yellow,
                             modifier = Modifier
                                 .align(Alignment.CenterStart)
-                                .offset(x = ((maxWidth * progress) - 8.dp) )
+                                // maxWidth is from the BoxWithConstraints we set up earlier
+                                .offset(x = (maxWidth * progress) - 8.dp)
+                                .size(34.dp) // Adjust size so the flag is visible but not huge
                                 .padding(bottom = 12.dp)
                         )
                     }
@@ -272,8 +276,22 @@ fun HazardPlayerScreen(resId: Int, isDaily: Boolean, navController: NavHostContr
                     title = { Text("Exit Test?") },
                     text = { Text("Are you sure you want to exit? Your progress will not be saved.") },
                     confirmButton = {
-                        TextButton(onClick = { navController.navigate("hazard_menu") }) {
-                            Text("Exit Test")
+                        TextButton(onClick = {
+                            showExitDialog = false
+
+                            if (isDaily) {
+                                // 🚀 Navigate back to Home if it was the Daily Challenge
+                                navController.navigate("home") {
+                                    popUpTo("home") { inclusive = true }
+                                }
+                            } else {
+                                // 🚀 Navigate back to the Hazard Menu for practice
+                                navController.navigate("hazard_menu") {
+                                    popUpTo("hazard_menu") { inclusive = true }
+                                }
+                            }
+                        }) {
+                            Text("Exit Test", color = Color.Red)
                         }
                     },
                     dismissButton = {

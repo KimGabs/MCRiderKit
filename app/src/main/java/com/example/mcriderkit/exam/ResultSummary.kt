@@ -49,6 +49,7 @@ fun ResultSummary(
     val percentage = if (total > 0) (score.toFloat() / total * 100).toInt() else 0
     val isPassed = percentage >= 80 // LTO Standard
 
+
     Column(
         modifier = Modifier
             .fillMaxSize()

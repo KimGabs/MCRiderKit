@@ -48,6 +48,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.media3.common.util.Log
 import androidx.media3.common.util.UnstableApi
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import com.example.mcriderkit.data.DashboardStats
 import com.example.mcriderkit.data.HptResult
@@ -316,21 +317,43 @@ fun LearningSection(navController: NavHostController, lastHazardDateKey: String,
             title = "Study Materials",
             subtitle = "Learn traffic rules & signs",
             color = Color(0xFFE8F0FF),
-            onClick = { navController.navigate("study") }
+            onClick = { navController.navigate("study")
+                {
+                    popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
+                    }
+                    launchSingleTop = true
+                    restoreState = true
+                }
+            }
         )
 
         LearningCard(
             title = "Take Mock Exam",
             subtitle = "Test your knowledge",
             color = Color(0xFFE5F8F1),
-            onClick = { navController.navigate("quiz") }
+            onClick = { navController.navigate("quiz"){
+                    popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
+                    }
+                    launchSingleTop = true
+                    restoreState = true
+                }
+            }
         )
 
         LearningCard(
             title = "Hazard Perception Test",
             subtitle = "Improve your awareness",
             color = Color(0xFFFFF1DB),
-            onClick = { navController.navigate("hazard") }
+            onClick = { navController.navigate("hazard")                {
+                    popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
+                    }
+                    launchSingleTop = true
+                    restoreState = true
+                }
+            }
         )
     }
 }
