@@ -39,7 +39,6 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -79,7 +78,6 @@ import com.example.mcriderkit.data.ExamResult
 import com.example.mcriderkit.data.HptResult
 import com.example.mcriderkit.data.calculateDaysUntil
 import com.example.mcriderkit.data.formatDate
-import com.example.mcriderkit.data.pushJsonToFirestore
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.database.DataSnapshot
@@ -574,29 +572,6 @@ fun SettingsItem(label: String, icon: ImageVector, onClick: () -> Unit, isDestru
     }
 }
 
-@Composable
-fun PushToFirebaseButton(){
-    val context = LocalContext.current
-
-    // Json to Realtime Database Button
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(text = "Database Management")
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(onClick = {
-            // 2. Call the utility function
-            pushJsonToFirestore(context)
-        }) {
-            Text("Import JSON HPTs")
-        }
-    }
-}
-
 fun clearExamHistory(userId: String) {
     Firebase.database.getReference("users/$userId/examHistory").removeValue()
 }
@@ -875,13 +850,13 @@ fun TrophyEarnedBanner(visible: Boolean, message: String, onDismiss: () -> Unit)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = "🥳",
-                        style = MaterialTheme.typography.labelLarge,
+                        text = "🎊",
+                        style = MaterialTheme.typography.bodyLarge,
                     )
-                    Spacer(Modifier.width(12.dp))
+                    Spacer(Modifier.width(8.dp))
                     Text(
                         text = message,
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.bodyLarge,
                         fontWeight = FontWeight.Bold,
                         color = Color.Black
                     )

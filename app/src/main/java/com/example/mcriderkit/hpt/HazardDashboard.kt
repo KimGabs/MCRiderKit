@@ -89,7 +89,9 @@ fun TutorialCard() {
                 "Watch the video clip carefully.",
                 "Click/Tap when you see a potential hazard starting to develop.",
                 "A 'Developing Hazard' is something that would cause you to take action (brake or steer).",
-                "Earlier reactions score higher points (up to 5 per hazard)."
+                "Earlier reactions score higher points (up to 5 per hazard).",
+                "You can review your results at the end of the test. Green being a perfect score while red being a late reaction to hazard.",
+                "Tapping the screen more than 5 times will result to a score of 0."
             )
 
             instructions.forEach { text ->

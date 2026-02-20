@@ -231,11 +231,11 @@ fun HazardResultScreen(
                     // 3. Conditional Rendering based on Tab
                     when (selectedDistributionTab) {
                         0 -> {
-                            ScoreDistributionChart(distribution = scoreDistribution, currentScore = score)
+                            ScoreDistributionChart(distribution = scoreDistribution, currentScore = score, "Personal")
                         }
                         1 -> {
                             // Community chart (currentScore is 0 so no bar is highlighted green)
-                            ScoreDistributionChart(distribution = globalDistribution, currentScore = score)
+                            ScoreDistributionChart(distribution = globalDistribution, currentScore = score, "Global")
                         }
                     }
                 }
@@ -303,7 +303,7 @@ fun HazardResultScreen(
 }
 
 @Composable
-fun ScoreDistributionChart(distribution: Map<Int, Int>, currentScore: Int) {
+fun ScoreDistributionChart(distribution: Map<Int, Int>, currentScore: Int, disType: String) {
     val maxCount = distribution.values.maxOrNull()?.coerceAtLeast(1) ?: 1
 
     Column(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
@@ -317,7 +317,6 @@ fun ScoreDistributionChart(distribution: Map<Int, Int>, currentScore: Int) {
                 modifier = Modifier.padding(vertical = 2.dp)
             ) {
                 Text(text = "$score", modifier = Modifier.width(16.dp), fontWeight = FontWeight.Bold)
-
                 // The "Wordle Bar"
                 Box(
                     modifier = Modifier
@@ -327,7 +326,39 @@ fun ScoreDistributionChart(distribution: Map<Int, Int>, currentScore: Int) {
                         .padding(horizontal = 8.dp),
                     contentAlignment = Alignment.CenterEnd
                 ) {
-                    Text("$count", color = Color.White, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.labelSmall)
+                    if (disType == "Personal"){
+                        Text(
+                            text = "$count",
+                            color = Color.White,
+                            fontWeight = FontWeight.Bold,
+                            style = MaterialTheme.typography.labelSmall
+                        )
+                    }else{
+                        if (count > 1){
+                            Text(
+                                text = "$count Players",
+                                color = Color.White,
+                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                        }
+                        if (count == 1){
+                            Text(
+                                text = "$count Player",
+                                color = Color.White,
+                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                        }
+                        if (count == 0){
+                            Text(
+                                text = "$count",
+                                color = Color.White,
+                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -365,7 +396,7 @@ fun StatItem(label: String, value: Int) {
 }
 
 @Composable
-fun GlobalScoreChart(distribution: Map<Int, Int>) {
+fun GlobalScoreChart(distribution: Map<Int, Int>, distribType: String) {
     Text(
         text = "COMMUNITY DISTRIBUTION",
         style = MaterialTheme.typography.labelLarge,
@@ -374,5 +405,5 @@ fun GlobalScoreChart(distribution: Map<Int, Int>) {
     )
 
     // Pass 0 as currentScore so no bar is highlighted in green
-    ScoreDistributionChart(distribution = distribution, currentScore = 0)
+    ScoreDistributionChart(distribution = distribution, currentScore = 0, distribType)
 }

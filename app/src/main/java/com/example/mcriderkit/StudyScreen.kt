@@ -48,6 +48,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.media3.common.util.Log
+import androidx.media3.common.util.UnstableApi
 import androidx.navigation.NavHostController
 import coil3.compose.AsyncImage
 import com.example.mcriderkit.data.Question
@@ -57,13 +59,13 @@ import com.google.firebase.database.database
 import com.google.firebase.firestore.firestore
 
 
+@androidx.annotation.OptIn(UnstableApi::class)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StudyScreen(navController: NavHostController) {
     val db = Firebase.firestore
     var questions by remember { mutableStateOf(listOf<Question>()) }
     var selectedCategory by remember { mutableStateOf("All") }
-    val categories = listOf("All", "General Knowledge", "Road Signs", "Fines and Penalties", "Driving", "Emergencies", "Road Courtesy" )
     var isLoading by remember { mutableStateOf(true) }
     var isTagalog by remember { mutableStateOf(false) }
 
@@ -76,6 +78,30 @@ fun StudyScreen(navController: NavHostController) {
     var showOnlyStarred by remember { mutableStateOf(false) }
     var hideMastered by remember { mutableStateOf(false) }
     var showOnlyMastered by remember { mutableStateOf(false) }
+    var userLicenseType by remember { mutableStateOf("Non-Professional") }
+
+    LaunchedEffect(userId) {
+        if (userId != null) {
+            val userRef = Firebase.database.getReference("users/$userId/licenseType")
+
+            userRef.get().addOnSuccessListener { snapshot ->
+                val type = snapshot.getValue(String::class.java) ?: "Non-Professional"
+                userLicenseType = type
+
+                // ✅ THIS WILL LOG THE CORRECT VALUE
+                Log.d("Debug", "Firebase returned: $userLicenseType")
+            }.addOnFailureListener {
+                Log.e("Debug", "Firebase Error: ${it.message}")
+            }
+        }
+    }
+
+    val categories = if (userLicenseType == "Non-Professional")
+    {
+        listOf("All", "General Knowledge", "Road Signs", "Fines and Penalties", "Driving", "Emergencies", "Road Courtesy" )
+    }else{
+        listOf("All", "General Knowledge", "Road Signs", "Fines and Penalties", "Driving", "Emergencies", "Road Courtesy", "Passenger & Public Safety", "Commercial Vehicle Operation")
+    }
 
 
     LaunchedEffect(Unit) {
@@ -126,11 +152,19 @@ fun StudyScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Study") },
+                title = {
+                    Text(
+                    text = "Study",
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.ExtraBold
+                    ) },
                 actions = {
                     // The Language Toggle Switch
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(if (isTagalog) "PH" else "EN", style = MaterialTheme.typography.labelMedium)
+                        Text(
+                            if (isTagalog) "PH" else "EN",
+                            style = MaterialTheme.typography.labelMedium,
+                        )
                         Switch(
                             checked = isTagalog,
                             onCheckedChange = { isTagalog = it },
@@ -314,7 +348,7 @@ fun QuestionReviewCard(question: Question,
             // 4. The Correct Answer (Highlighted)
             val correctAnswer = displayChoices.getOrNull(question.answerIndex) ?: ""
             Text(
-                text = if (isTagalog) "✓ Tamang Sagot: $correctAnswer" else "✓ Correct Answer: $correctAnswer",
+                text = if (isTagalog) "Sagot: $correctAnswer" else "Answer: $correctAnswer",
                 color = Color(0xFF2E7D32),
                 fontWeight = FontWeight.Bold
             )

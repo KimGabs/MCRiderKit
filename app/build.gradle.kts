@@ -58,6 +58,8 @@ dependencies {
     implementation("androidx.media3:media3-exoplayer:1.2.0")
     implementation("androidx.media3:media3-ui:1.2.0")
 
+    implementation("nl.dionsegijn:konfetti-compose:2.0.4")
+
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:2.9.7")
     implementation("androidx.navigation:navigation-fragment:2.9.7")

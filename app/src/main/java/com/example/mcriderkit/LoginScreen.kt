@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
@@ -51,7 +52,7 @@ fun LoginScreen(navController: NavHostController) {
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             // Changed "Signup" to "Login"
-            Text("Login", style = MaterialTheme.typography.headlineMedium)
+            Text("Login", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.ExtraBold)
             Spacer(modifier = Modifier.height(24.dp))
 
             OutlinedTextField(
@@ -151,7 +152,7 @@ fun LoginScreen(navController: NavHostController) {
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Login")
+                Text(text = "Login", fontWeight = FontWeight.ExtraBold)
             }
 
             Spacer(modifier = Modifier.height(16.dp))

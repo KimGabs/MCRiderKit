@@ -78,7 +78,7 @@
     "textTL": "Ano ang maximum na speed limit para sa pampasaherong sasakyan sa malawak na highway (National Road)?",
     "choices": ["60 kph", "80 kph", "100 kph", "120 kph"],
     "choicesTL": ["60 kph", "80 kph", "100 kph", "120 kph"],
-    "answerIndex": 1
+    "answerIndex": 1,
     "category": "General Knowledge",
     "imageUrl": "",
     "explanation": "The standard speed limit for cars and motorcycles on open national highways is 80 kph.",
@@ -755,6 +755,216 @@
     "explanationTL": "Ang pag-shift sa neutral ay pinuputol ang daloy ng lakas sa mga gulong, na nagbibigay-daan sa iyo na huminto nang ligtas nang hindi nawawala ang kontrol sa manibela."
   },
   {
+    "text": "What is the proper following distance under normal driving conditions?",
+    "textTL": "Ano ang tamang distansya sa pagsunod sa normal na kondisyon ng pagmamaneho?",
+    "choices": [
+      "One-second rule",
+      "Two-second rule",
+      "Three-second rule",
+      "Five-meter distance only"
+    ],
+    "choicesTL": [
+      "Isang segundo",
+      "Dalawang segundo",
+      "Tatlong segundo",
+      "Limang metro lamang"
+    ],
+    "answerIndex": 2,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "The three-second rule gives sufficient reaction time in normal driving conditions.",
+    "explanationTL": "Ang three-second rule ay nagbibigay ng sapat na oras upang makareaksyon sa normal na kondisyon ng pagmamaneho."
+  },
+  {
+    "text": "Before changing lanes on a multi-lane highway, you should:",
+    "textTL": "Bago lumipat ng lane sa multi-lane highway, dapat mong:",
+    "choices": [
+      "Change lanes immediately",
+      "Check mirrors, signal, and perform a shoulder check",
+      "Honk and move over",
+      "Slow down abruptly"
+    ],
+    "choicesTL": [
+      "Lumipat agad ng lane",
+      "Suriin ang mga salamin, magsignal, at mag-shoulder check",
+      "Bumusina at lumipat",
+      "Biglang magbagal"
+    ],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Safe lane changing requires checking mirrors, signaling early, and physically checking blind spots.",
+    "explanationTL": "Ang ligtas na paglipat ng lane ay nangangailangan ng pag-check ng salamin, maagang pagsignal, at pagtingin sa blind spot."
+  },
+  {
+    "text": "If your brakes suddenly fail while driving, what should you do first?",
+    "textTL": "Kung biglang pumalya ang iyong preno habang nagmamaneho, ano ang una mong dapat gawin?",
+    "choices": [
+      "Panic and turn off the engine",
+      "Pump the brake pedal repeatedly",
+      "Jump out of the vehicle",
+      "Accelerate to clear traffic"
+    ],
+    "choicesTL": [
+      "Mag-panic at patayin ang makina",
+      "Paulit-ulit na tapakan ang preno",
+      "Tumalon palabas ng sasakyan",
+      "Bilisan ang takbo"
+    ],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Pumping the brake pedal may restore brake pressure in some systems.",
+    "explanationTL": "Ang paulit-ulit na pagtapak sa preno ay maaaring magbalik ng pressure sa sistema ng preno."
+  },
+  {
+    "text": "When driving in foggy conditions, which lights should you use?",
+    "textTL": "Kapag nagmamaneho sa makapal na hamog, anong ilaw ang dapat gamitin?",
+    "choices": [
+      "High-beam headlights",
+      "Parking lights only",
+      "Low-beam headlights",
+      "Hazard lights only"
+    ],
+    "choicesTL": [
+      "High-beam",
+      "Parking lights lamang",
+      "Low-beam headlights",
+      "Hazard lights lamang"
+    ],
+    "answerIndex": 2,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Low beams reduce glare reflection from fog and improve visibility.",
+    "explanationTL": "Ang low-beam ay nakababawas ng silaw mula sa hamog at nagpapabuti ng visibility."
+  },
+  {
+    "text": "What should you do before starting your vehicle from a parked position?",
+    "textTL": "Ano ang dapat mong gawin bago umandar mula sa pagkakapark?",
+    "choices": [
+      "Accelerate immediately",
+      "Check surroundings and signal if entering traffic",
+      "Honk twice",
+      "Rev the engine loudly"
+    ],
+    "choicesTL": [
+      "Agad na umarangkada",
+      "Suriin ang paligid at magsignal kung papasok sa trapiko",
+      "Bumusina nang dalawang beses",
+      "Paandarin nang malakas ang makina"
+    ],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Checking your surroundings ensures you do not endanger pedestrians or other vehicles.",
+    "explanationTL": "Ang pagsusuri sa paligid ay nakakaiwas sa panganib sa pedestrian at ibang sasakyan."
+  },
+  {
+    "text": "When driving through a flooded road, you should:",
+    "textTL": "Kapag dadaan sa bahang kalsada, dapat mong:",
+    "choices": [
+      "Drive fast to avoid stalling",
+      "Maintain a steady, slow speed",
+      "Shift to neutral",
+      "Turn off headlights"
+    ],
+    "choicesTL": [
+      "Bilisan ang takbo",
+      "Panatilihin ang mabagal at tuloy-tuloy na takbo",
+      "Mag-neutral",
+      "Patayin ang headlights"
+    ],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "A steady slow speed prevents water from entering the engine and reduces risk of stalling.",
+    "explanationTL": "Ang mabagal at tuloy-tuloy na takbo ay nakababawas sa panganib na mapasukan ng tubig ang makina."
+  },
+  {
+    "text": "When entering an expressway, you should:",
+    "textTL": "Kapag papasok sa expressway, dapat mong:",
+    "choices": [
+      "Stop at the entrance",
+      "Match your speed with traffic flow",
+      "Drive slowly on the shoulder",
+      "Signal only after merging"
+    ],
+    "choicesTL": [
+      "Huminto sa pasukan",
+      "Iayon ang bilis sa daloy ng trapiko",
+      "Magmaneho nang mabagal sa shoulder",
+      "Mag-signal pagkatapos makapasok"
+    ],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Matching traffic speed ensures smoother and safer merging.",
+    "explanationTL": "Ang pag-angkop ng bilis sa trapiko ay nagbibigay ng mas ligtas na pag-merge."
+  },
+  {
+    "text": "What is the safest way to handle a skid on a slippery road?",
+    "textTL": "Ano ang pinakaligtas na paraan sa pag-handle ng skid sa madulas na kalsada?",
+    "choices": [
+      "Brake hard immediately",
+      "Steer in the direction you want the front of the vehicle to go",
+      "Accelerate quickly",
+      "Turn the wheel opposite forcefully"
+    ],
+    "choicesTL": [
+      "Biglang magpreno",
+      "I-manibela sa direksyon na nais mong itutok ang harap ng sasakyan",
+      "Biglang mag-accelerate",
+      "Kabigin nang malakas sa kabaligtaran"
+    ],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Steering toward the direction of the skid helps regain control.",
+    "explanationTL": "Ang pag-manibela sa direksyon ng skid ay tumutulong upang maibalik ang kontrol."
+  },
+  {
+    "text": "When approaching a railroad crossing without barriers, you should:",
+    "textTL": "Kapag papalapit sa railroad crossing na walang harang, dapat mong:",
+    "choices": [
+      "Speed up to cross quickly",
+      "Slow down, look both ways, and proceed if clear",
+      "Stop on the tracks to check",
+      "Honk continuously while crossing"
+    ],
+    "choicesTL": [
+      "Bilisan ang pagtawid",
+      "Magbagal, tumingin sa magkabilang panig, at tumawid kung ligtas",
+      "Huminto sa riles",
+      "Bumusina nang tuloy-tuloy"
+    ],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Always ensure no train is approaching before crossing railroad tracks.",
+    "explanationTL": "Tiyaking walang paparating na tren bago tumawid sa riles."
+  },
+  {
+    "text": "When driving behind a large truck or bus, you should:",
+    "textTL": "Kapag nagmamaneho sa likod ng malaking truck o bus, dapat mong:",
+    "choices": [
+      "Drive very close to reduce wind resistance",
+      "Stay out of their blind spots and maintain safe distance",
+      "Flash your headlights continuously",
+      "Overtake without signaling"
+    ],
+    "choicesTL": [
+      "Dumikit upang mabawasan ang hangin",
+      "Iwasan ang kanilang blind spots at panatilihin ang ligtas na distansya",
+      "Mag-flash ng headlights nang tuloy-tuloy",
+      "Lumampas nang walang signal"
+    ],
+    "answerIndex": 1,
+    "category": "Driving",
+    "imageUrl": "",
+    "explanation": "Large vehicles have bigger blind spots and longer stopping distances.",
+    "explanationTL": "Ang malalaking sasakyan ay may mas malalaking blind spot at mas mahabang braking distance."
+  },
+  {
     "text": "When an oncoming vehicle (car A) deliberately crosses the centerline to pass another vehicle, you (car B) should:",
     "textTL": "Kapag ang kasalubong na sasakyan (sasakyan A) ay sadyang lumampas sa centerline para mag-overtake, ikaw (sasakyan B) ay dapat:",
     "choices": ["Maintain your speed and stay in your lane", "Honk your horn and speed up", "Slow down and move to the right if possible", "Flash your high beams and block their path"],
@@ -848,6 +1058,216 @@
     "imageUrl": "",
     "explanation": "To prevent road rage, a professional or non-pro driver must always maintain emotional control and prioritize safety over ego.",
     "explanationTL": "Para maiwasan ang road rage, ang isang propesyonal o non-pro na drayber ay dapat laging may kontrol sa emosyon at unahin ang kaligtasan kaysa sa garbo."
+  },
+  {
+    "text": "When an emergency vehicle with siren and flashing lights approaches from behind, you should:",
+    "textTL": "Kapag may paparating na emergency vehicle na may sirena at umiilaw mula sa likuran, dapat mong:",
+    "choices": [
+      "Maintain your speed and ignore it",
+      "Slow down and move to the side of the road to give way",
+      "Race ahead of it",
+      "Block other vehicles from moving"
+    ],
+    "choicesTL": [
+      "Panatilihin ang bilis at huwag pansinin",
+      "Magbagal at tumabi sa gilid ng kalsada upang magbigay-daan",
+      "Unahan ito",
+      "Harangan ang ibang sasakyan"
+    ],
+    "answerIndex": 1,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "Emergency vehicles responding to incidents must be given priority. Drivers should safely pull over and allow them to pass.",
+    "explanationTL": "Ang mga emergency vehicle na tumutugon sa insidente ay dapat bigyan ng prayoridad. Ang mga drayber ay dapat ligtas na tumabi at magbigay-daan."
+  },
+  {
+    "text": "When pedestrians are crossing at a marked crosswalk, you should:",
+    "textTL": "Kapag may mga pedestrian na tumatawid sa marked crosswalk, dapat mong:",
+    "choices": [
+      "Speed up before they finish crossing",
+      "Honk continuously",
+      "Yield and allow them to cross safely",
+      "Drive around them quickly"
+    ],
+    "choicesTL": [
+      "Bilisan ang takbo bago sila makatawid",
+      "Bumusina nang tuloy-tuloy",
+      "Magbigay-daan at hayaan silang makatawid nang ligtas",
+      "Lampasan sila agad"
+    ],
+    "answerIndex": 2,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "Pedestrians always have the right of way at marked crosswalks. Drivers must stop and yield to ensure their safety.",
+    "explanationTL": "Ang mga pedestrian ay may karapatan sa daan sa marked crosswalk. Dapat huminto at magbigay-daan ang drayber para sa kanilang kaligtasan."
+  },
+  {
+    "text": "If traffic is heavy and an intersection is blocked, you should:",
+    "textTL": "Kung mabigat ang trapiko at barado ang intersection, dapat mong:",
+    "choices": [
+      "Enter the intersection anyway",
+      "Block cross traffic",
+      "Wait until there is enough space to completely cross",
+      "Honk at other drivers"
+    ],
+    "choicesTL": [
+      "Pumasok pa rin sa intersection",
+      "Harangan ang tumatawid na trapiko",
+      "Maghintay hanggang may sapat na espasyo upang tuluyang makatawid",
+      "Bumusina sa ibang drayber"
+    ],
+    "answerIndex": 2,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "Blocking the intersection causes traffic congestion and inconvenience. Always ensure there is enough space before entering.",
+    "explanationTL": "Ang pagharang sa intersection ay nagdudulot ng matinding trapiko at abala. Siguraduhing may sapat na espasyo bago pumasok."
+  },
+  {
+    "text": "When another driver signals to merge into your lane, you should:",
+    "textTL": "Kapag may drayber na nagsi-signal upang lumipat sa iyong lane, dapat mong:",
+    "choices": [
+      "Speed up to prevent them from merging",
+      "Ignore their signal",
+      "Adjust your speed to allow safe merging",
+      "Drive closer to block them"
+    ],
+    "choicesTL": [
+      "Bilisan ang takbo para hindi sila makapasok",
+      "Huwag pansinin ang kanilang signal",
+      "I-adjust ang bilis upang payagan ang ligtas na paglipat",
+      "Dikitan sila para harangan"
+    ],
+    "answerIndex": 2,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "Allowing vehicles to merge smoothly promotes traffic flow and reduces accidents.",
+    "explanationTL": "Ang pagpapahintulot sa maayos na paglipat ng lane ay nakakatulong sa daloy ng trapiko at nakababawas ng aksidente."
+  },
+  {
+    "text": "When driving at night and an oncoming vehicle forgets to dim high beams, you should:",
+    "textTL": "Kapag nagmamaneho sa gabi at hindi nagdi-dim ng high beam ang kasalubong na sasakyan, dapat mong:",
+    "choices": [
+      "Flash your high beams repeatedly",
+      "Look slightly to the right edge of your lane and maintain control",
+      "Close your eyes briefly",
+      "Speed up to pass quickly"
+    ],
+    "choicesTL": [
+      "Mag-high beam nang paulit-ulit",
+      "Tumingin sa kanang gilid ng lane at panatilihin ang kontrol",
+      "Ipikit sandali ang mata",
+      "Bilisan ang takbo"
+    ],
+    "answerIndex": 1,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "To avoid glare, focus on the right edge of the road and maintain steady control of your vehicle.",
+    "explanationTL": "Upang maiwasan ang silaw, tumingin sa kanang gilid ng kalsada at panatilihin ang kontrol sa sasakyan."
+  },
+  {
+    "text": "If you accidentally splash water onto pedestrians during rainy weather, you should:",
+    "textTL": "Kung hindi sinasadyang natalsikan ng tubig ang mga pedestrian kapag maulan, dapat mong:",
+    "choices": [
+      "Ignore them and continue driving",
+      "Slow down in the future and avoid puddles near pedestrians",
+      "Splash more water for fun",
+      "Blame the pedestrians"
+    ],
+    "choicesTL": [
+      "Huwag pansinin at magpatuloy sa pagmamaneho",
+      "Magbagal sa susunod at iwasan ang mga tubig malapit sa pedestrian",
+      "Dagdagan pa ang talsik ng tubig",
+      "Sisihin ang pedestrian"
+    ],
+    "answerIndex": 1,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "Drivers should be considerate and avoid splashing pedestrians by slowing down near puddles.",
+    "explanationTL": "Dapat maging maalalahanin ang mga drayber at iwasang matalsikan ang mga pedestrian sa pamamagitan ng pagbagal malapit sa mga baha."
+  },
+  {
+    "text": "When parking, you should:",
+    "textTL": "Kapag magpa-park, dapat mong:",
+    "choices": [
+      "Occupy two parking spaces",
+      "Park properly within the marked lines",
+      "Block driveways",
+      "Park in front of fire hydrants"
+    ],
+    "choicesTL": [
+      "Sakupin ang dalawang parking space",
+      "Mag-park nang maayos sa loob ng mga guhit",
+      "Harangan ang driveway",
+      "Mag-park sa harap ng fire hydrant"
+    ],
+    "answerIndex": 1,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "Proper parking shows respect for other road users and ensures safety and order.",
+    "explanationTL": "Ang tamang pagpa-park ay nagpapakita ng paggalang sa ibang gumagamit ng kalsada at nagpapanatili ng kaayusan."
+  },
+  {
+    "text": "When driving behind a vehicle that suddenly slows down, you should:",
+    "textTL": "Kapag nagmamaneho sa likod ng sasakyang biglang bumagal, dapat mong:",
+    "choices": [
+      "Tailgate to pressure them",
+      "Honk aggressively",
+      "Reduce speed and maintain a safe following distance",
+      "Overtake without checking"
+    ],
+    "choicesTL": [
+      "Dikitan sila",
+      "Bumusina nang agresibo",
+      "Magbagal at panatilihin ang ligtas na distansya",
+      "Lumampas nang hindi tumitingin"
+    ],
+    "answerIndex": 2,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "Maintaining a safe following distance allows you to react properly and prevents rear-end collisions.",
+    "explanationTL": "Ang pagpapanatili ng ligtas na distansya ay nagbibigay ng sapat na oras upang makareaksyon at maiwasan ang banggaan."
+  },
+  {
+    "text": "If a driver ahead signals a turn, you should:",
+    "textTL": "Kung ang drayber sa unahan ay nagsi-signal ng liko, dapat mong:",
+    "choices": [
+      "Ignore the signal",
+      "Overtake immediately",
+      "Slow down and give them space to complete the turn",
+      "Speed up to pass first"
+    ],
+    "choicesTL": [
+      "Huwag pansinin ang signal",
+      "Lumampas agad",
+      "Magbagal at bigyan sila ng espasyo para makaliko",
+      "Bilisan ang takbo para mauna"
+    ],
+    "answerIndex": 2,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "Giving space to turning vehicles prevents accidents and supports smooth traffic flow.",
+    "explanationTL": "Ang pagbibigay ng espasyo sa mga liliko ay nakakaiwas sa aksidente at nakakatulong sa maayos na daloy ng trapiko."
+  },
+  {
+    "text": "When using your horn, proper road courtesy means you should:",
+    "textTL": "Sa paggamit ng busina, ang tamang road courtesy ay nangangahulugang dapat mong:",
+    "choices": [
+      "Use it to express anger",
+      "Use it only when necessary to warn others of danger",
+      "Press it continuously in traffic",
+      "Use it to hurry pedestrians"
+    ],
+    "choicesTL": [
+      "Gamitin para ipakita ang galit",
+      "Gamitin lamang kung kinakailangan upang magbabala ng panganib",
+      "Pindutin nang tuloy-tuloy sa trapiko",
+      "Gamitin para madaliin ang pedestrian"
+    ],
+    "answerIndex": 1,
+    "category": "Road Courtesy",
+    "imageUrl": "",
+    "explanation": "The horn should only be used as a safety warning device, not as an expression of frustration.",
+    "explanationTL": "Ang busina ay dapat gamitin lamang bilang babala sa kaligtasan at hindi bilang pagpapakita ng inis."
   },
   {
     "text": "What should you do when an ambulance comes up behind you flashing red lights and/or sounding its siren?",
@@ -958,5 +1378,1056 @@
     "imageUrl": "",
     "explanation": "Hydro-lock occurs when water enters the engine cylinders, causing massive and often permanent mechanical failure.",
     "explanationTL": "Ang hydro-lock ay nangyayari kapag pumasok ang tubig sa cylinders ng makina, na nagdudulot ng malala at permanenteng pagkasira."
+  },
+  {
+    "text": "If your steering suddenly becomes very difficult to turn while driving, what is the most likely cause?",
+    "textTL": "Kung biglang tumigas ang manibela habang nagmamaneho, ano ang posibleng dahilan?",
+    "choices": [
+      "Flat tire",
+      "Power steering failure",
+      "Low fuel",
+      "Broken headlights"
+    ],
+    "choicesTL": [
+      "Na-flat na gulong",
+      "Pagpalya ng power steering",
+      "Kaunting gasolina",
+      "Sirang headlights"
+    ],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Power steering failure makes the steering wheel much harder to turn but you can still control the vehicle with effort.",
+    "explanationTL": "Kapag pumalya ang power steering, titigas ang manibela ngunit maaari pa rin itong kontrolin gamit ang sapat na lakas."
+  },
+  {
+    "text": "If your vehicle starts to overheat while driving, what should you do?",
+    "textTL": "Kung nag-o-overheat ang iyong sasakyan habang nagmamaneho, ano ang dapat mong gawin?",
+    "choices": [
+      "Keep driving until you reach home",
+      "Turn off the engine and allow it to cool",
+      "Pour cold water immediately into the radiator",
+      "Drive faster to cool the engine"
+    ],
+    "choicesTL": [
+      "Ipagpatuloy ang pagmamaneho",
+      "Patayin ang makina at hayaang lumamig",
+      "Agad na buhusan ng malamig na tubig ang radiator",
+      "Bilisan ang takbo para lumamig"
+    ],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Stopping and allowing the engine to cool prevents severe engine damage.",
+    "explanationTL": "Ang paghinto at pagpapalamig ng makina ay nakakaiwas sa malubhang pinsala."
+  },
+  {
+    "text": "If your vehicle is submerged in water and the doors will not open, what should you do?",
+    "textTL": "Kung lumubog sa tubig ang sasakyan at hindi mabuksan ang pinto, ano ang dapat mong gawin?",
+    "choices": [
+      "Wait for rescue",
+      "Break a side window and escape",
+      "Keep trying the door handle",
+      "Call someone first"
+    ],
+    "choicesTL": [
+      "Maghintay ng rescue",
+      "Basagin ang side window at lumabas",
+      "Patuloy na subukang buksan ang pinto",
+      "Tumawag muna"
+    ],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Water pressure may prevent doors from opening; breaking a side window allows escape.",
+    "explanationTL": "Maaaring pigilan ng pressure ng tubig ang pagbukas ng pinto; ang pagbabasag ng bintana ay nagbibigay-daan sa paglabas."
+  },
+  {
+    "text": "If you smell strong gasoline while driving, what is the safest action?",
+    "textTL": "Kung naamoy mo ang matinding amoy ng gasolina habang nagmamaneho, ano ang pinakaligtas na gawin?",
+    "choices": [
+      "Ignore it",
+      "Light a match to check",
+      "Pull over safely and turn off the engine",
+      "Drive faster to reduce the smell"
+    ],
+    "choicesTL": [
+      "Huwag pansinin",
+      "Sindihan ang posporo",
+      "Tumabi nang ligtas at patayin ang makina",
+      "Bilisan ang takbo"
+    ],
+    "answerIndex": 2,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Gasoline leaks are highly flammable and require immediate attention.",
+    "explanationTL": "Ang tumatagas na gasolina ay madaling magliyab at nangangailangan ng agarang aksyon."
+  },
+  {
+    "text": "If your windshield wipers suddenly stop working during heavy rain, what should you do?",
+    "textTL": "Kung biglang tumigil ang wipers habang malakas ang ulan, ano ang dapat mong gawin?",
+    "choices": [
+      "Speed up to get home faster",
+      "Turn on hazard lights and pull over safely",
+      "Stick your hand outside to wipe",
+      "Ignore the rain"
+    ],
+    "choicesTL": [
+      "Bilisan ang takbo",
+      "I-on ang hazard lights at tumabi nang ligtas",
+      "Iluwa ang kamay para magpunas",
+      "Huwag pansinin ang ulan"
+    ],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Reduced visibility is dangerous; pulling over safely prevents accidents.",
+    "explanationTL": "Mapanganib ang mababang visibility; ang ligtas na pagtigil ay nakakaiwas sa aksidente."
+  },
+  {
+    "text": "If another driver is aggressively tailgating you, what should you do?",
+    "textTL": "Kung may drayber na agresibong bumubuntot sa iyo, ano ang dapat mong gawin?",
+    "choices": [
+      "Brake suddenly",
+      "Speed up excessively",
+      "Maintain steady speed and allow them to pass when safe",
+      "Wave angrily"
+    ],
+    "choicesTL": [
+      "Biglang magpreno",
+      "Sobrang bilisan ang takbo",
+      "Panatilihin ang bilis at hayaang makalampas kung ligtas",
+      "Magalit at kumaway"
+    ],
+    "answerIndex": 2,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Avoid escalating the situation and allow aggressive drivers to pass safely.",
+    "explanationTL": "Iwasang palalain ang sitwasyon at hayaan silang makalampas nang ligtas."
+  },
+  {
+    "text": "If your battery dies while driving and electrical systems begin failing, what should you do?",
+    "textTL": "Kung mawalan ng karga ang baterya habang tumatakbo at pumapalya ang electrical systems, ano ang dapat mong gawin?",
+    "choices": [
+      "Turn off unnecessary electronics and pull over safely",
+      "Ignore the warning lights",
+      "Drive faster",
+      "Turn off headlights immediately"
+    ],
+    "choicesTL": [
+      "Patayin ang hindi kailangang electronics at tumabi nang ligtas",
+      "Huwag pansinin ang warning lights",
+      "Bilisan ang takbo",
+      "Patayin agad ang headlights"
+    ],
+    "answerIndex": 0,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Reducing electrical load helps maintain limited power until you can stop safely.",
+    "explanationTL": "Ang pagbabawas ng paggamit ng kuryente ay nakatutulong upang tumagal ang natitirang power habang naghahanap ng ligtas na tabihan."
+  },
+  {
+    "text": "If your vehicle catches fire from the rear, what should you avoid doing?",
+    "textTL": "Kung may apoy sa likurang bahagi ng iyong sasakyan, ano ang dapat mong iwasan?",
+    "choices": [
+      "Stopping safely",
+      "Moving away from traffic",
+      "Opening the trunk immediately",
+      "Calling emergency services"
+    ],
+    "choicesTL": [
+      "Paghinto nang ligtas",
+      "Paglayo sa trapiko",
+      "Agad na pagbukas ng trunk",
+      "Pagtawag sa emergency services"
+    ],
+    "answerIndex": 2,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Opening compartments may feed oxygen to the fire and worsen it.",
+    "explanationTL": "Ang pagbukas ng trunk ay maaaring magpasok ng oxygen at magpalala ng apoy."
+  },
+  {
+    "text": "If your vehicle begins hydroplaning, what should you do?",
+    "textTL": "Kung ang iyong sasakyan ay nagsimulang mag-hydroplane, ano ang dapat mong gawin?",
+    "choices": [
+      "Brake hard",
+      "Ease off the accelerator and steer straight",
+      "Turn sharply",
+      "Accelerate quickly"
+    ],
+    "choicesTL": [
+      "Biglang magpreno",
+      "Dahan-dahang alisin ang paa sa silinyador at panatilihing tuwid ang manibela",
+      "Kabigin nang mabilis",
+      "Biglang mag-accelerate"
+    ],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "Sudden braking or turning can worsen hydroplaning. Gradual deceleration helps regain traction.",
+    "explanationTL": "Ang biglang pagpreno o pagliko ay maaaring magpalala ng hydroplaning; ang dahan-dahang pagbagal ay nakatutulong maibalik ang kapit."
+  },
+  {
+    "text": "If you witness a road accident but are not directly involved, what should you do?",
+    "textTL": "Kung nakakita ka ng aksidente ngunit hindi ka kasangkot, ano ang dapat mong gawin?",
+    "choices": [
+      "Drive past quickly",
+      "Stop safely and offer help if possible",
+      "Take videos only",
+      "Block traffic to investigate"
+    ],
+    "choicesTL": [
+      "Lampasan agad",
+      "Huminto nang ligtas at mag-alok ng tulong kung maaari",
+      "Mag-video lamang",
+      "Harangan ang trapiko"
+    ],
+    "answerIndex": 1,
+    "category": "Emergencies",
+    "imageUrl": "",
+    "explanation": "If safe, assisting and reporting emergencies can help save lives.",
+    "explanationTL": "Kung ligtas, ang pagtulong at pag-report ng aksidente ay maaaring makapagliligtas ng buhay."
+  },
+  {
+    "text": "As a professional driver, what is your responsibility before allowing passengers to board?",
+    "textTL": "Bilang professional driver, ano ang iyong responsibilidad bago payagang sumakay ang mga pasahero?",
+    "choices": [
+      "Ensure the vehicle is fully stopped in a safe area",
+      "Keep the vehicle slowly moving",
+      "Allow boarding anywhere",
+      "Ignore passenger safety"
+    ],
+    "choicesTL": [
+      "Siguraduhing ganap na nakahinto sa ligtas na lugar",
+      "Panatilihing mabagal ang andar",
+      "Payagang sumakay kahit saan",
+      "Balewalain ang kaligtasan"
+    ],
+    "answerIndex": 0,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Passengers must board only when the vehicle is fully stopped in a safe area.",
+    "explanationTL": "Dapat sumakay lamang ang pasahero kapag ganap na nakahinto sa ligtas na lugar."
+  },
+  {
+    "text": "What should a professional driver do if a passenger refuses to wear a required seatbelt?",
+    "textTL": "Ano ang dapat gawin kung tumanggi ang pasahero na magsuot ng seatbelt?",
+    "choices": [
+      "Ignore the situation",
+      "Politely insist and explain safety rules",
+      "Drive faster",
+      "Drop the passenger immediately in traffic"
+    ],
+    "choicesTL": [
+      "Balewalain ang sitwasyon",
+      "Maayos na ipaliwanag at igiit ang safety rules",
+      "Bumilis",
+      "Ibaba agad sa gitna ng kalsada"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Professional drivers must enforce safety regulations for passengers.",
+    "explanationTL": "Dapat ipatupad ng professional driver ang safety rules."
+  },
+  {
+    "text": "When transporting children, what extra precaution should be taken?",
+    "textTL": "Kapag may sakay na bata, anong dagdag na pag-iingat ang dapat gawin?",
+    "choices": [
+      "No special action needed",
+      "Ensure proper child restraint or seating",
+      "Let them stand",
+      "Allow them in the front seat anytime"
+    ],
+    "choicesTL": [
+      "Walang espesyal na kailangan",
+      "Siguraduhing may tamang child restraint o upuan",
+      "Hayaan silang tumayo",
+      "Payagan sa harap kahit kailan"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Children require proper restraints for safety.",
+    "explanationTL": "Kinakailangan ang tamang child restraint para sa kaligtasan ng bata."
+  },
+  {
+    "text": "If a passenger causes disturbance that affects safety, what should you do?",
+    "textTL": "Kung may pasaherong nanggugulo at nakakaapekto sa kaligtasan, ano ang dapat gawin?",
+    "choices": [
+      "Ignore it",
+      "Stop safely and address the issue calmly",
+      "Argue while driving",
+      "Speed up"
+    ],
+    "choicesTL": [
+      "Balewalain",
+      "Huminto nang ligtas at kausapin nang maayos",
+      "Makipagtalo habang nagmamaneho",
+      "Bumilis"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Safety must always be prioritized over convenience.",
+    "explanationTL": "Dapat laging unahin ang kaligtasan."
+  },
+  {
+    "text": "Why should doors remain closed while the vehicle is moving?",
+    "textTL": "Bakit dapat nakasara ang pinto habang umaandar ang sasakyan?",
+    "choices": [
+      "For fuel efficiency",
+      "To prevent passengers from falling",
+      "To reduce noise only",
+      "For decoration"
+    ],
+    "choicesTL": [
+      "Para makatipid sa fuel",
+      "Upang maiwasan ang pagkahulog ng pasahero",
+      "Para mabawasan ang ingay lamang",
+      "Para sa dekorasyon"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Open doors while moving can cause serious injuries.",
+    "explanationTL": "Ang bukas na pinto habang umaandar ay maaaring magdulot ng malubhang pinsala."
+  },
+  {
+    "text": "When picking up passengers at night, what is the safest practice?",
+    "textTL": "Kapag nagsasakay ng pasahero sa gabi, ano ang pinakaligtas na gawain?",
+    "choices": [
+      "Stop in dark areas",
+      "Stop in well-lit designated areas",
+      "Let them run toward the vehicle",
+      "Keep moving slowly"
+    ],
+    "choicesTL": [
+      "Huminto sa madilim na lugar",
+      "Huminto sa maliwanag at tamang loading zone",
+      "Patakbuhin sila papunta sa sasakyan",
+      "Panatilihing mabagal ang andar"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Well-lit areas reduce risks and improve visibility.",
+    "explanationTL": "Mas ligtas sa maliwanag at tamang lugar."
+  },
+  {
+    "text": "What should you do before opening doors for passengers to alight?",
+    "textTL": "Ano ang dapat gawin bago buksan ang pinto para bumaba ang pasahero?",
+    "choices": [
+      "Open immediately",
+      "Check mirrors and surroundings for approaching vehicles",
+      "Accelerate slightly",
+      "Ignore traffic"
+    ],
+    "choicesTL": [
+      "Buksan agad",
+      "Suriin ang salamin at paligid kung may paparating na sasakyan",
+      "Dagdagan ang silinyador",
+      "Balewalain ang trapiko"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Checking surroundings prevents dooring accidents.",
+    "explanationTL": "Nakakaiwas ito sa aksidenteng mabangga ang pinto."
+  },
+  {
+    "text": "A professional driver must refuse to transport passengers when:",
+    "textTL": "Dapat tumanggi ang professional driver magdala ng pasahero kapag:",
+    "choices": [
+      "Vehicle exceeds seating capacity",
+      "Passenger pays exact fare",
+      "Traffic is light",
+      "Weather is clear"
+    ],
+    "choicesTL": [
+      "Lampas sa seating capacity ang sakay",
+      "Eksakto ang bayad",
+      "Magaan ang trapiko",
+      "Maaliwalas ang panahon"
+    ],
+    "answerIndex": 0,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Overloading endangers passengers and violates regulations.",
+    "explanationTL": "Ang overloading ay delikado at labag sa batas."
+  },
+
+  {
+    "text": "Why is professional conduct important for public drivers?",
+    "textTL": "Bakit mahalaga ang maayos na asal para sa public driver?",
+    "choices": [
+      "To avoid complaints and ensure public trust",
+      "To increase speed",
+      "To ignore rules",
+      "For entertainment"
+    ],
+    "choicesTL": [
+      "Upang maiwasan ang reklamo at mapanatili ang tiwala ng publiko",
+      "Para bumilis",
+      "Para balewalain ang batas",
+      "Para sa aliwan"
+    ],
+    "answerIndex": 0,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Professional conduct builds public trust and ensures safety.",
+    "explanationTL": "Ang maayos na asal ay nagpapatibay ng tiwala at kaligtasan."
+  },
+  {
+    "text": "If a passenger suddenly becomes ill during the trip, what should you do?",
+    "textTL": "Kung biglang nagkasakit ang pasahero habang bumiyahe, ano ang dapat gawin?",
+    "choices": [
+      "Ignore it",
+      "Stop safely and seek assistance if necessary",
+      "Drive faster to finish trip",
+      "Ask other passengers to handle it"
+    ],
+    "choicesTL": [
+      "Balewalain",
+      "Huminto nang ligtas at humingi ng tulong kung kailangan",
+      "Bumilis para matapos agad",
+      "Ipasa sa ibang pasahero"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Passenger welfare is part of a professional driver's duty.",
+    "explanationTL": "Bahagi ng tungkulin ng professional driver ang kapakanan ng pasahero."
+  },
+  {
+    "text": "If passengers request to be dropped off in a dangerous location, what should a professional driver do?",
+    "textTL": "Kung nais ng pasahero na bumaba sa mapanganib na lugar, ano ang dapat gawin ng professional driver?",
+    "choices": [
+      "Follow the request immediately",
+      "Refuse and explain safety concerns",
+      "Stop in the middle of traffic",
+      "Speed up and ignore them"
+    ],
+    "choicesTL": [
+      "Sundin agad ang kahilingan",
+      "Tumanggi at ipaliwanag ang panganib",
+      "Huminto sa gitna ng trapiko",
+      "Bumilis at balewalain sila"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Drivers must prioritize safety over passenger convenience.",
+    "explanationTL": "Dapat unahin ng driver ang kaligtasan kaysa kaginhawaan."
+  },
+  {
+    "text": "What is the safest action if passengers are standing in a moving public utility vehicle?",
+    "textTL": "Ano ang pinakaligtas na hakbang kung may nakatayong pasahero habang umaandar ang sasakyan?",
+    "choices": [
+      "Ignore them",
+      "Instruct them to sit or hold firmly",
+      "Increase speed",
+      "Brake suddenly"
+    ],
+    "choicesTL": [
+      "Balewalain sila",
+      "Sabihing umupo o humawak nang maigi",
+      "Dagdagan ang bilis",
+      "Biglang preno"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Standing passengers are at higher risk of injury during sudden stops.",
+    "explanationTL": "Mas mataas ang panganib sa nakatayong pasahero kapag biglang huminto."
+  },
+  {
+    "text": "Why must a professional driver avoid using a mobile phone while driving passengers?",
+    "textTL": "Bakit dapat iwasan ng professional driver ang paggamit ng cellphone habang may sakay na pasahero?",
+    "choices": [
+      "It drains battery",
+      "It distracts and increases accident risk",
+      "It reduces signal strength",
+      "It saves fuel"
+    ],
+    "choicesTL": [
+      "Nakakaubos ng baterya",
+      "Nakakadistract at nagpapataas ng panganib ng aksidente",
+      "Humihina ang signal",
+      "Nakakatipid sa fuel"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Distracted driving endangers passengers and other road users.",
+    "explanationTL": "Ang distracted driving ay naglalagay sa panganib sa pasahero at ibang motorista."
+  },
+  {
+    "text": "When should elderly or disabled passengers be assisted?",
+    "textTL": "Kailan dapat tulungan ang matatanda o may kapansanan na pasahero?",
+    "choices": [
+      "Only if they request loudly",
+      "Whenever assistance is clearly needed",
+      "Never",
+      "Only during daytime"
+    ],
+    "choicesTL": [
+      "Kapag malakas silang humingi ng tulong",
+      "Kapag malinaw na nangangailangan ng tulong",
+      "Huwag kailanman",
+      "Sa umaga lamang"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Professional drivers must provide reasonable assistance to vulnerable passengers.",
+    "explanationTL": "Dapat tulungan ang mga pasaherong nangangailangan ng dagdag na pag-iingat."
+  },
+  {
+    "text": "If a fire breaks out inside a public vehicle, what is the first priority?",
+    "textTL": "Kung may sunog sa loob ng pampasaherong sasakyan, ano ang unang dapat unahin?",
+    "choices": [
+      "Collect fares",
+      "Evacuate passengers safely",
+      "Argue about responsibility",
+      "Continue driving"
+    ],
+    "choicesTL": [
+      "Mangolekta ng bayad",
+      "Ilabas ang mga pasahero nang ligtas",
+      "Makipagtalo",
+      "Magpatuloy sa pagmamaneho"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Passenger safety is the highest priority during emergencies.",
+    "explanationTL": "Ang kaligtasan ng pasahero ang pinakamahalaga sa emergency."
+  },
+  {
+    "text": "Why should passenger handrails be maintained in good condition?",
+    "textTL": "Bakit dapat nasa maayos na kondisyon ang mga handrail ng pasahero?",
+    "choices": [
+      "For decoration",
+      "To provide support during sudden movements",
+      "To improve speed",
+      "To reduce engine noise"
+    ],
+    "choicesTL": [
+      "Para sa dekorasyon",
+      "Upang may mahawakan sa biglaang galaw",
+      "Para bumilis",
+      "Para mabawasan ang ingay ng makina"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Handrails help prevent falls during sudden stops or turns.",
+    "explanationTL": "Nakakatulong ang handrails upang maiwasan ang pagkahulog."
+  },
+  {
+    "text": "If passengers exceed the vehicle’s legal seating capacity, what must you do?",
+    "textTL": "Kung lumampas sa legal seating capacity ang mga pasahero, ano ang dapat gawin?",
+    "choices": [
+      "Accept them all",
+      "Refuse excess passengers",
+      "Let them sit on the roof",
+      "Drive faster to compensate"
+    ],
+    "choicesTL": [
+      "Tanggapin silang lahat",
+      "Tumanggi sa sobrang pasahero",
+      "Paupuin sa bubong",
+      "Bumilis para makabawi"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Overloading is dangerous and illegal.",
+    "explanationTL": "Ang overloading ay delikado at labag sa batas."
+  },
+  {
+    "text": "What should a professional driver do before starting the trip with passengers?",
+    "textTL": "Ano ang dapat gawin bago simulan ang biyahe kasama ang mga pasahero?",
+    "choices": [
+      "Ensure all doors are securely closed",
+      "Play loud music",
+      "Accelerate immediately",
+      "Ignore warning lights"
+    ],
+    "choicesTL": [
+      "Siguraduhing nakasara nang maayos ang mga pinto",
+      "Magpatugtog nang malakas",
+      "Bumilis agad",
+      "Balewalain ang warning lights"
+    ],
+    "answerIndex": 0,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Securing doors prevents accidental falls.",
+    "explanationTL": "Ang pagsigurong nakasara ang pinto ay nakakaiwas sa aksidente."
+  },
+  {
+    "text": "If a passenger attempts to interfere with vehicle controls, what should you do?",
+    "textTL": "Kung may pasaherong nakikialam sa kontrol ng sasakyan, ano ang dapat gawin?",
+    "choices": [
+      "Ignore it",
+      "Stop safely and prevent further interference",
+      "Speed up",
+      "Argue while driving"
+    ],
+    "choicesTL": [
+      "Balewalain",
+      "Huminto nang ligtas at pigilan ang pakikialam",
+      "Bumilis",
+      "Makipagtalo habang nagmamaneho"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Interference with controls endangers everyone in the vehicle.",
+    "explanationTL": "Ang pakikialam sa kontrol ng sasakyan ay naglalagay sa panganib sa lahat."
+  },
+  {
+    "text": "Why is it important to follow designated loading and unloading zones?",
+    "textTL": "Bakit mahalagang sumunod sa tamang loading at unloading zones?",
+    "choices": [
+      "To reduce walking distance only",
+      "To maintain traffic order and passenger safety",
+      "To avoid toll fees",
+      "To save fuel"
+    ],
+    "choicesTL": [
+      "Para mabawasan lang ang lakad",
+      "Upang mapanatili ang kaayusan ng trapiko at kaligtasan",
+      "Para maiwasan ang toll fee",
+      "Para makatipid sa fuel"
+    ],
+    "answerIndex": 1,
+    "category": "Passenger & Public Safety",
+    "imageUrl": "",
+    "explanation": "Designated zones reduce traffic disruption and accidents.",
+    "explanationTL": "Nakakatulong ang tamang zone upang maiwasan ang aksidente at sagabal sa trapiko."
+  },
+  {
+    "text": "What is the primary responsibility of a commercial driver before starting a trip?",
+    "textTL": "Ano ang pangunahing responsibilidad ng isang commercial driver bago magsimula ng biyahe?",
+    "choices": [
+      "Wash the vehicle",
+      "Conduct a pre-trip inspection",
+      "Warm up the engine for 30 minutes",
+      "Call the dispatcher"
+    ],
+    "choicesTL": [
+      "Hugasan ang sasakyan",
+      "Magsagawa ng pre-trip inspection",
+      "Painitin ang makina ng 30 minuto",
+      "Tumawag sa dispatcher"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "A pre-trip inspection ensures that brakes, tires, lights, and other critical components are safe before operating.",
+    "explanationTL": "Ang pre-trip inspection ay nagsisiguro na ang preno, gulong, ilaw, at iba pang mahalagang bahagi ay ligtas bago bumiyahe."
+  },
+  {
+    "text": "Why must cargo be properly secured in a commercial vehicle?",
+    "textTL": "Bakit kailangang maayos na naka-secure ang kargamento sa commercial vehicle?",
+    "choices": [
+      "To improve fuel efficiency",
+      "To prevent shifting that may affect vehicle stability",
+      "To reduce tire wear",
+      "To make unloading easier only"
+    ],
+    "choicesTL": [
+      "Para makatipid sa krudo",
+      "Upang maiwasan ang paggalaw ng kargamento na makaaapekto sa stability",
+      "Para mabawasan ang pagkasira ng gulong",
+      "Para mas madaling magbaba ng karga"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Unsecured cargo can shift during turns or braking, increasing rollover and crash risk.",
+    "explanationTL": "Ang hindi maayos na karga ay maaaring gumalaw habang lumiliko o nagpepreno, na nagdudulot ng panganib sa aksidente."
+  },
+  {
+    "text": "What is the risk of overloading a commercial vehicle?",
+    "textTL": "Ano ang panganib ng pag-overload sa commercial vehicle?",
+    "choices": [
+      "Improved braking power",
+      "Better stability",
+      "Increased stopping distance and brake failure",
+      "Faster travel time"
+    ],
+    "choicesTL": [
+      "Mas malakas na preno",
+      "Mas magandang stability",
+      "Mas mahabang stopping distance at posibilidad ng brake failure",
+      "Mas mabilis na biyahe"
+    ],
+    "answerIndex": 2,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Overloading strains braking systems and increases stopping distance significantly.",
+    "explanationTL": "Ang pag-overload ay nagpapahirap sa preno at nagpapahaba ng distansya bago tuluyang huminto."
+  },
+  {
+    "text": "When transporting passengers, what must a professional driver ensure?",
+    "textTL": "Kapag nagsasakay ng pasahero, ano ang dapat tiyakin ng professional driver?",
+    "choices": [
+      "Passengers stand near the door",
+      "Doors remain open for ventilation",
+      "Safe loading and unloading at designated areas",
+      "Music volume is high"
+    ],
+    "choicesTL": [
+      "Nakatayo ang pasahero malapit sa pinto",
+      "Bukas ang pinto para sa hangin",
+      "Ligtas na pagsakay at pagbaba sa tamang lugar",
+      "Malakas ang tugtog"
+    ],
+    "answerIndex": 2,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Professional drivers are responsible for ensuring passenger safety during loading and unloading.",
+    "explanationTL": "Responsibilidad ng professional driver ang kaligtasan ng pasahero sa pagsakay at pagbaba."
+  },
+  {
+    "text": "What is the correct action when descending a steep hill with a loaded truck?",
+    "textTL": "Ano ang tamang gawin kapag bumababa sa matarik na burol gamit ang may kargang truck?",
+    "choices": [
+      "Shift to neutral",
+      "Use engine braking and lower gears",
+      "Turn off the engine",
+      "Brake continuously"
+    ],
+    "choicesTL": [
+      "Mag-neutral",
+      "Gamitin ang engine braking at mababang gear",
+      "Patayin ang makina",
+      "Panatilihing nakatapak sa preno"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Using lower gears prevents overheating and brake failure during long descents.",
+    "explanationTL": "Ang paggamit ng mababang gear ay nakakaiwas sa pag-overheat at pagpalya ng preno."
+  },
+  {
+    "text": "Large commercial vehicles have bigger blind spots. What should drivers do?",
+    "textTL": "Mas malalaki ang blind spot ng malalaking commercial vehicle. Ano ang dapat gawin ng drayber?",
+    "choices": [
+      "Ignore small vehicles",
+      "Rely only on mirrors",
+      "Perform proper mirror checks and shoulder checks when safe",
+      "Drive only in the middle lane"
+    ],
+    "choicesTL": [
+      "Huwag pansinin ang maliliit na sasakyan",
+      "Umasa lamang sa salamin",
+      "Magsagawa ng tamang mirror check at shoulder check kung ligtas",
+      "Sa gitnang lane lamang magmaneho"
+    ],
+    "answerIndex": 2,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Extra caution is needed because blind spots are significantly larger in commercial vehicles.",
+    "explanationTL": "Mas kailangan ang pag-iingat dahil mas malalaki ang blind spot ng commercial vehicle."
+  },
+  {
+    "text": "What should a commercial driver do if cargo shifts while driving?",
+    "textTL": "Ano ang dapat gawin ng commercial driver kung gumalaw ang kargamento habang nagmamaneho?",
+    "choices": [
+      "Continue driving to destination",
+      "Stop safely and re-secure the load",
+      "Accelerate to stabilize",
+      "Ignore minor movement"
+    ],
+    "choicesTL": [
+      "Ipagpatuloy ang biyahe",
+      "Tumabi nang ligtas at ayusin muli ang karga",
+      "Bilisan ang takbo",
+      "Huwag pansinin ang paggalaw"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Shifting cargo can destabilize the vehicle and must be corrected immediately.",
+    "explanationTL": "Ang gumagalaw na karga ay maaaring magdulot ng pagkawala ng balanse ng sasakyan at dapat agad ayusin."
+  },
+  {
+    "text": "Why must professional drivers observe regulated driving hours?",
+    "textTL": "Bakit kailangang sundin ng professional drivers ang itinakdang oras ng pagmamaneho?",
+    "choices": [
+      "To reduce fuel cost",
+      "To avoid traffic",
+      "To prevent fatigue-related accidents",
+      "To extend engine life"
+    ],
+    "choicesTL": [
+      "Para makatipid sa krudo",
+      "Para maiwasan ang trapiko",
+      "Upang maiwasan ang aksidenteng dulot ng pagkapagod",
+      "Para tumagal ang makina"
+    ],
+    "answerIndex": 2,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Driver fatigue is a major cause of commercial vehicle accidents.",
+    "explanationTL": "Ang pagkapagod ng drayber ay isa sa pangunahing sanhi ng aksidente sa commercial vehicle."
+  },
+  {
+    "text": "When approaching a loading dock, a commercial driver should:",
+    "textTL": "Kapag papalapit sa loading dock, ano ang dapat gawin ng commercial driver?",
+    "choices": [
+      "Reverse quickly",
+      "Use a guide when available and proceed slowly",
+      "Ignore hand signals",
+      "Park diagonally"
+    ],
+    "choicesTL": [
+      "Mag-reverse nang mabilis",
+      "Gumamit ng guide kung mayroon at dahan-dahang umatras",
+      "Huwag pansinin ang hand signals",
+      "Mag-park nang pahilis"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Using a spotter reduces the risk of collision while reversing large vehicles.",
+    "explanationTL": "Ang paggamit ng guide ay nakababawas sa panganib ng banggaan habang umaatras."
+  },
+  {
+    "text": "What is required before operating a commercial vehicle for public transport?",
+    "textTL": "Ano ang kinakailangan bago mag-operate ng commercial vehicle para sa pampublikong transportasyon?",
+    "choices": [
+      "Personal insurance only",
+      "Proper franchise and valid professional license",
+      "Any driver’s license",
+      "Vehicle repainting"
+    ],
+    "choicesTL": [
+      "Personal insurance lamang",
+      "Tamang prangkisa at valid professional license",
+      "Kahit anong lisensya",
+      "Pagpintura ng sasakyan"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Operating public transport requires proper authorization and a valid professional license.",
+    "explanationTL": "Kinakailangan ang tamang pahintulot at valid professional license sa pampublikong transportasyon."
+  },
+  {
+    "text": "When operating a bus, when should passengers be allowed to board or alight?",
+    "textTL": "Kailan dapat payagang sumakay o bumaba ang mga pasahero sa bus?",
+    "choices": [
+      "While the vehicle is slowly moving",
+      "Only when the vehicle is at a complete stop in a safe area",
+      "Anywhere the passenger requests",
+      "In the middle of an intersection"
+    ],
+    "choicesTL": [
+      "Habang mabagal na umaandar",
+      "Kapag ganap na nakahinto sa ligtas na lugar",
+      "Kahit saan hilingin ng pasahero",
+      "Sa gitna ng intersection"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Passengers must board or alight only when the vehicle is fully stopped in a safe location.",
+    "explanationTL": "Dapat sumakay o bumaba lamang ang pasahero kapag ganap na nakahinto sa ligtas na lugar."
+  },
+  {
+    "text": "Why should a commercial truck driver avoid sudden braking?",
+    "textTL": "Bakit dapat iwasan ng truck driver ang biglaang pagpreno?",
+    "choices": [
+      "It wastes fuel",
+      "It may cause cargo to shift or jackknife",
+      "It makes noise",
+      "It improves speed"
+    ],
+    "choicesTL": [
+      "Nakakasayang ng fuel",
+      "Maaaring gumalaw ang karga o mag-jackknife",
+      "Maingay",
+      "Nakakabilis"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Sudden braking can cause heavy cargo to shift and lead to loss of control.",
+    "explanationTL": "Ang biglaang preno ay maaaring magpalipat ng karga at magdulot ng pagkawala ng kontrol."
+  },
+  {
+    "text": "Before starting a long trip, what document must a professional driver ensure is valid?",
+    "textTL": "Bago bumiyahe nang malayo, anong dokumento ang dapat tiyaking valid?",
+    "choices": [
+      "Expired insurance",
+      "Driver’s license and vehicle registration",
+      "Old receipts",
+      "Music playlist"
+    ],
+    "choicesTL": [
+      "Expired insurance",
+      "Lisensya at rehistro ng sasakyan",
+      "Lumang resibo",
+      "Playlist ng musika"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Valid license and registration are mandatory for legal operation.",
+    "explanationTL": "Kinakailangan ang valid na lisensya at rehistro para legal na makabiyahe."
+  },
+  {
+    "text": "What is the purpose of using wheel chocks when parked on an incline?",
+    "textTL": "Ano ang layunin ng wheel chocks kapag naka-park sa paahon o pababa?",
+    "choices": [
+      "Decorative purpose",
+      "Prevent the vehicle from rolling",
+      "Increase engine power",
+      "Cool the tires"
+    ],
+    "choicesTL": [
+      "Para sa dekorasyon",
+      "Upang maiwasang gumulong ang sasakyan",
+      "Para lumakas ang makina",
+      "Para palamigin ang gulong"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Wheel chocks secure the vehicle and prevent unintended movement.",
+    "explanationTL": "Pinipigilan ng wheel chocks ang hindi inaasahang paggalaw ng sasakyan."
+  },
+  {
+    "text": "When carrying hazardous materials, what is required?",
+    "textTL": "Kapag may dalang hazardous materials, ano ang kinakailangan?",
+    "choices": [
+      "No special requirement",
+      "Proper labeling and safety compliance",
+      "Drive faster",
+      "Hide the cargo"
+    ],
+    "choicesTL": [
+      "Walang espesyal na kailangan",
+      "Tamang label at pagsunod sa safety rules",
+      "Magmaneho nang mas mabilis",
+      "Itago ang karga"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Hazardous materials require proper identification and compliance with safety laws.",
+    "explanationTL": "Kinakailangan ang tamang pagkilala at pagsunod sa safety laws para sa hazardous materials."
+  },
+  {
+    "text": "Why should mirrors be adjusted properly before departure?",
+    "textTL": "Bakit dapat ayusin ang mga salamin bago umalis?",
+    "choices": [
+      "For appearance",
+      "To reduce blind spots",
+      "To improve radio signal",
+      "To cool the cabin"
+    ],
+    "choicesTL": [
+      "Para sa itsura",
+      "Upang mabawasan ang blind spots",
+      "Para lumakas ang radyo",
+      "Para palamigin ang loob"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Proper mirror adjustment reduces blind spots and improves safety.",
+    "explanationTL": "Ang tamang ayos ng salamin ay nagpapabawas ng blind spots at nagpapataas ng kaligtasan."
+  },
+  {
+    "text": "When should a commercial vehicle use hazard lights?",
+    "textTL": "Kailan dapat gumamit ng hazard lights ang commercial vehicle?",
+    "choices": [
+      "When parked illegally",
+      "During emergency stops or breakdowns",
+      "While overtaking",
+      "When speeding"
+    ],
+    "choicesTL": [
+      "Kapag illegal ang parking",
+      "Kapag may emergency stop o sira",
+      "Habang nag-overtake",
+      "Kapag bumibilis"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Hazard lights warn other road users of a stationary or disabled vehicle.",
+    "explanationTL": "Nagbibigay babala ang hazard lights sa ibang motorista kapag nakahinto o sira ang sasakyan."
+  },
+  {
+    "text": "Why is weight distribution important in trucks?",
+    "textTL": "Bakit mahalaga ang tamang distribusyon ng bigat sa truck?",
+    "choices": [
+      "For decoration",
+      "To maintain balance and steering control",
+      "To increase horn sound",
+      "To improve seat comfort"
+    ],
+    "choicesTL": [
+      "Para sa dekorasyon",
+      "Upang mapanatili ang balanse at kontrol sa manibela",
+      "Para lumakas ang busina",
+      "Para komportable ang upuan"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Uneven weight distribution affects steering and braking stability.",
+    "explanationTL": "Ang hindi pantay na bigat ay nakakaapekto sa kontrol at preno."
+  },
+  {
+    "text": "When reversing a large commercial vehicle, what is recommended?",
+    "textTL": "Kapag nagre-reverse ng malaking commercial vehicle, ano ang inirerekomenda?",
+    "choices": [
+      "Reverse quickly",
+      "Use a guide person if available",
+      "Close your mirrors",
+      "Ignore surroundings"
+    ],
+    "choicesTL": [
+      "Mag-reverse nang mabilis",
+      "Gumamit ng guide person kung mayroon",
+      "Isara ang salamin",
+      "Balewalain ang paligid"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "A guide person reduces blind spot risk during reversing.",
+    "explanationTL": "Nakababawas ng panganib sa blind spots ang guide person."
+  },
+  {
+    "text": "What should a professional driver do if the vehicle exceeds legal load capacity?",
+    "textTL": "Ano ang dapat gawin ng professional driver kung lumampas sa legal load capacity ang sasakyan?",
+    "choices": [
+      "Continue driving carefully",
+      "Reduce the load before traveling",
+      "Drive faster",
+      "Ignore the limit"
+    ],
+    "choicesTL": [
+      "Magpatuloy nang maingat",
+      "Bawasan ang karga bago bumiyahe",
+      "Bumilis",
+      "Balewalain ang limitasyon"
+    ],
+    "answerIndex": 1,
+    "category": "Commercial Vehicle Operation",
+    "imageUrl": "",
+    "explanation": "Exceeding load limits increases accident risk and legal penalties.",
+    "explanationTL": "Ang sobrang karga ay nagpapataas ng panganib at legal na parusa."
   }
 ]

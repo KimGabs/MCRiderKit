@@ -86,6 +86,18 @@ fun MockExamScreen(navController: NavHostController, category: String) {
     val sheetState = rememberModalBottomSheetState()
     var showSheet by remember { mutableStateOf(false) }
 
+    var userLicenseType by remember { mutableStateOf("Non-Professional") }
+    val userId = Firebase.auth.currentUser?.uid
+
+    LaunchedEffect(userId) {
+        if (userId != null) {
+            Firebase.database.getReference("users/$userId/licenseType")
+                .get().addOnSuccessListener { snapshot ->
+                    userLicenseType = snapshot.getValue(String::class.java) ?: "Non-Professional"
+                }
+        }
+    }
+
     var showExitDialog by remember { mutableStateOf(false) }
     if (showExitDialog) {
         AlertDialog(
@@ -112,13 +124,27 @@ fun MockExamScreen(navController: NavHostController, category: String) {
             val allQuestions = result.toObjects(Question::class.java)
 
             // 1. Create the filtered list inside the listener
-            val filteredList = if (category == "All") {
-                val fines = allQuestions.filter { it.category == "Fines and Penalties" }.shuffled().take(5)
-                val others = allQuestions.filter { it.category != "Fines and Penalties" }.shuffled().take(45)
-                (fines + others).shuffled()
-            } else {
-                allQuestions.filter { it.category == category }.shuffled().take(20)
-            }
+                val filteredList = if (category == "All") {
+                    if (userLicenseType == "Professional"){
+                        val pps = allQuestions.filter { it.category == "Passenger & Public Safety" }.shuffled().take(20)
+                        val commercial = allQuestions.filter { it.category == "Commercial Vehicle Operation" }.shuffled().take(20)
+
+                        val standardQuestions = allQuestions.filter {
+                            it.category != "Passenger & Public Safety" && it.category != "Commercial Vehicle Operation"
+                        }.shuffled().take(20)
+                        (standardQuestions + pps + commercial).shuffled()
+                    }else{
+                        val nonProPool = allQuestions.filter {
+                            it.category != "Passenger & Public Safety" && it.category != "Commercial Vehicle Operation"
+                        }
+
+                        val fines = nonProPool.filter { it.category == "Fines and Penalties" }.shuffled().take(10)
+                        val others = nonProPool.filter { it.category != "Fines and Penalties" }.shuffled().take(50)
+                        (fines + others).shuffled()
+                    }
+                } else {
+                    allQuestions.filter { it.category == category }.shuffled().take(20)
+                }
 
             // 2. Map and randomize choices immediately after filtering
             questions = filteredList.map { question ->

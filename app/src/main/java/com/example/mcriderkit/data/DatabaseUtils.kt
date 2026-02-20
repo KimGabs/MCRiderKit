@@ -21,7 +21,7 @@ import java.util.Locale
 import java.util.TimeZone
 import kotlin.math.ceil
 
-fun pushJsonToFirestore(context: Context) {
+fun pushHPTJsonToFirestore(context: Context) {
     val db = Firebase.firestore
     val gson = Gson()
 
@@ -41,6 +41,44 @@ fun pushJsonToFirestore(context: Context) {
         batch.commit().addOnSuccessListener {
             Log.d("Firestore", "Successfully imported HPT clips!")
         }
+    } catch (e: Exception) {
+        Log.e("JSON_ERROR", "Error: ${e.message}")
+    }
+}
+
+fun pushQueJsonToFirestore(context: Context) {
+    val db = Firebase.firestore
+    val gson = Gson()
+    val batch = db.batch()
+    var count = 0
+
+    try {
+        // Load the new file
+        val jsonString = context.assets.open("questions.json").bufferedReader().use { it.readText() }
+        val listType = object : TypeToken<List<Question>>() {}.type
+        val questions: List<Question> = gson.fromJson(jsonString, listType)
+
+        questions.forEach { question ->
+            // Use the 'id' from JSON as the Document ID in Firestore
+            val docRef = if (question.id.isNotBlank()) {
+                // Use the ID from your JSON: questions/q1 (2 segments)
+                db.collection("questions").document(question.id)
+            } else {
+                // If ID is missing, let Firestore auto-generate one: questions/AUTO_ID (2 segments)
+                db.collection("questions").document()
+            }
+            batch.set(docRef, question)
+            count++
+        }
+
+        if (count <= 500) {
+            batch.commit().addOnSuccessListener {
+                Log.d("Firestore", "Successfully imported $count Questions!")
+            }
+        } else {
+            Log.e("Firestore", "Batch limit exceeded (Max 500). Use multiple batches.")
+        }
+
     } catch (e: Exception) {
         Log.e("JSON_ERROR", "Error: ${e.message}")
     }

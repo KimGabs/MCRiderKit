@@ -86,12 +86,12 @@ fun OnboardScreen(navController: NavHostController) {
                 Text("Which license are you targeting?", style = MaterialTheme.typography.headlineSmall)
                 Spacer(modifier = Modifier.height(24.dp))
 
-                LicenseCard("Non-Professional", "For private vehicles", selectedLicense == "Non-Pro") {
-                    selectedLicense = "Non-Pro"
+                LicenseCard("Non-Professional", "For private vehicles", selectedLicense == "Non-Professional") {
+                    selectedLicense = "Non-Professional"
                 }
                 Spacer(modifier = Modifier.height(12.dp))
-                LicenseCard("Professional", "For for-hire/heavy vehicles", selectedLicense == "Pro") {
-                    selectedLicense = "Pro"
+                LicenseCard("Professional", "For for-hire/heavy vehicles", selectedLicense == "Professional") {
+                    selectedLicense = "Professional"
                 }
 
                 Spacer(modifier = Modifier.weight(1f))

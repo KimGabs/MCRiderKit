@@ -21,6 +21,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -643,4 +644,58 @@ fun getDailyClipResId(): Int {
     val index = seed % clips.size
 
     return clips[index]
+}
+
+@Composable
+fun PushToFirebaseButton(){
+    val context = LocalContext.current
+
+    // Json to Realtime Database Button
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(text = "Database Management")
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(onClick = {
+            // 2. Call the utility function
+            // pushQueJsonToFirestore(context)
+            migrateLicenseTypes()
+        }) {
+            Text("Import JSON HPTs")
+        }
+    }
+}
+
+@OptIn(UnstableApi::class)
+fun migrateLicenseTypes() {
+    val db = Firebase.firestore
+    db.collection("questions").get().addOnSuccessListener { snapshot ->
+        val batch = db.batch()
+        var updatedCount = 0
+
+        for (doc in snapshot.documents) {
+            val category = doc.getString("category") ?: ""
+
+            // 🚀 YOUR LOGIC: Check for the two Pro categories
+            val type = if (category == "Passenger & Public Safety" ||
+                category == "Commercial Vehicle Operation") "Pro" else "Non-Pro"
+
+            // Only update if the field is missing or different to save on writes
+            if (doc.getString("licenseType") != type) {
+                batch.update(doc.reference, "licenseType", type)
+                updatedCount++
+            }
+
+            // Firestore batch limit is 500
+            if (updatedCount >= 490) break
+        }
+
+        batch.commit().addOnSuccessListener {
+            Log.d("MIGRATION", "Successfully tagged $updatedCount questions!")
+        }
+    }
 }
