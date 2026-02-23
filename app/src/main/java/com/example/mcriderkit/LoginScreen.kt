@@ -2,6 +2,7 @@ package com.example.mcriderkit
 
 import android.content.Context
 import android.widget.Toast
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,8 +12,20 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -24,11 +37,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.google.firebase.Firebase
@@ -41,76 +56,102 @@ import com.google.firebase.database.database
 fun LoginScreen(navController: NavHostController) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    val context = LocalContext.current
+    var passwordVisible by remember { mutableStateOf(false) }
+    var isLoading by remember { mutableStateOf(false) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
 
+    val context = LocalContext.current
+
+    // Using Box to allow centering, with vertical scroll for small screens/keyboards
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(24.dp)
+            .verticalScroll(rememberScrollState()),
         contentAlignment = Alignment.Center
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            // Changed "Signup" to "Login"
-            Text("Login", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.ExtraBold)
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.mcrklogo),
+                contentDescription = "App Logo",
+                modifier = Modifier.size(200.dp)
+            )
+
             Spacer(modifier = Modifier.height(24.dp))
 
+            Text(
+                text = "Login",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold
+            )
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            // Email Field
             OutlinedTextField(
                 value = email,
-                onValueChange = {
-                    email = it
-                    errorMessage = null // Clear error when typing
-                },
-                label = { Text("Email") },
-                singleLine = true,
+                onValueChange = { email = it; errorMessage = null },
+                label = { Text("Email Address") },
                 modifier = Modifier.fillMaxWidth(),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                isError = errorMessage != null
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Email,
+                    imeAction = ImeAction.Next
+                ),
+                singleLine = true,
+                isError = errorMessage != null,
+                leadingIcon = { Icon(Icons.Default.Email, contentDescription = null) }
             )
+
             Spacer(modifier = Modifier.height(16.dp))
 
+            // Password Field with Visibility Toggle
             OutlinedTextField(
                 value = password,
-                onValueChange = {
-                    password = it
-                    errorMessage = null // Clear error when typing
-                },
+                onValueChange = { password = it; errorMessage = null },
                 label = { Text("Password") },
-                singleLine = true,
                 modifier = Modifier.fillMaxWidth(),
-                // Hide password characters
-                visualTransformation = PasswordVisualTransformation(),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-                isError = errorMessage != null
+                visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Password,
+                    imeAction = ImeAction.Done
+                ),
+                singleLine = true,
+                isError = errorMessage != null,
+                leadingIcon = { Icon(Icons.Default.Lock, contentDescription = null) },
+                trailingIcon = {
+                    val image = if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
+                    IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                        Icon(imageVector = image, contentDescription = "Toggle password visibility")
+                    }
+                }
             )
 
             if (errorMessage != null) {
-                Spacer(modifier = Modifier.height(8.dp))
-
                 Text(
                     text = errorMessage!!,
                     color = MaterialTheme.colorScheme.error,
                     style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.padding(top = 8.dp).fillMaxWidth()
                 )
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(32.dp))
 
-
+            // Login Button with Loading State
             Button(
                 onClick = {
-
-                    // Basic empty check
                     if (email.isBlank() || password.isBlank()) {
-                        errorMessage = "Email and password cannot be empty."
+                        errorMessage = "Please fill in all fields."
                         return@Button
                     }
-
-                    Firebase.auth
-                        .signInWithEmailAndPassword(email.trim(), password.trim())
+                    isLoading = true
+                    // Firebase logic stays here, but ensure you set isLoading = false on completion
+                    Firebase.auth.signInWithEmailAndPassword(email.trim(), password.trim())
                         .addOnCompleteListener { task ->
-
+                            isLoading = false
                             if (task.isSuccessful) {
 
                                 errorMessage = null
@@ -150,46 +191,39 @@ fun LoginScreen(navController: NavHostController) {
                             }
                         }
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().height(50.dp),
+                enabled = !isLoading,
+                shape = RoundedCornerShape(12.dp)
             ) {
-                Text(text = "Login", fontWeight = FontWeight.ExtraBold)
+                if (isLoading) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(24.dp),
+                        color = MaterialTheme.colorScheme.onPrimary,
+                        strokeWidth = 2.dp
+                    )
+                } else {
+                    Text("Login", style = MaterialTheme.typography.titleMedium)
+                }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
+            // Footer Links
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.End
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 TextButton(onClick = { handleForgotPassword(email, context) }) {
-                    Text(
-                        text = "Forgot Password?",
-                        style = MaterialTheme.typography.labelLarge,
-                        color = Color(0xFF1A4FD9) // Your App Blue
-                    )
+                    Text("Forgot Password?")
                 }
-            }
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.End
-            ){
-                TextButton(onClick = {
-                    // Navigate to the signup screen
-                    navController.navigate("signup") {
-                        popUpTo("login") { inclusive = true }
-                    }
-                }) {
-                    // Changed text to direct users to signup
-                    Text(text = "Don't have an account? Sign up here.",
-                        style = MaterialTheme.typography.labelLarge,
-                        color = Color(0xFF1A4FD9)
-                        )
+                TextButton(onClick = { navController.navigate("signup") }) {
+                    Text("Create Account")
                 }
             }
         }
     }
 }
+
 
 fun handleForgotPassword(email: String, context: Context) {
     if (email.isBlank()) {
