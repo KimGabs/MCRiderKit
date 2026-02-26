@@ -80,10 +80,8 @@ fun QuizMenuScreen(navController: NavHostController) {
                 val type = snapshot.getValue(String::class.java) ?: "Non-Professional"
                 userLicenseType = type
 
-                // ✅ THIS WILL LOG THE CORRECT VALUE
-                Log.d("Debug", "Firebase returned: $userLicenseType")
             }.addOnFailureListener {
-                Log.e("Debug", "Firebase Error: ${it.message}")
+                Log.e("Error", "Firebase Error: ${it.message}")
             }
         }
     }
