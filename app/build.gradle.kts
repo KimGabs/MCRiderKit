@@ -3,6 +3,7 @@ plugins {
         alias(libs.plugins.kotlin.android)
         alias(libs.plugins.google.gms.google.services)
         alias(libs.plugins.compose.compiler)
+        id("com.google.firebase.firebase-perf")
     }
 
 
@@ -53,6 +54,7 @@ plugins {
     }
 
 dependencies {
+    implementation("com.google.firebase:firebase-perf")
     implementation("androidx.core:core-splashscreen:1.0.1")
     // Video Player
     implementation("androidx.media3:media3-exoplayer:1.2.0")
