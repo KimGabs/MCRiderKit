@@ -1,32 +1,21 @@
 package com.example.mcriderkit
 
 import android.app.DatePickerDialog
+import android.content.Context
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -41,9 +30,9 @@ import java.util.Calendar
 
 @Composable
 fun OnboardScreen(navController: NavHostController) {
+    // Upgraded state machine to support Step 3 (The App Feature Guide)
     var step by remember { mutableIntStateOf(1) }
     val context = LocalContext.current
-
 
     // State for Step 1
     var selectedLicense by remember { mutableStateOf("") }
@@ -51,6 +40,14 @@ fun OnboardScreen(navController: NavHostController) {
     // State for Step 2
     var examDate by remember { mutableStateOf("Select Date") }
     val calendar = Calendar.getInstance()
+
+
+    val onboardSlides = listOf(
+        R.drawable.homepage_tutorial_1,
+        R.drawable.homepage_tutorial_2,
+        R.drawable.homepage_tutorial_3,
+        R.drawable.homepage_tutorial_4
+    )
 
     val datePickerDialog = DatePickerDialog(
         context,
@@ -63,11 +60,9 @@ fun OnboardScreen(navController: NavHostController) {
     )
 
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        contentAlignment = Alignment.Center
+        modifier = Modifier.fillMaxSize()
     ) {
+        // --- BASE LAYER: ONBOARDING STEPS ---
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -75,14 +70,15 @@ fun OnboardScreen(navController: NavHostController) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            // Progress Indicator
-            LinearProgressIndicator(
-                progress = { if (step == 1) 0.5f else 1f },
-                modifier = Modifier.fillMaxWidth().padding(bottom = 32.dp),
-            )
+            // Progress Indicator hidden gracefully if showing UI Guide overlay
+            if (step <= 2) {
+                LinearProgressIndicator(
+                    progress = { if (step == 1) 0.5f else 1f },
+                    modifier = Modifier.fillMaxWidth().padding(bottom = 32.dp),
+                )
+            }
 
             if (step == 1) {
-                // --- SCREEN 1: LICENSE SELECTION ---
                 Text("Which license are you targeting?", style = MaterialTheme.typography.headlineSmall)
                 Spacer(modifier = Modifier.height(24.dp))
 
@@ -101,8 +97,7 @@ fun OnboardScreen(navController: NavHostController) {
                     modifier = Modifier.fillMaxWidth()
                 ) { Text("Next") }
 
-            } else {
-                // --- SCREEN 2: DATE SELECTION ---
+            } else if (step == 2) {
                 Text("When is your exam date?", style = MaterialTheme.typography.headlineSmall)
                 Text("We'll help you pace your study.", style = MaterialTheme.typography.bodyMedium)
 
@@ -117,15 +112,126 @@ fun OnboardScreen(navController: NavHostController) {
                 Spacer(modifier = Modifier.weight(1f))
 
                 Button(
-                    onClick = { saveOnboardingData(selectedLicense, examDate, navController) },
+                    onClick = {
+                        // Instead of immediate navigation, transition cleanly into the interactive UI Coach
+                        step = 3
+                    },
                     modifier = Modifier.fillMaxWidth()
-                ) { Text("Start Learning") }
+                ) { Text("Continue") }
+            } else {
+                // Background placeholder behind the overlay so the UI doesn't look completely blank
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text("Preparing your dashboard...", color = Color.Gray)
+                }
+            }
+        }
+
+        // --- OVERLAY LAYER: MINI UI FEATURE GUIDE ---
+        AnimatedVisibility(
+            visible = step == 3,
+            enter = fadeIn(),
+            exit = fadeOut()
+        ) {
+            CanvaUiGuideOverlay(
+                onGuideComplete = {
+                    saveOnboardingData(selectedLicense, examDate, navController)
+                },
+                slideImages = onboardSlides,
+                finishButtonText = "Let's Go!",
+            )
+        }
+    }
+}
+
+@Composable
+fun UiGuideOverlay(onGuideComplete: () -> Unit) {
+    var guidePage by remember { mutableIntStateOf(1) }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black.copy(alpha = 0.82f)) // Dark dimming overlay effect
+            .padding(24.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            // Quick Badge Indicator
+            Surface(
+                shape = CircleShape,
+                color = MaterialTheme.colorScheme.primaryContainer,
+                modifier = Modifier.padding(bottom = 16.dp)
+            ) {
+                Text(
+                    text = "Quick Tour: $guidePage/3",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)
+                )
+            }
+
+            // Dynamic Content card swapping text based on internal step counters
+            Card(
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp)
+            ) {
+                Column(modifier = Modifier.padding(24.dp)) {
+                    when (guidePage) {
+                        1 -> {
+                            Text("📚 Mock Exam Engine", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                "Practice with randomized questions modeled exactly around the official LTO questionnaire. Review errors inside your history panel instantly.",
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                        }
+                        2 -> {
+                            Text("🗺️ Road Signs Index", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                "Browse clean, high-resolution listings categorized by Regulatory, Warning, and Information road instructions to nail visual criteria.",
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                        }
+                        3 -> {
+                            Text("⏱️ Exam Smart Pacing", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                "Based on the target date you provided, we will prioritize custom study reminders inside your dashboard timeline to keep you on schedule.",
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.End
+                    ) {
+                        Button(
+                            onClick = {
+                                if (guidePage < 3) {
+                                    guidePage++
+                                } else {
+                                    onGuideComplete()
+                                }
+                            }
+                        ) {
+                            Text(if (guidePage == 3) "Got It, Let's Go!" else "Next Feature")
+                        }
+                    }
+                }
             }
         }
     }
-
 }
 
+// Keeping your existing components safe and unchanged below...
 @Composable
 fun LicenseCard(title: String, subtitle: String, isSelected: Boolean, onClick: () -> Unit) {
     Card(
@@ -155,7 +261,7 @@ fun saveOnboardingData(license: String, date: String, navController: NavHostCont
 
     db.updateChildren(updates).addOnSuccessListener {
         navController.navigate("main") {
-            popUpTo("onboarding") { inclusive = true }
+            popUpTo("onboard") { inclusive = true } // Corrected typo from "onboarding" to match screen names securely
         }
     }
 }

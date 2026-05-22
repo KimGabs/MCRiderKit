@@ -3,6 +3,9 @@ package com.example.mcriderkit
 import android.annotation.SuppressLint
 import android.content.Context
 import androidx.annotation.OptIn
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -69,11 +72,9 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
-
 @OptIn(UnstableApi::class)
 @Composable
 fun HomeScreen(navController: NavHostController) {
-    // Get the current user from Firebase Auth
     val context = LocalContext.current
     val auth = Firebase.auth
     val db = Firebase.firestore
@@ -93,7 +94,7 @@ fun HomeScreen(navController: NavHostController) {
     var dailyClipName by remember { mutableStateOf("") }
     val todayDateKey = remember { SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date()) }
     var lastHazardDateKey by remember { mutableStateOf("") }
-    var isProfileLoading by remember { mutableStateOf(true) } // Start as true
+    var isProfileLoading by remember { mutableStateOf(true) }
     var todayResult by remember { mutableStateOf<HptResult?>(null) }
     val todayMs = remember { getMidnightTimestamp() }
 
@@ -102,6 +103,21 @@ fun HomeScreen(navController: NavHostController) {
     var maxStreak by remember { mutableIntStateOf(0) }
     var playedCount by remember { mutableIntStateOf(0) }
     var currentTrophyCount by remember { mutableIntStateOf(0) }
+
+    // --- SHARED PREFERENCES / TUTORIAL CONFIGURATION ---
+    val sharedPrefs = remember { context.getSharedPreferences("mcrider_prefs", Context.MODE_PRIVATE) }
+    var showGuideOverlay by remember { mutableStateOf(false) }
+    var dontShowAgainChecked by remember {
+        mutableStateOf(sharedPrefs.getBoolean("skip_daily_challenge_guide", false))
+    }
+
+    // Slide Image Assets Exported from Canva (adjust resource IDs to match yours)
+    val dailyChallengeSlides = remember {
+        listOf(
+            R.drawable.dc_tutorial_1,
+            R.drawable.dc_tutorial_2,
+        )
+    }
 
     LaunchedEffect(Unit) {
         Firebase.firestore.collection("app_metadata").document("daily_challenge")
@@ -116,28 +132,21 @@ fun HomeScreen(navController: NavHostController) {
             val userRef = Firebase.database.getReference("users/$userId")
 
             userRef.get().addOnSuccessListener { snapshot ->
-                // 1. Get Streak Data (These are already Daily-only based on our save logic)
                 currentStreak = snapshot.child("streakCount").getValue(Int::class.java) ?: 0
                 maxStreak = snapshot.child("maxStreak").getValue(Int::class.java) ?: 0
                 trophyCount = snapshot.child("trophyCount").getValue(Int::class.java) ?: 0
 
-
-                // 2. Filter History to ONLY include Daily Challenges
                 val dailyHistory = snapshot.child("hptHistory").children.mapNotNull { child ->
-                    // Check the flag (ensure this matches your key: "isDaily" or "Daily")
                     val isDaily = child.child("Daily").getValue(Boolean::class.java) ?: false
-
                     if (isDaily) {
                         child.child("score").getValue(Int::class.java)
                     } else {
-                        null // Ignore practice tests
+                        null
                     }
                 }
 
-                // 3. Calculate Stats based ONLY on the filtered list
                 playedCount = dailyHistory.size
                 if (playedCount > 0) {
-                    // Win = Score of 3 or higher
                     val wins = dailyHistory.count { it >= 1 }
                     winPercentage = (wins.toFloat() / playedCount * 100).toInt()
                 } else {
@@ -160,10 +169,9 @@ fun HomeScreen(navController: NavHostController) {
             db.collection("questions").get().addOnSuccessListener { result ->
                 val fetchedQuestions = result.toObjects(Question::class.java)
                 questions = fetchedQuestions
-                totalQuestionsCount = fetchedQuestions.size // Set total here
+                totalQuestionsCount = fetchedQuestions.size
                 isLoading = false
 
-                // 2. Now that we have the total, listen for Mastery updates
                 val userRef = Firebase.database.getReference("users/$userId")
                 userRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
@@ -171,12 +179,9 @@ fun HomeScreen(navController: NavHostController) {
                         val license = snapshot.child("licenseType").getValue(String::class.java) ?: "Non-Pro"
                         val mastered = snapshot.child("masteredQuestions").childrenCount.toInt()
 
-                        // Fetch the streak count for the header
                         streakCount = snapshot.child("streakCount").getValue(Int::class.java) ?: 0
-                        //Fetch the last hazard date for the Daily Challenge Card
                         lastHazardDate = snapshot.child("lastHazardDate").getValue(Long::class.java) ?: 0L
 
-                        // Update everything together
                         username = name
                         masteredCount = mastered
                         stats = DashboardStats(mastered, totalQuestionsCount, name, license)
@@ -198,17 +203,11 @@ fun HomeScreen(navController: NavHostController) {
     LaunchedEffect(userId, lastHazardDate) {
         if (userId != null && lastHazardDate == todayMs) {
             val historyRef = Firebase.database.getReference("users/$userId/hptHistory")
-
-            // 🚀 Step 1: Get only the results marked as "Daily"
-            // We take the last 5 to be safe, then find the one that matches today's date
             historyRef.orderByChild("Daily").equalTo(true).limitToLast(5)
                 .get().addOnSuccessListener { snapshot ->
                     val results = snapshot.children.mapNotNull { it.getValue(HptResult::class.java) }
-
-                    // Find a result that happened ANYTIME after today's midnight
                     val oneDayMs = 24 * 60 * 60 * 1000L
                     val result = results.find { it.date >= todayMs && it.date < (todayMs + oneDayMs) }
-
                     todayResult = result
                 }
         }
@@ -216,78 +215,137 @@ fun HomeScreen(navController: NavHostController) {
 
     LaunchedEffect(userId, lastHazardDate) {
         if (userId != null) {
-            // Only query if the last completion date is potentially today.
             if (lastHazardDate >= todayMs) {
                 val historyRef = Firebase.database.getReference("users/$userId/hptHistory")
-
-                // Search specifically for today's records
                 historyRef.orderByChild("dateKey").equalTo(todayDateKey)
                     .get().addOnSuccessListener { snapshot ->
                         var dailyResultFound = false
                         if (snapshot.exists()) {
-                            // Loop through today's results to find the one marked as "Daily"
                             for (child in snapshot.children) {
                                 val result = child.getValue(HptResult::class.java)
                                 if (result?.isDaily == true) {
                                     todayResult = result
-                                    lastHazardDateKey = todayDateKey // Mark UI as completed
+                                    lastHazardDateKey = todayDateKey
                                     dailyResultFound = true
-                                    break // Found it!
+                                    break
                                 }
                             }
                         }
-
-                        // If after checking all of today's records, none were the daily one
                         if (!dailyResultFound) {
                             todayResult = null
                             lastHazardDateKey = ""
                         }
                     }
             } else {
-                // If lastHazardDate is before today, we know it's not completed
                 todayResult = null
                 lastHazardDateKey = ""
             }
         }
     }
 
-    Column(
+    // Root container changed to Box to overlay elements cleanly
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF8F9FA))
     ) {
-        HeaderSection(username = stats.username)
-
+        // Base Level content
         Column(
-            modifier = Modifier.fillMaxSize().background(Color(0xFFF8F9FA))
-                .verticalScroll(rememberScrollState())
+            modifier = Modifier.fillMaxSize()
         ) {
-            if (isLoading) {
-                // Show a shimmer or loader while fetching data
-                LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
-            } else {
-                ReadinessCard(mastered = masteredCount, total = totalQuestionsCount, isLoading)
+            HeaderSection(username = stats.username)
 
-                StatsSection(streakCount = streakCount, winPercentage = winPercentage, isProfileLoading, trophyCount)
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color(0xFFF8F9FA))
+                    .verticalScroll(rememberScrollState())
+            ) {
+                if (isLoading) {
+                    LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                } else {
+                    ReadinessCard(mastered = masteredCount, total = totalQuestionsCount, isLoading)
 
-                LearningSection(navController = navController, lastHazardDateKey = lastHazardDateKey, dailyClipName = dailyClipName, todayDateKey = todayDateKey,
-                    todayResult = todayResult, isProfileLoading, context = context)
+                    StatsSection(streakCount = streakCount, winPercentage = winPercentage, isProfileLoading, trophyCount)
 
-                Spacer(modifier = Modifier.height(100.dp))
+                    LearningSection(
+                        navController = navController,
+                        lastHazardDateKey = lastHazardDateKey,
+                        dailyClipName = dailyClipName,
+                        todayDateKey = todayDateKey,
+                        todayResult = todayResult,
+                        isProfileLoading = isProfileLoading,
+                        context = context,
+                        onStartDailyChallenge = {
+                            val isSkipped = sharedPrefs.getBoolean("skip_daily_challenge_guide", false)
+                            if (isSkipped) {
+                                // Direct routing if they've checked "Don't show this again"
+                                startChallengeVideo(navController, dailyClipName, context)
+                            } else {
+                                // Display slide tour first!
+                                showGuideOverlay = true
+                            }
+                        }
+                    )
+
+                    Spacer(modifier = Modifier.height(100.dp))
+                }
             }
         }
-    }
 
+        // Overlay Level containing our Canva-driven tutorial components
+        AnimatedVisibility(
+            visible = showGuideOverlay,
+            enter = fadeIn(),
+            exit = fadeOut()
+        ) {
+            CanvaUiGuideOverlay(
+                slideImages = dailyChallengeSlides,
+                finishButtonText = "Start!",
+                showDontShowAgain = true,
+                dontShowAgainChecked = dontShowAgainChecked,
+                onDontShowAgainChanged = { checked ->
+                    dontShowAgainChecked = checked
+                    sharedPrefs.edit().putBoolean("skip_daily_challenge_guide", checked).apply()
+                },
+                onGuideComplete = {
+                    showGuideOverlay = false
+                    startChallengeVideo(navController, dailyClipName, context)
+                }
+            )
+        }
+    }
 }
+
+// Dry Navigation Helper
+private fun startChallengeVideo(navController: NavHostController, dailyClipName: String, context: Context) {
+    if (dailyClipName.isNotEmpty()) {
+        val resId = context.resources.getIdentifier(
+            dailyClipName, "raw", context.packageName
+        )
+        navController.navigate("hazard_player/$resId/true")
+    } else {
+        val dailyClip = getDailyClipResId()
+        navController.navigate("hazard_player/$dailyClip/true")
+    }
+}
+
 @SuppressLint("DiscouragedApi")
 @Composable
-fun LearningSection(navController: NavHostController, lastHazardDateKey: String, dailyClipName: String, todayDateKey: String, todayResult: HptResult?, isProfileLoading : Boolean, context: Context) {
-
+fun LearningSection(
+    navController: NavHostController,
+    lastHazardDateKey: String,
+    dailyClipName: String,
+    todayDateKey: String,
+    todayResult: HptResult?,
+    isProfileLoading: Boolean,
+    context: Context,
+    onStartDailyChallenge: () -> Unit // Reusable callback hook
+) {
     Column(
         modifier = Modifier.padding(16.dp)
     ) {
         if (isProfileLoading) {
-            // Show a loading placeholder so the screen doesn't "jump"
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -302,18 +360,7 @@ fun LearningSection(navController: NavHostController, lastHazardDateKey: String,
                 lastHazardDateKey = lastHazardDateKey,
                 todayDateKey = todayDateKey,
                 todayResult = todayResult,
-                onStart = {
-                    // START LOGIC GOES HERE
-                    if (dailyClipName.isNotEmpty()) {
-                        val resId = context.resources.getIdentifier(
-                            dailyClipName, "raw", context.packageName
-                        )
-                        navController.navigate("hazard_player/$resId/true")
-                    } else {
-                        val dailyClip = getDailyClipResId()
-                        navController.navigate("hazard_player/$dailyClip/true")
-                    }
-                },
+                onStart = onStartDailyChallenge, // Linked cleanly to root navigation state machine
                 onViewResults = {
                     todayResult?.let {
                         navController.navigate("hazard_result/${it.score}/${it.clipId}/${it.tapTime}/true")
@@ -337,13 +384,13 @@ fun LearningSection(navController: NavHostController, lastHazardDateKey: String,
             subtitle = "Learn traffic rules & signs",
             color = Color(0xFFE8F0FF),
             onClick = { navController.navigate("study")
-                {
-                    popUpTo(navController.graph.findStartDestination().id) {
-                        saveState = true
-                    }
-                    launchSingleTop = true
-                    restoreState = true
+            {
+                popUpTo(navController.graph.findStartDestination().id) {
+                    saveState = true
                 }
+                launchSingleTop = true
+                restoreState = true
+            }
             }
         )
 
@@ -352,12 +399,12 @@ fun LearningSection(navController: NavHostController, lastHazardDateKey: String,
             subtitle = "Test your knowledge",
             color = Color(0xFFE5F8F1),
             onClick = { navController.navigate("quiz"){
-                    popUpTo(navController.graph.findStartDestination().id) {
-                        saveState = true
-                    }
-                    launchSingleTop = true
-                    restoreState = true
+                popUpTo(navController.graph.findStartDestination().id) {
+                    saveState = true
                 }
+                launchSingleTop = true
+                restoreState = true
+            }
             }
         )
 
@@ -366,12 +413,12 @@ fun LearningSection(navController: NavHostController, lastHazardDateKey: String,
             subtitle = "Improve your awareness",
             color = Color(0xFFFFF1DB),
             onClick = { navController.navigate("hazard")                {
-                    popUpTo(navController.graph.findStartDestination().id) {
-                        saveState = true
-                    }
-                    launchSingleTop = true
-                    restoreState = true
+                popUpTo(navController.graph.findStartDestination().id) {
+                    saveState = true
                 }
+                launchSingleTop = true
+                restoreState = true
+            }
             }
         )
     }
@@ -379,7 +426,6 @@ fun LearningSection(navController: NavHostController, lastHazardDateKey: String,
 
 @Composable
 fun HeaderSection(username: String) {
-
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -394,7 +440,6 @@ fun HeaderSection(username: String) {
             )
             .padding(24.dp)
     ) {
-
         Column {
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -437,14 +482,12 @@ fun StatsSection(streakCount: Int, winPercentage: Int, isProfileLoading: Boolean
                 .padding(16.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-
             StatCard("$streakCount", "Daily Streak", Color(0xFFDDE9FF), streakCount, winPercentage)
             StatCard("$winPercentage%", "Win %", Color(0xFFDCF6E5), streakCount, winPercentage)
             StatCard("$trophyCount", "Awards", Color(0xFFFFF0CC), streakCount, winPercentage)
         }
     }
 }
-
 
 @Composable
 fun StatCard(
@@ -454,7 +497,6 @@ fun StatCard(
     streakCount: Int,
     winPercentage: Int
 ) {
-
     Card(
         modifier = Modifier
             .width(110.dp)
@@ -508,7 +550,6 @@ fun LearningCard(
     color: Color,
     onClick: () -> Unit
 ) {
-
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -518,7 +559,6 @@ fun LearningCard(
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(3.dp)
     ) {
-
         Row(
             modifier = Modifier
                 .fillMaxSize()
@@ -526,9 +566,7 @@ fun LearningCard(
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-
             Column {
-
                 Text(
                     text = title,
                     fontWeight = FontWeight.Bold,
@@ -614,7 +652,6 @@ fun DailyChallengeCard(
             modifier = Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Added the checkmark back for the completed state
             Text(if (isCompleted) "✅ " else "🎯", style = MaterialTheme.typography.headlineSmall)
 
             Spacer(Modifier.width(12.dp))
@@ -629,37 +666,24 @@ fun DailyChallengeCard(
                     text = if (isCompleted) "You scored ${todayResult?.score ?: 0}/5 today."
                     else "Test your eyes to keep your streak!",
                     fontSize = 13.sp
-                    )
+                )
             }
 
-            if (!isCompleted) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Default.KeyboardArrowRight,
-                    contentDescription = null,
-                )
-            } else {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Default.KeyboardArrowRight,
-                    contentDescription = null,
-                )
-            }
+            Icon(
+                imageVector = Icons.AutoMirrored.Default.KeyboardArrowRight,
+                contentDescription = null,
+            )
         }
     }
 }
 
-// Daily challenge video randomly seeded (will be same video for all users).
 fun getDailyClipResId(): Int {
     val calendar = Calendar.getInstance()
     val dayOfYear = calendar.get(Calendar.DAY_OF_YEAR)
     val year = calendar.get(Calendar.YEAR)
 
-    // Create a unique number for the day
     val seed = dayOfYear + year
-
-    // Use 6 video resources
     val clips = listOf(R.raw.hpt1, R.raw.hpt2, R.raw.hpt3, R.raw.hpt4, R.raw.hpt5, R.raw.hpt6)
-
-    // Use the modulo operator (%) to pick an index (0, 1, 2, or 3)
     val index = seed % clips.size
 
     return clips[index]
@@ -669,7 +693,6 @@ fun getDailyClipResId(): Int {
 fun PushToFirebaseButton(){
     val context = LocalContext.current
 
-    // Json to Realtime Database Button
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -680,8 +703,6 @@ fun PushToFirebaseButton(){
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(onClick = {
-            // 2. Call the utility function
-            // pushQueJsonToFirestore(context)
             migrateLicenseTypes()
         }) {
             Text("Import JSON HPTs")
@@ -698,18 +719,14 @@ fun migrateLicenseTypes() {
 
         for (doc in snapshot.documents) {
             val category = doc.getString("category") ?: ""
-
-            // 🚀 YOUR LOGIC: Check for the two Pro categories
             val type = if (category == "Passenger & Public Safety" ||
                 category == "Commercial Vehicle Operation") "Pro" else "Non-Pro"
 
-            // Only update if the field is missing or different to save on writes
             if (doc.getString("licenseType") != type) {
                 batch.update(doc.reference, "licenseType", type)
                 updatedCount++
             }
 
-            // Firestore batch limit is 500
             if (updatedCount >= 490) break
         }
 

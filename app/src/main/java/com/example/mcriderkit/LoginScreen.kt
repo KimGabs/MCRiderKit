@@ -62,7 +62,6 @@ fun LoginScreen(navController: NavHostController) {
 
     val context = LocalContext.current
 
-    // Using Box to allow centering, with vertical scroll for small screens/keyboards
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -107,7 +106,7 @@ fun LoginScreen(navController: NavHostController) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Password Field with Visibility Toggle
+            // Password Field
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it; errorMessage = null },
@@ -140,7 +139,7 @@ fun LoginScreen(navController: NavHostController) {
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            // Login Button with Loading State
+            // Login Button with Verification Guard
             Button(
                 onClick = {
                     if (email.isBlank() || password.isBlank()) {
@@ -148,45 +147,47 @@ fun LoginScreen(navController: NavHostController) {
                         return@Button
                     }
                     isLoading = true
-                    // Firebase logic stays here, but ensure you set isLoading = false on completion
+
                     Firebase.auth.signInWithEmailAndPassword(email.trim(), password.trim())
                         .addOnCompleteListener { task ->
                             isLoading = false
                             if (task.isSuccessful) {
+                                val user = Firebase.auth.currentUser
 
-                                errorMessage = null
+                                // CRITICAL CHECK: Ensure the email is verified
+                                if (user != null && user.isEmailVerified) {
+                                    errorMessage = null
 
-                                val userId = Firebase.auth.currentUser?.uid
-                                val dbRef = Firebase.database.getReference("users/$userId")
+                                    val userId = user.uid
+                                    val dbRef = Firebase.database.getReference("users/$userId")
 
-                                dbRef.get().addOnSuccessListener { snapshot ->
-
-                                    if (snapshot.hasChild("licenseType")) {
-
-                                        navController.navigate("main") {
-                                            popUpTo("login") { inclusive = true }
-                                        }
-
-                                    } else {
-
-                                        navController.navigate("onboard") {
-                                            popUpTo("login") { inclusive = true }
+                                    dbRef.get().addOnSuccessListener { snapshot ->
+                                        if (snapshot.hasChild("licenseType")) {
+                                            navController.navigate("main") {
+                                                popUpTo("login") { inclusive = true }
+                                            }
+                                        } else {
+                                            navController.navigate("onboard") {
+                                                popUpTo("login") { inclusive = true }
+                                            }
                                         }
                                     }
+                                } else {
+                                    // User has not verified their email yet
+                                    errorMessage = "Email not verified. We've sent a new verification link to your inbox."
+
+                                    // Send a fresh link automatically in case they missed it
+                                    user?.sendEmailVerification()
+
+                                    // Force sign them out immediately so they remain unauthorized
+                                    Firebase.auth.signOut()
                                 }
 
                             } else {
-
                                 errorMessage = when (task.exception) {
-
-                                    is FirebaseAuthInvalidUserException ->
-                                        "No account found with this email."
-
-                                    is FirebaseAuthInvalidCredentialsException ->
-                                        "Incorrect email or password."
-
-                                    else ->
-                                        "Login failed. Please try again."
+                                    is FirebaseAuthInvalidUserException -> "No account found with this email."
+                                    is FirebaseAuthInvalidCredentialsException -> "Incorrect email or password."
+                                    else -> "Login failed. Please try again."
                                 }
                             }
                         }
@@ -223,7 +224,6 @@ fun LoginScreen(navController: NavHostController) {
         }
     }
 }
-
 
 fun handleForgotPassword(email: String, context: Context) {
     if (email.isBlank()) {

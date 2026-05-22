@@ -174,7 +174,7 @@ fun QuizMenuScreen(navController: NavHostController) {
             items(quizTypes) { quiz ->
                 val bestPct = bestScores[quiz.targetCategory]
                 val quizIndex = quizOrder.indexOf(quiz.targetCategory)
-                val dynamicCount = categoryCounts[quiz.targetCategory] ?: 0
+                val dynamicCount = categoryCounts[quiz.targetCategory] ?: quiz.qCount
 
                 // --- IMPROVED UNLOCK LOGIC ---
                 // A quiz is unlocked if it's the first one OR if the one right before it is passed (>= 80)

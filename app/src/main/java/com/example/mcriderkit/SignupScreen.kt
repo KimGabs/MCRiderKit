@@ -151,14 +151,36 @@ fun SignupScreen(navController: NavHostController) {
                     Firebase.auth.createUserWithEmailAndPassword(email.trim(), password.trim())
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                val userId = Firebase.auth.currentUser?.uid
-                                val database = Firebase.database.getReference("users")
-                                val userMap = mapOf("username" to username, "email" to email)
+                                val user = Firebase.auth.currentUser
 
-                                userId?.let {
-                                    database.child(it).setValue(userMap).addOnSuccessListener {
+                                // 1. Send the verification email
+                                user?.sendEmailVerification()?.addOnCompleteListener { verifyTask ->
+                                    if (verifyTask.isSuccessful) {
+                                        // 2. Save user to database
+                                        val database = Firebase.database.getReference("users")
+                                        val userMap = mapOf("username" to username, "email" to email)
+
+                                        user.uid.let { uid ->
+                                            database.child(uid).setValue(userMap).addOnSuccessListener {
+                                                isLoading = false
+                                                Toast.makeText(
+                                                    context,
+                                                    "Account created! Please check your email to verify.",
+                                                    Toast.LENGTH_LONG
+                                                ).show()
+
+                                                // 3. Sign them out so they can't bypass verification
+                                                Firebase.auth.signOut()
+
+                                                // 4. Navigate to login
+                                                navController.navigate("login") {
+                                                    popUpTo("signup") { inclusive = true }
+                                                }
+                                            }
+                                        }
+                                    } else {
                                         isLoading = false
-                                        navController.navigate("login") { popUpTo("signup") { inclusive = true } }
+                                        Toast.makeText(context, "Failed to send verification email.", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                             } else {
