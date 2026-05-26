@@ -1,3 +1,4 @@
+
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -36,6 +37,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction.Companion.Send
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -152,13 +154,19 @@ fun SignupScreen(navController: NavHostController) {
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 val user = Firebase.auth.currentUser
+                                val currentTimestamp = System.currentTimeMillis()
 
-                                // 1. Send the verification email
                                 user?.sendEmailVerification()?.addOnCompleteListener { verifyTask ->
                                     if (verifyTask.isSuccessful) {
-                                        // 2. Save user to database
                                         val database = Firebase.database.getReference("users")
-                                        val userMap = mapOf("username" to username, "email" to email)
+                                        val userMap = mapOf(
+                                            "username" to username,
+                                            "email" to email,
+                                            "accountCreated" to currentTimestamp,
+                                            "emailVerified" to false,
+                                            "role" to "viewer",
+                                            "status" to "active"
+                                        )
 
                                         user.uid.let { uid ->
                                             database.child(uid).setValue(userMap).addOnSuccessListener {

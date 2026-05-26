@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "977352458439",
+    "firebase_url": "https://mcriderkit-18-default-rtdb.firebaseio.com",
     "project_id": "mcriderkit-18",
     "storage_bucket": "mcriderkit-18.firebasestorage.app"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.mcriderkit"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "977352458439-56ulj1rstqp6ou2scg2rshefa327eq83.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mcriderkit",
+            "certificate_hash": "f71d0da1a8ea827d0181f7347ed95759488f1324"
+          }
+        },
+        {
+          "client_id": "977352458439-bkthaelqmf94bfrvmkts2v5fohc2g7qj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBO7NUTEgZZOLTLqqHqyK3ChIovMvAjdbs"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977352458439-bkthaelqmf94bfrvmkts2v5fohc2g7qj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

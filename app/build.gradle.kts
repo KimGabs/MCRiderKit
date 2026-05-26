@@ -33,14 +33,15 @@ plugins {
                     "proguard-rules.pro"
                 )
             }
+            getByName("debug") {
+                signingConfig = signingConfigs.getByName("debug")
+            }
         }
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_21
             targetCompatibility = JavaVersion.VERSION_21
         }
-        kotlinOptions {
-            jvmTarget = "21"
-        }
+
         buildFeatures {
             // viewBinding is not needed for a pure Jetpack Compose project
             // viewBinding = true
@@ -53,7 +54,23 @@ plugins {
         }
     }
 
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+    }
+}
+
 dependencies {
+    implementation("androidx.credentials:credentials:1.6.0")
+
+    // 2. Play Services Auth support
+    implementation("androidx.credentials:credentials-play-services-auth:1.6.0")
+
+    // 3. Google ID library (This contains 'com.google.android.libraries.identity.googleid')
+    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
+
+    implementation ("com.google.firebase:firebase-auth")
+
     implementation("com.google.firebase:firebase-perf")
     implementation("androidx.core:core-splashscreen:1.0.1")
     // Video Player
